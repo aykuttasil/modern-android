@@ -1,0 +1,204 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/license/LICENSE.base64.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/MANIFEST.MF'
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        finalProduction {
+            dimension "default"
+            applicationId "aykuttasil.com.modernapp"
+            resValue "string", "app_name", "Modern App Skeleton"
+        }
+
+        demoProduction {
+            dimension "default"
+            applicationId "aykuttasil.com.modernapp.demoproduction"
+            resValue "string", "app_name", "Modern App Skeleton Demo"
+        }
+
+        demoTesting {
+            dimension "default"
+            applicationId "aykuttasil.com.modernapp.demotesting"
+            resValue "string", "app_name", "Modern App Skeleton Test"
+        }
+
+        mock {
+            dimension "default"
+            applicationId "aykuttasil.com.myviewmodelskeleton.mock"
+            resValue "string", "app_name", "Modern App Skeleton Mock"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+
+    releaseImplementation "com.github.ajitsing:sherlock-no-op:1.0.4@aar"
+    releaseImplementation "com.readystatesoftware.chuck:library-no-op:1.1.0"
+
+    debugImplementation "com.readystatesoftware.chuck:library:1.1.0"
+    debugImplementation("com.github.ajitsing:sherlock:1.0.4@aar") {
+        transitive = true
+    }
+
+    // Stetho
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.0"
+
+    // DataBinding
+    kapt 'androidx.databinding:databinding-compiler:3.2.0-beta05'
+
+    // Support
+    def supportVersion = "27.1.1"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
+    implementation 'androidx.core:core:1.0.0-beta01'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01'
+    implementation 'androidx.cardview:cardview:1.0.0-beta01'
+    implementation 'com.google.android.material:material:1.0.0-beta01'
+    implementation "androidx.annotation:annotation:1.0.0-beta01"
+    implementation 'androidx.gridlayout:gridlayout:1.0.0-beta01'
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha1"
+    implementation "androidx.multidex:multidex:2.0.0"
+
+    // Http
+    implementation "com.squareup.moshi:moshi-adapters:1.5.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.3.0"
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.9.1"
+
+    // Play Services - Firebase
+    def playServiceVersion = "15.0.1"
+    implementation "com.google.android.gms:play-services-base:$playServiceVersion"
+    implementation "com.google.android.gms:play-services-auth:$playServiceVersion"
+    implementation "com.google.android.gms:play-services-maps:$playServiceVersion"
+    implementation "com.google.android.gms:play-services-location:$playServiceVersion"
+    implementation "com.google.android.gms:play-services-places:$playServiceVersion"
+
+    def firebaseVersion = "16.0.1"
+    implementation "com.google.firebase:firebase-database:$firebaseVersion"
+
+    // Dagger
+    def daggerVersion = "2.16"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+
+    // Android Arch
+    // LiveData - ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:2.0.0-beta01"
+    implementation "androidx.room:room-runtime:2.0.0-beta01"
+    kapt "androidx.room:room-compiler:2.0.0-beta01"
+    implementation "androidx.room:room-rxjava2:2.0.0-beta01"
+    // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
+    // Navigation
+    def navigation_version = "1.0.0-alpha04"
+    implementation "android.arch.navigation:navigation-fragment:$navigation_version"
+    implementation "android.arch.navigation:navigation-ui:$navigation_version"
+
+    def work_version = "1.0.0-alpha06"
+    implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
+    // optional - Firebase JobDispatcher support
+    implementation "android.arch.work:work-firebase:$work_version"
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
+    // Anko
+    // (including Commons, Layouts, SQLite)
+    implementation "org.jetbrains.anko:anko:$anko_version"
+
+    // Kotlin Extensions
+    implementation 'androidx.core:core-ktx:1.0.0-beta01'
+    // implementation 'androidx.core:core-ktx:1.0.0-alpha1'
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
+    implementation "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar"
+
+    // Butterknife
+    implementation "com.jakewharton:butterknife:8.8.1"
+    kapt "com.jakewharton:butterknife-compiler:8.8.1"
+
+    // Glide
+    //implementation "com.github.bumptech.glide:glide:4.7.1"
+    //kapt "com.github.bumptech.glide:compiler:4.7.1"
+    //implementation "com.github.bumptech.glide:okhttp3-integration:4.7.1"
+
+    // Timber
+    implementation "com.jakewharton.timber:timber:4.7.0"
+
+}
+
+// apply plugin: 'com.google.gms.google-services'
+
