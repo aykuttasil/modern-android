@@ -1,6 +1,9 @@
 package aykuttasil.com.modernapp.di
 
+import aykuttasil.com.modernapp.ui.main.pages.main.MainFragment
+import com.aykuttasil.sweetloc.di.scopes.PerFragment
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 
 /**
  * Created by aykutasil on 24.01.2018.
@@ -8,13 +11,7 @@ import dagger.Module
 @Module
 abstract class FragmentBuilder {
 
-    /*
     @PerFragment
     @ContributesAndroidInjector
-    abstract fun bindProfileActivityFragment(): ProfileFragment
-
-    @PerFragment
-    @ContributesAndroidInjector(modules = [UserTrackerListModule::class])
-    abstract fun bindUserTrackerListFragment(): UserTrackerListFragment
-    */
+    abstract fun bindMainFragment(): MainFragment
 }

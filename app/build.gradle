@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 28
@@ -59,7 +60,7 @@ android {
 
         mock {
             dimension "default"
-            applicationId "aykuttasil.com.myviewmodelskeleton.mock"
+            applicationId "aykuttasil.com.modernapp.mock"
             resValue "string", "app_name", "Modern App Skeleton Mock"
         }
     }
