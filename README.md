@@ -1,2 +1,4 @@
-# ViewModel Skeleton
-Android ViewModel Skeleton
+# Android Project Skeleton
+
+
+Clone and ready.
