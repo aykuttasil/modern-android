@@ -1,9 +1,9 @@
 package aykuttasil.com.modernapp.data.remote
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import aykuttasil.com.modernapp.data.Resource
 import aykuttasil.com.modernapp.util.ioThread
 import aykuttasil.com.modernapp.util.mainThread
@@ -28,7 +28,7 @@ constructor() {
         }
     }
 
-    fun fetchFromNetwork(dbSource: LiveData<ResultType>) {
+    private fun fetchFromNetwork(dbSource: LiveData<ResultType>) {
         val apiResponse = createCall()
         // we re-attach dbSource as a new source, it will dispatch its latest value quickly
         result.addSource(dbSource) { resultType ->

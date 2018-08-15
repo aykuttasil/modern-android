@@ -1,7 +1,7 @@
 package aykuttasil.com.modernapp.di.modules
 
-import androidx.room.Room
 import android.content.Context
+import androidx.room.Room
 import aykuttasil.com.modernapp.data.AppDatabase
 import aykuttasil.com.modernapp.di.ApplicationContext
 import dagger.Module
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 class DatabaseModule {
 
     companion object {
-        const val DB_NAME = "aa.db"
+        const val DB_NAME = "aa_2.db"
     }
 
     @Provides
