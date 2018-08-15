@@ -13,25 +13,24 @@ import java.util.concurrent.atomic.AtomicBoolean
  * A Retrofit adapter that converts the Call into a LiveData of ApiResponse.
  * @param <R>
 </R> */
-class LiveDataCallAdapter<R>(private val responseType: Type) : CallAdapter<R, LiveData<ApiResponse<R>>> {
+class LiveDataCallAdapter<R>(private val responseType: Type) :
+        CallAdapter<R, LiveData<ApiResponse<R>>> {
 
-    override fun responseType(): Type {
-        return responseType
-    }
+    override fun responseType() = responseType
 
     override fun adapt(call: Call<R>): LiveData<ApiResponse<R>> {
         return object : LiveData<ApiResponse<R>>() {
-            internal var started = AtomicBoolean(false)
+            private var started = AtomicBoolean(false)
             override fun onActive() {
                 super.onActive()
                 if (started.compareAndSet(false, true)) {
                     call.enqueue(object : Callback<R> {
                         override fun onResponse(call: Call<R>, response: Response<R>) {
-                            postValue(ApiResponse(response))
+                            postValue(ApiResponse.create(response))
                         }
 
                         override fun onFailure(call: Call<R>, throwable: Throwable) {
-                            postValue(ApiResponse(throwable))
+                            postValue(ApiResponse.create(throwable))
                         }
                     })
                 }

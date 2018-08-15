@@ -6,15 +6,16 @@ import aykuttasil.com.modernapp.data.remote.ApiResponse
 import aykuttasil.com.modernapp.data.remote.ApiService
 import aykuttasil.com.modernapp.data.remote.NetworkBoundResource
 import aykuttasil.com.modernapp.data.remote.model.Repo
+import aykuttasil.com.modernapp.util.AppExecutors
 import javax.inject.Inject
 
 /**
  * Created by aykutasil on 1.03.2018.
  */
-class RepoRepository @Inject constructor(val apiService: ApiService) {
+class RepoRepository @Inject constructor(val apiService: ApiService, val appExecutors: AppExecutors) {
 
     fun getUserRepos(user: String): LiveData<Resource<Repo>> {
-        return object : NetworkBoundResource<Repo, Repo>() {
+        return object : NetworkBoundResource<Repo, Repo>(appExecutors) {
             override fun saveCallResult(item: Repo) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }

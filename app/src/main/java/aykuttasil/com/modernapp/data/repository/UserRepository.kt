@@ -9,15 +9,16 @@ import aykuttasil.com.modernapp.data.remote.ApiResponse
 import aykuttasil.com.modernapp.data.remote.ApiService
 import aykuttasil.com.modernapp.data.remote.NetworkBoundResource
 import aykuttasil.com.modernapp.data.remote.model.User
+import aykuttasil.com.modernapp.util.AppExecutors
 import javax.inject.Inject
 
 /**
  * Created by aykutasil on 3.02.2018.
  */
-class UserRepository @Inject constructor(val apiService: ApiService, val userDao: UserDao) {
+class UserRepository @Inject constructor(val apiService: ApiService, val userDao: UserDao, val appExecutors: AppExecutors) {
 
     fun getUser(username: String): LiveData<Resource<UserEntity>> {
-        return object : NetworkBoundResource<UserEntity, User>() {
+        return object : NetworkBoundResource<UserEntity, User>(appExecutors) {
             override fun saveCallResult(item: User) {
                 val userEntity = UserEntity(_UserName = item.name, UserEmail = item.login, _UserJob = "Developer")
                 userDao.insertItem(userEntity)
