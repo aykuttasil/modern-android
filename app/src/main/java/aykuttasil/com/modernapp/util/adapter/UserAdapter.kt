@@ -1,9 +1,9 @@
 package aykuttasil.com.modernapp.util.adapter
 
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
 import aykuttasil.com.modernapp.databinding.ItemUserLayoutBinding
 
@@ -70,7 +70,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder?.bind(mList[position])
+        holder.bind(mList[position])
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
