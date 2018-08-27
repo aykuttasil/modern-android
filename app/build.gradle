@@ -164,7 +164,7 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
     implementation "android.arch.navigation:navigation-ui:$navigation_version"
 
-    def work_version = "1.0.0-alpha06"
+    def work_version = "1.0.0-alpha07"
     implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
     // optional - Firebase JobDispatcher support
     implementation "android.arch.work:work-firebase:$work_version"
