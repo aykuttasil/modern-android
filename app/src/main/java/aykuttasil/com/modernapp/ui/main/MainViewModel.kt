@@ -1,22 +1,20 @@
 package aykuttasil.com.modernapp.ui.main
 
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import aykuttasil.com.myandroidstructure.data.DataManager
 import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.data.Resource
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
-import io.reactivex.disposables.CompositeDisposable
+import aykuttasil.com.modernapp.util.RxAwareViewModel
+import aykuttasil.com.myandroidstructure.data.DataManager
 import javax.inject.Inject
 
 /**
  * Created by aykutasil on 27.12.2017.
  */
-class MainViewModel @Inject constructor(val app: App, private val dataManager: DataManager) : AndroidViewModel(app) {
+class MainViewModel @Inject constructor(val app: App, private val dataManager: DataManager) : RxAwareViewModel(app) {
 
-    private var compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     private val liveUserName: MutableLiveData<String> = MutableLiveData()
 
@@ -66,11 +64,4 @@ class MainViewModel @Inject constructor(val app: App, private val dataManager: D
         }.asFlowable()
     }*/
 
-
-    override fun onCleared() {
-        super.onCleared()
-        if (!compositeDisposable.isDisposed) {
-            compositeDisposable.dispose()
-        }
-    }
 }

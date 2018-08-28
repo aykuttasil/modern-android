@@ -1,14 +1,17 @@
 package aykuttasil.com.modernapp.util
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
+import aykuttasil.com.modernapp.App
 import io.reactivex.disposables.CompositeDisposable
 
-open class RxAwareViewModel : ViewModel() {
+open class RxAwareViewModel(app: App) : AndroidViewModel(app) {
 
-    var disposables = CompositeDisposable()
+    var compositeDisposable = CompositeDisposable()
 
     override fun onCleared() {
         super.onCleared()
-        disposables.dispose()
+        if (!compositeDisposable.isDisposed) {
+            compositeDisposable.dispose()
+        }
     }
 }
