@@ -112,17 +112,17 @@ dependencies {
     implementation "com.facebook.stetho:stetho-okhttp3:1.5.0"
 
     // DataBinding
-    kapt 'androidx.databinding:databinding-compiler:3.2.0-beta05'
+    kapt 'androidx.databinding:databinding-compiler:3.2.0-rc02'
 
     // AndroidX
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.core:core:1.0.0-beta01'
-    implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0-beta01'
-    implementation 'androidx.cardview:cardview:1.0.0-beta01'
-    implementation 'com.google.android.material:material:1.0.0-beta01'
-    implementation "androidx.annotation:annotation:1.0.0-beta01"
-    implementation 'androidx.gridlayout:gridlayout:1.0.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.core:core:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation "androidx.annotation:annotation:1.0.0"
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha2"
     implementation "androidx.multidex:multidex:2.0.0"
 
@@ -141,7 +141,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-location:$playServiceVersion"
     implementation "com.google.android.gms:play-services-places:$playServiceVersion"
 
-    def firebaseVersion = "16.0.1"
+    def firebaseVersion = "16.0.2"
     implementation "com.google.firebase:firebase-database:$firebaseVersion"
 
     // Dagger
@@ -153,18 +153,18 @@ dependencies {
 
     // Android Arch
     // LiveData - ViewModel
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-beta01"
-    implementation "androidx.lifecycle:lifecycle-reactivestreams:2.0.0-beta01"
-    implementation "androidx.room:room-runtime:2.0.0-beta01"
-    kapt "androidx.room:room-compiler:2.0.0-beta01"
-    implementation "androidx.room:room-rxjava2:2.0.0-beta01"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:2.0.0"
+    implementation "androidx.room:room-runtime:2.0.0-rc01"
+    kapt "androidx.room:room-compiler:2.0.0-rc01"
+    implementation "androidx.room:room-rxjava2:2.0.0-rc01"
     // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
     // Navigation
-    def navigation_version = "1.0.0-alpha05"
+    def navigation_version = "1.0.0-alpha06"
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
     implementation "android.arch.navigation:navigation-ui:$navigation_version"
 
-    def work_version = "1.0.0-alpha07"
+    def work_version = "1.0.0-alpha09"
     implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
     // optional - Firebase JobDispatcher support
     implementation "android.arch.work:work-firebase:$work_version"
@@ -178,7 +178,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$anko_version"
 
     // Kotlin Extensions
-    implementation 'androidx.core:core-ktx:1.0.0-beta01'
+    implementation 'androidx.core:core-ktx:1.0.0'
     // implementation 'androidx.core:core-ktx:1.0.0-alpha1'
 
     // Rx
