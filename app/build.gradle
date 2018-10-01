@@ -196,7 +196,7 @@ dependencies {
     //implementation "com.github.bumptech.glide:okhttp3-integration:4.7.1"
 
     // Timber
-    implementation "com.jakewharton.timber:timber:4.7.0"
+    implementation "com.jakewharton.timber:timber:4.7.1"
 
 }
 
