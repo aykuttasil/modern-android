@@ -1,5 +1,6 @@
 package aykuttasil.com.modernapp
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.app.NotificationChannel
@@ -17,6 +18,7 @@ import org.jetbrains.anko.notificationManager
 import timber.log.Timber
 import javax.inject.Inject
 
+@SuppressLint("Registered")
 open class App : Application(), HasActivityInjector {
 
     @Inject

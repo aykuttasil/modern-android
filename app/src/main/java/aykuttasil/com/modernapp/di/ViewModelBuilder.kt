@@ -15,7 +15,7 @@ internal abstract class ViewModelBuilder {
     @IntoMap
     @Binds
     @ViewModelKey(MainViewModel::class)
-    abstract fun provideDetailVieWModel(viewModel: MainViewModel): ViewModel
+    abstract fun provideMainVieWModel(viewModel: MainViewModel): ViewModel
 
     @IntoMap
     @Binds

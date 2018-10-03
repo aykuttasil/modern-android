@@ -22,7 +22,7 @@ class UserActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        logd { "oncreate" }
+        logd { "onCreate" }
         viewModel = ViewModelProviders.of(this@UserActivity, viewModelFactory).get(UserViewModel::class.java)
     }
 }
