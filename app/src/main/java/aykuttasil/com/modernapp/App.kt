@@ -17,7 +17,7 @@ import org.jetbrains.anko.notificationManager
 import timber.log.Timber
 import javax.inject.Inject
 
-class App : Application(), HasActivityInjector {
+open class App : Application(), HasActivityInjector {
 
     @Inject
     lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
