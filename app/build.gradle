@@ -113,7 +113,7 @@ dependencies {
     implementation "com.facebook.stetho:stetho-okhttp3:1.5.0"
 
     // DataBinding
-    kapt 'androidx.databinding:databinding-compiler:3.2.0'
+    kapt 'androidx.databinding:databinding-compiler:3.2.1'
 
     // AndroidX
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -155,16 +155,16 @@ dependencies {
     // LiveData - ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     implementation "androidx.lifecycle:lifecycle-reactivestreams:2.0.0"
-    implementation "androidx.room:room-runtime:2.0.0-rc01"
-    kapt "androidx.room:room-compiler:2.0.0-rc01"
-    implementation "androidx.room:room-rxjava2:2.0.0-rc01"
+    implementation "androidx.room:room-runtime:2.1.0-alpha01"
+    kapt "androidx.room:room-compiler:2.1.0-alpha01"
+    implementation "androidx.room:room-rxjava2:2.1.0-alpha01"
     // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
     // Navigation
     def navigation_version = "1.0.0-alpha06"
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
     implementation "android.arch.navigation:navigation-ui:$navigation_version"
 
-    def work_version = "1.0.0-alpha09"
+    def work_version = "1.0.0-alpha10"
     implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
     // optional - Firebase JobDispatcher support
     implementation "android.arch.work:work-firebase:$work_version"
