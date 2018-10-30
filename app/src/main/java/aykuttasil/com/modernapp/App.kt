@@ -28,6 +28,7 @@ open class App : Application(), HasActivityInjector {
         super.onCreate()
         AppInjector.init(this)
         initNotificationChannel()
+
         debug {
             Stetho.initializeWithDefaults(this)
             Timber.plant(Timber.DebugTree())
@@ -49,5 +50,4 @@ open class App : Application(), HasActivityInjector {
         super.attachBaseContext(base)
         MultiDex.install(this)
     }
-
 }
