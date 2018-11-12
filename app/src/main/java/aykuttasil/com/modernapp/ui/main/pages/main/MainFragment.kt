@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.databinding.FragmentMainBinding
 import aykuttasil.com.modernapp.di.Injectable
 import aykuttasil.com.modernapp.ui.common.BaseFragment
 import aykuttasil.com.modernapp.util.delegates.Inflate
-import kotlinx.android.synthetic.main.fragment_main.*
-import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class MainFragment : BaseFragment(), Injectable {
 
@@ -23,8 +20,10 @@ class MainFragment : BaseFragment(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnGoUserActivity.onClick {
+        /*
+        btnGoUserActivity.setOnClickListener {
             Navigation.findNavController(binding.btnGoUserActivity).navigate(R.id.action_mainFragment_to_aboutFragment)
         }
+        */
     }
 }

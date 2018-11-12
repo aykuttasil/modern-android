@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import android.content.Context
 import android.location.Location
 import android.util.Log
-import aykuttasil.com.myandroidstructure.data.DataManager
+import aykuttasil.com.modernapp.data.DataManager
 import aykuttasil.com.modernapp.data.local.entity.LocationEntity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback

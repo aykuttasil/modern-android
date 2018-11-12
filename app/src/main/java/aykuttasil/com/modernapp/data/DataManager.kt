@@ -1,4 +1,4 @@
-package aykuttasil.com.myandroidstructure.data
+package aykuttasil.com.modernapp.data
 
 import androidx.lifecycle.LiveData
 import aykuttasil.com.modernapp.data.IDataManager

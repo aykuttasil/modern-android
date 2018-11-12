@@ -86,9 +86,11 @@ android {
 }
 
 kotlin {
+    /*
     experimental {
         coroutines "enable"
     }
+    */
 }
 
 dependencies {
@@ -96,7 +98,7 @@ dependencies {
 
     // Test
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-beta02'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
 
 
     releaseImplementation "com.github.ajitsing:sherlock-no-op:1.0.4@aar"
@@ -116,8 +118,8 @@ dependencies {
 
     // AndroidX
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
-    implementation 'androidx.core:core:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core:1.0.1'
     implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -141,7 +143,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-places:16.0.0"
 
     // Firebase
-    implementation "com.google.firebase:firebase-database:16.0.3"
+    implementation "com.google.firebase:firebase-database:16.0.4"
 
     // Dagger
     def daggerVersion = "2.16"
@@ -154,16 +156,16 @@ dependencies {
     // LiveData - ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
     implementation "androidx.lifecycle:lifecycle-reactivestreams:2.0.0"
-    implementation "androidx.room:room-runtime:2.1.0-alpha01"
-    kapt "androidx.room:room-compiler:2.1.0-alpha01"
-    implementation "androidx.room:room-rxjava2:2.1.0-alpha01"
+    implementation "androidx.room:room-runtime:2.1.0-alpha02"
+    kapt "androidx.room:room-compiler:2.1.0-alpha02"
+    implementation "androidx.room:room-rxjava2:2.1.0-alpha02"
     // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
     // Navigation
-    def navigation_version = "1.0.0-alpha06"
+    def navigation_version = "1.0.0-alpha07"
     implementation "android.arch.navigation:navigation-fragment:$navigation_version"
     implementation "android.arch.navigation:navigation-ui:$navigation_version"
 
-    def work_version = "1.0.0-alpha10"
+    def work_version = "1.0.0-alpha11"
     implementation "android.arch.work:work-runtime-ktx:$work_version" // use -ktx for Kotlin
     // optional - Firebase JobDispatcher support
     implementation "android.arch.work:work-firebase:$work_version"
@@ -177,7 +179,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko:$anko_version"
 
     // Kotlin Extensions
-    implementation 'androidx.core:core-ktx:1.0.0'
+    implementation 'androidx.core:core-ktx:1.0.1'
     // implementation 'androidx.core:core-ktx:1.0.0-alpha1'
 
     // Rx

@@ -7,7 +7,7 @@ import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.data.Resource
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
 import aykuttasil.com.modernapp.util.RxAwareViewModel
-import aykuttasil.com.myandroidstructure.data.DataManager
+import aykuttasil.com.modernapp.data.DataManager
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,7 @@
 package aykuttasil.com.modernapp.ui.user
 
 import androidx.lifecycle.AndroidViewModel
-import aykuttasil.com.myandroidstructure.data.DataManager
+import aykuttasil.com.modernapp.data.DataManager
 import aykuttasil.com.modernapp.App
 import javax.inject.Inject
 

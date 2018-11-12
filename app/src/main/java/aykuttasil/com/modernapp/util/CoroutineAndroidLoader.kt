@@ -1,17 +1,11 @@
 package aykuttasil.com.modernapp.util
 
+import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
-import android.util.Log
-import kotlinx.coroutines.experimental.CoroutineStart
-import kotlinx.coroutines.experimental.Deferred
-import kotlinx.coroutines.experimental.Job
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.newFixedThreadPoolContext
+import kotlinx.coroutines.*
 
 // Quick & dirty logcat extensions
 inline fun <reified T> T.logd(message: () -> String) = Log.d(T::class.simpleName, message())
@@ -35,7 +29,7 @@ internal val Background = newFixedThreadPoolContext(Runtime.getRuntime().availab
  * The coroutine is automatically cancelled using the CoroutineLifecycleListener.
  */
 fun <T> LifecycleOwner.load(loader: suspend () -> T): Deferred<T> {
-    val deferred = async(context = Background, start = CoroutineStart.LAZY) {
+    val deferred = GlobalScope.async(context = Dispatchers.Default, start = CoroutineStart.LAZY) {
         loader()
     }
 
@@ -48,7 +42,7 @@ fun <T> LifecycleOwner.load(loader: suspend () -> T): Deferred<T> {
  * will call <code>await()</code> and pass the returned value to <code>block()</code>.
  */
 infix fun <T> Deferred<T>.then(block: suspend (T) -> Unit): Job {
-    return launch(context = UI) {
+    return GlobalScope.launch(context = Dispatchers.Main) {
         try {
             block(this@then.await())
         } catch (e: Exception) {
