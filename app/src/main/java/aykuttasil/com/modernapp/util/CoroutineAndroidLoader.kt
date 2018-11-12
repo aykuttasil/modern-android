@@ -22,14 +22,15 @@ internal class CoroutineLifecycleListener(private val deferred: Deferred<*>) : L
 }
 
 // CoroutineContext running on background threads.
-internal val Background = newFixedThreadPoolContext(Runtime.getRuntime().availableProcessors() * 2, "Loader")
+//internal val Background = newFixedThreadPoolContext(Runtime.getRuntime().availableProcessors() * 2, "Loader")
 
 /**
  * Creates a lazily started coroutine that runs <code>loader()</code>.
  * The coroutine is automatically cancelled using the CoroutineLifecycleListener.
  */
 fun <T> LifecycleOwner.load(loader: suspend () -> T): Deferred<T> {
-    val deferred = GlobalScope.async(context = Dispatchers.Default, start = CoroutineStart.LAZY) {
+    //val scope = CoroutineScope(context = Dispatchers.IO)
+    val deferred = GlobalScope.async(context = Dispatchers.IO, start = CoroutineStart.LAZY) {
         loader()
     }
 
