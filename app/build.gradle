@@ -92,17 +92,13 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // Test
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     releaseImplementation 'com.github.ajitsing:sherlock-no-op:1.0.4@aar'
-
     debugImplementation('com.github.ajitsing:sherlock:1.0.4@aar') {
         transitive = true
     }
 
     // Stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'
-
 
     // DataBinding
     kapt 'androidx.databinding:databinding-compiler:3.2.1'
@@ -135,8 +131,6 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.1.0-alpha02'
     kapt "androidx.room:room-compiler:2.1.0-alpha02"
     implementation 'androidx.room:room-rxjava2:2.1.0-alpha02'
-
-    // implementation "android.arch.paging:runtime:1.0.0-alpha4-1"
 
     // Navigation
     def navigation_version = "1.0.0-alpha07"

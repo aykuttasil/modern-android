@@ -26,7 +26,6 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    api 'androidx.appcompat:appcompat:1.0.2'
     testApi 'junit:junit:4.12'
     androidTestApi 'androidx.test:runner:1.1.0'
     androidTestApi 'androidx.test.espresso:espresso-core:3.1.0'
@@ -49,4 +48,6 @@ dependencies {
     api "org.jetbrains.anko:anko:$anko_version"
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+
+    api 'androidx.appcompat:appcompat:1.0.2'
 }
