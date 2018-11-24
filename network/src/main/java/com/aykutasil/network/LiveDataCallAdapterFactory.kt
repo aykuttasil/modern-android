@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.util
+package com.aykutasil.network
 
 
 import androidx.lifecycle.LiveData

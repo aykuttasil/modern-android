@@ -4,9 +4,10 @@ import android.app.Application
 import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.di.ActivityBuilder
 import aykuttasil.com.modernapp.di.ServiceBuilder
+import aykuttasil.com.modernapp.di.modules.ApiModule
 import aykuttasil.com.modernapp.di.modules.AppModule
 import aykuttasil.com.modernapp.di.modules.DatabaseModule
-import aykuttasil.com.modernapp.di.modules.NetworkModule
+import com.aykutasil.network.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -20,6 +21,7 @@ import javax.inject.Singleton
     (ServiceBuilder::class),
     (AppModule::class),
     (NetworkModule::class),
+    (ApiModule::class),
     (DatabaseModule::class)])
 interface AppComponent : AndroidInjector<App> {
 

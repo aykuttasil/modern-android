@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.di
+package com.aykutasil.common.di
 
 import javax.inject.Qualifier
 

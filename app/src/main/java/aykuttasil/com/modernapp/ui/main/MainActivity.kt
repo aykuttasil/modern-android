@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProviders
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
-import aykuttasil.com.modernapp.util.logd
+import com.aykutasil.common.util.logd
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {

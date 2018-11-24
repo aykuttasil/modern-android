@@ -1,7 +1,6 @@
-package aykuttasil.com.modernapp.util
+package com.aykutasil.network
 
 import androidx.lifecycle.LiveData
-import com.aykutasil.network.ApiResponse
 import retrofit2.Call
 import retrofit2.CallAdapter
 import retrofit2.Callback

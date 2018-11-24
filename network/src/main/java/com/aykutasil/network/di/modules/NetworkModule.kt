@@ -1,9 +1,10 @@
-package aykuttasil.com.modernapp.di.modules
+package com.aykutasil.network.di.modules
 
 import android.content.Context
-import aykuttasil.com.modernapp.BuildConfig
-import aykuttasil.com.modernapp.di.ApplicationContext
-import aykuttasil.com.modernapp.util.LiveDataCallAdapterFactory
+import com.aykutasil.common.di.ApplicationContext
+import com.aykutasil.common.util.LogUtils
+import com.aykutasil.network.BuildConfig
+import com.aykutasil.network.LiveDataCallAdapterFactory
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -15,7 +16,6 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -23,7 +23,7 @@ import javax.inject.Singleton
  * Created by aykutasil on 9.12.2017.
  */
 
-@Module(includes = [(ApiModule::class)])
+@Module
 class NetworkModule {
 
     private fun getBaseUrl() = "https://api.github.com"
@@ -72,7 +72,7 @@ class NetworkModule {
     @Singleton
     internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor { message ->
-            Timber.d(message)
+            LogUtils.d(message)
         }.setLevel(HttpLoggingInterceptor.Level.BODY)
     }
 

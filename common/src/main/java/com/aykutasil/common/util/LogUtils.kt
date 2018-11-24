@@ -8,4 +8,8 @@ object LogUtils {
         Timber.i(msg)
     }
 
+    fun d(msg: String?) {
+        Timber.d(msg)
+    }
+
 }

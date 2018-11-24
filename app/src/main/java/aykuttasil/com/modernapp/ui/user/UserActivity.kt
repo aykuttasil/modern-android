@@ -1,13 +1,13 @@
 package aykuttasil.com.modernapp.ui.user
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProviders
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.databinding.ActivityUserBinding
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
 import aykuttasil.com.modernapp.util.delegates.contentView
-import aykuttasil.com.modernapp.util.logd
+import com.aykutasil.common.util.logd
 import javax.inject.Inject
 
 

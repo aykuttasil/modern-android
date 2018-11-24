@@ -10,9 +10,9 @@ import aykuttasil.com.modernapp.databinding.FragmentMainBinding
 import aykuttasil.com.modernapp.di.Injectable
 import aykuttasil.com.modernapp.ui.common.BaseFragment
 import aykuttasil.com.modernapp.util.delegates.Inflate
-import aykuttasil.com.modernapp.util.load
-import aykuttasil.com.modernapp.util.then
 import com.aykutasil.common.util.LogUtils
+import com.aykutasil.common.util.load
+import com.aykutasil.common.util.then
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.delay
 

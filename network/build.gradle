@@ -34,5 +34,15 @@ dependencies {
     api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.11.0'
 
+    releaseApi'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    debugApi 'com.readystatesoftware.chuck:library:1.1.0'
+
+    api 'com.squareup.moshi:moshi-adapters:1.5.0'
+
+    api 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+
     api project(':common')
 }
