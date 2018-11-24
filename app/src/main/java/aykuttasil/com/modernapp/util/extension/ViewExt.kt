@@ -5,7 +5,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
 import android.view.View
-import aykuttasil.com.modernapp.util.SingleLiveEvent
+import com.aykutasil.common.util.SingleLiveEvent
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.

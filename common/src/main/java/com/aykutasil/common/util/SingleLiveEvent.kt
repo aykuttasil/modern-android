@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.util
+package com.aykutasil.common.util
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData

@@ -1,7 +1,7 @@
-package aykuttasil.com.modernapp.data.remote
+package com.aykutasil.network
 
 import android.content.Context
-import aykuttasil.com.modernapp.util.extension.isNetworkStatusAvailable
+import com.aykutasil.common.util.isNetworkStatusAvailable
 import io.reactivex.Flowable
 import io.reactivex.Flowable.defer
 import io.reactivex.android.schedulers.AndroidSchedulers

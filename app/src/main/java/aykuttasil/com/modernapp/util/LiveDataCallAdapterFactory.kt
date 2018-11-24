@@ -2,7 +2,7 @@ package aykuttasil.com.modernapp.util
 
 
 import androidx.lifecycle.LiveData
-import aykuttasil.com.modernapp.data.remote.ApiResponse
+import com.aykutasil.network.ApiResponse
 import retrofit2.CallAdapter
 import retrofit2.CallAdapter.Factory
 import retrofit2.Retrofit

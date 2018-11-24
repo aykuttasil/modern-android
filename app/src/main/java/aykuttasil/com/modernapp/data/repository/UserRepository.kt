@@ -2,14 +2,14 @@ package aykuttasil.com.modernapp.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import aykuttasil.com.modernapp.data.Resource
 import aykuttasil.com.modernapp.data.local.dao.UserDao
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
-import aykuttasil.com.modernapp.data.remote.ApiResponse
 import aykuttasil.com.modernapp.data.remote.ApiService
-import aykuttasil.com.modernapp.data.remote.NetworkBoundResource
 import aykuttasil.com.modernapp.data.remote.model.User
-import aykuttasil.com.modernapp.util.AppExecutors
+import com.aykutasil.common.Resource
+import com.aykutasil.common.util.AppExecutors
+import com.aykutasil.network.ApiResponse
+import com.aykutasil.network.NetworkBoundResource
 import javax.inject.Inject
 
 /**

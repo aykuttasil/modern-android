@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.util
+package com.aykutasil.common.util
 
 import timber.log.Timber
 

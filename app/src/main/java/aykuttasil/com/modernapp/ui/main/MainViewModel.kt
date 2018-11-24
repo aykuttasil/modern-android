@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import aykuttasil.com.modernapp.App
-import aykuttasil.com.modernapp.data.Resource
+import aykuttasil.com.modernapp.data.DataManager
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
 import aykuttasil.com.modernapp.util.RxAwareViewModel
-import aykuttasil.com.modernapp.data.DataManager
+import com.aykutasil.common.Resource
 import javax.inject.Inject
 
 /**

@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.util;
+package com.aykutasil.common.util;
 
 
 import androidx.fragment.app.Fragment;
@@ -12,8 +12,9 @@ import androidx.fragment.app.FragmentManager;
 public class AutoClearedValue<T> {
     private T value;
 
-    public AutoClearedValue(Fragment fragment, T value) {
-        FragmentManager fragmentManager = fragment.getFragmentManager();
+    public AutoClearedValue(final Fragment fragment, T value) {
+        final FragmentManager fragmentManager = fragment.getFragmentManager();
+        assert fragmentManager != null;
         fragmentManager.registerFragmentLifecycleCallbacks(
                 new FragmentManager.FragmentLifecycleCallbacks() {
                     @Override

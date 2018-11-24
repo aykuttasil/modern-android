@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.data.remote
+package com.aykutasil.network
 
 sealed class ResourceSealed<out T> {
     class Loading<out T> : ResourceSealed<T>()

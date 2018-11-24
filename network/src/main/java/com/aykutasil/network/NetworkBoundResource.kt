@@ -1,11 +1,11 @@
-package aykuttasil.com.modernapp.data.remote
+package com.aykutasil.network
 
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import aykuttasil.com.modernapp.data.Resource
-import aykuttasil.com.modernapp.util.AppExecutors
+import com.aykutasil.common.Resource
+import com.aykutasil.common.util.AppExecutors
 
 abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constructor(private val appExecutors: AppExecutors) {
 

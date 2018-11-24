@@ -1,6 +1,4 @@
-package aykuttasil.com.modernapp.data
-
-import aykuttasil.com.modernapp.data.remote.Status
+package com.aykutasil.common
 
 /**
  * A generic class that holds a value with its loading status.

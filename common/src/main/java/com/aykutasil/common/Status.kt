@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.data.remote
+package com.aykutasil.common
 
 enum class Status {
     SUCCESS,

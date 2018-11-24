@@ -3,6 +3,7 @@ package aykuttasil.com.modernapp.data
 import androidx.lifecycle.LiveData
 import aykuttasil.com.modernapp.data.local.entity.LocationEntity
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
+import com.aykutasil.common.Resource
 
 /**
  * Created by aykutasil on 27.12.2017.

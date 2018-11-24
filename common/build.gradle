@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api 'androidx.appcompat:appcompat:1.0.2'
+    testApi 'junit:junit:4.12'
+    androidTestApi 'androidx.test:runner:1.1.0'
+    androidTestApi 'androidx.test.espresso:espresso-core:3.1.0'
+
+    api 'com.jakewharton.timber:timber:4.7.1'
+
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+    api "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-android-processor:$dagger"
+    api "com.google.dagger:dagger-android-support:$dagger"
+
+    api 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    api 'androidx.core:core-ktx:1.0.1'
+
+    // Kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    api "org.jetbrains.anko:anko:$anko_version"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+}

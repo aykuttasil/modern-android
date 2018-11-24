@@ -1,12 +1,12 @@
 package aykuttasil.com.modernapp.data.repository
 
 import androidx.lifecycle.LiveData
-import aykuttasil.com.modernapp.data.Resource
-import aykuttasil.com.modernapp.data.remote.ApiResponse
 import aykuttasil.com.modernapp.data.remote.ApiService
-import aykuttasil.com.modernapp.data.remote.NetworkBoundResource
 import aykuttasil.com.modernapp.data.remote.model.Repo
-import aykuttasil.com.modernapp.util.AppExecutors
+import com.aykutasil.common.Resource
+import com.aykutasil.common.util.AppExecutors
+import com.aykutasil.network.ApiResponse
+import com.aykutasil.network.NetworkBoundResource
 import javax.inject.Inject
 
 /**

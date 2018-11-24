@@ -1,11 +1,10 @@
 package aykuttasil.com.modernapp.data
 
 import androidx.lifecycle.LiveData
-import aykuttasil.com.modernapp.data.IDataManager
-import aykuttasil.com.modernapp.data.Resource
 import aykuttasil.com.modernapp.data.local.entity.LocationEntity
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
 import aykuttasil.com.modernapp.data.repository.UserRepository
+import com.aykutasil.common.Resource
 import javax.inject.Inject
 import javax.inject.Singleton
 

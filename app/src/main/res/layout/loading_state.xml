@@ -4,9 +4,9 @@
 
     <data>
 
-        <import type="aykuttasil.com.modernapp.data.Resource" />
+        <import type="com.aykutasil.common.Resource" />
 
-        <import type="aykuttasil.com.modernapp.data.remote.Status" />
+        <import type="com.aykutasil.common.Status" />
 
         <variable
             name="resource"

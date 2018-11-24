@@ -5,7 +5,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import aykuttasil.com.modernapp.util.AppExecutors
+import com.aykutasil.common.util.AppExecutors
 
 
 /**

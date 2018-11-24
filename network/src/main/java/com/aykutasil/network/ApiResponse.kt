@@ -1,4 +1,4 @@
-package aykuttasil.com.modernapp.data.remote
+package com.aykutasil.network
 
 import retrofit2.Response
 import timber.log.Timber
