@@ -1,7 +1,6 @@
 package aykuttasil.com.modernapp
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
 /**

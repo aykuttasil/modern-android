@@ -92,6 +92,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // Test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
     releaseImplementation 'com.github.ajitsing:sherlock-no-op:1.0.4@aar'
     debugImplementation('com.github.ajitsing:sherlock:1.0.4@aar') {
         transitive = true
