@@ -5,10 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import aykuttasil.com.modernapp.R
 
-/**
- * Created by amitshekhar on 07/07/17.
- */
-
 object AppUtils {
 
     fun openPlayStoreForApp(context: Context) {

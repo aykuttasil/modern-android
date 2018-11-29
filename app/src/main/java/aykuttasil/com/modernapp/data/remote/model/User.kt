@@ -17,7 +17,7 @@ data class User(
         @Expose @SerializedName("login") val login: String?,
         @Expose @SerializedName("id") val id: Int?,
         @Expose @SerializedName("avatar_url") val avatarUrl: String?,
-        @Expose @SerializedName("gravatar_id") val gravatarİd: String?,
+        @Expose @SerializedName("gravatar_id") val gravatarId: String?,
         @Expose @SerializedName("url") val url: String?,
         @Expose @SerializedName("html_url") val htmlUrl: String?,
         @Expose @SerializedName("followers_url") val followersUrl: String?,
