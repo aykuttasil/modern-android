@@ -11,10 +11,6 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-/**
- * Created by aykutasil on 8.12.2017.
- */
-
 @Module(includes = [(ViewModelBuilder::class)])
 class AppModule {
 

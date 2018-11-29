@@ -6,9 +6,6 @@ import dagger.Provides
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
-/**
- * Created by aykutasil on 9.12.2017.
- */
 @Module
 class ApiModule {
 
