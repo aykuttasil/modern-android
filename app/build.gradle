@@ -156,7 +156,10 @@ dependencies {
     kapt "com.jakewharton:butterknife-compiler:8.8.1"
 
     kapt "com.google.dagger:dagger-compiler:$dagger"
+    implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-android-processor:$dagger"
+    implementation "com.google.dagger:dagger-android-support:$dagger"
+
 
     implementation project(':common')
     implementation project(':network')
