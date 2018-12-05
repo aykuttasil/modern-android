@@ -11,9 +11,11 @@ import androidx.multidex.MultiDex
 import aykuttasil.com.modernapp.di.AppInjector
 import aykuttasil.com.modernapp.util.Const
 import aykuttasil.com.modernapp.util.extension.debug
+import com.crashlytics.android.Crashlytics
 import com.facebook.stetho.Stetho
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import io.fabric.sdk.android.Fabric
 import org.jetbrains.anko.notificationManager
 import timber.log.Timber
 import javax.inject.Inject
@@ -28,10 +30,15 @@ open class App : Application(), HasActivityInjector {
         super.onCreate()
         AppInjector.init(this)
         initNotificationChannel()
+        initFabric()
         debug {
             Stetho.initializeWithDefaults(this)
             Timber.plant(Timber.DebugTree())
         }
+    }
+
+    private fun initFabric() {
+        Fabric.with(this, Crashlytics())
     }
 
     private fun initNotificationChannel() {

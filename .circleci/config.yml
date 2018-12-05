@@ -8,11 +8,29 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+      #- run:
+      #    name: Initialize Keystore File
+      #    # mykeystore file convert to base64 string and it's added in environment variable with name KEYSTORE_BASE64.
+      #    # and return to the original file state with the "echo $KEYSTORE_BASE64 | base64 --decode > app/mykeystore" command.
+      #    command: |
+      #      echo $KEYSTORE_BASE64 | base64 --decode > app/mykeystore
+      # Set Fabric Api Key with environment variables
+      #- run:
+      #    name: Initialize Fabric Properties
+      #    command: |
+      #      echo "apiKey=$FABRIC_API_KEY" >> app/fabric.properties
+      #      echo "apiSecret=$FABRIC_API_SECRET" >> app/fabric.properties
+      #      cat app/fabric.properties
+      #- run:
+      #    name: Initialize Keystore File
+      #    command: |
+      #       echo "signingKeyAlias=$KEYSTORE_KEY_ALIAS" >> keystore.properties
+      #       echo "signingKeyAliasPassword=$KEYSTORE_KEY_ALIAS_PASSWORD" >>  keystore.properties
+      #       echo "signingStoreFile=$KEYSTORE_STORE_FILE" >>  keystore.properties
+      #       echo "signingStorePassword=$KEYSTORE_STORE_PASSWORD" >>  keystore.properties
+      #       cat keystore.properties
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-#      - run:
-#         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
-#         command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
@@ -20,12 +38,24 @@ jobs:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-      - run:
-          name: Run Tests
-          command: ./gradlew lint test
       - store_artifacts:
           path: app/build/reports
           destination: reports
       - store_test_results:
           path: app/build/test-results
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
+      - run:
+          command: echo "Current Branch:" ${CIRCLE_BRANCH}
+      - run:
+          name: Initial build
+          command: ./gradlew assembleDebug assembleRelease --no-daemon --stacktrace
+      - store_artifacts:
+          path: app/build/outputs/apk/
+          destination: apks/
+      - deploy:
+          name: Deploy to Fabric
+          command: ./gradlew crashlyticsUploadDistributionRelease --stacktrace --debug --no-daemon
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - build

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -6,6 +7,12 @@ apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdkVersion 28
+
+    def fabricPropertiesFile = rootProject.file("app/fabric.properties")
+    def fabricProperties = new Properties()
+    if (fabricPropertiesFile.exists()) {
+        fabricProperties.load(new FileInputStream(fabricPropertiesFile))
+    }
 
     defaultConfig {
         minSdkVersion 21
@@ -15,16 +22,43 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
+
+        ext.betaDistributionEmails = "aykuttasil@gmail.com"
+        ext.betaDistributionNotifications = true
+        resValue "string", "io.fabric.ApiKey", fabricProperties['apiKey']
+    }
+
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    }
+    signingConfigs {
+        debug {
+            keyAlias keystoreProperties['signingKeyAliasDebug']
+            keyPassword keystoreProperties['signingKeyAliasPasswordDebug']
+            storeFile file(keystoreProperties['signingStoreFileDebug'])
+            storePassword keystoreProperties['signingStorePasswordDebug']
+        }
+
+        release {
+            keyAlias keystoreProperties['signingKeyAlias']
+            keyPassword keystoreProperties['signingKeyAliasPassword']
+            storeFile file(keystoreProperties['signingStoreFile'])
+            storePassword keystoreProperties['signingStorePassword']
+        }
     }
 
     buildTypes {
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.debug
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 
@@ -159,6 +193,10 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger"
     kapt "com.google.dagger:dagger-android-processor:$dagger"
     implementation "com.google.dagger:dagger-android-support:$dagger"
+
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.7@aar') {
+        transitive = true
+    }
 
     implementation project(':common')
     implementation project(':network')
