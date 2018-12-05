@@ -47,10 +47,10 @@ jobs:
           command: echo "Current Branch:" ${CIRCLE_BRANCH}
       - run:
           name: Debug build
-          command: ./gradlew assembleDemoProductionDebug --no-daemon --stacktrace
+          command: ./gradlew clean assembleDevDebug --no-daemon --stacktrace
       - run:
           name: Release build
-          command: ./gradlew assembleDemoProductionRelease --no-daemon --stacktrace
+          command: ./gradlew assembleDevRelease --no-daemon --stacktrace
       - store_artifacts:
           path: app/build/outputs/apk/
           destination: apks/
