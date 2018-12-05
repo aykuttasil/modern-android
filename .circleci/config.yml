@@ -56,7 +56,7 @@ jobs:
           destination: apks/
       - deploy:
           name: Deploy to Fabric
-          command: ./gradlew crashlyticsUploadDistributionRelease --stacktrace --debug --no-daemon
+          command: ./gradlew crashlyticsUploadDistributionDevRelease --stacktrace --debug --no-daemon
 workflows:
   version: 2
   workflow:
