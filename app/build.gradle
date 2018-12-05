@@ -53,6 +53,7 @@ android {
         debug {
             minifyEnabled false
             signingConfig signingConfigs.debug
+            applicationIdSuffix ".debug"
         }
 
         release {
@@ -64,28 +65,21 @@ android {
 
     flavorDimensions "default"
     productFlavors {
-        finalProduction {
+        prod {
             dimension "default"
-            applicationId "aykuttasil.com.modernapp"
-            resValue "string", "app_name", "Modern App Skeleton"
+            resValue "string", "app_name", "MAS"
         }
 
-        demoProduction {
+        dev {
             dimension "default"
-            applicationIdSuffix ".demoproduction"
-            resValue "string", "app_name", "Modern App Skeleton Demo"
-        }
-
-        demoTesting {
-            dimension "default"
-            applicationIdSuffix ".demotesting"
-            resValue "string", "app_name", "Modern App Skeleton Test"
+            //applicationIdSuffix ".test"
+            resValue "string", "app_name", "MAS Dev"
         }
 
         mock {
             dimension "default"
-            applicationIdSuffix ".mock"
-            resValue "string", "app_name", "Modern App Skeleton Mock"
+            //applicationIdSuffix ".mock"
+            resValue "string", "app_name", "MAS Mock"
         }
     }
 
