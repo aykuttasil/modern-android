@@ -1,6 +1,5 @@
 package aykuttasil.com.modernapp.util.extension
 
-
 import android.app.Activity
 import android.app.Application
 import androidx.annotation.IdRes
@@ -10,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import aykuttasil.com.modernapp.BuildConfig
-
 
 const val ADD_EDIT_RESULT_OK = Activity.RESULT_FIRST_USER + 1
 const val DELETE_RESULT_OK = Activity.RESULT_FIRST_USER + 2
