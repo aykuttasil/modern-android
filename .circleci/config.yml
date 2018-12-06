@@ -47,7 +47,7 @@ jobs:
           command: echo "Current Branch:" ${CIRCLE_BRANCH}
       - run:
           name: Debug build
-          command: ./gradlew clean assembleDevDebug --no-daemon --stacktrace
+          command: ./gradlew assembleDevDebug --no-daemon --stacktrace
       - run:
           name: Release build
           command: ./gradlew assembleDevRelease --no-daemon --stacktrace
