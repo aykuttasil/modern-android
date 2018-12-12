@@ -169,12 +169,10 @@ dependencies {
     implementation 'androidx.room:room-rxjava2:2.1.0-alpha03'
 
     // Navigation
-    def navigation_version = "1.0.0-alpha07"
-    implementation "android.arch.navigation:navigation-fragment:$navigation_version"
-    implementation "android.arch.navigation:navigation-ui:$navigation_version"
-    def work_version = "1.0.0-alpha11"
-    implementation "android.arch.work:work-runtime-ktx:$work_version"
-    implementation "android.arch.work:work-firebase:$work_version"
+    implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha08"
+    implementation "android.arch.navigation:navigation-ui:1.0.0-alpha08"
+    implementation "android.arch.work:work-runtime-ktx:1.0.0-alpha12"
+    implementation "android.arch.work:work-firebase:1.0.0-alpha11"
 
     // Rx
     implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
