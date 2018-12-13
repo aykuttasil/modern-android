@@ -140,25 +140,20 @@ dependencies {
     implementation "androidx.core:core:$versions.androidx.core"
     implementation "androidx.core:core-ktx:$versions.androidx.core_ktx"
     implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation "androidx.cardview:cardview:$versions.androidx.cardview"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.androidx.constraint_layout"
     implementation 'androidx.annotation:annotation:1.0.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.0'
 
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-reactivestreams:2.0.0'
+    implementation "androidx.lifecycle:lifecycle-extensions:$versions.androidx.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$versions.androidx.lifecycle"
 
-    implementation 'androidx.room:room-runtime:2.1.0-alpha03'
-    kapt "androidx.room:room-compiler:2.1.0-alpha03"
-    implementation 'androidx.room:room-rxjava2:2.1.0-alpha03'
+    implementation "androidx.room:room-runtime:$versions.androidx.room"
+    kapt "androidx.room:room-compiler:$versions.androidx.room"
+    implementation "androidx.room:room-rxjava2:$versions.androidx.room"
 
     implementation "com.google.android.material:material:$versions.material_design"
-    implementation 'com.google.android.gms:play-services-base:16.0.1'
-    implementation 'com.google.android.gms:play-services-auth:16.0.1'
-    implementation 'com.google.android.gms:play-services-maps:16.0.0'
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
-    implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation 'com.google.firebase:firebase-database:16.0.5'
 
     implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha08"
@@ -186,12 +181,6 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$versions.dagger"
 
     implementation 'com.google.code.gson:gson:2.8.5'
-
-    /*
-    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
-    implementation("com.squareup.okio:okio:1.16.0")
-    */
 
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
