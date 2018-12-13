@@ -1,11 +1,6 @@
 package aykuttasil.com.modernapp.data.remote.model
 import com.google.gson.annotations.SerializedName
 
-
-/**
- * Created by aykutasil on 1.03.2018.
- */
-
 data class Repo(
 		@SerializedName("id") val id: Int?,
 		@SerializedName("name") val name: String?,
