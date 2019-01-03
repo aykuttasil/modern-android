@@ -1,11 +1,15 @@
 package aykuttasil.com.modernapp.ui
 
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
+import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.TestApp
 import aykuttasil.com.modernapp.ui.main.MainActivity
 import org.junit.After
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -31,7 +35,7 @@ class MainActivityTest {
 
     @Test
     fun x() {
-        assertTrue(2 == 2)
+        onView(withId(R.id.hello)).check(matches(withText("Hello World!")))
     }
 
 }

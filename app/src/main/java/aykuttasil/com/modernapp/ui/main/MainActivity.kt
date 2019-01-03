@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProviders
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
-import com.aykutasil.common.util.logd
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -18,7 +17,6 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        logd { "onCreate" }
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
     }
 }

@@ -14,7 +14,6 @@ import org.junit.runners.JUnit4
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-
         assertEquals(4, 2 + 2)
     }
 }
