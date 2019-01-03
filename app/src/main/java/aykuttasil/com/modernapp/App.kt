@@ -12,7 +12,7 @@ import aykuttasil.com.modernapp.di.AppInjector
 import aykuttasil.com.modernapp.util.Const
 import aykuttasil.com.modernapp.util.extension.debug
 import com.crashlytics.android.Crashlytics
-import com.facebook.stetho.Stetho
+import com.crashlytics.android.core.CrashlyticsCore
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import io.fabric.sdk.android.Fabric
@@ -29,21 +29,46 @@ open class App : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
         AppInjector.init(this)
-        initNotificationChannel()
+        initTimber()
         initFabric()
+        initNotificationChannel()
+        //initStetho()
+    }
+
+    private fun initTimber() {
         debug {
-            Stetho.initializeWithDefaults(this)
             Timber.plant(Timber.DebugTree())
         }
     }
 
     private fun initFabric() {
-        Fabric.with(this, Crashlytics())
+        val crashlyticsCore = CrashlyticsCore.Builder()
+            .disabled(BuildConfig.DEBUG)
+            .build()
+
+        val crashlytics = Crashlytics.Builder()
+            .core(crashlyticsCore)
+            .build()
+
+        Fabric.with(this, crashlytics)
     }
+
+    /*
+    open fun initStetho() {
+        debug {
+            Stetho.initializeWithDefaults(this)
+            Timber.plant(Timber.DebugTree())
+        }
+    }
+    */
 
     private fun initNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(Const.NOTIF_CHANNEL_ID, Const.NOTIF_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT)
+            val channel = NotificationChannel(
+                Const.NOTIF_CHANNEL_ID,
+                Const.NOTIF_CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
             notificationManager.createNotificationChannel(channel)
         }
     }

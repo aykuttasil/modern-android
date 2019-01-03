@@ -99,6 +99,7 @@ android {
     testOptions {
         unitTests {
             returnDefaultValues = true
+            includeAndroidResources = true
         }
     }
 
@@ -113,9 +114,17 @@ android {
     androidExtensions {
         experimental = true
     }
-}
 
-kotlin {
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = output.outputFile.name
+                    .replace(".apk", "-${variant.versionName}-${variant.versionCode}.apk")
+        }
+    }
 }
 
 dependencies {
@@ -177,7 +186,8 @@ dependencies {
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.8@aar') {
         transitive = true
     }
-    implementation "com.facebook.stetho:stetho:$versions.stetho"
+
+    debugImplementation "com.facebook.stetho:stetho:$versions.stetho"
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"
