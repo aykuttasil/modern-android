@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion buildConfig.compileSdk
 
     def fabricPropertiesFile = rootProject.file("app/fabric.properties")
     def fabricProperties = new Properties()
@@ -15,8 +15,8 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 28
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -121,6 +121,9 @@ kotlin {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
+    implementation project(':common')
+    implementation project(':network')
+
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test:runner:$versions.androidx.test_runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx.espresso_core"
@@ -130,7 +133,7 @@ dependencies {
         transitive = true
     }
 
-    implementation('com.crashlytics.sdk.android:crashlytics:2.9.7@aar') {
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.8@aar') {
         transitive = true
     }
     implementation "com.facebook.stetho:stetho:$versions.stetho"
@@ -144,7 +147,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$versions.androidx.constraint_layout"
     implementation 'androidx.annotation:annotation:1.0.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.androidx.lifecycle"
     implementation "androidx.lifecycle:lifecycle-reactivestreams:$versions.androidx.lifecycle"
@@ -156,9 +159,9 @@ dependencies {
     implementation "com.google.android.material:material:$versions.material_design"
     implementation 'com.google.firebase:firebase-database:16.0.5'
 
-    implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha08"
-    implementation "android.arch.navigation:navigation-ui:1.0.0-alpha08"
-    implementation "android.arch.work:work-runtime-ktx:1.0.0-alpha13"
+    implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha09"
+    implementation "android.arch.navigation:navigation-ui:1.0.0-alpha09"
+    implementation "android.arch.work:work-runtime-ktx:1.0.0-beta01"
     implementation "android.arch.work:work-firebase:1.0.0-alpha11"
 
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
@@ -183,9 +186,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
 
     implementation "com.jakewharton.timber:timber:$versions.timber"
-
-    implementation project(':common')
-    implementation project(':network')
 }
 // apply plugin: 'com.google.gms.google-services'
 
