@@ -4,8 +4,8 @@ import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.aykutasil.common.Resource
-import com.aykutasil.common.util.AppExecutors
+import com.aykutasil.modernapp.Resource
+import com.aykutasil.modernapp.util.AppExecutors
 
 abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constructor(private val appExecutors: AppExecutors) {
 

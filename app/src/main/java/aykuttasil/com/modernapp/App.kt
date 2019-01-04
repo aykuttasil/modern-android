@@ -9,8 +9,8 @@ import android.content.Context
 import android.os.Build
 import androidx.multidex.MultiDex
 import aykuttasil.com.modernapp.di.AppInjector
-import aykuttasil.com.modernapp.util.Const
 import aykuttasil.com.modernapp.util.extension.debug
+import com.aykutasil.modernapp.util.Const
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
 import dagger.android.DispatchingAndroidInjector

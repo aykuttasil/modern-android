@@ -6,11 +6,12 @@ import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.util.Base64
 import android.util.Log
-import com.aykutasil.common.util.LogUtils
+import com.aykutasil.modernapp.util.LogUtils
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import java.util.Arrays
+import kotlin.collections.ArrayList
 
 /**
  * Created by aykutasil on 7.12.2017.
@@ -25,6 +26,7 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
      */
     // Get all package signatures for the current package
     // For each signature create a compatible hash
+    @Suppress("DEPRECATION")
     val appSignatures: ArrayList<String>
         @SuppressLint("PackageManagerGetSignatures")
         get() {

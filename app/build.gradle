@@ -140,13 +140,12 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
-    implementation project(':common')
+    implementation project(':core')
     implementation project(':network')
 
     testImplementation "junit:junit:$versions.junit"
     testImplementation "org.robolectric:robolectric:$versions.robolectric"
-    testImplementation "com.squareup.okhttp3:mockwebserver:3.8.1"
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.8.1'
     testImplementation "androidx.test:core:$versions.androidx.test_core"
     testImplementation "androidx.test:runner:$versions.androidx.test_runner"
     testImplementation "androidx.test:rules:$versions.androidx.test_rules"
@@ -154,13 +153,13 @@ dependencies {
     testImplementation("androidx.test.espresso:espresso-core:$versions.androidx.espresso_core", {
         exclude group: 'com.google.code.findbugs'
     })
-    testImplementation "com.google.code.findbugs:jsr305:3.0.2"
-    testImplementation "org.mockito:mockito-android:2.22.0"
-    testImplementation "org.mockito:mockito-core:2.23.4"
-    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+    testImplementation 'com.google.code.findbugs:jsr305:3.0.2'
+    testImplementation 'org.mockito:mockito-android:2.22.0'
+    testImplementation 'org.mockito:mockito-core:2.23.4'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+    androidTestImplementation 'org.mockito:mockito-android:2.22.0'
+    androidTestImplementation 'org.mockito:mockito-core:2.23.4'
 
-    androidTestImplementation "org.mockito:mockito-android:2.22.0"
-    androidTestImplementation "org.mockito:mockito-core:2.23.4"
     // androidTestImplementation "androidx.arch.core:core-testing:$versions.androidx.arch_core_testing"
 
     // Core library
@@ -180,23 +179,30 @@ dependencies {
         exclude group: 'com.google.code.findbugs'
     })
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$versions.androidx.espresso_contrib"
+
     //androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
+
     //androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.1.1'
+
     //androidTestImplementation 'androidx.test.espresso:espresso-web:3.1.1'
+
     //androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.1.1'
 
     // The following Espresso dependency can be either "implementation"
-    // or "androidTestImplementation", depending on whether you want the
-    // dependency to appear on your APK's compile classpath or the test APK
-    // classpath.
-    //implementation 'androidx.test.espresso:espresso-idling-resource:3.1.1'
-    // androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.2'
 
+    // or "androidTestImplementation", depending on whether you want the
+
+    // dependency to appear on your APK's compile classpath or the test APK
+
+    // classpath.
+
+    //implementation 'androidx.test.espresso:espresso-idling-resource:3.1.1'
+
+    // androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.2'
     releaseImplementation 'com.github.ajitsing:sherlock-no-op:1.0.4@aar'
     debugImplementation('com.github.ajitsing:sherlock:1.0.4@aar') {
         transitive = true
     }
-
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.8@aar') {
         transitive = true
     }
@@ -222,12 +228,11 @@ dependencies {
 
     implementation "com.google.android.material:material:$versions.material_design"
     implementation 'com.google.firebase:firebase-database:16.0.5'
-
-    implementation "android.arch.navigation:navigation-fragment:1.0.0-alpha09"
-    implementation "android.arch.navigation:navigation-ui:1.0.0-alpha09"
-    implementation "android.arch.work:work-runtime-ktx:1.0.0-beta01"
-    implementation "android.arch.work:work-firebase:1.0.0-alpha11"
-
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha09'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha09'
+    implementation 'android.arch.work:work-runtime-ktx:1.0.0-beta01'
+    implementation 'android.arch.work:work-firebase:1.0.0-alpha11'
+    implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 

@@ -3,7 +3,7 @@ package aykuttasil.com.modernapp.di.modules
 import android.content.Context
 import androidx.room.Room
 import aykuttasil.com.modernapp.data.AppDatabase
-import com.aykutasil.common.di.ApplicationContext
+import com.aykutasil.modernapp.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

@@ -1,7 +1,7 @@
 package aykuttasil.com.modernapp.di.components
 
 import android.app.Application
-import aykuttasil.com.modernapp.App
+import aykuttasil.com.modernapp.TestApp
 import aykuttasil.com.modernapp.di.ActivityBuilder
 import aykuttasil.com.modernapp.di.ServiceBuilder
 import aykuttasil.com.modernapp.di.modules.ApiModule
@@ -24,7 +24,7 @@ import javax.inject.Singleton
     (ApiModule::class),
     (TestDatabaseModule::class)
 ])
-interface TestAppComponent : AndroidInjector<App> {
+interface TestAppComponent : AndroidInjector<TestApp> {
 
     @Component.Builder
     interface Builder {

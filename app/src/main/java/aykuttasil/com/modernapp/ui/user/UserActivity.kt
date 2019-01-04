@@ -7,7 +7,7 @@ import aykuttasil.com.modernapp.databinding.ActivityUserBinding
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
 import aykuttasil.com.modernapp.util.delegates.contentView
-import com.aykutasil.common.util.logd
+import com.aykutasil.modernapp.util.logd
 import javax.inject.Inject
 
 class UserActivity : BaseActivity() {

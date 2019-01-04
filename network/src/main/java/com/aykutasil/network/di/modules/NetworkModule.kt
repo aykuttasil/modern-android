@@ -1,8 +1,8 @@
 package com.aykutasil.network.di.modules
 
 import android.content.Context
-import com.aykutasil.common.di.ApplicationContext
-import com.aykutasil.common.util.LogUtils
+import com.aykutasil.modernapp.di.ApplicationContext
+import com.aykutasil.modernapp.util.LogUtils
 import com.aykutasil.network.BuildConfig
 import com.aykutasil.network.LiveDataCallAdapterFactory
 import com.facebook.stetho.okhttp3.StethoInterceptor

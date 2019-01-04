@@ -38,6 +38,7 @@ buildscript {
             'mockito'        : '2.18.3',
             'material_design': '1.0.0',
             'rx'             : '2.2.4',
+            'rxjava'         : '2.2.4',
             'rxandroid'      : '2.0.2',
             'rxkotlin'       : '2.3.0',
             'rxlint'         : '1.7.1',
@@ -53,7 +54,7 @@ buildscript {
 
     ext.buildConfig = [
             'compileSdk': 28,
-            'minSdk'    : 23,
+            'minSdk'    : 21,
             'targetSdk' : 28,
     ]
 
@@ -83,4 +84,12 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
 }

@@ -3,8 +3,8 @@ package aykuttasil.com.modernapp.data.repository
 import androidx.lifecycle.LiveData
 import aykuttasil.com.modernapp.data.remote.ApiService
 import aykuttasil.com.modernapp.data.remote.model.Repo
-import com.aykutasil.common.Resource
-import com.aykutasil.common.util.AppExecutors
+import com.aykutasil.modernapp.Resource
+import com.aykutasil.modernapp.util.AppExecutors
 import com.aykutasil.network.ApiResponse
 import com.aykutasil.network.NetworkBoundResource
 import javax.inject.Inject

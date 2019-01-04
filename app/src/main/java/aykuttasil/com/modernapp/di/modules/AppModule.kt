@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.di.ViewModelBuilder
-import com.aykutasil.common.di.ApplicationContext
+import com.aykutasil.modernapp.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

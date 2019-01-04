@@ -9,7 +9,7 @@ import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.data.remote.model.Repo
 import aykuttasil.com.modernapp.databinding.RepoItemBinding
 import aykuttasil.com.modernapp.ui.common.DataBoundListAdapter
-import com.aykutasil.common.util.AppExecutors
+import com.aykutasil.modernapp.util.AppExecutors
 
 /**
  * A RecyclerView adapter for [Repo] class.
