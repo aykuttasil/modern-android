@@ -1,21 +1,22 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
+# The simpliest strategy is to not run proguard against your project's own code.
+# This doesn't provide the benefits of optimization & obfuscation against your
+# project, but will still strip the libraries. The advantage is that your app will
+# work without any subsequent effort. If you choose this strategy, the proguard
+# configuration for the project is simply the line below.
 
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+-keep class aykuttasil.com.modernapp.** { *; }
 
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
+# The more involved strategy is to specifically provide rules to keep portions of your
+# app's codebase unmodified while allowing proguard to optimize the rest.
 
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
+# The first decision is whether or not you want to obfuscate your code. This provides no
+# performance benefit but makes it harder for other people to read your source code.
+# Unfortunately obfuscation can cause issues for code that uses reflection or a few other
+# techniques. The default is to obfuscate.
+
+-dontobfuscate
+
+# Additionally you will need to keep specific classes. A common use case is keeping all
+# of the models that are JSON parsed using something like Jackson.
+
+#-keep class com.yourpackage.app.model.User { *; }

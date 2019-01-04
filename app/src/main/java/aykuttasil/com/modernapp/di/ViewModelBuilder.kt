@@ -25,4 +25,3 @@ internal abstract class ViewModelBuilder {
     @Binds
     abstract fun provideViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 }
-

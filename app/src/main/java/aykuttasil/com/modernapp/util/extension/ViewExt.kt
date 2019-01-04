@@ -1,6 +1,5 @@
 package aykuttasil.com.modernapp.util.extension
 
-
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
@@ -17,8 +16,11 @@ fun View.showSnackbar(snackbarText: String?, timeLength: Int) {
 /**
  * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
  */
-fun View.setupSnackbar(lifecycleOwner: LifecycleOwner,
-                       snackbarMessageLiveEvent: SingleLiveEvent<Int>, timeLength: Int) {
+fun View.setupSnackbar(
+    lifecycleOwner: LifecycleOwner,
+    snackbarMessageLiveEvent: SingleLiveEvent<Int>,
+    timeLength: Int
+) {
     snackbarMessageLiveEvent.observe(lifecycleOwner, Observer {
         it?.let { showSnackbar(context.getString(it), timeLength) }
     })
@@ -29,8 +31,8 @@ fun View.setupSnackbar(lifecycleOwner: LifecycleOwner,
  *
  * Creates the `android:onRefresh` for a [SwipeRefreshLayout].
  */
-//@BindingAdapter("android:onRefresh")
-//fun ScrollChildSwipeRefreshLayout.setSwipeRefreshLayoutOnRefreshListener(
+// @BindingAdapter("android:onRefresh")
+// fun ScrollChildSwipeRefreshLayout.setSwipeRefreshLayoutOnRefreshListener(
 //        viewModel: TasksViewModel) {
 //    setOnRefreshListener { viewModel.loadTasks(true) }
-//}
+// }

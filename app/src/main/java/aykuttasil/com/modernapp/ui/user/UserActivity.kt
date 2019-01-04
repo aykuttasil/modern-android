@@ -10,7 +10,6 @@ import aykuttasil.com.modernapp.util.delegates.contentView
 import com.aykutasil.common.util.logd
 import javax.inject.Inject
 
-
 class UserActivity : BaseActivity() {
 
     private val binding: ActivityUserBinding by contentView(R.layout.activity_user)

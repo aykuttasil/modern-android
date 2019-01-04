@@ -16,6 +16,4 @@ class MainActivityModule {
     fun providerContext(context: MainActivity): Context {
         return context
     }
-
-
 }

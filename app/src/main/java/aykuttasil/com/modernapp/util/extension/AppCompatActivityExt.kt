@@ -52,7 +52,6 @@ private inline fun FragmentManager.transact(action: FragmentTransaction.() -> Un
     }.commit()
 }
 
-
 inline fun AppCompatActivity.debug(block: () -> Unit) {
     if (BuildConfig.DEBUG) {
         block()

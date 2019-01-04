@@ -1,13 +1,15 @@
 package aykuttasil.com.modernapp.data.local.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
 import aykuttasil.com.modernapp.data.local.entity.LocationEntity
 import io.reactivex.Flowable
 
-/**
- * Created by aykutasil on 27.12.2017.
- */
 @Dao
 abstract class LocationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -17,7 +19,7 @@ abstract class LocationDao {
     abstract fun insertItem(item: LocationEntity): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun updatetItem(item: LocationEntity)
+    abstract fun updateItem(item: LocationEntity)
 
     @Delete
     abstract fun deleteItem(item: LocationEntity)

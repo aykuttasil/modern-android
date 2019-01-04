@@ -26,5 +26,4 @@ class DatabaseModule {
     @Provides
     @Singleton
     fun provideLocationDao(db: AppDatabase) = db.getLocationDao()
-
 }

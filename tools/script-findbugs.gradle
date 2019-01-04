@@ -1,0 +1,15 @@
+apply plugin: 'findbugs'
+
+task findbugs(type: FindBugs) {
+    excludeFilter = file("$project.rootDir/tools/rules-findbugs.xml")
+    classes = fileTree("$project.buildDir/intermediates/classes/prod/release/softaktif/com/reaktif") + fileTree("$project.buildDir/intermediates/classes/prod/debug/softaktif/com/reaktif")
+    source = fileTree("$project.rootDir/src/main/java/softaktif/com/reaktif")
+    classpath = files()
+    setIgnoreFailures(true)
+
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.destination(file("$project.buildDir/outputs/findbugs/findbugs.html"))
+    }
+}

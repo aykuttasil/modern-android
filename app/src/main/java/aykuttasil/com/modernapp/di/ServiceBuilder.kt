@@ -11,5 +11,4 @@ abstract class ServiceBuilder {
     @PerService
     @ContributesAndroidInjector
     internal abstract fun bindAppService(): AppService
-
 }

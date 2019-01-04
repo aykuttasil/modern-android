@@ -29,6 +29,19 @@ jobs:
       #       echo "signingStoreFile=$KEYSTORE_STORE_FILE" >>  keystore.properties
       #       echo "signingStorePassword=$KEYSTORE_STORE_PASSWORD" >>  keystore.properties
       #       cat keystore.properties
+      - run:
+          name: KtLint
+          command: ./gradlew ktlintFormat
+      - run:
+          name: Lint
+          command: ./gradlew lint
+      - store_artifacts:
+          path: app/build/outputs/lint
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
+      - run:
+          command: echo "Current Branch:" ${CIRCLE_BRANCH}
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
@@ -38,13 +51,6 @@ jobs:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
-      - store_artifacts:
-          path: app/build/reports
-          destination: reports
-      - store_test_results:
-          path: app/build/test-results
-      - run:
-          command: echo "Current Branch:" ${CIRCLE_BRANCH}
       - run:
           name: Debug build
           command: ./gradlew assembleDevDebug --no-daemon --stacktrace

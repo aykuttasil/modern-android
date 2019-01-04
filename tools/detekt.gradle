@@ -1,0 +1,55 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath "gradle.plugin.io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.0.0.M12.4"
+    }
+}
+
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "1.0.0-RC12"
+}
+
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    debug = true
+    version = "1.0.0-RC12"
+    profile("main") {
+        input = "$projectDir/app/src/main/java"
+        output = "$project.rootDir/detekt/output.xml"
+        config = "$project.rootDir/tools/detekt.yml"
+        // ruleSets = "$project.rootDir/lib/detect-custom-ruleset.jar"
+        // baseline = "$projectDir/detekt/baseline.xml"
+        filters = ".*test.*,.*/resources/.*"
+    }
+}
+
+
+//detekt {
+//    toolVersion = "[version]"                             // Version of the Detekt CLI that will be used. When unspecified the latest detekt version found will be used. Override to stay on the same version.
+//    input = files(                                        // The directories where detekt looks for input files. Defaults to `files("src/main/java", "src/main/kotlin")`.
+//            "src/main/**/*.kt",
+//            "gensrc/main/kotlin"
+//    )
+//    //parallel = false                                      // Runs detekt in parallel. Can lead to speedups in larger projects. `false` by default.
+//    //config = files("path/to/config.yml")                  // Define the detekt configuration(s) you want to use. Defaults to the default detekt configuration.
+//    //baseline = file("path/to/baseline.xml")               // Specifying a baseline file. All findings stored in this file in subsequent runs of detekt.
+//    //filters = ''                                          // Regular expression of paths that should be excluded separated by `;`.
+//    //disableDefaultRuleSets = false                        // Disables all default detekt rulesets and will only run detekt with custom rules defined in `plugins`. `false` by default.
+//    //plugins = "other/optional/ruleset.jar"                // Additional jar file containing custom detekt rules.
+//    debug = true                                         // Adds debug output during task execution. `false` by default.
+//    reports {
+//        xml {
+//            enabled = false                                // Enable/Disable XML report (default: true)
+//            destination = file("build/reports/detekt.xml")  // Path where XML report will be stored (default: `build/reports/detekt/detekt.xml`)
+//        }
+//        html {
+//            enabled = true                                // Enable/Disable HTML report (default: true)
+//            destination = file("build/reports/detekt.html") // Path where HTML report will be stored (default: `build/reports/detekt/detekt.html`)
+//        }
+//    }
+//}

@@ -12,10 +12,10 @@ import aykuttasil.com.modernapp.BR
  */
 @Entity(tableName = "user")
 data class UserEntity(
-        @PrimaryKey(autoGenerate = true) val UserId: Long? = null,
-        @ColumnInfo(name = "UserName") private var _UserName: String?,
-        val UserEmail: String?,
-        @ColumnInfo(name = "UserJob") private var _UserJob: String? = null
+    @PrimaryKey(autoGenerate = true) val UserId: Long? = null,
+    @ColumnInfo(name = "UserName") private var _UserName: String?,
+    val UserEmail: String?,
+    @ColumnInfo(name = "UserJob") private var _UserJob: String? = null
 ) : BaseObservable() {
 
     var UserName: String
@@ -28,7 +28,6 @@ data class UserEntity(
             notifyPropertyChanged(BR.userName)
         }
 
-
     var UserJob: String?
         @Bindable
         get() {
@@ -38,5 +37,4 @@ data class UserEntity(
             _UserJob = value
             notifyPropertyChanged(BR.userJob)
         }
-
 }

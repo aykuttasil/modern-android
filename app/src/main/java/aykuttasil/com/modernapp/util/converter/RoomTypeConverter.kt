@@ -1,7 +1,7 @@
 package aykuttasil.com.modernapp.util.converter
 
 import androidx.room.TypeConverter
-import java.util.*
+import java.util.Date
 
 /**
  * Created by aykutasil on 27.12.2017.
@@ -17,5 +17,4 @@ class RoomTypeConverter {
     fun fromLongToDate(long: Long): Date {
         return Date(long)
     }
-
 }

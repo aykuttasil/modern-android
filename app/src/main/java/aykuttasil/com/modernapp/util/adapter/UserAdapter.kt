@@ -53,7 +53,6 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
                 override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
                     return super.getChangePayload(oldItemPosition, newItemPosition)
                 }
-
             })
             mList = list
             diffResult.dispatchUpdatesTo(this)
@@ -95,5 +94,4 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
             }
         }
     }
-
 }

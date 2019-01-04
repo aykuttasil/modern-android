@@ -11,21 +11,20 @@ import aykuttasil.com.modernapp.databinding.RepoItemBinding
 import aykuttasil.com.modernapp.ui.common.DataBoundListAdapter
 import com.aykutasil.common.util.AppExecutors
 
-
 /**
  * A RecyclerView adapter for [Repo] class.
  */
 class RepoListAdapter(
-        private val dataBindingComponent: DataBindingComponent,
-        appExecutors: AppExecutors,
-        private val showFullName: Boolean,
-        private val repoClickCallback: ((Repo) -> Unit)?
+    private val dataBindingComponent: DataBindingComponent,
+    appExecutors: AppExecutors,
+    private val showFullName: Boolean,
+    private val repoClickCallback: ((Repo) -> Unit)?
 ) : DataBoundListAdapter<Repo, RepoItemBinding>(
         appExecutors = appExecutors,
         diffCallback = object : DiffUtil.ItemCallback<Repo>() {
             override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean {
-                return oldItem.owner == newItem.owner
-                        && oldItem.name == newItem.name
+                return oldItem.owner == newItem.owner &&
+                        oldItem.name == newItem.name
             }
 
             override fun areContentsTheSame(oldItem: Repo, newItem: Repo): Boolean {

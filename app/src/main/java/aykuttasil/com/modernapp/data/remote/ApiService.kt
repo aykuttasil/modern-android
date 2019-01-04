@@ -20,5 +20,4 @@ interface ApiService {
 
     @GET("repos/{owner}/{name}")
     fun getRepo(@Path("owner") owner: String, @Path("name") name: String): LiveData<ApiResponse<Repo>>
-
 }

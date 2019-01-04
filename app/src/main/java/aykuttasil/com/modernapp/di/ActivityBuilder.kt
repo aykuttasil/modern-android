@@ -18,5 +18,4 @@ abstract class ActivityBuilder {
     @PerActivity
     @ContributesAndroidInjector(modules = [(UserActivityModule::class)])
     internal abstract fun bindUserActivity(): UserActivity
-
 }

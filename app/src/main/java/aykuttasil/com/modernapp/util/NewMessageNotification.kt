@@ -51,7 +51,6 @@ object NewMessageNotification {
         // TODO: Remove this if your notification has no relevant thumbnail.
         val picture = BitmapFactory.decodeResource(res, R.drawable.example_picture)
 
-
         val title = res.getString(R.string.new_message_notification_title_template, exampleString)
         val text = res.getString(R.string.new_message_notification_placeholder_text_template, exampleString)
 
@@ -91,7 +90,7 @@ object NewMessageNotification {
                 // TODO: Call setWhen if this notification relates to a past or
                 // upcoming event. The sole argument to this method should be
                 // the notification timestamp in milliseconds.
-                //.setWhen(...)
+                // .setWhen(...)
 
                 // Set the pending intent to be initiated when the user touches
                 // the notification.

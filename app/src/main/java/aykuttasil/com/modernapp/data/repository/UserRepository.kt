@@ -39,8 +39,6 @@ class UserRepository @Inject constructor(val apiService: ApiService, val userDao
                     it
                 }
             }
-
         }.asLiveData()
     }
-
 }

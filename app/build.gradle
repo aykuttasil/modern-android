@@ -5,6 +5,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
 
+apply from: "$project.rootDir/tools/script-findbugs.gradle"
+apply from: "$project.rootDir/tools/script-lint.gradle"
+apply from: "$project.rootDir/tools/script-pmd.gradle"
+apply from: "$project.rootDir/tools/script-java-code-coverage.gradle"
+apply from: "$project.rootDir/tools/ktlint.gradle"
+
 android {
     compileSdkVersion buildConfig.compileSdk
 
@@ -54,10 +60,11 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.debug
             applicationIdSuffix ".debug"
+            versionNameSuffix '-DEBUG'
         }
 
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
@@ -206,13 +213,12 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.0.1'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.1'
-
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.androidx.lifecycle"
     implementation "androidx.lifecycle:lifecycle-reactivestreams:$versions.androidx.lifecycle"
-
     implementation "androidx.room:room-runtime:$versions.androidx.room"
     kapt "androidx.room:room-compiler:$versions.androidx.room"
     implementation "androidx.room:room-rxjava2:$versions.androidx.room"
+
 
     implementation "com.google.android.material:material:$versions.material_design"
     implementation 'com.google.firebase:firebase-database:16.0.5'

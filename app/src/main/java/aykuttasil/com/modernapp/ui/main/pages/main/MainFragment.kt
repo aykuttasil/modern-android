@@ -32,20 +32,20 @@ class MainFragment : BaseFragment(), Injectable {
         }
 
         load {
-            LogUtils.info("Thread Name load 1:" + Thread.currentThread().name)
+            LogUtils.i("Thread Name load 1:" + Thread.currentThread().name)
             delay(10000)
-            LogUtils.info("Thread Name load 2:" + Thread.currentThread().name)
+            LogUtils.i("Thread Name load 2:" + Thread.currentThread().name)
 
             val ad = "aykut"
             ad
         } then {
-            LogUtils.info("Thread Name then:" + Thread.currentThread().name)
-            LogUtils.info("Result: $it")
+            LogUtils.i("Thread Name then:" + Thread.currentThread().name)
+            LogUtils.i("Result: $it")
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        LogUtils.info("MainFragment > onDestroy")
+        LogUtils.i("MainFragment > onDestroy")
     }
 }

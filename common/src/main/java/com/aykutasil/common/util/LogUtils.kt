@@ -4,12 +4,20 @@ import timber.log.Timber
 
 object LogUtils {
 
-    fun info(msg: String?) {
-        Timber.i(msg)
+    fun i(msg: String?) {
+        Timber.i(msg ?: "non message")
     }
 
     fun d(msg: String?) {
-        Timber.d(msg)
+        Timber.d(msg ?: "non message")
+    }
+
+    fun e(msg: String?) {
+        Timber.e(msg ?: "non message")
+    }
+
+    fun e(throwable: Throwable, msg: String?) {
+        Timber.e(throwable, msg ?: "non message")
     }
 
 }

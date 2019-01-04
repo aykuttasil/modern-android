@@ -1,14 +1,16 @@
 package aykuttasil.com.modernapp.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.util.Base64
 import android.util.Log
+import com.aykutasil.common.util.LogUtils
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
-import java.util.*
+import java.util.Arrays
 
 /**
  * Created by aykutasil on 7.12.2017.
@@ -24,14 +26,17 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
     // Get all package signatures for the current package
     // For each signature create a compatible hash
     val appSignatures: ArrayList<String>
+        @SuppressLint("PackageManagerGetSignatures")
         get() {
             val appCodes = ArrayList<String>()
 
             try {
                 val packageName = packageName
                 val packageManager = packageManager
-                val signatures = packageManager.getPackageInfo(packageName,
-                        PackageManager.GET_SIGNATURES).signatures
+                val signatures = packageManager.getPackageInfo(
+                    packageName,
+                    PackageManager.GET_SIGNATURES
+                ).signatures
                 for (signature in signatures) {
                     val hash = hash(packageName, signature.toCharsString())
                     if (hash != null) {
@@ -39,7 +44,7 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
                     }
                 }
             } catch (e: PackageManager.NameNotFoundException) {
-                Log.e(TAG, "Unable to find package to obtain hash.", e)
+                LogUtils.e(e, "Unable to find package to obtain hash.")
             }
 
             return appCodes
@@ -62,7 +67,8 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
                 // truncated into NUM_HASHED_BYTES
                 hashSignature = Arrays.copyOfRange(hashSignature, 0, NUM_HASHED_BYTES)
                 // encode into Base64
-                var base64Hash = Base64.encodeToString(hashSignature, Base64.NO_PADDING or Base64.NO_WRAP)
+                var base64Hash =
+                    Base64.encodeToString(hashSignature, Base64.NO_PADDING or Base64.NO_WRAP)
                 base64Hash = base64Hash.substring(0, NUM_BASE64_CHAR)
 
                 Log.d(TAG, String.format("pkg: %s -- hash: %s", packageName, base64Hash))

@@ -17,5 +17,4 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun supportFragmentInjector(): DispatchingAndroidInjector<Fragment> {
         return dispatchingAndroidInjector
     }
-
 }

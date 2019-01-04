@@ -2,31 +2,36 @@ package aykuttasil.com.modernapp.util.extension
 
 import android.app.Activity
 import android.content.Context
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
-import com.google.android.material.snackbar.Snackbar
-import androidx.fragment.app.Fragment
-import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.TextPaint
 import android.text.style.ClickableSpan
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
+import com.aykutasil.common.util.getLayoutInflater
+import com.google.android.material.snackbar.Snackbar
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
-
+import java.util.Date
+import java.util.Locale
 
 /*
 fun ImageView.loadImageFromUrl(url: String) {
@@ -62,8 +67,11 @@ inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
 /**
  * Extension method to simplify the code needed to apply spans on a specific sub string.
  */
-inline fun SpannableStringBuilder.withSpan(vararg spans: Any, action: SpannableStringBuilder.() -> Unit):
-        SpannableStringBuilder {
+inline fun SpannableStringBuilder.withSpan(
+    vararg spans: Any,
+    action: SpannableStringBuilder.() -> Unit
+):
+    SpannableStringBuilder {
     val from = length
     action()
 
@@ -89,7 +97,7 @@ fun Fragment.getColorCompat(color: Int) = context?.getColorCompat(color)
  * Extension method to provide simpler access to {@link ContextCompat#getDrawableCompat(int)}.
  */
 fun Context.getDrawableCompat(drawableResId: Int): Drawable? = ContextCompat
-        .getDrawable(this, drawableResId)
+    .getDrawable(this, drawableResId)
 
 /**
  * Extension method to provide simpler access to {@link ContextCompat#getDrawableCompat(int)}
@@ -116,8 +124,10 @@ fun View.showKeyboard() {
  */
 fun Activity.hideSoftKeyboard() {
     if (currentFocus != null) {
-        val inputMethodManager = getSystemService(Context
-                .INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager = getSystemService(
+            Context
+                .INPUT_METHOD_SERVICE
+        ) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
     }
 }
@@ -145,7 +155,8 @@ fun Int.twoDigitTime() = if (this < 10) "0" + toString() else toString()
 /**
  * Extension method to provide quicker access to the [LayoutInflater] from [Context].
  */
-fun Context.getLayoutInflater() = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+fun Context.getLayoutInflater() =
+    getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
 /**
  * Extension method to provide quicker access to the [LayoutInflater] from a [View].
@@ -364,10 +375,10 @@ fun SnapHelper.snapToPosition(recyclerView: RecyclerView, position: Int) {
 fun Activity.isKeyboardVisible(): Boolean {
     val r = Rect()
 
-    //r will be populated with the coordinates of your view that area still visible.
+    // r will be populated with the coordinates of your view that area still visible.
     window.decorView.getWindowVisibleDisplayFrame(r)
 
-    //get screen height and calculate the difference with the usable area from the r
+    // get screen height and calculate the difference with the usable area from the r
     val height = getDisplaySize().y
     val diff = height - r.bottom
 

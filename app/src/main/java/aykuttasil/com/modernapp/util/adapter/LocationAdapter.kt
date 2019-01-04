@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import aykuttasil.com.modernapp.data.local.entity.LocationEntity
 import aykuttasil.com.modernapp.databinding.ItemLocationLayoutBinding
 
-
 /**
  * Created by aykutasil on 29.12.2017.
  */
@@ -54,7 +53,6 @@ class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>
                 override fun getChangePayload(oldItemPosition: Int, newItemPosition: Int): Any? {
                     return super.getChangePayload(oldItemPosition, newItemPosition)
                 }
-
             })
             mList = list
             diffResult.dispatchUpdatesTo(this)
@@ -96,5 +94,4 @@ class LocationAdapter : RecyclerView.Adapter<LocationAdapter.LocationViewHolder>
             }
         }
     }
-
 }

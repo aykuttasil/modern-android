@@ -17,23 +17,20 @@ class RepoRepository @Inject constructor(val apiService: ApiService, val appExec
     fun getUserRepos(user: String): LiveData<Resource<Repo>> {
         return object : NetworkBoundResource<Repo, Repo>(appExecutors) {
             override fun saveCallResult(item: Repo) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
             }
 
             override fun shouldFetch(data: Repo?): Boolean {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
             }
 
             override fun loadFromDb(): LiveData<Repo> {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
             }
 
             override fun createCall(): LiveData<ApiResponse<Repo>> {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
             }
-
-
         }.asLiveData()
     }
-
 }

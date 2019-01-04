@@ -3,7 +3,6 @@ package aykuttasil.com.modernapp.util
 import androidx.databinding.BindingAdapter
 import android.view.View
 
-
 /**
  * Created by aykutasil on 19.12.2017.
  */
@@ -13,12 +12,12 @@ class GlobalBindingAdapters {
         /**
          * Bind Glide with an ImageView.
          *
-         * @param view        the ImageView to bind to Glide.
-         * @param src         The URL of the image to load.
+         * @param view the ImageView to bind to Glide.
+         * @param src The URL of the image to load.
          * @param placeholder The placeholder icon.
-         * @param error       The error icon.
-         * @param blurValue   The blur radius value between 1 and 25.
-         * @param cropCircle  Crop the image in a circle of not.
+         * @param error The error icon.
+         * @param blurValue The blur radius value between 1 and 25.
+         * @param cropCircle Crop the image in a circle of not.
          */
         /*
         @JvmStatic
@@ -59,7 +58,6 @@ class GlobalBindingAdapters {
         }
     }
 }
-
 
 /*
 enum class Shape {

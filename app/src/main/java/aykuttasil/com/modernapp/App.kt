@@ -32,7 +32,7 @@ open class App : Application(), HasActivityInjector {
         initTimber()
         initFabric()
         initNotificationChannel()
-        //initStetho()
+        // initStetho()
     }
 
     private fun initTimber() {
