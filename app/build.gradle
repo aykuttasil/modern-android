@@ -102,7 +102,6 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-        encoding = "UTF-8"
     }
 
     testOptions {
@@ -183,24 +182,15 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$versions.androidx.espresso_contrib"
 
     //androidTestImplementation 'androidx.test.espresso:espresso-intents:3.1.1'
-
     //androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.1.1'
-
     //androidTestImplementation 'androidx.test.espresso:espresso-web:3.1.1'
-
     //androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.1.1'
-
     // The following Espresso dependency can be either "implementation"
-
     // or "androidTestImplementation", depending on whether you want the
-
     // dependency to appear on your APK's compile classpath or the test APK
-
     // classpath.
-
     //implementation 'androidx.test.espresso:espresso-idling-resource:3.1.1'
 
-    // androidTestImplementation 'com.google.code.findbugs:jsr305:3.0.2'
     releaseImplementation 'com.github.ajitsing:sherlock-no-op:1.0.4@aar'
     debugImplementation('com.github.ajitsing:sherlock:1.0.4@aar') {
         transitive = true
@@ -226,7 +216,6 @@ dependencies {
     implementation "androidx.room:room-runtime:$versions.androidx.room"
     kapt "androidx.room:room-compiler:$versions.androidx.room"
     implementation "androidx.room:room-rxjava2:$versions.androidx.room"
-
 
     implementation "com.google.android.material:material:$versions.material_design"
     implementation 'com.google.firebase:firebase-database:16.0.5'
