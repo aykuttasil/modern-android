@@ -30,6 +30,7 @@
         </activity>
 
         <activity android:name="aykuttasil.com.modernapp.ui.user.UserActivity" />
+        <activity android:name=".util.ActivityForTest" />
 
         <service android:name="aykuttasil.com.modernapp.service.AppService" />
 

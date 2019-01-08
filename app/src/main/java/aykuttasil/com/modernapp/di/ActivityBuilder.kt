@@ -4,6 +4,7 @@ import aykuttasil.com.modernapp.ui.main.MainActivity
 import aykuttasil.com.modernapp.ui.main.MainActivityModule
 import aykuttasil.com.modernapp.ui.user.UserActivity
 import aykuttasil.com.modernapp.ui.user.UserActivityModule
+import aykuttasil.com.modernapp.util.ActivityForTest
 import com.aykuttasil.sweetloc.di.scopes.PerActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -18,4 +19,8 @@ abstract class ActivityBuilder {
     @PerActivity
     @ContributesAndroidInjector(modules = [(UserActivityModule::class)])
     internal abstract fun bindUserActivity(): UserActivity
+
+    @PerActivity
+    @ContributesAndroidInjector
+    internal abstract fun bindActivityForTest(): ActivityForTest
 }
