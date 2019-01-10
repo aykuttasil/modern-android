@@ -6,8 +6,10 @@
         android:name=".DebugApp"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:name">
+
         <activity android:name=".SingleFragmentActivity" />
         <activity android:name=".FragmentTestActivity" />
+
     </application>
 
 </manifest>
