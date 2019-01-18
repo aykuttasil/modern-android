@@ -147,7 +147,7 @@ dependencies {
 
     testImplementation "junit:junit:$versions.junit"
     testImplementation "org.robolectric:robolectric:$versions.robolectric"
-    testImplementation 'com.squareup.okhttp3:mockwebserver:3.8.1'
+    testImplementation "com.squareup.okhttp3:mockwebserver:$versions.mock_web_server"
     testImplementation "androidx.test:core:$versions.androidx.test_core"
     testImplementation "androidx.test:runner:$versions.androidx.test_runner"
     testImplementation "androidx.test:rules:$versions.androidx.test_rules"
@@ -156,12 +156,14 @@ dependencies {
         exclude group: 'com.google.code.findbugs'
     })
     testImplementation 'com.google.code.findbugs:jsr305:3.0.2'
-    testImplementation 'org.mockito:mockito-android:2.22.0'
-    testImplementation 'org.mockito:mockito-core:2.23.4'
+    testImplementation "org.mockito:mockito-core:$versions.mockito_core"
+    testImplementation "org.mockito:mockito-android:$versions.mockito_android"
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
 
-    androidTestImplementation 'org.mockito:mockito-android:2.22.0'
-    androidTestImplementation 'org.mockito:mockito-core:2.23.4'
+
+    androidTestImplementation "org.mockito:mockito-core:$versions.mockito_core"
+    androidTestImplementation "org.mockito:mockito-android:$versions.mockito_android"
+
     // androidTestImplementation "androidx.arch.core:core-testing:$versions.androidx.arch_core_testing"
 
     // Core library
@@ -222,7 +224,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:16.0.5'
     implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha09'
     implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha09'
-    implementation 'android.arch.work:work-runtime-ktx:1.0.0-beta01'
+    implementation 'android.arch.work:work-runtime-ktx:1.0.0-beta02'
     implementation 'android.arch.work:work-firebase:1.0.0-alpha11'
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
@@ -235,8 +237,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 
     implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
-    implementation 'com.jakewharton:butterknife:9.0.0-rc3'
-    kapt 'com.jakewharton:butterknife-compiler:9.0.0-rc3'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    kapt 'com.jakewharton:butterknife-compiler:10.0.0'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
