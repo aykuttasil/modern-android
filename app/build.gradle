@@ -89,6 +89,11 @@ android {
         }
     }
 
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
     packagingOptions {
         exclude 'META-INF/services/javax.annotation.processing.Processor'
         exclude 'LICENSE.txt'

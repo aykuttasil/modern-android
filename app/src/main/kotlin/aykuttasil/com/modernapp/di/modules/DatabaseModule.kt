@@ -9,14 +9,15 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class TestDatabaseModule {
+open class DatabaseModule {
+
+    companion object {
+        const val DB_NAME = "aa_2.db"
+    }
 
     @Provides
     @Singleton
-    fun provideDatabase(@ApplicationContext context: Context) = Room.inMemoryDatabaseBuilder(
-        context,
-        AppDatabase::class.java
-    ).fallbackToDestructiveMigration().build()
+    open fun provideDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).fallbackToDestructiveMigration().build()
 
     @Provides
     @Singleton
@@ -25,5 +26,4 @@ class TestDatabaseModule {
     @Provides
     @Singleton
     fun provideLocationDao(db: AppDatabase) = db.getLocationDao()
-
 }

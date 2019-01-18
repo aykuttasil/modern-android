@@ -1,4 +1,4 @@
-package softaktif.com.reaktif
+package aykuttasil.com.modernapp
 
 /**
  * This annotation allows us to open some classes for mocking purposes while they are final in
