@@ -1,6 +1,5 @@
 package com.aykutasil.modernapp.util;
 
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,25 +10,26 @@ import androidx.fragment.app.FragmentManager;
  * @param <T>
  */
 public class AutoClearedValue<T> {
-    private T value;
+  private T value;
 
-    public AutoClearedValue(final Fragment fragment, T value) {
-        final FragmentManager fragmentManager = fragment.getFragmentManager();
-        assert fragmentManager != null;
-        fragmentManager.registerFragmentLifecycleCallbacks(
-                new FragmentManager.FragmentLifecycleCallbacks() {
-                    @Override
-                    public void onFragmentViewDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
-                        if (f == fragment) {
-                            AutoClearedValue.this.value = null;
-                            fragmentManager.unregisterFragmentLifecycleCallbacks(this);
-                        }
-                    }
-                }, false);
-        this.value = value;
-    }
+  public AutoClearedValue(final Fragment fragment, T value) {
+    final FragmentManager fragmentManager = fragment.getFragmentManager();
+    assert fragmentManager != null;
+    fragmentManager.registerFragmentLifecycleCallbacks(
+        new FragmentManager.FragmentLifecycleCallbacks() {
+          @Override
+          public void onFragmentViewDestroyed(@NonNull FragmentManager fm, @NonNull Fragment f) {
+            if (f == fragment) {
+              AutoClearedValue.this.value = null;
+              fragmentManager.unregisterFragmentLifecycleCallbacks(this);
+            }
+          }
+        },
+        false);
+    this.value = value;
+  }
 
-    public T get() {
-        return value;
-    }
+  public T get() {
+    return value;
+  }
 }
