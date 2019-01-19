@@ -30,8 +30,8 @@ jobs:
       #       echo "signingStorePassword=$KEYSTORE_STORE_PASSWORD" >>  keystore.properties
       #       cat keystore.properties
       - run:
-          name: KtLint Format
-          command: ./gradlew ktlintFormat
+          name: KtLint
+          command: ./gradlew ktlint
       - run:
           name: Lint
           command: ./gradlew lint

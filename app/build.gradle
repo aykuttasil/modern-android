@@ -250,5 +250,5 @@ dependencies {
 }
 // apply plugin: 'com.google.gms.google-services'
 
-apply from: '../spotless.gradle'
+apply from: '../tools/spotless.gradle'
 

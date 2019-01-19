@@ -56,4 +56,4 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"
     implementation "androidx.core:core-ktx:$versions.androidx.core_ktx"
 }
-apply from: '../spotless.gradle'
+apply from: '../tools/spotless.gradle'

@@ -59,4 +59,4 @@ dependencies {
 
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 }
-apply from: '../spotless.gradle'
+apply from: '../tools/spotless.gradle'
