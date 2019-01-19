@@ -30,7 +30,7 @@ jobs:
       #       echo "signingStorePassword=$KEYSTORE_STORE_PASSWORD" >>  keystore.properties
       #       cat keystore.properties
       - run:
-          name: KtLint
+          name: KtLint Format
           command: ./gradlew ktlintFormat
       - run:
           name: Lint
@@ -38,8 +38,6 @@ jobs:
       - store_artifacts:
           path: app/build/outputs/lint
           destination: reports
-      - store_test_results:
-          path: app/build/test-results
       - run:
           command: echo "Current Branch:" ${CIRCLE_BRANCH}
       - restore_cache:
@@ -60,6 +58,11 @@ jobs:
       - store_artifacts:
           path: app/build/outputs/apk/
           destination: apks/
+      - run:
+          name: Test
+          command: ./gradlew testDevDebug
+      - store_test_results:
+          path: app/build/test-results
       - deploy:
           name: Deploy to Fabric
           command: ./gradlew crashlyticsUploadDistributionDevRelease --stacktrace --debug --no-daemon
