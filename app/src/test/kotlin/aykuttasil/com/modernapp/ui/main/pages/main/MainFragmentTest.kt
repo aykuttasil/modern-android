@@ -11,16 +11,13 @@ import androidx.test.rule.ActivityTestRule
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.TestApp
 import aykuttasil.com.modernapp.util.ActivityForTest
-import junit.framework.Assert.assertTrue
 import org.junit.After
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
-import android.content.Intent
-import org.robolectric.shadows.ShadowIntent
-
 
 @RunWith(AndroidJUnit4::class)
 @Config(sdk = [28], application = TestApp::class)

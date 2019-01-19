@@ -1,11 +1,6 @@
 package aykuttasil.com.modernapp.util
 
-import android.app.Activity
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.DispatchingAndroidInjector_Factory
-import javax.inject.Provider
-
+/*
 inline fun <reified T : Activity> createFakeActivityInjector(crossinline block: T.() -> Unit)
     : DispatchingAndroidInjector<Activity> {
     val injector = AndroidInjector<Activity> { instance ->
@@ -19,5 +14,13 @@ inline fun <reified T : Activity> createFakeActivityInjector(crossinline block: 
             T::class.java,
             Provider { factory })
     )
-    return DispatchingAndroidInjector_Factory.newDispatchingAndroidInjector(map)
+
+    val stringMap = mapOf(
+        Pair<String, Provider<AndroidInjector.Factory<*>>>(
+            T::class.java.simpleName,
+            Provider { factory })
+    )
+
+    return DispatchingAndroidInjector_Factory.newDispatchingAndroidInjector(map, stringMap)
 }
+*/
