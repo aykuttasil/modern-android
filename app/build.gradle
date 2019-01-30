@@ -161,10 +161,7 @@ dependencies {
     testImplementation "org.mockito:mockito-android:$versions.mockito_android"
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
 
-
-    androidTestImplementation "org.mockito:mockito-core:$versions.mockito_core"
     androidTestImplementation "org.mockito:mockito-android:$versions.mockito_android"
-
     // androidTestImplementation "androidx.arch.core:core-testing:$versions.androidx.arch_core_testing"
 
     // Core library
@@ -177,7 +174,7 @@ dependencies {
     // Assertions
     androidTestImplementation "androidx.test.ext:junit:$versions.androidx.test_ext_junit"
     androidTestImplementation "androidx.test.ext:truth:$versions.androidx.test_ext_truth"
-    androidTestImplementation 'com.google.truth:truth:0.42'
+    androidTestImplementation "com.google.truth:truth:$versions.truth"
 
     // Espresso dependencies
     androidTestImplementation("androidx.test.espresso:espresso-core:$versions.androidx.espresso_core", {
@@ -212,9 +209,9 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable-animated:1.0.0'
     implementation "androidx.cardview:cardview:$versions.androidx.cardview"
     implementation "androidx.constraintlayout:constraintlayout:$versions.androidx.constraint_layout"
-    implementation 'androidx.annotation:annotation:1.0.1'
-    implementation 'androidx.gridlayout:gridlayout:1.0.0'
-    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation "androidx.annotation:annotation:$versions.androidx.annotation"
+    implementation "androidx.gridlayout:gridlayout:$versions.androidx.gridlayout"
+    implementation "androidx.multidex:multidex:$versions.androidx.multidex"
     implementation "androidx.lifecycle:lifecycle-extensions:$versions.androidx.lifecycle"
     implementation "androidx.lifecycle:lifecycle-reactivestreams:$versions.androidx.lifecycle"
     implementation "androidx.room:room-runtime:$versions.androidx.room"
@@ -234,13 +231,13 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
     implementation "org.jetbrains.anko:anko:$versions.anko"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines_core"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines_android"
 
     implementation 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    kapt 'com.jakewharton:butterknife-compiler:10.0.0'
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.jakewharton:butterknife:$versions.butterknife"
+    kapt "com.jakewharton:butterknife-compiler:$versions.butterknife"
+    implementation "com.google.code.gson:gson:$versions.gson"
     implementation "com.jakewharton.timber:timber:$versions.timber"
 
     kapt "com.google.dagger:dagger-compiler:$versions.dagger"
