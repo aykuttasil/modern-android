@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/abril_fatface"
             android:gravity="center"
-            android:text="About My App"
+            android:text="@string/about"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

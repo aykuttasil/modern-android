@@ -109,19 +109,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:elevation="0dp"
-                android:text="Resim Seç" />
+                android:text="@string/select_image" />
 
             <Button
                 android:id="@+id/btnGoUserActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Go User Activity" />
+                android:text="@string/txt_go_user_activity" />
 
             <Button
                 android:id="@+id/btnShowNotif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Show Notif"
+                android:text="@string/txt_show_notif"
                 tools:layout_editor_absoluteX="11dp"
                 tools:layout_editor_absoluteY="208dp" />
 
@@ -129,7 +129,8 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:src="@drawable/ic_facebook" />
+                tools:src="@drawable/ic_facebook"
+                android:contentDescription="TODO" />
         </LinearLayout>
 
         <include

@@ -14,7 +14,7 @@
         semper venenatis, magna odio volutpat velit, at ullamcorper nulla lacus sed turpis.
         Pellentesque vitae metus elit, nec tincidunt tellus. Integer sed nisl sem, ullamcorper
         ornare lacus. Duis ac mauris sed massa congue volutpat. Donec sed erat sit amet turpis
-        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat volutpat nec nec
+        viverra rhoncus sit amet nec magna. Donec lacinia ligula at libero volutpat nec nec
         tortor.
     </string>
 
@@ -29,4 +29,9 @@
     <string name="repo_full_name"><b>%s</b>/%s</string>
     <string name="empty_search_result">No results for <b>%s</b></string>
     <string name="a11y_contributor_avatar">contributor avatar</string>
+    <string name="about">About My App</string>
+    <string name="select_image">Resim Seç</string>
+    <string name="txt_go_user_activity">Go User Activity</string>
+    <string name="txt_show_notif">Show Notif</string>
+    <string name="txt_repeat_again">Tekrar Dene</string>
 </resources>

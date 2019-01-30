@@ -68,14 +68,14 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
         }
 
     companion object {
-        val TAG = AppSignatureHelper::class.java.simpleName
+        private val TAG = AppSignatureHelper::class.java.simpleName
 
-        private val HASH_TYPE = "SHA-256"
-        val NUM_HASHED_BYTES = 9
-        val NUM_BASE64_CHAR = 11
+        private const val HASH_TYPE = "SHA-256"
+        private const val NUM_HASHED_BYTES = 9
+        private const val NUM_BASE64_CHAR = 11
 
         private fun hash(packageName: String, signature: String): String? {
-            val appInfo = packageName + " " + signature
+            val appInfo = """$packageName $signature"""
             try {
                 val messageDigest = MessageDigest.getInstance(HASH_TYPE)
                 messageDigest.update(appInfo.toByteArray(StandardCharsets.UTF_8))
@@ -88,10 +88,10 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
                     Base64.encodeToString(hashSignature, Base64.NO_PADDING or Base64.NO_WRAP)
                 base64Hash = base64Hash.substring(0, NUM_BASE64_CHAR)
 
-                Log.d(TAG, String.format("pkg: %s -- hash: %s", packageName, base64Hash))
+                LogUtils.d(TAG, String.format("pkg: %s -- hash: %s", packageName, base64Hash))
                 return base64Hash
             } catch (e: NoSuchAlgorithmException) {
-                Log.e(TAG, "hash:NoSuchAlgorithm", e)
+                LogUtils.e(TAG, "hash:NoSuchAlgorithm", e)
             }
 
             return null
