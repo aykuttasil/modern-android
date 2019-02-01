@@ -83,8 +83,8 @@ inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
  * Extension method to simplify the code needed to apply spans on a specific sub string.
  */
 inline fun SpannableStringBuilder.withSpan(
-    vararg spans: Any,
-    action: SpannableStringBuilder.() -> Unit
+  vararg spans: Any,
+  action: SpannableStringBuilder.() -> Unit
 ):
     SpannableStringBuilder {
   val from = length

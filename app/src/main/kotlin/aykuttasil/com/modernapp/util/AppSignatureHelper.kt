@@ -20,7 +20,6 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.util.Base64
-import android.util.Log
 import com.aykutasil.modernapp.util.LogUtils
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
