@@ -157,9 +157,8 @@ dependencies {
         exclude group: 'com.google.code.findbugs'
     })
     testImplementation 'com.google.code.findbugs:jsr305:3.0.2'
-    testImplementation "org.mockito:mockito-core:$versions.mockito_core"
-    testImplementation "org.mockito:mockito-android:$versions.mockito_android"
-    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+    testImplementation "org.mockito:mockito-inline:$versions.mockito_inline"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito_kotlin"
 
     androidTestImplementation "org.mockito:mockito-android:$versions.mockito_android"
     // androidTestImplementation "androidx.arch.core:core-testing:$versions.androidx.arch_core_testing"

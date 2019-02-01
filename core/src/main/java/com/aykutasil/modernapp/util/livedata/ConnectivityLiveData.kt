@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package aykuttasil.com.modernapp.util.livedata
+package com.aykutasil.modernapp.util.livedata
 
 import androidx.lifecycle.LiveData
 import android.content.Context
