@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
-apply plugin: 'io.fabric'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
 apply plugin: "androidx.navigation.safeargs"
 
 apply from: "$project.rootDir/tools/script-findbugs.gradle"
@@ -219,10 +219,9 @@ dependencies {
 
     implementation "com.google.android.material:material:$versions.material_design"
     implementation 'com.google.firebase:firebase-database:16.0.6'
-    implementation 'android.arch.navigation:navigation-fragment:1.0.0-alpha11'
-    implementation 'android.arch.navigation:navigation-ui:1.0.0-alpha11'
-    implementation 'android.arch.work:work-runtime-ktx:1.0.0-beta03'
-    implementation 'android.arch.work:work-firebase:1.0.0-alpha11'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0-beta01'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0-beta01'
+    implementation 'android.arch.work:work-runtime-ktx:1.0.0-beta05'
     implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
     implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
     implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
