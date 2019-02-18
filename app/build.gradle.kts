@@ -7,6 +7,7 @@ plugins {
     id("androidx.navigation.safeargs")
 }
 
+apply(from = "${rootProject.rootDir}/tools/spotless.gradle")
 apply(from = "${rootProject.rootDir}/tools/ktlint.gradle")
 
 android {
@@ -177,7 +178,7 @@ dependencies {
     testImplementation(Libs.androidx_test_rules)
     testImplementation(Libs.androidx_test_ext_junit)
     testImplementation(Libs.espresso_core, {
-        this.exclude(group = "com.google.code.findbugs")
+        exclude(group = "com.google.code.findbugs")
     })
     // testImplementation 'com.google.code.findbugs:jsr305:3.0.2'
     testImplementation(Libs.mockito_inline)
@@ -191,7 +192,7 @@ dependencies {
     androidTestImplementation(Libs.androidx_test_ext_truth)
     androidTestImplementation(Libs.com_google_truth_truth)
     androidTestImplementation(Libs.espresso_core, {
-        this.exclude(group = "com.google.code.findbugs")
+        exclude(group = "com.google.code.findbugs")
     })
     androidTestImplementation(Libs.espresso_contrib)
 
@@ -249,4 +250,3 @@ dependencies {
     implementation(Libs.dagger_android_support)
 }
 // apply(plugin = "com.google.gms.google-services")
-apply(from = "../tools/spotless.gradle")
