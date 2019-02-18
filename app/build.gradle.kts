@@ -7,6 +7,8 @@ plugins {
     id("androidx.navigation.safeargs")
 }
 
+apply(from = "${rootProject.rootDir}/tools/ktlint.gradle")
+
 android {
     compileSdkVersion(28)
 
