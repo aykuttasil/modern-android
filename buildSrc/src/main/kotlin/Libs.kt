@@ -16,8 +16,6 @@ object Libs {
     const val navigation_ui: String = "android.arch.navigation:navigation-ui:" +
             Versions.android_arch_navigation
 
-    const val work_firebase: String = "android.arch.work:work-firebase:" + Versions.work_firebase
-
     const val work_runtime_ktx: String = "android.arch.work:work-runtime-ktx:" +
             Versions.work_runtime_ktx
 
@@ -172,16 +170,8 @@ object Libs {
     const val sherlock: String = "com.github.ajitsing:sherlock:" + Versions.com_github_ajitsing
 
     /**
-     * https://github.com/shyiko/ktlint */
-    const val ktlint: String = "com.github.shyiko:ktlint:" + Versions.ktlint
-
-    /**
      * http://developer.android.com/tools/extras/support-library.html */
     const val material: String = "com.google.android.material:material:" + Versions.material
-
-    /**
-     * http://findbugs.sourceforge.net/ */
-    const val jsr305: String = "com.google.code.findbugs:jsr305:" + Versions.jsr305
 
     /**
      * https://github.com/google/gson */
@@ -309,35 +299,30 @@ object Libs {
 
     /**
      * https://kotlinlang.org/ */
-    const val kotlin_android_extensions_runtime: String =
-            "org.jetbrains.kotlin:kotlin-android-extensions-runtime:" +
-            Versions.org_jetbrains_kotlin
-
-    /**
-     * https://kotlinlang.org/ */
     const val kotlin_android_extensions: String =
-            "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.org_jetbrains_kotlin
+            "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.kotlin_android_extensions
 
     /**
      * https://kotlinlang.org/ */
     const val kotlin_annotation_processing_gradle: String =
             "org.jetbrains.kotlin:kotlin-annotation-processing-gradle:" +
-            Versions.org_jetbrains_kotlin
+            Versions.kotlin_annotation_processing_gradle
 
     /**
      * https://kotlinlang.org/ */
     const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
-            Versions.org_jetbrains_kotlin
+            Versions.kotlin_gradle_plugin
 
     /**
      * https://kotlinlang.org/ */
-    const val kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
-            Versions.org_jetbrains_kotlin
+    const val org_jetbrains_kotlin_kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
+            Versions.org_jetbrains_kotlin_kotlin_reflect
 
     /**
      * https://kotlinlang.org/ */
-    const val kotlin_stdlib_jdk7: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:" +
-            Versions.org_jetbrains_kotlin
+    const val org_jetbrains_kotlin_kotlin_stdlib_jdk7: String =
+            "org.jetbrains.kotlin:kotlin-stdlib-jdk7:" +
+            Versions.org_jetbrains_kotlin_kotlin_stdlib_jdk7
 
     /**
      * https://github.com/Kotlin/kotlinx.coroutines */
