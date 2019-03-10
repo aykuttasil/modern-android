@@ -1,5 +1,3 @@
-import kotlin.String
-
 /**
  * Find which updates are available by running
  *     `$ ./gradlew buildSrcVersions`
@@ -9,9 +7,9 @@ import kotlin.String
 object Versions {
   const val android_arch_navigation: String = "1.0.0-alpha11"
 
-  const val work_runtime_ktx: String = "1.0.0-beta03"
+  const val work_runtime_ktx: String = "1.0.0"
 
-  const val annotation: String = "1.0.1"
+  const val annotation: String = "1.0.2"
 
   const val appcompat: String = "1.0.2"
 
@@ -23,7 +21,7 @@ object Versions {
 
   const val androidx_core_core: String = "1.1.0-alpha03"
 
-  const val androidx_databinding: String = "3.3.1"
+  const val androidx_databinding: String = "3.3.2"
 
   const val gridlayout: String = "1.0.0"
 
@@ -47,11 +45,11 @@ object Versions {
 
   const val vectordrawable_animated: String = "1.0.0"
 
-  const val aapt2: String = "3.3.1-5013011"
+  const val aapt2: String = "3.3.2-5309881"
 
-  const val com_android_tools_build_gradle: String = "3.3.1"
+  const val com_android_tools_build_gradle: String = "3.3.2"
 
-  const val lint_gradle: String = "26.3.1"
+  const val lint_gradle: String = "26.3.2"
 
   const val crashlytics: String = "2.9.9"
 
@@ -61,21 +59,23 @@ object Versions {
 
   const val com_github_ajitsing: String = "1.0.4"
 
+  const val ktlint: String = "0.30.0"
+
   const val material: String = "1.0.0"
 
   const val gson: String = "2.8.5"
 
   const val com_google_dagger: String = "2.21"
 
-  const val firebase_database: String = "16.0.6"
+  const val firebase_database: String = "16.1.0"
 
   const val google_services: String = "4.2.0"
 
-  const val com_google_truth_truth: String = "0.42"
+  const val com_google_truth_truth: String = "0.43"
 
   const val timber: String = "4.7.1"
 
-  const val com_jakewharton: String = "10.0.0"
+  const val com_jakewharton: String = "10.1.0"
 
   const val mockito_kotlin: String = "2.1.0"
 
@@ -83,9 +83,9 @@ object Versions {
 
   const val moshi_adapters: String = "1.8.0"
 
-  const val logging_interceptor: String = "3.12.0" // available: "3.13.1"
+  const val logging_interceptor: String = "3.13.1"
 
-  const val mockwebserver: String = "3.12.1" // available: "3.13.1"
+  const val mockwebserver: String = "3.13.1"
 
   const val com_squareup_retrofit2: String = "2.5.0"
 
@@ -95,9 +95,9 @@ object Versions {
 
   const val io_fabric_tools_gradle: String = "1.27.1"
 
-  const val rxandroid: String = "2.1.0" // available: "2.1.1"
+  const val io_reactivex_rxjava2_rxandroid: String = "2.1.1"
 
-  const val rxjava: String = "2.2.4" // available: "2.2.6"
+  const val io_reactivex_rxjava2_rxjava: String = "2.2.7"
 
   const val rxkotlin: String = "2.3.0"
 
@@ -105,23 +105,17 @@ object Versions {
 
   const val anko: String = "0.10.8"
 
-  const val kotlin_android_extensions: String = "1.3.21"
+  const val org_jetbrains_kotlin: String = "1.3.21"
 
-  const val kotlin_annotation_processing_gradle: String = "1.3.21"
+  const val org_jetbrains_kotlinx_kotlinx_coroutines_android: String = "1.0.0"
+  // available: "1.1.1"
 
-  const val kotlin_gradle_plugin: String = "1.3.21"
+  const val org_jetbrains_kotlinx_kotlinx_coroutines_core: String = "1.0.0"
+  // available: "1.1.1"
 
-  const val org_jetbrains_kotlin_kotlin_reflect: String = "1.3.21"
+  const val org_mockito: String = "2.25.0"
 
-  const val org_jetbrains_kotlin_kotlin_stdlib_jdk7: String = "1.3.21"
-
-  const val org_jetbrains_kotlinx: String = "1.1.1"
-
-  const val mockito_android: String = "2.22.0" // available: "2.24.4"
-
-  const val mockito_inline: String = "2.23.16" // available: "2.24.4"
-
-  const val robolectric: String = "4.1"
+  const val robolectric: String = "4.2"
 
   /**
    *
@@ -133,8 +127,8 @@ object Versions {
 
     const val currentVersion: String = "5.2.1"
 
-    const val nightlyVersion: String = "5.3-20190211022529+0000"
+    const val nightlyVersion: String = "5.4-20190310000057+0000"
 
-    const val releaseCandidate: String = ""
+    const val releaseCandidate: String = "5.3-rc-1"
   }
 }

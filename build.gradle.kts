@@ -27,7 +27,6 @@ allprojects {
         jcenter()
         google()
         maven("https://jitpack.io")
-        maven("https://jitpack.io")
         maven("https://maven.fabric.io/public")
         maven("https://dl.bintray.com/mockito/maven/")
     }
