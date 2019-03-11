@@ -30,30 +30,34 @@ import javax.inject.Inject
 /**
  * Created by aykutasil on 3.02.2018.
  */
-class UserRepository @Inject constructor(val apiService: ApiService, val userDao: UserDao, val appExecutors: AppExecutors) {
+class UserRepository @Inject constructor(
+  val apiService: ApiService,
+  val userDao: UserDao,
+  val appExecutors: AppExecutors
+) {
 
-    fun getUser(username: String): LiveData<Resource<UserEntity>> {
-        return object : NetworkBoundResource<UserEntity, User>(appExecutors) {
-            override fun saveCallResult(item: User) {
-                val userEntity = UserEntity(_UserName = item.name, UserEmail = item.login, _UserJob = "Developer")
-                userDao.insertItem(userEntity)
-            }
+  fun getUser(username: String): LiveData<Resource<UserEntity>> {
+    return object : NetworkBoundResource<UserEntity, User>(appExecutors) {
+      override fun saveCallResult(item: User) {
+        val userEntity = UserEntity(_UserName = item.name, UserEmail = item.login, _UserJob = "Developer")
+        userDao.insertItem(userEntity)
+      }
 
-            override fun shouldFetch(data: UserEntity?): Boolean {
-                return true
-            }
+      override fun shouldFetch(data: UserEntity?): Boolean {
+        return true
+      }
 
-            override fun loadFromDb(): LiveData<UserEntity> {
-                return userDao.getItem(username)
-            }
+      override fun loadFromDb(): LiveData<UserEntity> {
+        return userDao.getItem(username)
+      }
 
-            override fun createCall(): LiveData<ApiResponse<User>> {
-                return Transformations.map(apiService.getUser(username)) {
-                    val toplam = (1..1000000).sum()
-                    println(toplam)
-                    it
-                }
-            }
-        }.asLiveData()
-    }
+      override fun createCall(): LiveData<ApiResponse<User>> {
+        return Transformations.map(apiService.getUser(username)) {
+          val toplam = (1..1000000).sum()
+          println(toplam)
+          it
+        }
+      }
+    }.asLiveData()
+  }
 }

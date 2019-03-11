@@ -22,10 +22,10 @@ import androidx.lifecycle.Observer
 import io.reactivex.Flowable
 
 fun <T> LiveData<T>.reObserve(owner: LifecycleOwner, observer: Observer<T>) {
-    removeObserver(observer)
-    observe(owner, observer)
+  removeObserver(observer)
+  observe(owner, observer)
 }
 
 fun <T> LiveData<T>.toFlowable(owner: LifecycleOwner): Flowable<T> {
-    return Flowable.fromPublisher(LiveDataReactiveStreams.toPublisher(owner, this))
+  return Flowable.fromPublisher(LiveDataReactiveStreams.toPublisher(owner, this))
 }

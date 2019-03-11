@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.sweetloc.di.scopes
+package aykuttasil.com.modernapp.di.scopes
 
 import javax.inject.Scope
 
@@ -26,4 +26,5 @@ import javax.inject.Scope
  * correct component.
  */
 @Scope
-@Retention annotation class PerFragment
+@Retention
+annotation class PerFragment

@@ -17,7 +17,7 @@ package aykuttasil.com.modernapp.di
 
 import aykuttasil.com.modernapp.ui.main.pages.about.AboutFragment
 import aykuttasil.com.modernapp.ui.main.pages.main.MainFragment
-import com.aykuttasil.sweetloc.di.scopes.PerFragment
+import aykuttasil.com.modernapp.di.scopes.PerFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
