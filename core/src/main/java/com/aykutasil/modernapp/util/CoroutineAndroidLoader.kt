@@ -22,7 +22,8 @@ internal class CoroutineLifecycleListener(private val deferred: Deferred<*>) : L
 }
 
 // CoroutineContext running on background threads.
-//internal val Background = newFixedThreadPoolContext(Runtime.getRuntime().availableProcessors() * 2, "Loader")
+@ObsoleteCoroutinesApi
+internal val Background = newFixedThreadPoolContext(Runtime.getRuntime().availableProcessors() * 2, "Loader")
 
 /**
  * Creates a lazily started coroutine that runs <code>loader()</code>.

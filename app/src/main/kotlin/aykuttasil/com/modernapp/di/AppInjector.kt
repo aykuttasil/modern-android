@@ -33,7 +33,6 @@ import dagger.android.support.HasSupportFragmentInjector
 object AppInjector {
 
     fun init(app: App) {
-
         DaggerAppComponent.builder()
                 .application(app)
                 .build()
