@@ -76,17 +76,17 @@ android {
     flavorDimensions("default")
     productFlavors {
         create("prod") {
-            setDimension("default")
+            dimension = "default"
             resValue("string", "app_name", "MAS")
         }
 
         create("dev") {
-            setDimension("default")
+            dimension = "default"
             resValue("string", "app_name", "MAS Dev")
         }
 
         create("mock") {
-            setDimension("default")
+            dimension = "default"
             resValue("string", "app_name", "MAS Mock")
         }
     }
@@ -116,6 +116,7 @@ android {
         exclude("META-INF/rxjava.properties")
         exclude("META-INF/MANIFEST.MF")
         exclude("META-INF/main.kotlin_module")
+        exclude("META-INF/atomicfu.kotlin_module")
     }
 
     compileOptions {
