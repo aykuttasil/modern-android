@@ -154,19 +154,17 @@ object Libs {
     const val crashlytics: String = "com.crashlytics.sdk.android:crashlytics:" +
             Versions.crashlytics
 
-    /**
-     * https://github.com/diffplug/plugin-gradle */
     const val spotless_plugin_gradle: String = "com.diffplug.spotless:spotless-plugin-gradle:" +
             Versions.spotless_plugin_gradle
 
     /**
      * https://github.com/facebook/stetho */
     const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:" +
-            Versions.com_facebook_stetho
+            Versions.stetho_okhttp3
 
     /**
      * https://github.com/facebook/stetho */
-    const val stetho: String = "com.facebook.stetho:stetho:" + Versions.com_facebook_stetho
+    const val stetho: String = "com.facebook.stetho:stetho:" + Versions.stetho
 
     /**
      * https://github.com/ajitsing/Sherlock */
@@ -177,8 +175,6 @@ object Libs {
      * https://github.com/ajitsing/Sherlock */
     const val sherlock: String = "com.github.ajitsing:sherlock:" + Versions.com_github_ajitsing
 
-    /**
-     * https://github.com/shyiko/ktlint */
     const val ktlint: String = "com.github.shyiko:ktlint:" + Versions.ktlint
 
     /**
@@ -192,21 +188,22 @@ object Libs {
     /**
      * https://github.com/google/dagger */
     const val dagger_android_processor: String = "com.google.dagger:dagger-android-processor:" +
-            Versions.com_google_dagger
+            Versions.dagger_android_processor
 
     /**
      * https://github.com/google/dagger */
     const val dagger_android_support: String = "com.google.dagger:dagger-android-support:" +
-            Versions.com_google_dagger
+            Versions.dagger_android_support
 
     /**
      * https://github.com/google/dagger */
     const val dagger_compiler: String = "com.google.dagger:dagger-compiler:" +
-            Versions.com_google_dagger
+            Versions.com_google_dagger_dagger_compiler
 
     /**
      * https://github.com/google/dagger */
-    const val dagger: String = "com.google.dagger:dagger:" + Versions.com_google_dagger
+    const val dagger: String = "com.google.dagger:dagger:" +
+            Versions.com_google_dagger_dagger
 
     const val firebase_database: String = "com.google.firebase:firebase-database:" +
             Versions.firebase_database
@@ -296,7 +293,8 @@ object Libs {
 
     /**
      * https://github.com/ReactiveX/RxJava */
-    const val rxjava: String = "io.reactivex.rxjava2:rxjava:" + Versions.rxjava
+    const val rxjava: String = "io.reactivex.rxjava2:rxjava:" +
+            Versions.io_reactivex_rxjava2_rxjava
 
     /**
      * https://github.com/ReactiveX/RxKotlin */

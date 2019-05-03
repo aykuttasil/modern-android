@@ -45,27 +45,35 @@ object Versions {
 
   const val vectordrawable_animated: String = "1.0.0"
 
-  const val aapt2: String = "3.3.2-5309881" // available: "3.4.0-5326820"
+  const val aapt2: String = "3.4.0-5326820"
 
   const val com_android_tools_build_gradle: String = "3.4.0"
 
   const val lint_gradle: String = "26.4.0"
 
-  const val crashlytics: String = "2.9.9"
+  const val crashlytics: String = "2.10.0"
 
-  const val spotless_plugin_gradle: String = "3.22.0"
+  const val spotless_plugin_gradle: String = "3.23.0"
 
-  const val com_facebook_stetho: String = "1.5.1"
+  const val stetho_okhttp3: String = "1.5.1"
+
+  const val stetho: String = "1.5.1"
 
   const val com_github_ajitsing: String = "1.0.4"
 
-  const val ktlint: String = "0.31.0"
+  const val ktlint: String = "0.32.0"
 
   const val material: String = "1.0.0"
 
   const val gson: String = "2.8.5"
 
-  const val com_google_dagger: String = "2.22.1"
+  const val dagger_android_processor: String = "2.22.1"
+
+  const val dagger_android_support: String = "2.22.1"
+
+  const val com_google_dagger_dagger_compiler: String = "2.22.1"
+
+  const val com_google_dagger_dagger: String = "2.22.1"
 
   const val firebase_database: String = "16.1.0"
 
@@ -97,7 +105,7 @@ object Versions {
 
   const val io_reactivex_rxjava2_rxandroid: String = "2.1.1"
 
-  const val rxjava: String = "2.2.8"
+  const val io_reactivex_rxjava2_rxjava: String = "2.2.8"
 
   const val rxkotlin: String = "2.3.0"
 
@@ -105,11 +113,11 @@ object Versions {
 
   const val anko: String = "0.10.8"
 
-  const val org_jetbrains_kotlin: String = "1.3.21"
+  const val org_jetbrains_kotlin: String = "1.3.31"
 
-  const val org_jetbrains_kotlinx: String = "1.2.0"
+  const val org_jetbrains_kotlinx: String = "1.2.1"
 
-  const val org_mockito: String = "2.27.0"
+  const val org_mockito: String = "2.27.4"
 
   const val robolectric: String = "4.2.1"
 
@@ -119,11 +127,11 @@ object Versions {
    *      ./gradle/wrapper/gradle-wrapper.properties
    */
   object Gradle {
-    const val runningVersion: String = "5.0"
+    const val runningVersion: String = "5.1.1"
 
-    const val currentVersion: String = "5.4"
+    const val currentVersion: String = "5.4.1"
 
-    const val nightlyVersion: String = "5.5-20190421000054+0000"
+    const val nightlyVersion: String = "5.5-20190503000021+0000"
 
     const val releaseCandidate: String = ""
   }

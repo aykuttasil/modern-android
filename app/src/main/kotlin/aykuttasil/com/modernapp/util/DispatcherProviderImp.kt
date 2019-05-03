@@ -18,6 +18,11 @@ package aykuttasil.com.modernapp.util
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 
+interface DispatcherProvider {
+  val main: CoroutineDispatcher
+  val background: CoroutineDispatcher
+}
+
 class DispatcherProviderImp : DispatcherProvider {
 
   override val main: CoroutineDispatcher
@@ -27,7 +32,3 @@ class DispatcherProviderImp : DispatcherProvider {
     get() = Dispatchers.IO
 }
 
-interface DispatcherProvider {
-  val main: CoroutineDispatcher
-  val background: CoroutineDispatcher
-}

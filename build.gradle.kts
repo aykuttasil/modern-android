@@ -5,6 +5,7 @@ buildscript {
     repositories {
         jcenter()
         google()
+
         maven(url = "https://maven.fabric.io/public")
     }
 
@@ -26,6 +27,7 @@ allprojects {
     repositories {
         jcenter()
         google()
+
         maven("https://jitpack.io")
         maven("https://maven.fabric.io/public")
         maven("https://dl.bintray.com/mockito/maven/")

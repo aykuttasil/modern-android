@@ -23,9 +23,9 @@ import dagger.Provides
 @Module
 class UserActivityModule {
 
-    @ActivityContext
-    @Provides
-    fun providerContext(context: UserActivity): Context {
-        return context
-    }
+  @ActivityContext
+  @Provides
+  fun providerContext(context: UserActivity): Context {
+    return context
+  }
 }

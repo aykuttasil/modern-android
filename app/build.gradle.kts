@@ -76,17 +76,17 @@ android {
     flavorDimensions("default")
     productFlavors {
         create("prod") {
-            dimension = "default"
+            setDimension("default")
             resValue("string", "app_name", "MAS")
         }
 
         create("dev") {
-            dimension = "default"
+            setDimension("default")
             resValue("string", "app_name", "MAS Dev")
         }
 
         create("mock") {
-            dimension = "default"
+            setDimension("default")
             resValue("string", "app_name", "MAS Mock")
         }
     }

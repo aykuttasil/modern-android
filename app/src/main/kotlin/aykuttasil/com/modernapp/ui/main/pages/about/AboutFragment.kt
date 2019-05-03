@@ -27,9 +27,9 @@ import aykuttasil.com.modernapp.util.delegates.Inflate
 
 class AboutFragment : BaseFragment(), Injectable {
 
-    private val binding: FragmentAboutBinding by Inflate(R.layout.fragment_about)
+  private val binding: FragmentAboutBinding by Inflate(R.layout.fragment_about)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return binding.root
-    }
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    return binding.root
+  }
 }

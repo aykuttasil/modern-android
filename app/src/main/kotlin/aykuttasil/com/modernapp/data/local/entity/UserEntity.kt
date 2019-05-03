@@ -22,9 +22,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import aykuttasil.com.modernapp.BR
 
-/**
- * Created by aykutasil on 24.12.2017.
- */
 @Entity(tableName = "user")
 data class UserEntity(
   @PrimaryKey(autoGenerate = true) val UserId: Long? = null,

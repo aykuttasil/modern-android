@@ -27,9 +27,6 @@ import com.aykutasil.network.ApiResponse
 import com.aykutasil.network.NetworkBoundResource
 import javax.inject.Inject
 
-/**
- * Created by aykutasil on 3.02.2018.
- */
 class UserRepository @Inject constructor(
   val apiService: ApiService,
   val userDao: UserDao,

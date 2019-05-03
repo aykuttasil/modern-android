@@ -16,48 +16,48 @@
 package com.aykutasil.modernapp.util.livedata
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.LiveData
 import android.content.Context
 import android.os.AsyncTask
 import android.os.FileObserver
+import androidx.lifecycle.LiveData
 import java.io.File
 
 /**
  * Created by aykutasil on 27.12.2017.
  */
 class LiveFile(private val context: Context) : LiveData<List<String>>() {
-    private val fileObserver: FileObserver
+  private val fileObserver: FileObserver
 
-    init {
-        val path = File(context.filesDir, "users.txt").path
-        fileObserver = object : FileObserver(path) {
-            override fun onEvent(event: Int, path: String?) {
-                // The file has changed, so let’s reload the data
-                loadData()
-            }
-        }
+  init {
+    val path = File(context.filesDir, "users.txt").path
+    fileObserver = object : FileObserver(path) {
+      override fun onEvent(event: Int, path: String?) {
+        // The file has changed, so let’s reload the data
         loadData()
+      }
     }
+    loadData()
+  }
 
-    override fun onActive() {
-        fileObserver.startWatching()
-    }
+  override fun onActive() {
+    fileObserver.startWatching()
+  }
 
-    override fun onInactive() {
-        fileObserver.stopWatching()
-    }
+  override fun onInactive() {
+    fileObserver.stopWatching()
+  }
 
-    @SuppressLint("StaticFieldLeak")
-    private fun loadData() {
-        object : AsyncTask<Void, Void, List<String>>() {
-            override fun doInBackground(vararg voids: Void): List<String> {
-                val file = File(context.filesDir, "downloaded.json")
-                return file.readLines()
-            }
+  @SuppressLint("StaticFieldLeak")
+  private fun loadData() {
+    object : AsyncTask<Void, Void, List<String>>() {
+      override fun doInBackground(vararg voids: Void): List<String> {
+        val file = File(context.filesDir, "downloaded.json")
+        return file.readLines()
+      }
 
-            override fun onPostExecute(data: List<String>) {
-                value = data
-            }
-        }.execute()
-    }
+      override fun onPostExecute(data: List<String>) {
+        value = data
+      }
+    }.execute()
+  }
 }

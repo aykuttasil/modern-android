@@ -18,9 +18,6 @@ package aykuttasil.com.modernapp.data.remote.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by aykutasil on 8.12.2017.
- */
 /*
 @SuppressLint("ParcelCreator")
 @Parcelize

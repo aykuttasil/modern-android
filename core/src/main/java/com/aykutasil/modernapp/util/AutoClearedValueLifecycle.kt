@@ -1,9 +1,9 @@
 package com.aykutasil.modernapp.util
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import androidx.fragment.app.Fragment
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
@@ -13,26 +13,26 @@ import kotlin.reflect.KProperty
  * Accessing this variable in a destroyed fragment will throw NPE.
  */
 class AutoClearedValueLifecycle<T : Any>(val fragment: Fragment) : ReadWriteProperty<Fragment, T> {
-    private var _value: T? = null
+  private var _value: T? = null
 
-    init {
-        fragment.lifecycle.addObserver(object : LifecycleObserver {
-            @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-            fun onDestroy() {
-                _value = null
-            }
-        })
-    }
+  init {
+    fragment.lifecycle.addObserver(object : LifecycleObserver {
+      @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+      fun onDestroy() {
+        _value = null
+      }
+    })
+  }
 
-    override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
-        return _value ?: throw IllegalStateException(
-                "should never call auto-cleared-value get when it might not be available"
-        )
-    }
+  override fun getValue(thisRef: Fragment, property: KProperty<*>): T {
+    return _value ?: throw IllegalStateException(
+      "should never call auto-cleared-value get when it might not be available"
+    )
+  }
 
-    override fun setValue(thisRef: Fragment, property: KProperty<*>, value: T) {
-        _value = value
-    }
+  override fun setValue(thisRef: Fragment, property: KProperty<*>, value: T) {
+    _value = value
+  }
 }
 
 /**

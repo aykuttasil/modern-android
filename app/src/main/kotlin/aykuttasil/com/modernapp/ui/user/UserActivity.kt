@@ -27,16 +27,16 @@ import javax.inject.Inject
 
 class UserActivity : BaseActivity() {
 
-    private val binding: ActivityUserBinding by contentView(R.layout.activity_user)
+  private val binding: ActivityUserBinding by contentView(R.layout.activity_user)
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+  @Inject
+  lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var viewModel: UserViewModel
+  private lateinit var viewModel: UserViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        logd { "onCreate" }
-        viewModel = ViewModelProviders.of(this@UserActivity, viewModelFactory).get(UserViewModel::class.java)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    logd { "onCreate" }
+    viewModel = ViewModelProviders.of(this@UserActivity, viewModelFactory).get(UserViewModel::class.java)
+  }
 }

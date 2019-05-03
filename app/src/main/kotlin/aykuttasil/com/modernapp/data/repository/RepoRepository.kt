@@ -24,9 +24,6 @@ import com.aykutasil.network.ApiResponse
 import com.aykutasil.network.NetworkBoundResource
 import javax.inject.Inject
 
-/**
- * Created by aykutasil on 1.03.2018.
- */
 class RepoRepository @Inject constructor(val apiService: ApiService, val appExecutors: AppExecutors) {
 
   fun getUserRepos(user: String): LiveData<Resource<Repo>> {
