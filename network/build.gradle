@@ -37,28 +37,28 @@ android {
 dependencies {
     implementation project(':core')
 
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test:runner:$versions.androidx.test_runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx.espresso_core"
+    testImplementation(Libs.junit_junit)
+    androidTestImplementation(Libs.androidx_test_runner)
+    androidTestImplementation(Libs.espresso_core)
 
-    api "com.squareup.retrofit2:converter-gson:$versions.retrofit"
-    api "com.squareup.retrofit2:retrofit:$versions.retrofit"
-    api "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
-    api 'com.squareup.okhttp3:logging-interceptor:3.12.0'
-    api 'com.squareup.moshi:moshi-adapters:1.8.0'
+    api Libs.converter_gson
+    api Libs.retrofit
+    api Libs.adapter_rxjava2
+    api Libs.logging_interceptor
+    api Libs.moshi_adapters
 
-    api 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+    api Libs.stetho_okhttp3
 
-    releaseApi 'com.readystatesoftware.chuck:library-no-op:1.1.0'
-    debugApi 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseApi Libs.chuck_no_op
+    debugApi Libs.chuck
 
-    implementation "com.google.dagger:dagger:$versions.dagger"
-    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+    kapt Libs.dagger_compiler
+    implementation Libs.dagger
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation(Libs.kotlin_stdlib_jdk8)
+    implementation(Libs.appcompat)
+    implementation(Libs.core_ktx)
 
-    implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"
-
-    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+    implementation(Libs.rxandroid)
 }
 apply from: '../tools/spotless.gradle'

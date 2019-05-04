@@ -27,4 +27,5 @@ object LogUtils {
   fun e(tag: String, msg: String?, throwable: Throwable) {
     e(throwable, """$tag : ${msg ?: "non message"}""")
   }
+  
 }

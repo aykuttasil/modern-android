@@ -113,11 +113,23 @@ object Versions {
 
   const val anko: String = "0.10.8"
 
-  const val org_jetbrains_kotlin: String = "1.3.31"
+  const val kotlin_android_extensions_runtime: String = "1.3.31"
 
-  const val org_jetbrains_kotlinx: String = "1.2.1"
+  const val kotlin_android_extensions: String = "1.3.31"
 
-  const val org_mockito: String = "2.27.4"
+  const val kotlin_annotation_processing_gradle: String = "1.3.31"
+
+  const val kotlin_gradle_plugin: String = "1.3.31"
+
+  const val kotlin_reflect: String = "1.3.31"
+
+  const val kotlin_stdlib_jdk8: String = "1.3.31"
+
+  const val org_jetbrains_kotlinx_kotlinx_coroutines_android: String = "1.2.1"
+
+  const val org_jetbrains_kotlinx_kotlinx_coroutines_core: String = "1.2.1"
+
+  const val org_mockito: String = "2.27.0" // available: "2.27.4"
 
   const val robolectric: String = "4.2.1"
 
@@ -127,11 +139,11 @@ object Versions {
    *      ./gradle/wrapper/gradle-wrapper.properties
    */
   object Gradle {
-    const val runningVersion: String = "5.1.1"
+    const val runningVersion: String = "5.4.1"
 
     const val currentVersion: String = "5.4.1"
 
-    const val nightlyVersion: String = "5.5-20190503000021+0000"
+    const val nightlyVersion: String = "5.5-20190504000037+0000"
 
     const val releaseCandidate: String = ""
   }

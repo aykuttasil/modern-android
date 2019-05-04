@@ -35,27 +35,27 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "androidx.test:runner:$versions.androidx.test_runner"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.androidx.espresso_core"
+    testImplementation(Libs.junit_junit)
+    androidTestImplementation(Libs.androidx_test_runner)
+    androidTestImplementation(Libs.espresso_core)
 
-    implementation "com.jakewharton.timber:timber:$versions.timber"
+    implementation(Libs.timber)
 
-    implementation "com.google.dagger:dagger:$versions.dagger"
-    kapt "com.google.dagger:dagger-compiler:$versions.dagger"
+    kapt Libs.dagger_compiler
+    implementation Libs.dagger
 
-    implementation "io.reactivex.rxjava2:rxjava:$versions.rxjava"
-    implementation "io.reactivex.rxjava2:rxkotlin:$versions.rxkotlin"
-    implementation "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+    implementation(Libs.rxjava)
+    implementation(Libs.rxkotlin)
+    implementation(Libs.rxandroid)
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
-    implementation "org.jetbrains.anko:anko:$versions.anko"
+    implementation(Libs.kotlin_stdlib_jdk8)
+    implementation(Libs.kotlin_reflect)
+    implementation(Libs.anko)
 
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
+    implementation(Libs.kotlinx_coroutines_core)
+    implementation(Libs.kotlinx_coroutines_android)
 
-    implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"
-    implementation "androidx.core:core-ktx:$versions.androidx.core_ktx"
+    implementation(Libs.appcompat)
+    implementation(Libs.core_ktx)
 }
 apply from: '../tools/spotless.gradle'

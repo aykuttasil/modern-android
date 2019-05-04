@@ -233,8 +233,8 @@ dependencies {
     implementation(Libs.rxkotlin)
     implementation(Libs.rxandroid)
 
-    //implementation(Libs.kotlin_stdlib_jdk7)
-    //implementation(Libs.kotlin_reflect)
+    implementation(Libs.kotlin_stdlib_jdk8)
+    implementation(Libs.kotlin_reflect)
     implementation(Libs.anko)
     implementation(Libs.kotlinx_coroutines_core)
     implementation(Libs.kotlinx_coroutines_android)
