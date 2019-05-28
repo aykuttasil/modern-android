@@ -16,7 +16,7 @@
 package aykuttasil.com.modernapp.ui.user
 
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
+import androidx.activity.viewModels
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.databinding.ActivityUserBinding
 import aykuttasil.com.modernapp.di.ViewModelFactory
@@ -27,16 +27,15 @@ import javax.inject.Inject
 
 class UserActivity : BaseActivity() {
 
-  private val binding: ActivityUserBinding by contentView(R.layout.activity_user)
-
   @Inject
   lateinit var viewModelFactory: ViewModelFactory
 
-  private lateinit var viewModel: UserViewModel
+  private val binding: ActivityUserBinding by contentView(R.layout.activity_user)
+
+  private val viewModel by viewModels<UserViewModel> { viewModelFactory }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     logd { "onCreate" }
-    viewModel = ViewModelProviders.of(this@UserActivity, viewModelFactory).get(UserViewModel::class.java)
   }
 }

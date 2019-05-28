@@ -16,7 +16,7 @@
 package aykuttasil.com.modernapp.ui.main
 
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
+import androidx.activity.viewModels
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
@@ -24,14 +24,13 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+  @Inject
+  lateinit var viewModelFactory: ViewModelFactory
 
-    private lateinit var viewModel: MainViewModel
+  private val viewModel by viewModels<MainViewModel> { viewModelFactory }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
-    }
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+  }
 }
