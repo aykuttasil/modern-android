@@ -26,7 +26,7 @@ import aykuttasil.com.modernapp.di.Injectable
 import aykuttasil.com.modernapp.ui.common.BaseFragment
 import aykuttasil.com.modernapp.util.delegates.Inflate
 import com.aykutasil.modernapp.util.LogUtils
-import com.aykutasil.modernapp.util.load
+import com.aykutasil.modernapp.util.loadAsync
 import com.aykutasil.modernapp.util.then
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.delay
@@ -46,7 +46,7 @@ class MainFragment : BaseFragment(), Injectable {
       Navigation.findNavController(binding.btnGoUserActivity).navigate(R.id.action_mainFragment_to_aboutFragment)
     }
 
-    load {
+    loadAsync {
       LogUtils.i("Thread Name load 1:" + Thread.currentThread().name)
       delay(10000)
       LogUtils.i("Thread Name load 2:" + Thread.currentThread().name)
