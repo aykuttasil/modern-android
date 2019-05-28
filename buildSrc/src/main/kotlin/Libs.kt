@@ -80,9 +80,13 @@ object Libs {
   const val lifecycle_extensions: String = "androidx.lifecycle:lifecycle-extensions:" +
       Versions.androidx_lifecycle
 
+  const val lifecycle_viewmodel: String = "androidx.lifecycle:lifecycle-viewmodel:" + Versions.androidx_lifecycle
+
+  const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
+
   /**
    * https://developer.android.com/topic/libraries/architecture/index.html */
-  const val lifecycle_reactivestreams: String = "androidx.lifecycle:lifecycle-reactivestreams:" +
+  const val lifecycle_reactivestreams: String = "androidx.lifecycle:lifecycle-reactivestreams-ktx:" +
       Versions.androidx_lifecycle
 
   const val multidex: String = "androidx.multidex:multidex:" + Versions.multidex
@@ -158,11 +162,11 @@ object Libs {
   /**
    * https://github.com/facebook/stetho */
   const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:" +
-      Versions.stetho_okhttp3
+      Versions.com_facebook_stetho
 
   /**
    * https://github.com/facebook/stetho */
-  const val stetho: String = "com.facebook.stetho:stetho:" + Versions.stetho
+  const val stetho: String = "com.facebook.stetho:stetho:" + Versions.com_facebook_stetho
 
   /**
    * https://github.com/ajitsing/Sherlock */
@@ -186,22 +190,21 @@ object Libs {
   /**
    * https://github.com/google/dagger */
   const val dagger_android_processor: String = "com.google.dagger:dagger-android-processor:" +
-      Versions.dagger_android_processor
+      Versions.com_google_dagger
 
   /**
    * https://github.com/google/dagger */
   const val dagger_android_support: String = "com.google.dagger:dagger-android-support:" +
-      Versions.dagger_android_support
+      Versions.com_google_dagger
 
   /**
    * https://github.com/google/dagger */
   const val dagger_compiler: String = "com.google.dagger:dagger-compiler:" +
-      Versions.com_google_dagger_dagger_compiler
+      Versions.com_google_dagger
 
   /**
    * https://github.com/google/dagger */
-  const val dagger: String = "com.google.dagger:dagger:" +
-      Versions.com_google_dagger_dagger
+  const val dagger: String = "com.google.dagger:dagger:" + Versions.com_google_dagger
 
   const val firebase_database: String = "com.google.firebase:firebase-database:" +
       Versions.firebase_database
@@ -251,11 +254,12 @@ object Libs {
   /**
    * https://github.com/square/okhttp */
   const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
-      Versions.logging_interceptor
+      Versions.com_squareup_okhttp3
 
   /**
    * https://github.com/square/okhttp */
-  const val mockwebserver: String = "com.squareup.okhttp3:mockwebserver:" + Versions.mockwebserver
+  const val mockwebserver: String = "com.squareup.okhttp3:mockwebserver:" +
+      Versions.com_squareup_okhttp3
 
   /**
    * https://github.com/square/retrofit/ */
@@ -286,13 +290,11 @@ object Libs {
 
   /**
    * https://github.com/ReactiveX/RxAndroid */
-  const val rxandroid: String = "io.reactivex.rxjava2:rxandroid:" +
-      Versions.io_reactivex_rxjava2_rxandroid
+  const val rxandroid: String = "io.reactivex.rxjava2:rxandroid:" + Versions.rxandroid
 
   /**
    * https://github.com/ReactiveX/RxJava */
-  const val rxjava: String = "io.reactivex.rxjava2:rxjava:" +
-      Versions.io_reactivex_rxjava2_rxjava
+  const val rxjava: String = "io.reactivex.rxjava2:rxjava:" + Versions.rxjava
 
   /**
    * https://github.com/ReactiveX/RxKotlin */
@@ -310,45 +312,43 @@ object Libs {
    * https://kotlinlang.org/ */
   const val kotlin_android_extensions_runtime: String =
     "org.jetbrains.kotlin:kotlin-android-extensions-runtime:" +
-        Versions.kotlin_android_extensions_runtime
+        Versions.org_jetbrains_kotlin
 
   /**
    * https://kotlinlang.org/ */
   const val kotlin_android_extensions: String =
-    "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.kotlin_android_extensions
+    "org.jetbrains.kotlin:kotlin-android-extensions:" + Versions.org_jetbrains_kotlin
 
   /**
    * https://kotlinlang.org/ */
   const val kotlin_annotation_processing_gradle: String =
     "org.jetbrains.kotlin:kotlin-annotation-processing-gradle:" +
-        Versions.kotlin_annotation_processing_gradle
+        Versions.org_jetbrains_kotlin
 
   /**
    * https://kotlinlang.org/ */
   const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
-      Versions.kotlin_gradle_plugin
+      Versions.org_jetbrains_kotlin
 
   /**
    * https://kotlinlang.org/ */
   const val kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
-      Versions.kotlin_reflect
+      Versions.org_jetbrains_kotlin
 
   /**
    * https://kotlinlang.org/ */
   const val kotlin_stdlib_jdk8: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" +
-      Versions.kotlin_stdlib_jdk8
+      Versions.org_jetbrains_kotlin
 
   /**
    * https://github.com/Kotlin/kotlinx.coroutines */
   const val kotlinx_coroutines_android: String =
-    "org.jetbrains.kotlinx:kotlinx-coroutines-android:" +
-        Versions.org_jetbrains_kotlinx_kotlinx_coroutines_android
+    "org.jetbrains.kotlinx:kotlinx-coroutines-android:" + Versions.org_jetbrains_kotlinx
 
   /**
    * https://github.com/Kotlin/kotlinx.coroutines */
-  const val kotlinx_coroutines_core: String =
-    "org.jetbrains.kotlinx:kotlinx-coroutines-core:" +
-        Versions.org_jetbrains_kotlinx_kotlinx_coroutines_core
+  const val kotlinx_coroutines_core: String = "org.jetbrains.kotlinx:kotlinx-coroutines-core:" +
+      Versions.org_jetbrains_kotlinx
 
   /**
    * https://github.com/mockito/mockito */

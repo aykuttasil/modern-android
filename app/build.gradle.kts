@@ -219,10 +219,12 @@ dependencies {
     implementation(Libs.gridlayout)
     implementation(Libs.multidex)
     implementation(Libs.lifecycle_extensions)
+    implementation(Libs.lifecycle_viewmodel)
     implementation(Libs.lifecycle_reactivestreams)
     implementation(Libs.room_runtime)
     kapt(Libs.room_compiler)
     implementation(Libs.room_rxjava2)
+    implementation(Libs.fragment_ktx)
 
     implementation(Libs.material)
     implementation(Libs.firebase_database)
