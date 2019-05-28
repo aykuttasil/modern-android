@@ -23,62 +23,62 @@ import javax.inject.Inject
 @SuppressLint("Registered")
 open class App : Application(), HasActivityInjector {
 
-    @Inject
-    lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+  @Inject
+  lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
-    override fun onCreate() {
-        super.onCreate()
-        AppInjector.init(this)
-        initTimber()
-        initFabric()
-        initNotificationChannel()
-        // initStetho()
+  override fun activityInjector(): DispatchingAndroidInjector<Activity> {
+    return activityDispatchingAndroidInjector
+  }
+
+  override fun onCreate() {
+    super.onCreate()
+    AppInjector.init(this)
+    initTimber()
+    initFabric()
+    initNotificationChannel()
+    // initStetho()
+  }
+
+  private fun initTimber() {
+    debug {
+      Timber.plant(Timber.DebugTree())
     }
+  }
 
-    private fun initTimber() {
-        debug {
-            Timber.plant(Timber.DebugTree())
-        }
+  private fun initFabric() {
+    val crashlyticsCore = CrashlyticsCore.Builder()
+      .disabled(BuildConfig.DEBUG)
+      .build()
+
+    val crashlytics = Crashlytics.Builder()
+      .core(crashlyticsCore)
+      .build()
+
+    Fabric.with(this, crashlytics)
+  }
+
+  /*
+  open fun initStetho() {
+      debug {
+          Stetho.initializeWithDefaults(this)
+          Timber.plant(Timber.DebugTree())
+      }
+  }
+  */
+
+  private fun initNotificationChannel() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+      val channel = NotificationChannel(
+        Const.NOTIF_CHANNEL_ID,
+        Const.NOTIF_CHANNEL_NAME,
+        NotificationManager.IMPORTANCE_DEFAULT
+      )
+      notificationManager.createNotificationChannel(channel)
     }
+  }
 
-    private fun initFabric() {
-        val crashlyticsCore = CrashlyticsCore.Builder()
-            .disabled(BuildConfig.DEBUG)
-            .build()
-
-        val crashlytics = Crashlytics.Builder()
-            .core(crashlyticsCore)
-            .build()
-
-        Fabric.with(this, crashlytics)
-    }
-
-    /*
-    open fun initStetho() {
-        debug {
-            Stetho.initializeWithDefaults(this)
-            Timber.plant(Timber.DebugTree())
-        }
-    }
-    */
-
-    private fun initNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                Const.NOTIF_CHANNEL_ID,
-                Const.NOTIF_CHANNEL_NAME,
-                NotificationManager.IMPORTANCE_DEFAULT
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
-    }
-
-    override fun activityInjector(): DispatchingAndroidInjector<Activity> {
-        return activityDispatchingAndroidInjector
-    }
-
-    override fun attachBaseContext(base: Context) {
-        super.attachBaseContext(base)
-        MultiDex.install(this)
-    }
+  override fun attachBaseContext(base: Context) {
+    super.attachBaseContext(base)
+    MultiDex.install(this)
+  }
 }

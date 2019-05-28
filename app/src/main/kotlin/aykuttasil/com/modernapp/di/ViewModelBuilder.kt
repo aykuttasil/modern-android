@@ -27,16 +27,16 @@ import dagger.multibindings.IntoMap
 @Module
 internal abstract class ViewModelBuilder {
 
-    @IntoMap
-    @Binds
-    @ViewModelKey(MainViewModel::class)
-    abstract fun provideMainVieWModel(viewModel: MainViewModel): ViewModel
+  @IntoMap
+  @Binds
+  @ViewModelKey(MainViewModel::class)
+  abstract fun provideMainVieWModel(viewModel: MainViewModel): ViewModel
 
-    @IntoMap
-    @Binds
-    @ViewModelKey(UserViewModel::class)
-    abstract fun provideUserVieWModel(viewModel: UserViewModel): ViewModel
+  @IntoMap
+  @Binds
+  @ViewModelKey(UserViewModel::class)
+  abstract fun provideUserVieWModel(viewModel: UserViewModel): ViewModel
 
-    @Binds
-    abstract fun provideViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
+  @Binds
+  abstract fun provideViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory
 }

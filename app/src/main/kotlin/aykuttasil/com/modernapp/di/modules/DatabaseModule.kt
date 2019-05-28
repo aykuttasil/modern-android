@@ -26,19 +26,20 @@ import javax.inject.Singleton
 @Module
 open class DatabaseModule {
 
-    companion object {
-        const val DB_NAME = "aa_2.db"
-    }
+  companion object {
+    const val DB_NAME = "aa_3.db"
+  }
 
-    @Provides
-    @Singleton
-    open fun provideDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).fallbackToDestructiveMigration().build()
+  @Provides
+  @Singleton
+  open fun provideDatabase(@ApplicationContext context: Context) =
+    Room.databaseBuilder(context, AppDatabase::class.java, DB_NAME).fallbackToDestructiveMigration().build()
 
-    @Provides
-    @Singleton
-    fun provideUserDao(db: AppDatabase) = db.getUserDao()
+  @Provides
+  @Singleton
+  fun provideUserDao(db: AppDatabase) = db.getUserDao()
 
-    @Provides
-    @Singleton
-    fun provideLocationDao(db: AppDatabase) = db.getLocationDao()
+  @Provides
+  @Singleton
+  fun provideLocationDao(db: AppDatabase) = db.getLocationDao()
 }
