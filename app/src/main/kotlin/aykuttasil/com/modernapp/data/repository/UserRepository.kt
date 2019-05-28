@@ -36,7 +36,7 @@ class UserRepository @Inject constructor(
   fun getUser(username: String): LiveData<Resource<UserEntity>> {
     return object : NetworkBoundResource<UserEntity, User>(appExecutors) {
       override fun saveCallResult(item: User) {
-        val userEntity = UserEntity(_UserName = item.name, UserEmail = item.login, _UserJob = "Developer")
+        val userEntity = UserEntity(userName = item.name, userEmail = item.login, userJob = "Developer")
         userDao.insertItem(userEntity)
       }
 

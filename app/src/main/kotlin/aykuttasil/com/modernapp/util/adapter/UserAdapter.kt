@@ -22,9 +22,6 @@ import androidx.recyclerview.widget.RecyclerView
 import aykuttasil.com.modernapp.data.local.entity.UserEntity
 import aykuttasil.com.modernapp.databinding.ItemUserLayoutBinding
 
-/**
- * Created by aykutasil on 31.12.2017.
- */
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
   var mList = arrayListOf<UserEntity>()
@@ -39,7 +36,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
           val oldItem = mList[oldItemPosition]
           val newItem = mList[newItemPosition]
 
-          return oldItem.UserId == newItem.UserId
+          return oldItem.userId == newItem.userId
         }
 
         override fun getOldListSize(): Int {
@@ -54,7 +51,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
           val oldItem = mList[oldItemPosition]
           val newItem = mList[newItemPosition]
 
-          return oldItem.UserName == newItem.UserName
+          return oldItem.userName == newItem.userName
         }
 
         /**
