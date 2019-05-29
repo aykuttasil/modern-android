@@ -16,22 +16,23 @@
 package aykuttasil.com.modernapp.util.delegates
 
 import android.app.Activity
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.annotation.LayoutRes
 import kotlin.properties.ReadOnlyProperty
 import kotlin.reflect.KProperty
 
-class SetContentView<in R : Activity, out DB : ViewDataBinding>(@LayoutRes private val layoutRes: Int) : ReadOnlyProperty<R, DB> {
+class SetContentView<in R : Activity, out DB : ViewDataBinding>(@LayoutRes private val layoutRes: Int) :
+  ReadOnlyProperty<R, DB> {
 
-    private var value: DB? = null
+  private var value: DB? = null
 
-    override fun getValue(thisRef: R, property: KProperty<*>): DB {
-        value = value ?: DataBindingUtil.setContentView(thisRef, layoutRes)
-        return value!!
-    }
+  override fun getValue(thisRef: R, property: KProperty<*>): DB {
+    value = value ?: DataBindingUtil.setContentView(thisRef, layoutRes)
+    return value!!
+  }
 }
 
 fun <T : Activity, R : ViewDataBinding> contentView(@LayoutRes layoutRes: Int): SetContentView<T, R> {
-    return SetContentView(layoutRes)
+  return SetContentView(layoutRes)
 }

@@ -18,11 +18,11 @@ package aykuttasil.com.modernapp.util.extension
 import android.app.Activity
 import android.app.Application
 import androidx.annotation.IdRes
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.AppCompatActivity
 import aykuttasil.com.modernapp.BuildConfig
 
 const val ADD_EDIT_RESULT_OK = Activity.RESULT_FIRST_USER + 1
@@ -34,9 +34,9 @@ const val EDIT_RESULT_OK = Activity.RESULT_FIRST_USER + 3
  * performed by the `fragmentManager`.
  */
 fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, containerId: Int) {
-    supportFragmentManager.transact {
-        replace(containerId, fragment)
-    }
+  supportFragmentManager.transact {
+    replace(containerId, fragment)
+  }
 }
 
 /**
@@ -44,16 +44,16 @@ fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, containerId:
  * performed by the `fragmentManager`.
  */
 fun AppCompatActivity.addFragmentToActivity(fragment: Fragment, tag: String) {
-    supportFragmentManager.transact {
-        add(fragment, tag)
-    }
+  supportFragmentManager.transact {
+    add(fragment, tag)
+  }
 }
 
 fun AppCompatActivity.setupActionBar(@IdRes toolbarId: Int, action: ActionBar.() -> Unit) {
-    setSupportActionBar(findViewById(toolbarId))
-    supportActionBar?.run {
-        action()
-    }
+  setSupportActionBar(findViewById(toolbarId))
+  supportActionBar?.run {
+    action()
+  }
 }
 
 //        ViewModelProviders.of(this, ViewModelFactory.getInstance(application)).get(viewModelClass)
@@ -62,27 +62,27 @@ fun AppCompatActivity.setupActionBar(@IdRes toolbarId: Int, action: ActionBar.()
  * Runs a FragmentTransaction, then calls commit().
  */
 private inline fun FragmentManager.transact(action: FragmentTransaction.() -> Unit) {
-    beginTransaction().apply {
-        action()
-    }.commit()
+  beginTransaction().apply {
+    action()
+  }.commit()
 }
 
 inline fun AppCompatActivity.debug(block: () -> Unit) {
-    if (BuildConfig.DEBUG) {
-        block()
-    }
+  if (BuildConfig.DEBUG) {
+    block()
+  }
 }
 
 inline fun Application.debug(block: () -> Unit) {
-    if (BuildConfig.DEBUG) {
-        block()
-    }
+  if (BuildConfig.DEBUG) {
+    block()
+  }
 }
 
 fun AppCompatActivity.replaceFragment(containerId: Int, fragment: Fragment) {
-    supportFragmentManager.transaction { replace(containerId, fragment) }
+  supportFragmentManager.transaction { replace(containerId, fragment) }
 }
 
 fun AppCompatActivity.addFragment(containerId: Int, fragment: Fragment) {
-    supportFragmentManager.transaction { add(containerId, fragment) }
+  supportFragmentManager.transaction { add(containerId, fragment) }
 }

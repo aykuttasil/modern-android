@@ -15,17 +15,17 @@
  */
 package aykuttasil.com.modernapp.util.extension
 
+import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.google.android.material.snackbar.Snackbar
-import android.view.View
 import com.aykutasil.modernapp.util.SingleLiveEvent
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
  */
 fun View.showSnackbar(snackbarText: String?, timeLength: Int) {
-    Snackbar.make(this, snackbarText ?: "Message is null", timeLength).show()
+  Snackbar.make(this, snackbarText ?: "Message is null", timeLength).show()
 }
 
 /**
@@ -36,9 +36,9 @@ fun View.setupSnackbar(
   snackbarMessageLiveEvent: SingleLiveEvent<Int>,
   timeLength: Int
 ) {
-    snackbarMessageLiveEvent.observe(lifecycleOwner, Observer {
-        it?.let { showSnackbar(context.getString(it), timeLength) }
-    })
+  snackbarMessageLiveEvent.observe(lifecycleOwner, Observer {
+    it?.let { showSnackbar(context.getString(it), timeLength) }
+  })
 }
 
 /**

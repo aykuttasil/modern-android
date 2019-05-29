@@ -112,7 +112,7 @@ fun Fragment.getColorCompat(color: Int) = context?.getColorCompat(color)
  * Extension method to provide simpler access to {@link ContextCompat#getDrawableCompat(int)}.
  */
 fun Context.getDrawableCompat(drawableResId: Int): Drawable? = ContextCompat
-    .getDrawable(this, drawableResId)
+  .getDrawable(this, drawableResId)
 
 /**
  * Extension method to provide simpler access to {@link ContextCompat#getDrawableCompat(int)}
@@ -140,8 +140,8 @@ fun View.showKeyboard() {
 fun Activity.hideSoftKeyboard() {
   if (currentFocus != null) {
     val inputMethodManager = getSystemService(
-        Context
-            .INPUT_METHOD_SERVICE
+      Context
+        .INPUT_METHOD_SERVICE
     ) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
   }
@@ -171,7 +171,7 @@ fun Int.twoDigitTime() = if (this < 10) "0" + toString() else toString()
  * Extension method to provide quicker access to the [LayoutInflater] from [Context].
  */
 fun Context.getLayoutInflater() =
-    getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+  getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
 /**
  * Extension method to provide quicker access to the [LayoutInflater] from a [View].
