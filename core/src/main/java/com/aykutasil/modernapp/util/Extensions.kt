@@ -94,7 +94,7 @@ fun Fragment.getColorCompat(color: Int) = context?.getColorCompat(color)
  * Extension method to provide simpler access to {@link ContextCompat#getDrawableCompat(int)}.
  */
 fun Context.getDrawableCompat(drawableResId: Int): Drawable? = ContextCompat
-    .getDrawable(this, drawableResId)
+  .getDrawable(this, drawableResId)
 
 /**
  * Extension method to provide simpler access to {@link ContextCompat#getDrawableCompat(int)}
@@ -121,8 +121,10 @@ fun View.showKeyboard() {
  */
 fun Activity.hideSoftKeyboard() {
   if (currentFocus != null) {
-    val inputMethodManager = getSystemService(Context
-        .INPUT_METHOD_SERVICE) as InputMethodManager
+    val inputMethodManager = getSystemService(
+      Context
+        .INPUT_METHOD_SERVICE
+    ) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
   }
 }

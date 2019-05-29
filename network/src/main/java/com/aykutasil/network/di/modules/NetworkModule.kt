@@ -37,88 +37,88 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
-    private fun getBaseUrl() = "https://api.github.com"
+  private fun getBaseUrl() = "https://api.github.com"
 
-    @Provides
-    @Singleton
-    internal fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
-        return Retrofit.Builder()
-                .baseUrl(getBaseUrl())
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
+  @Provides
+  @Singleton
+  internal fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
+    return Retrofit.Builder()
+      .baseUrl(getBaseUrl())
+      .client(okHttpClient)
+      .addConverterFactory(GsonConverterFactory.create(gson))
+      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+      .addCallAdapterFactory(LiveDataCallAdapterFactory())
+      .build()
+  }
+
+  @Provides
+  @Singleton
+  internal fun provideOkHttpClient(
+    httpLoggingInterceptor: HttpLoggingInterceptor,
+    chuckInterceptor: ChuckInterceptor,
+    stethoInterceptor: StethoInterceptor
+  ): OkHttpClient {
+    val httpClientBuilder = OkHttpClient.Builder()
+      .addInterceptor { chain ->
+        val original = chain.request()
+
+        val request = original.newBuilder()
+          .addHeader("Content-Type", "application/json")
+          .method(original.method(), original.body())
+          .build()
+
+        return@addInterceptor chain.proceed(request)
+      }
+      .connectTimeout(60, TimeUnit.SECONDS)
+      .readTimeout(60, TimeUnit.SECONDS)
+      .writeTimeout(60, TimeUnit.SECONDS)
+
+    if (BuildConfig.DEBUG) {
+      httpClientBuilder.addInterceptor(httpLoggingInterceptor)
+      httpClientBuilder.addInterceptor(chuckInterceptor)
+      httpClientBuilder.addNetworkInterceptor(stethoInterceptor)
     }
+    return httpClientBuilder.build()
+  }
 
-    @Provides
-    @Singleton
-    internal fun provideOkHttpClient(
-      httpLoggingInterceptor: HttpLoggingInterceptor,
-      chuckInterceptor: ChuckInterceptor,
-      stethoInterceptor: StethoInterceptor
-    ): OkHttpClient {
-        val httpClientBuilder = OkHttpClient.Builder()
-                .addInterceptor { chain ->
-                    val original = chain.request()
+  @Provides
+  @Singleton
+  internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
+    return HttpLoggingInterceptor { message ->
+      LogUtils.d(message)
+    }.setLevel(HttpLoggingInterceptor.Level.BODY)
+  }
 
-                    val request = original.newBuilder()
-                            .addHeader("Content-Type", "application/json")
-                            .method(original.method(), original.body())
-                            .build()
+  @Provides
+  @Singleton
+  internal fun provideChuckInterceptor(@ApplicationContext context: Context): ChuckInterceptor {
+    return ChuckInterceptor(context)
+  }
 
-                    return@addInterceptor chain.proceed(request)
-                }
-                .connectTimeout(60, TimeUnit.SECONDS)
-                .readTimeout(60, TimeUnit.SECONDS)
-                .writeTimeout(60, TimeUnit.SECONDS)
+  @Provides
+  @Singleton
+  internal fun provideStetho(): StethoInterceptor {
+    return StethoInterceptor()
+  }
 
-        if (BuildConfig.DEBUG) {
-            httpClientBuilder.addInterceptor(httpLoggingInterceptor)
-            httpClientBuilder.addInterceptor(chuckInterceptor)
-            httpClientBuilder.addNetworkInterceptor(stethoInterceptor)
-        }
-        return httpClientBuilder.build()
-    }
+  @Provides
+  @Singleton
+  internal fun provideGson(): Gson {
+    return GsonBuilder()
+      .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+      .excludeFieldsWithoutExposeAnnotation()
+      .create()
+  }
 
-    @Provides
-    @Singleton
-    internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor { message ->
-            LogUtils.d(message)
-        }.setLevel(HttpLoggingInterceptor.Level.BODY)
-    }
+  /*
+  @Provides
+  @Singleton
+  internal fun provideMoshi(): Moshi {
+      return Moshi
+              .Builder()
+              .add(KotlinJsonAdapterFactory())
+              .build()
 
-    @Provides
-    @Singleton
-    internal fun provideChuckInterceptor(@ApplicationContext context: Context): ChuckInterceptor {
-        return ChuckInterceptor(context)
-    }
-
-    @Provides
-    @Singleton
-    internal fun provideStetho(): StethoInterceptor {
-        return StethoInterceptor()
-    }
-
-    @Provides
-    @Singleton
-    internal fun provideGson(): Gson {
-        return GsonBuilder()
-                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-                .excludeFieldsWithoutExposeAnnotation()
-                .create()
-    }
-
-    /*
-    @Provides
-    @Singleton
-    internal fun provideMoshi(): Moshi {
-        return Moshi
-                .Builder()
-                .add(KotlinJsonAdapterFactory())
-                .build()
-
-    }
-    */
+  }
+  */
 }
