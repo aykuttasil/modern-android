@@ -15,8 +15,17 @@
  */
 package aykuttasil.com.modernapp.ui.main
 
+import androidx.lifecycle.viewModelScope
 import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.util.RxAwareViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(val app: App) : RxAwareViewModel(app)
+class MainViewModel @Inject constructor(val app: App) : RxAwareViewModel(app) {
+
+  fun a() {
+    viewModelScope.launch {
+
+    }
+  }
+}

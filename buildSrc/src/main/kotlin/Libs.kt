@@ -6,7 +6,7 @@
 object Libs {
   /**
    * https://developer.android.com/topic/libraries/architecture/index.html */
-  const val navigation_fragment: String = "android.arch.navigation:navigation-fragment:" +
+  const val navigation_fragment: String = "android.arch.navigation:navigation-fragment-ktx:" +
       Versions.android_arch_navigation
 
   /**
@@ -17,7 +17,7 @@ object Libs {
 
   /**
    * https://developer.android.com/topic/libraries/architecture/index.html */
-  const val navigation_ui: String = "android.arch.navigation:navigation-ui:" +
+  const val navigation_ui: String = "android.arch.navigation:navigation-ui-ktx:" +
       Versions.android_arch_navigation
 
   /**
@@ -80,7 +80,7 @@ object Libs {
   const val lifecycle_extensions: String = "androidx.lifecycle:lifecycle-extensions:" +
       Versions.androidx_lifecycle
 
-  const val lifecycle_viewmodel: String = "androidx.lifecycle:lifecycle-viewmodel:" + Versions.androidx_lifecycle
+  const val lifecycle_viewmodel: String = "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.androidx_lifecycle
 
   const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
 
