@@ -37,33 +37,32 @@ import org.robolectric.annotation.Config
 @Config(sdk = [28], application = TestApp::class)
 class MainActivityTest {
 
-    @get:Rule
-    val activityRule = ActivityTestRule(MainActivity::class.java)
+  @get:Rule
+  val activityRule = ActivityTestRule(MainActivity::class.java)
 
-    @Before
-    fun beforeTest() {
-        activityRule.activity.supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment())
-    }
+  @Before
+  fun beforeTest() {
+    activityRule.activity.supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment())
+  }
 
-    @After
-    fun afterTest() {
-    }
+  @After
+  fun afterTest() {
+  }
 
-    @Test
-    fun should_show_hello_world() {
-        onView(withId(R.id.hello)).check(matches(withText("Hello World!")))
-    }
+  @Test
+  fun should_show_hello_world() {
+    onView(withId(R.id.hello)).check(matches(withText("Hello World!")))
+  }
 
-    @Test
-    fun check_txt_message() {
-        onView(withId(R.id.message)).check(matches(withText("Home")))
-    }
+  @Test
+  fun check_txt_message() {
+    onView(withId(R.id.message)).check(matches(withText("Home")))
+  }
 
-    @Test
-    fun should_open_activity_when_click_button() {
-        onView(withId(R.id.btnGoUserActivity)).check(matches(isEnabled()))
-        onView(withId(R.id.btnGoUserActivity)).perform(click())
-        // onView(withId(R.id.textView)).check(matches(isDisplayed()))
-        onView(withId(R.id.textView)).check(matches(withText("About My App")))
-    }
+  @Test
+  fun should_open_activity_when_click_button() {
+    onView(withId(R.id.btnGoUserActivity)).check(matches(isEnabled()))
+    onView(withId(R.id.btnGoUserActivity)).perform(click())
+    onView(withId(R.id.textView)).check(matches(withText("About My App")))
+  }
 }
