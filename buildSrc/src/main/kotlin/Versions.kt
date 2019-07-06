@@ -9,7 +9,7 @@ object Versions {
 
   const val work_runtime_ktx: String = "1.0.1"
 
-  const val annotation: String = "1.0.2"
+  const val annotation: String = "1.1.0"
 
   const val appcompat: String = "1.0.2"
 
@@ -23,6 +23,8 @@ object Versions {
 
   const val androidx_databinding: String = "3.4.1"
 
+  const val fragment_ktx: String = "1.1.0-alpha09"
+
   const val gridlayout: String = "1.0.0"
 
   const val legacy_support_v4: String = "1.0.0"
@@ -31,19 +33,17 @@ object Versions {
 
   const val multidex: String = "2.0.1"
 
-  const val androidx_room: String = "2.1.0-alpha04"
+  const val androidx_room: String = "2.1.0"
 
-  const val androidx_test_espresso: String = "3.1.1"
+  const val androidx_test_espresso: String = "3.2.0"
 
-  const val androidx_test_ext: String = "1.1.0"
+  const val androidx_test_ext: String = "1.1.1"
 
-  const val androidx_test_core: String = "1.1.0"
+  const val androidx_test_core: String = "1.2.0"
 
-  const val androidx_test_rules: String = "1.1.1"
+  const val androidx_test_rules: String = "1.2.0"
 
-  const val androidx_test_runner: String = "1.1.1"
-
-  const val fragment_ktx: String = "1.1.0-alpha09"
+  const val androidx_test_runner: String = "1.2.0"
 
   const val vectordrawable_animated: String = "1.0.0"
 
@@ -55,7 +55,7 @@ object Versions {
 
   const val crashlytics: String = "2.10.1"
 
-  const val spotless_plugin_gradle: String = "3.23.0"
+  const val spotless_plugin_gradle: String = "3.23.1"
 
   const val com_facebook_stetho: String = "1.5.1"
 
@@ -67,13 +67,13 @@ object Versions {
 
   const val gson: String = "2.8.5"
 
-  const val com_google_dagger: String = "2.22.1"
+  const val com_google_dagger: String = "2.23.2"
 
-  const val firebase_database: String = "17.0.0"
+  const val firebase_database: String = "18.0.0"
 
-  const val google_services: String = "4.2.0"
+  const val google_services: String = "4.3.0"
 
-  const val com_google_truth_truth: String = "0.44"
+  const val com_google_truth_truth: String = "0.46"
 
   const val timber: String = "4.7.1"
 
@@ -85,9 +85,9 @@ object Versions {
 
   const val moshi_adapters: String = "1.8.0"
 
-  const val com_squareup_okhttp3: String = "3.14.2"
+  const val com_squareup_okhttp3: String = "3.12.1"
 
-  const val com_squareup_retrofit2: String = "2.5.0"
+  const val com_squareup_retrofit2: String = "2.6.0"
 
   const val rxpermissions: String = "0.9.4"
 
@@ -105,13 +105,13 @@ object Versions {
 
   const val anko: String = "0.10.8"
 
-  const val org_jetbrains_kotlin: String = "1.3.31"
+  const val org_jetbrains_kotlin: String = "1.3.40"
 
-  const val org_jetbrains_kotlinx: String = "1.2.1"
+  const val org_jetbrains_kotlinx: String = "1.2.2"
 
-  const val org_mockito: String = "2.28.1"
+  const val org_mockito: String = "2.28.2"
 
-  const val robolectric: String = "4.2.1"
+  const val robolectric: String = "4.3"
 
   /**
    *
@@ -121,9 +121,9 @@ object Versions {
   object Gradle {
     const val runningVersion: String = "5.4.1"
 
-    const val currentVersion: String = "5.4.1"
+    const val currentVersion: String = "5.5"
 
-    const val nightlyVersion: String = "5.6-20190528000143+0000"
+    const val nightlyVersion: String = "5.6-20190706000041+0000"
 
     const val releaseCandidate: String = ""
   }
