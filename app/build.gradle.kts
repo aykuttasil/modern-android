@@ -190,8 +190,8 @@ dependencies {
     androidTestImplementation(Libs.androidx_test_runner)
     androidTestImplementation(Libs.androidx_test_rules)
     androidTestImplementation(Libs.androidx_test_ext_junit)
-    androidTestImplementation(Libs.androidx_test_ext_truth)
-    androidTestImplementation(Libs.com_google_truth_truth)
+    //androidTestImplementation(Libs.androidx_test_ext_truth)
+    //androidTestImplementation(Libs.com_google_truth_truth)
     androidTestImplementation(Libs.espresso_core) {
         exclude(group = "com.google.code.findbugs")
     }
