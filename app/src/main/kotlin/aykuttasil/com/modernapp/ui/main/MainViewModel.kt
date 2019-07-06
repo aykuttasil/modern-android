@@ -25,7 +25,6 @@ class MainViewModel @Inject constructor(val app: App) : RxAwareViewModel(app) {
 
   fun a() {
     viewModelScope.launch {
-
     }
   }
 }

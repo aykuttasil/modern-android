@@ -32,5 +32,4 @@ import aykuttasil.com.modernapp.util.converter.RoomTypeConverter
 abstract class AppDatabase : RoomDatabase() {
 
   abstract fun getUserDao(): UserDao
-
 }
