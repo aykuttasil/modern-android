@@ -25,7 +25,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.TestApp
-import aykuttasil.com.modernapp.ui.main.pages.main.MainFragment
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -42,7 +41,7 @@ class MainActivityTest {
 
   @Before
   fun beforeTest() {
-    activityRule.activity.supportFragmentManager.beginTransaction().replace(R.id.container, MainFragment())
+    // activityRule.activity.replaceFragmentInActivity(MainFragment(), R.id.container)
   }
 
   @After
