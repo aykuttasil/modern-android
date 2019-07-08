@@ -27,17 +27,18 @@ import org.junit.runners.model.Statement
 /**
  * Overrides all Schedulers with a custom TestScheduler.
  */
-class RxTestSchedulerRule(private val testScheduler: TestScheduler = TestScheduler()) : Scheduler(), TestRule {
-    override fun apply(base: Statement, description: Description?): Statement {
-        RxJavaPlugins.setIoSchedulerHandler { _ -> testScheduler }
-        RxJavaPlugins.setComputationSchedulerHandler { testScheduler }
-        RxJavaPlugins.setNewThreadSchedulerHandler { testScheduler }
-        RxJavaPlugins.setSingleSchedulerHandler { testScheduler }
-        RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
-        return base
-    }
+class RxTestSchedulerRule(private val testScheduler: TestScheduler = TestScheduler()) : Scheduler(),
+  TestRule {
+  override fun apply(base: Statement, description: Description?): Statement {
+    RxJavaPlugins.setIoSchedulerHandler { _ -> testScheduler }
+    RxJavaPlugins.setComputationSchedulerHandler { testScheduler }
+    RxJavaPlugins.setNewThreadSchedulerHandler { testScheduler }
+    RxJavaPlugins.setSingleSchedulerHandler { testScheduler }
+    RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
+    return base
+  }
 
-    override fun createWorker() = testScheduler.createWorker()
+  override fun createWorker() = testScheduler.createWorker()
 
-    fun triggerActions() = testScheduler.triggerActions()
+  fun triggerActions() = testScheduler.triggerActions()
 }
