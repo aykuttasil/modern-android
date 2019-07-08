@@ -1,42 +1,36 @@
 package aykuttasil.com.modernapp
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.multidex.MultiDex
-import aykuttasil.com.modernapp.di.AppInjector
+import aykuttasil.com.modernapp.di.components.DaggerAppComponent
 import aykuttasil.com.modernapp.util.extension.debug
 import com.aykutasil.modernapp.util.Const
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 import io.fabric.sdk.android.Fabric
 import org.jetbrains.anko.notificationManager
 import timber.log.Timber
-import javax.inject.Inject
 
 @SuppressLint("Registered")
-open class App : Application(), HasActivityInjector {
+open class App : DaggerApplication() {
 
-  @Inject
-  lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-
-  override fun activityInjector(): DispatchingAndroidInjector<Activity> {
-    return activityDispatchingAndroidInjector
+  override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+    return DaggerAppComponent.builder()
+      .application(this)
+      .build()
   }
 
   override fun onCreate() {
     super.onCreate()
-    AppInjector.init(this)
     initTimber()
     initFabric()
     initNotificationChannel()
-    // initStetho()
   }
 
   private fun initTimber() {
@@ -56,15 +50,6 @@ open class App : Application(), HasActivityInjector {
 
     Fabric.with(this, crashlytics)
   }
-
-  /*
-  open fun initStetho() {
-      debug {
-          Stetho.initializeWithDefaults(this)
-          Timber.plant(Timber.DebugTree())
-      }
-  }
-  */
 
   private fun initNotificationChannel() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
