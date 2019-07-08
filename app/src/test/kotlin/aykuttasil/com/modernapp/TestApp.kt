@@ -15,9 +15,18 @@
  */
 package aykuttasil.com.modernapp
 
+import aykuttasil.com.modernapp.di.components.DaggerAppComponent
+import aykuttasil.com.modernapp.di.modules.TestDatabaseModule
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
+
 class TestApp : App() {
 
-    override fun onCreate() {
-        super.onCreate()
-    }
+  override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+    return DaggerAppComponent.builder()
+      .application(this)
+      .databaseModule(TestDatabaseModule())
+      .build()
+  }
+
 }
