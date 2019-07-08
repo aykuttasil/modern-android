@@ -27,4 +27,8 @@ class MainViewModel @Inject constructor(val app: App) : RxAwareViewModel(app) {
     viewModelScope.launch {
     }
   }
+
+  fun forTest() {
+    println("ayk: for Test")
+  }
 }
