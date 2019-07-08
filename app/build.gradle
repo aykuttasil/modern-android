@@ -1,0 +1,258 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'io.fabric'
+apply plugin: "androidx.navigation.safeargs"
+
+apply from: "$project.rootDir/tools/spotless.gradle"
+apply from: "$project.rootDir/tools/ktlint.gradle"
+
+android {
+    compileSdkVersion(Config.compileSdkVersion)
+
+    def fabricPropertiesFile = rootProject.file("app/fabric.properties")
+    def fabricProperties = new Properties()
+    if (fabricPropertiesFile.exists()) {
+        fabricProperties.load(new FileInputStream(fabricPropertiesFile))
+    }
+
+    defaultConfig {
+        applicationId "aykuttasil.com.modernapp"
+        minSdkVersion(Config.minSdkVersion)
+        targetSdkVersion(Config.targetSdkVersion)
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary true
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ext.betaDistributionEmails = "aykuttasil@gmail.com"
+        ext.betaDistributionNotifications = true
+        resValue "string", "io.fabric.ApiKey", fabricProperties['apiKey']
+    }
+
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    def keystoreProperties = new Properties()
+    if (keystorePropertiesFile.exists()) {
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    }
+    signingConfigs {
+        debug {
+            keyAlias keystoreProperties['signingKeyAliasDebug']
+            keyPassword keystoreProperties['signingKeyAliasPasswordDebug']
+            storeFile file(keystoreProperties['signingStoreFileDebug'])
+            storePassword keystoreProperties['signingStorePasswordDebug']
+        }
+
+        release {
+            keyAlias keystoreProperties['signingKeyAlias']
+            keyPassword keystoreProperties['signingKeyAliasPassword']
+            storeFile file(keystoreProperties['signingStoreFile'])
+            storePassword keystoreProperties['signingStorePassword']
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-DEBUG'
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        prod {
+            dimension "default"
+            resValue "string", "app_name", "MAS"
+        }
+
+        dev {
+            dimension "default"
+            resValue "string", "app_name", "MAS Dev"
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+
+        def commonTest = "src/commonTest/java"
+        test.java.srcDirs += commonTest
+        androidTest.java.srcDirs += commonTest
+    }
+
+
+    // Always show the result of every unit test, even if it passes.
+    testOptions.unitTests {
+        includeAndroidResources = true
+        returnDefaultValues = true
+
+        all {
+            testLogging {
+                showExceptions = true
+                showStandardStreams = true
+                // exceptionFormat TestExceptionFormat.FULL
+                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            }
+        }
+    }
+
+    packagingOptions {
+        exclude("META-INF/services/javax.annotation.processing.Processor")
+        exclude("LICENSE.txt")
+        exclude("META-INF/license/LICENSE.base64.txt")
+        exclude("META-INF/NOTICE.txt")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/rxjava.properties")
+        exclude("META-INF/MANIFEST.MF")
+        exclude("META-INF/main.kotlin_module")
+        exclude("META-INF/atomicfu.kotlin_module")
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force(Libs.rxjava)
+            force("com.google.code.findbugs:jsr305:3.0.2")
+        }
+    }
+
+    //    applicationVariants.all { variant ->
+    //        variant.outputs.all { output ->
+    //            outputFileName = output.outputFile.name
+    //                .replace(".apk", "-${variant.versionName}-${variant.versionCode}.apk")
+    //        }
+    //    }
+
+    /*
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            output.outputFile.name.replace(".apk", "-${variant.versionName}-${variant.versionCode}.apk")
+            true
+        }
+    }
+    */
+
+    // Remove mockRelease as it's not needed.
+    android.variantFilter { variant ->
+        if (variant.buildType.name == 'release'
+                && variant.getFlavors().get(0).name == 'mock') {
+            variant.setIgnore(true)
+        }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation(project(":core"))
+    implementation(project(":network"))
+
+    // Dependencies for local unit tests
+    testImplementation(Libs.junit)
+    testImplementation(Libs.robolectric)
+    testImplementation(Libs.mockwebserver)
+    testImplementation(Libs.androidx_test_core)
+    testImplementation(Libs.androidx_test_runner)
+    testImplementation(Libs.androidx_test_rules)
+    testImplementation(Libs.androidx_test_ext_junit_ktx)
+    testImplementation(Libs.androidx_test_ext_truth)
+    testImplementation(Libs.com_google_truth_truth)
+    testImplementation(Libs.espresso_core) {
+        exclude group: 'com.google.code.findbugs'
+    }
+    testImplementation(Libs.espresso_contrib)
+    testImplementation(Libs.mockito_inline)
+    testImplementation(Libs.mockito_kotlin)
+
+    // Dependencies for Instrumentation tests
+    androidTestImplementation(Libs.mockito_android)
+    androidTestImplementation(Libs.androidx_test_core)
+    androidTestImplementation(Libs.androidx_test_runner)
+    androidTestImplementation(Libs.androidx_test_rules)
+    androidTestImplementation(Libs.androidx_test_ext_junit_ktx)
+    androidTestImplementation(Libs.androidx_test_ext_truth)
+    androidTestImplementation(Libs.com_google_truth_truth)
+    androidTestImplementation(Libs.espresso_core) {
+        exclude group: 'com.google.code.findbugs'
+    }
+    androidTestImplementation(Libs.espresso_contrib)
+
+
+    releaseImplementation(Libs.sherlock_no_op)
+    debugImplementation(Libs.sherlock) {
+        transitive = true
+    }
+    implementation(Libs.crashlytics) {
+        transitive = true
+    }
+
+    debugImplementation(Libs.stetho)
+
+    implementation(Libs.legacy_support_v4)
+    implementation(Libs.appcompat)
+    implementation(Libs.androidx_core_core)
+    implementation(Libs.core_ktx)
+    implementation(Libs.vectordrawable_animated)
+    implementation(Libs.cardview)
+    implementation(Libs.constraintlayout)
+    implementation(Libs.annotation)
+    implementation(Libs.gridlayout)
+    implementation(Libs.multidex)
+    implementation(Libs.lifecycle_extensions)
+    implementation(Libs.lifecycle_viewmodel_ktx)
+    implementation(Libs.lifecycle_reactivestreams_ktx)
+    implementation(Libs.room_runtime)
+    kapt(Libs.room_compiler)
+    implementation(Libs.room_rxjava2)
+    implementation(Libs.fragment_ktx)
+
+    implementation(Libs.material)
+    implementation(Libs.firebase_database)
+    implementation(Libs.navigation_fragment_ktx)
+    implementation(Libs.navigation_ui_ktx)
+    implementation(Libs.work_runtime_ktx)
+    implementation(Libs.rxjava)
+    implementation(Libs.rxkotlin)
+    implementation(Libs.rxandroid)
+
+    implementation(Libs.kotlin_stdlib_jdk8)
+    implementation(Libs.kotlin_reflect)
+    implementation(Libs.anko)
+    implementation(Libs.kotlinx_coroutines_core)
+    implementation(Libs.kotlinx_coroutines_android)
+
+    implementation(Libs.rxpermissions)
+    implementation(Libs.butterknife)
+    kapt(Libs.butterknife_compiler)
+    implementation(Libs.gson)
+    implementation(Libs.timber)
+
+    kapt(Libs.dagger_compiler)
+    implementation(Libs.dagger)
+    kapt(Libs.dagger_android_processor)
+    implementation(Libs.dagger_android_support)
+}
+// apply(plugin = "com.google.gms.google-services")
