@@ -22,6 +22,7 @@ import aykuttasil.com.modernapp.di.ServiceBuilder
 import aykuttasil.com.modernapp.di.modules.ApiModule
 import aykuttasil.com.modernapp.di.modules.AppModule
 import aykuttasil.com.modernapp.di.modules.DatabaseModule
+import aykuttasil.com.modernapp.di.modules.SharedPreferenceModule
 import com.aykutasil.network.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
@@ -38,15 +39,23 @@ import javax.inject.Singleton
     (AppModule::class),
     (NetworkModule::class),
     (ApiModule::class),
-    (DatabaseModule::class)
+    (DatabaseModule::class),
+    (SharedPreferenceModule::class)
   ]
 )
 interface AppComponent : AndroidInjector<App> {
 
   @Component.Builder
   interface Builder {
+
     @BindsInstance
     fun application(application: Application): Builder
+
+    fun databaseModule(databaseModule: DatabaseModule): Builder
+
+    fun networkModule(networkModule: NetworkModule): Builder
+
+    fun sharedPreferenceModule(sharedPreferenceModule: SharedPreferenceModule): Builder
 
     fun build(): AppComponent
   }

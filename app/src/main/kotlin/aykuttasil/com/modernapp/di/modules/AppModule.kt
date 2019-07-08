@@ -41,10 +41,4 @@ class AppModule {
     internal fun provideApp(application: Application): App {
         return application.applicationContext as App
     }
-
-    @Singleton
-    @Provides
-    internal fun provideSharedPreference(application: Application): SharedPreferences {
-        return PreferenceManager.getDefaultSharedPreferences(application.applicationContext)
-    }
 }
