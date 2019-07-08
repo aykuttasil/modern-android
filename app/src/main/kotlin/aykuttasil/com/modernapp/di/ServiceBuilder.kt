@@ -23,7 +23,7 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ServiceBuilder {
 
-    @PerService
-    @ContributesAndroidInjector
-    internal abstract fun bindAppService(): AppService
+  @PerService
+  @ContributesAndroidInjector
+  internal abstract fun bindAppService(): AppService
 }

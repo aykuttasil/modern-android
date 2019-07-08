@@ -25,6 +25,7 @@ import androidx.test.rule.ActivityTestRule
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.TestApp
 import aykuttasil.com.modernapp.util.ActivityForTest
+import aykuttasil.com.modernapp.util.extension.replaceFragment
 import org.junit.After
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -37,42 +38,42 @@ import org.robolectric.annotation.Config
 @Config(sdk = [28], application = TestApp::class)
 class MainFragmentTest {
 
-    /*
-    @Rule
-    var mainActivityActivityTestRule: ActivityTestRule<MainActivity> = object : ActivityTestRule<MainActivity>(MainActivity::class.java) {
-        override fun getActivityIntent(): Intent {
-            val intent = Intent(InstrumentationRegistry.getContext(), MainActivity::class.java)
-            intent.putExtra("Key", "Value")
-            return intent
-        }
-    }
-    */
+  /*
+  @Rule
+  var mainActivityActivityTestRule: ActivityTestRule<MainActivity> = object : ActivityTestRule<MainActivity>(MainActivity::class.java) {
+      override fun getActivityIntent(): Intent {
+          val intent = Intent(InstrumentationRegistry.getContext(), MainActivity::class.java)
+          intent.putExtra("Key", "Value")
+          return intent
+      }
+  }
+  */
 
-    @get:Rule
-    val activityRule = ActivityTestRule(ActivityForTest::class.java)
+  @get:Rule
+  val activityRule = ActivityTestRule(ActivityForTest::class.java)
 
-    @Before
-    fun beforeTest() {
-        activityRule.activity.supportFragmentManager.beginTransaction().replace(R.id.testContainer, MainFragment()).commit()
-    }
+  @Before
+  fun beforeTest() {
+    activityRule.activity.replaceFragment(R.id.testContainer, MainFragment())
+  }
 
-    @After
-    fun afterTest() {
-    }
+  @After
+  fun afterTest() {
+  }
 
-    @Test
-    fun check_fragment_exist() {
-        assertTrue(activityRule.activity.supportFragmentManager.fragments.size == 1)
-    }
+  @Test
+  fun check_fragment_exist() {
+    assertTrue(activityRule.activity.supportFragmentManager.fragments.size == 1)
+  }
 
-    @Test
-    fun check_txt_message() {
-        onView(withId(R.id.message)).check(matches(withText("Home")))
-    }
+  @Test
+  fun check_txt_message() {
+    onView(withId(R.id.message)).check(matches(withText("Home")))
+  }
 
-    @Test
-    fun should_open_activity_when_click_button() {
-        onView(withId(R.id.btnGoUserActivity)).check(matches(isEnabled()))
-        // onView(withId(R.id.btnGoUserActivity)).perform(click())
-    }
+  @Test
+  fun should_open_activity_when_click_button() {
+    onView(withId(R.id.btnGoUserActivity)).check(matches(isEnabled()))
+    // onView(withId(R.id.btnGoUserActivity)).perform(click())
+  }
 }
