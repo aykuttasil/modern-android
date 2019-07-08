@@ -22,7 +22,6 @@ import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
 import com.aykutasil.modernapp.util.edit
-import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {
@@ -34,7 +33,6 @@ class MainActivity : BaseActivity() {
   lateinit var sharedPreference: SharedPreferences
 
   private val viewModel by viewModels<MainViewModel> { viewModelFactory }
-
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)

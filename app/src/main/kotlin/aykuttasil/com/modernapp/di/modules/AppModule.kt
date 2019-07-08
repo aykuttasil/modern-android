@@ -17,8 +17,6 @@ package aykuttasil.com.modernapp.di.modules
 
 import android.app.Application
 import android.content.Context
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.di.ViewModelBuilder
 import com.aykutasil.modernapp.di.ApplicationContext
