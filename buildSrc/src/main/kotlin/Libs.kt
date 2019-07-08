@@ -122,25 +122,24 @@ object Libs {
 
     /**
      * https://developer.android.com/testing */
-    const val androidx_test_ext_junit: String = "androidx.test.ext:junit:" +
-            Versions.androidx_test_ext
+    const val androidx_test_ext_junit_ktx: String = "androidx.test.ext:junit-ktx:" + Versions.junit_ktx
 
     /**
      * https://developer.android.com/testing */
     const val androidx_test_ext_truth: String = "androidx.test.ext:truth:" +
-            Versions.androidx_test_ext
+            Versions.androidx_test_ext_truth
 
     /**
      * https://developer.android.com/testing */
-    const val androidx_test_core: String = "androidx.test:core:" + Versions.androidx_test_core
+    const val androidx_test_core: String = "androidx.test:core:" + Versions.androidx_test
 
     /**
      * https://developer.android.com/testing */
-    const val androidx_test_rules: String = "androidx.test:rules:" + Versions.androidx_test_rules
+    const val androidx_test_rules: String = "androidx.test:rules:" + Versions.androidx_test
 
     /**
      * https://developer.android.com/testing */
-    const val androidx_test_runner: String = "androidx.test:runner:" + Versions.androidx_test_runner
+    const val androidx_test_runner: String = "androidx.test:runner:" + Versions.androidx_test
 
     /**
      * http://developer.android.com/tools/extras/support-library.html */
@@ -309,7 +308,7 @@ object Libs {
 
     /**
      * http://junit.org */
-    const val junit_junit: String = "junit:junit:" + Versions.junit_junit
+    const val junit: String = "junit:junit:" + Versions.junit
 
     /**
      * https://github.com/JetBrains/anko */
