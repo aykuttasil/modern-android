@@ -213,8 +213,9 @@ dependencies {
 
     implementation(Libs.legacy_support_v4)
     implementation(Libs.appcompat)
-    implementation(Libs.androidx_core_core)
+    implementation(Libs.material)
     implementation(Libs.core_ktx)
+    implementation(Libs.fragment_ktx)
     implementation(Libs.vectordrawable_animated)
     implementation(Libs.cardview)
     implementation(Libs.constraintlayout)
@@ -227,13 +228,10 @@ dependencies {
     implementation(Libs.room_runtime)
     kapt(Libs.room_compiler)
     implementation(Libs.room_rxjava2)
-    implementation(Libs.fragment_ktx)
-
-    implementation(Libs.material)
-    implementation(Libs.firebase_database)
     implementation(Libs.navigation_fragment_ktx)
     implementation(Libs.navigation_ui_ktx)
     implementation(Libs.work_runtime_ktx)
+
     implementation(Libs.rxjava)
     implementation(Libs.rxkotlin)
     implementation(Libs.rxandroid)
@@ -254,5 +252,7 @@ dependencies {
     implementation(Libs.dagger)
     kapt(Libs.dagger_android_processor)
     implementation(Libs.dagger_android_support)
+
+    implementation(Libs.firebase_database)
 }
 // apply(plugin = "com.google.gms.google-services")
