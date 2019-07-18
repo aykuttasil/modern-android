@@ -90,7 +90,6 @@ android {
         androidTest.java.srcDirs += commonTest
     }
 
-
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests {
         includeAndroidResources = true
@@ -163,7 +162,6 @@ android {
     }
 }
 
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
@@ -205,9 +203,6 @@ dependencies {
     debugImplementation(Libs.sherlock) {
         transitive = true
     }
-    implementation(Libs.crashlytics) {
-        transitive = true
-    }
 
     debugImplementation(Libs.stetho)
 
@@ -235,6 +230,7 @@ dependencies {
     implementation(Libs.rxjava)
     implementation(Libs.rxkotlin)
     implementation(Libs.rxandroid)
+    implementation(Libs.rxpermissions)
 
     implementation(Libs.kotlin_stdlib_jdk8)
     implementation(Libs.kotlin_reflect)
@@ -242,7 +238,7 @@ dependencies {
     implementation(Libs.kotlinx_coroutines_core)
     implementation(Libs.kotlinx_coroutines_android)
 
-    implementation(Libs.rxpermissions)
+    implementation(Libs.crashlytics)
     implementation(Libs.butterknife)
     kapt(Libs.butterknife_compiler)
     implementation(Libs.gson)
