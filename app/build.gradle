@@ -198,11 +198,8 @@ dependencies {
     }
     androidTestImplementation(Libs.espresso_contrib)
 
-
     releaseImplementation(Libs.sherlock_no_op)
-    debugImplementation(Libs.sherlock) {
-        transitive = true
-    }
+    debugImplementation(Libs.sherlock)
 
     debugImplementation(Libs.stetho)
 

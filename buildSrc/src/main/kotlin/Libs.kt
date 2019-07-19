@@ -48,10 +48,6 @@ object Libs {
      * http://developer.android.com/tools/extras/support-library.html */
     const val core_ktx: String = "androidx.core:core-ktx:" + Versions.core_ktx
 
-    /**
-     * http://developer.android.com/tools/extras/support-library.html */
-    const val androidx_core_core: String = "androidx.core:core:" + Versions.androidx_core_core
-
     const val databinding_adapters: String = "androidx.databinding:databinding-adapters:" +
             Versions.androidx_databinding
 
