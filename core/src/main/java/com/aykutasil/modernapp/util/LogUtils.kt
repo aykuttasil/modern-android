@@ -2,6 +2,13 @@ package com.aykutasil.modernapp.util
 
 import timber.log.Timber
 
+// Quick & dirty logcat extensions
+inline fun <reified T> T.logd(message: () -> String) = LogUtils.d(T::class.simpleName!!, message())
+
+inline fun <reified T> T.loge(error: Throwable, message: () -> String) =
+  LogUtils.e(T::class.simpleName!!, message(), error)
+
+
 object LogUtils {
 
   fun i(msg: String?) {
@@ -27,5 +34,5 @@ object LogUtils {
   fun e(tag: String, msg: String?, throwable: Throwable) {
     e(throwable, """$tag : ${msg ?: "non message"}""")
   }
-  
+
 }
