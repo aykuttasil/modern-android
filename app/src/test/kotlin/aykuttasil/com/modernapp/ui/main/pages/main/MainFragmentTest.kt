@@ -25,7 +25,7 @@ import androidx.test.rule.ActivityTestRule
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.TestApp
 import aykuttasil.com.modernapp.util.ActivityForTest
-import aykuttasil.com.modernapp.util.extension.replaceFragment
+import com.aykutasil.modernapp.util.extension.replaceFragment
 import org.junit.After
 import org.junit.Assert.assertTrue
 import org.junit.Before
