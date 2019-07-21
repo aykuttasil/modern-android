@@ -109,16 +109,4 @@ class NetworkModule {
       .excludeFieldsWithoutExposeAnnotation()
       .create()
   }
-
-  /*
-  @Provides
-  @Singleton
-  internal fun provideMoshi(): Moshi {
-      return Moshi
-              .Builder()
-              .add(KotlinJsonAdapterFactory())
-              .build()
-
-  }
-  */
 }
