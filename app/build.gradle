@@ -137,30 +137,6 @@ android {
             force("com.google.code.findbugs:jsr305:3.0.2")
         }
     }
-
-    //    applicationVariants.all { variant ->
-    //        variant.outputs.all { output ->
-    //            outputFileName = output.outputFile.name
-    //                .replace(".apk", "-${variant.versionName}-${variant.versionCode}.apk")
-    //        }
-    //    }
-
-    /*
-    applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-            output.outputFile.name.replace(".apk", "-${variant.versionName}-${variant.versionCode}.apk")
-            true
-        }
-    }
-    */
-
-    // Remove mockRelease as it's not needed.
-    android.variantFilter { variant ->
-        if (variant.buildType.name == 'release'
-                && variant.getFlavors().get(0).name == 'mock') {
-            variant.setIgnore(true)
-        }
-    }
 }
 
 dependencies {
