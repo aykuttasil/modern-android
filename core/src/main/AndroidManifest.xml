@@ -1,5 +1,3 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.aykutasil.modernapp" >
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<manifest
+        package="com.aykutasil.modernapp">
 </manifest>
