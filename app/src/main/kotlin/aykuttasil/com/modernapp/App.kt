@@ -7,8 +7,8 @@ import android.content.Context
 import android.os.Build
 import androidx.multidex.MultiDex
 import aykuttasil.com.modernapp.di.components.DaggerAppComponent
-import aykuttasil.com.modernapp.util.extension.debug
 import com.aykutasil.modernapp.util.Const
+import com.aykutasil.modernapp.util.extension.debug
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
 import dagger.android.AndroidInjector
@@ -28,6 +28,10 @@ open class App : DaggerApplication() {
 
   override fun onCreate() {
     super.onCreate()
+    initApp()
+  }
+
+  open fun initApp() {
     initTimber()
     initFabric()
     initNotificationChannel()
@@ -64,6 +68,9 @@ open class App : DaggerApplication() {
 
   override fun attachBaseContext(base: Context) {
     super.attachBaseContext(base)
-    MultiDex.install(this)
+    try {
+      MultiDex.install(this)
+    } catch (ex: Exception) {
+    }
   }
 }

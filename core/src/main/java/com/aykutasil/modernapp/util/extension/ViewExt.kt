@@ -4,6 +4,10 @@ import android.content.Context
 import android.graphics.Point
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import com.aykutasil.modernapp.util.SingleLiveEvent
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * Extension method to set width for View.
@@ -86,5 +90,24 @@ fun View.showKeyboard() {
   imm.showSoftInput(this, 0)
 }
 
+/**
+ * Transforms static java function Snackbar.make() to an extension function on View.
+ */
+fun View.showSnackbar(snackbarText: String?, timeLength: Int) {
+  Snackbar.make(this, snackbarText ?: "Message is null", timeLength).show()
+}
+
+/**
+ * Triggers a snackbar message when the value contained by snackbarTaskMessageLiveEvent is modified.
+ */
+fun View.setupSnackbar(
+  lifecycleOwner: LifecycleOwner,
+  snackbarMessageLiveEvent: SingleLiveEvent<Int>,
+  timeLength: Int
+) {
+  snackbarMessageLiveEvent.observe(lifecycleOwner, Observer {
+    it?.let { showSnackbar(context.getString(it), timeLength) }
+  })
+}
 
 

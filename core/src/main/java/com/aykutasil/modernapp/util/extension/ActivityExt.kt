@@ -4,6 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Rect
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.IdRes
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.aykutasil.modernapp.BuildConfig
 
 /**
  * Return whether Keyboard is currently visible on screen or not.
@@ -41,3 +46,26 @@ fun Activity.hideKeyboard() {
   val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
   imm.hideSoftInputFromWindow(window.decorView.windowToken, 0)
 }
+
+fun AppCompatActivity.setupActionBar(@IdRes toolbarId: Int, action: ActionBar.() -> Unit) {
+  setSupportActionBar(findViewById(toolbarId))
+  supportActionBar?.run {
+    action()
+  }
+}
+
+inline fun AppCompatActivity.debug(block: () -> Unit) {
+  if (BuildConfig.DEBUG) {
+    block()
+  }
+}
+
+fun AppCompatActivity.replaceFragment(containerId: Int, fragment: Fragment) {
+  supportFragmentManager.transaction { replace(containerId, fragment) }
+}
+
+fun AppCompatActivity.addFragment(containerId: Int, fragment: Fragment) {
+  supportFragmentManager.transaction { add(containerId, fragment) }
+}
+
+

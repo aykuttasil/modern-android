@@ -15,21 +15,21 @@
  */
 package aykuttasil.com.modernapp
 
-import aykuttasil.com.modernapp.util.extension.debug
 import com.facebook.stetho.Stetho
 import timber.log.Timber
+import com.aykutasil.modernapp.util.extension.debug
 
 class DebugApp : App() {
 
-    override fun onCreate() {
-        super.onCreate()
-        initStetho()
-    }
+  override fun onCreate() {
+    super.onCreate()
+    initStetho()
+  }
 
-    fun initStetho() {
-        debug {
-            Stetho.initializeWithDefaults(this)
-            Timber.plant(Timber.DebugTree())
-        }
+  fun initStetho() {
+    debug {
+      Stetho.initializeWithDefaults(this)
+      Timber.plant(Timber.DebugTree())
     }
+  }
 }

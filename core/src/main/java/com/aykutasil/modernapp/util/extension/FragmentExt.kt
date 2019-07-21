@@ -2,6 +2,8 @@ package com.aykutasil.modernapp.util.extension
 
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 
 /**
  * Provides simpler access to the [ViewTreeObserver] inside a fragment.
@@ -51,3 +53,8 @@ fun Fragment.getDrawableCompat(drawableResId: Int) = context?.getDrawableCompat(
  *  from a [Fragment].
  */
 fun Fragment.getColorCompat(color: Int) = context?.getColorCompat(color)
+
+inline fun FragmentManager.transaction(func: FragmentTransaction.() -> FragmentTransaction) {
+  beginTransaction().func().commit()
+}
+

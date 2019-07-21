@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykutasil.modernapp.util
+package com.aykutasil.modernapp.util.extension
 
 import android.text.Editable
 import android.text.SpannableStringBuilder

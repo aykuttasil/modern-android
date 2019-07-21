@@ -56,6 +56,7 @@ dependencies {
     implementation(Libs.kotlinx_coroutines_android)
 
     implementation(Libs.appcompat)
+    implementation(Libs.material)
     implementation(Libs.core_ktx)
 }
 apply from: '../tools/spotless.gradle'

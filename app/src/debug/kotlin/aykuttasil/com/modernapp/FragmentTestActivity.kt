@@ -25,37 +25,38 @@ import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
 
 class FragmentTestActivity : AppCompatActivity(), HasSupportFragmentInjector {
-    private lateinit var injector: AndroidInjector<Fragment>
+  private lateinit var injector: AndroidInjector<Fragment>
 
-    override fun supportFragmentInjector() = injector
+  override fun supportFragmentInjector() = injector
 
-    fun startFragment(fragment: Fragment, injector: AndroidInjector<Fragment>) {
-        this.injector = injector
+  fun startFragment(fragment: Fragment, injector: AndroidInjector<Fragment>) {
+    this.injector = injector
 
-        supportFragmentManager?.registerFragmentLifecycleCallbacks(
-            object : FragmentManager.FragmentLifecycleCallbacks() {
-                override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
-                    super.onFragmentCreated(fm, f, savedInstanceState)
-                    if (f is Injectable) {
-                        AndroidSupportInjection.inject(f)
-                    }
-                }
-            }, true)
+    supportFragmentManager?.registerFragmentLifecycleCallbacks(
+      object : FragmentManager.FragmentLifecycleCallbacks() {
+        override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
+          super.onFragmentCreated(fm, f, savedInstanceState)
+          if (f is Injectable) {
+            AndroidSupportInjection.inject(f)
+          }
+        }
+      }, true
+    )
 
-        supportFragmentManager.beginTransaction()
-            .add(android.R.id.content, fragment, "TAG")
-            .commit()
-    }
+    supportFragmentManager.beginTransaction()
+      .add(android.R.id.content, fragment, "TAG")
+      .commit()
+  }
 
-    inline fun <reified T : Fragment> startFragment(fragment: T, crossinline injector: (T) -> Unit) {
-        startFragment(
-            fragment,
-            AndroidInjector {
-                if (it is T) {
-                    println("aaa injected")
-                    injector(it)
-                }
-            }
-        )
-    }
+  inline fun <reified T : Fragment> startFragment(fragment: T, crossinline injector: (T) -> Unit) {
+    startFragment(
+      fragment,
+      AndroidInjector {
+        if (it is T) {
+          println("aaa injected")
+          injector(it)
+        }
+      }
+    )
+  }
 }
