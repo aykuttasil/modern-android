@@ -1,150 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="user"
-            type="aykuttasil.com.modernapp.data.local.entity.UserEntity" />
+                name="user"
+                type="aykuttasil.com.modernapp.data.local.entity.UserEntity" />
 
         <variable
-            name="resource"
-            type="com.aykutasil.modernapp.Resource" />
+                name="resource"
+                type="com.aykutasil.modernapp.Resource" />
 
         <variable
-            name="callback"
-            type="aykuttasil.com.modernapp.ui.common.RetryCallback" />
+                name="callback"
+                type="aykuttasil.com.modernapp.ui.common.RetryCallback" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="aykuttasil.com.modernapp.ui.main.MainActivity">
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="aykuttasil.com.modernapp.ui.main.MainActivity">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:menu="@menu/navigation" />
+                android:id="@+id/navigation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:menu="@menu/navigation" />
 
         <TextView
-            android:id="@+id/message"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/abril_fatface"
-            android:text="@string/title_home"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                android:id="@+id/message"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/abril_fatface"
+                android:text="@string/title_home"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/message"
-            app:visibleGone="@{user != null}">
-
-            <TextView
-                android:id="@+id/txtUserJob"
-                android:layout_width="match_parent"
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="@{user.userJob}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtUser"
-                tools:text="TextView" />
-
-            <TextView
-                android:id="@+id/txtUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:text="@{user.userName}"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/message"
-                tools:text="TextView" />
+                app:visibleGone="@{user != null}">
+
+            <TextView
+                    android:id="@+id/txtUserJob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@{user.userJob}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtUser"
+                    tools:text="TextView" />
+
+            <TextView
+                    android:id="@+id/txtUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@{user.userName}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/message"
+                    tools:text="TextView" />
         </LinearLayout>
 
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+                android:id="@+id/linearLayout2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <Button
-                android:id="@+id/btnImagePicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="0dp"
-                android:text="@string/select_image" />
+                    android:id="@+id/btnImagePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="0dp"
+                    android:text="@string/select_image" />
 
             <Button
-                android:id="@+id/btnGoUserActivity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_go_user_activity" />
+                    android:id="@+id/btnGoUserActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_go_user_activity" />
 
             <Button
-                android:id="@+id/btnShowNotif"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/txt_show_notif"
-                tools:layout_editor_absoluteX="11dp"
-                tools:layout_editor_absoluteY="208dp" />
+                    android:id="@+id/btnShowNotif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_show_notif"
+                    tools:layout_editor_absoluteX="11dp"
+                    tools:layout_editor_absoluteY="208dp" />
+
+            <Button
+                    android:id="@+id/btnOpenDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Open Dialog"
+                    tools:layout_editor_absoluteX="11dp"
+                    tools:layout_editor_absoluteY="208dp" />
+
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:src="@drawable/ic_facebook"
-                android:contentDescription="TODO" />
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="TODO"
+                    tools:src="@drawable/ic_facebook" />
         </LinearLayout>
 
         <include
-            layout="@layout/loading_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            app:callback="@{callback}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:resource="@{resource}" />
+                layout="@layout/loading_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                app:callback="@{callback}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:resource="@{resource}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

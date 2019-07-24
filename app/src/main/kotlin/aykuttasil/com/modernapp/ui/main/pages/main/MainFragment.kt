@@ -23,6 +23,7 @@ import androidx.navigation.fragment.findNavController
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.databinding.FragmentMainBinding
 import aykuttasil.com.modernapp.ui.common.BaseFragment
+import aykuttasil.com.modernapp.ui.widget.bottomdialog.MyBottomDialog
 import aykuttasil.com.modernapp.util.delegates.Inflate
 import com.aykutasil.modernapp.util.LogUtils
 import com.aykutasil.modernapp.util.loadAsync
@@ -48,6 +49,11 @@ class MainFragment : BaseFragment() {
 
     btnGoUserActivity.setOnClickListener {
       findNavController().navigate(R.id.action_mainFragment_to_aboutFragment)
+    }
+
+    btnOpenDialog.setOnClickListener {
+      val dialog = MyBottomDialog()
+      dialog.show(childFragmentManager, MyBottomDialog::class.java.simpleName)
     }
 
     loadAsync {

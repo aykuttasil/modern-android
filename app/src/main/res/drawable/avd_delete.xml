@@ -5,8 +5,7 @@
 
     <target android:name="cap">
         <aapt:attr name="android:animation">
-            <set xmlns:android="http://schemas.android.com/apk/res/android"
-                android:ordering="sequentially">
+            <set android:ordering="sequentially">
                 <objectAnimator
                     android:duration="100"
                     android:propertyName="translateY"

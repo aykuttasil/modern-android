@@ -34,4 +34,20 @@
     <string name="txt_go_user_activity">Go User Activity</string>
     <string name="txt_show_notif">Show Notif</string>
     <string name="txt_repeat_again">Tekrar Dene</string>
+
+
+
+    <string name="nav_item1">Item 1</string>
+    <string name="nav_item2">Item 2</string>
+    <string name="nav_item3">Item 3</string>
+    <string name="nav_item4">Item 4</string>
+    <string name="nav_item5">Item 5</string>
+    <string name="nav_item6">Item 6</string>
+    <string name="nav_item7">Item 7</string>
+    <string name="nav_item8">Item 8</string>
+    <string name="nav_item9">Item 9</string>
+    <string name="nav_item10">Item 10</string>
+    <string name="nav_item11">Item 11</string>
+    <string name="nav_item12">Item 12</string>
+    <string name="nav_item13">Item 13</string>
 </resources>
