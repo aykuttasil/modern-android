@@ -1,36 +1,4 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
-
-apply from: "$project.rootDir/dependencies.gradle"
-
-android {
-    compileSdkVersion Config.compileSdkVersion
-
-    defaultConfig {
-        minSdkVersion Config.minSdkVersion
-        targetSdkVersion Config.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    lintOptions {
-        abortOnError false
-    }
-}
+apply from: "$rootDir/tools/common-android-library.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -59,4 +27,4 @@ dependencies {
     implementation(Libs.material)
     implementation(Libs.core_ktx)
 }
-apply from: '../tools/spotless.gradle'
+apply from: "$rootDir/tools/spotless.gradle"

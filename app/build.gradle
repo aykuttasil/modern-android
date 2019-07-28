@@ -9,7 +9,7 @@ apply from: "$project.rootDir/tools/spotless.gradle"
 apply from: "$project.rootDir/tools/ktlint.gradle"
 
 android {
-    compileSdkVersion(Config.compileSdkVersion)
+    compileSdkVersion(Config.compileSdk)
 
     def fabricPropertiesFile = rootProject.file("app/fabric.properties")
     def fabricProperties = new Properties()
@@ -19,8 +19,8 @@ android {
 
     defaultConfig {
         applicationId "aykuttasil.com.modernapp"
-        minSdkVersion(Config.minSdkVersion)
-        targetSdkVersion(Config.targetSdkVersion)
+        minSdkVersion(Config.minSdk)
+        targetSdkVersion(Config.targetSdk)
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary true
