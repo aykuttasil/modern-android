@@ -22,7 +22,6 @@ import aykuttasil.com.modernapp.di.ServiceBuilder
 import aykuttasil.com.modernapp.di.modules.ApiModule
 import aykuttasil.com.modernapp.di.modules.AppModule
 import aykuttasil.com.modernapp.di.modules.DatabaseModule
-import aykuttasil.com.modernapp.di.modules.TestDatabaseModule
 import com.aykutasil.network.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
@@ -47,6 +46,7 @@ interface TestAppComponent : AndroidInjector<TestApp> {
 
   @Component.Builder
   interface Builder {
+
     @BindsInstance
     fun application(application: Application): Builder
 
