@@ -45,7 +45,6 @@ class MyBottomDialog : BottomSheetDialogFragment() {
     }
 
     disableNavigationViewScrollbars(navigation_view)
-
   }
 
   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -71,7 +71,6 @@ inline fun SpannableStringBuilder.withSpan(
   return this
 }
 
-
 /**
  * Extension method to replace all text inside an [Editable] with the specified [newValue] while
  * ignoring any [android.text.InputFilter] set on the [Editable].
@@ -149,7 +148,6 @@ fun getClickableSpan(color: Int, action: (view: View) -> Unit): ClickableSpan {
  * of the specified [exponent].
  */
 fun Float.pow(exponent: Float) = Math.pow(this.toDouble(), exponent.toDouble()).toFloat()
-
 
 /**
  * Provide the ability to snap to a specified [position] in the specified [recyclerView]
