@@ -19,10 +19,12 @@ import android.app.Application
 import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.di.ActivityBuilder
 import aykuttasil.com.modernapp.di.ServiceBuilder
+import aykuttasil.com.modernapp.di.WorkerBuilder
 import aykuttasil.com.modernapp.di.modules.ApiModule
 import aykuttasil.com.modernapp.di.modules.AppModule
 import aykuttasil.com.modernapp.di.modules.DatabaseModule
 import aykuttasil.com.modernapp.di.modules.SharedPreferenceModule
+import aykuttasil.com.modernapp.di.modules.WorkerAssistedInjectModule
 import com.aykutasil.network.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
@@ -40,7 +42,9 @@ import javax.inject.Singleton
     (NetworkModule::class),
     (ApiModule::class),
     (DatabaseModule::class),
-    (SharedPreferenceModule::class)
+    (SharedPreferenceModule::class),
+    (WorkerAssistedInjectModule::class),
+    (WorkerBuilder::class)
   ]
 )
 interface AppComponent : AndroidInjector<App> {
