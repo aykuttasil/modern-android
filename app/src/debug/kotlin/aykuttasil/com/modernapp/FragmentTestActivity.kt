@@ -21,20 +21,27 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import aykuttasil.com.modernapp.di.Injectable
 import dagger.android.AndroidInjector
+import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.HasSupportFragmentInjector
 
-class FragmentTestActivity : AppCompatActivity(), HasSupportFragmentInjector {
-  private lateinit var injector: AndroidInjector<Fragment>
+class FragmentTestActivity : AppCompatActivity(), HasAndroidInjector {
 
-  override fun supportFragmentInjector() = injector
+  private lateinit var injector: AndroidInjector<Any>
 
-  fun startFragment(fragment: Fragment, injector: AndroidInjector<Fragment>) {
+  override fun androidInjector(): AndroidInjector<Any> {
+    return injector
+  }
+
+  fun startFragment(fragment: Fragment, injector: AndroidInjector<Any>) {
     this.injector = injector
 
-    supportFragmentManager?.registerFragmentLifecycleCallbacks(
+    supportFragmentManager.registerFragmentLifecycleCallbacks(
       object : FragmentManager.FragmentLifecycleCallbacks() {
-        override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
+        override fun onFragmentCreated(
+          fm: FragmentManager,
+          f: Fragment,
+          savedInstanceState: Bundle?
+        ) {
           super.onFragmentCreated(fm, f, savedInstanceState)
           if (f is Injectable) {
             AndroidSupportInjection.inject(f)
