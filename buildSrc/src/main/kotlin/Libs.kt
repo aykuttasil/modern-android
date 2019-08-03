@@ -8,24 +8,9 @@ import kotlin.String
 object Libs {
     /**
      * https://developer.android.com/topic/libraries/architecture/index.html */
-    const val navigation_fragment_ktx: String = "android.arch.navigation:navigation-fragment-ktx:" +
-            Versions.android_arch_navigation
-
-    /**
-     * https://developer.android.com/topic/libraries/architecture/index.html */
     const val navigation_safe_args_gradle_plugin: String =
             "android.arch.navigation:navigation-safe-args-gradle-plugin:" +
-            Versions.android_arch_navigation
-
-    /**
-     * https://developer.android.com/topic/libraries/architecture/index.html */
-    const val navigation_ui_ktx: String = "android.arch.navigation:navigation-ui-ktx:" +
-            Versions.android_arch_navigation
-
-    /**
-     * https://developer.android.com/topic/libraries/architecture/index.html */
-    const val work_runtime_ktx: String = "android.arch.work:work-runtime-ktx:" +
-            Versions.work_runtime_ktx
+            Versions.navigation_safe_args_gradle_plugin
 
     /**
      * http://developer.android.com/tools/extras/support-library.html */
@@ -96,6 +81,16 @@ object Libs {
 
     /**
      * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val navigation_fragment_ktx: String = "androidx.navigation:navigation-fragment-ktx:" +
+            Versions.androidx_navigation
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val navigation_ui_ktx: String = "androidx.navigation:navigation-ui-ktx:" +
+            Versions.androidx_navigation
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
     const val room_compiler: String = "androidx.room:room-compiler:" + Versions.androidx_room
 
     /**
@@ -143,6 +138,14 @@ object Libs {
             Versions.vectordrawable_animated
 
     /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val work_runtime_ktx: String = "androidx.work:work-runtime-ktx:" + Versions.androidx_work
+
+    /**
+     * https://developer.android.com/topic/libraries/architecture/index.html */
+    const val work_rxjava2: String = "androidx.work:work-rxjava2:" + Versions.androidx_work
+
+    /**
      * https://developer.android.com/studio */
     const val aapt2: String = "com.android.tools.build:aapt2:" + Versions.aapt2
 
@@ -180,8 +183,6 @@ object Libs {
     /**
      * https://github.com/ajitsing/Sherlock */
     const val sherlock: String = "com.github.ajitsing:sherlock:" + Versions.com_github_ajitsing
-
-    const val ktlint: String = "com.github.shyiko:ktlint:" + Versions.ktlint
 
     /**
      * http://developer.android.com/tools/extras/support-library.html */
@@ -239,6 +240,10 @@ object Libs {
             Versions.mockito_kotlin
 
     /**
+     * https://github.com/pinterest/ktlint */
+    const val ktlint: String = "com.pinterest:ktlint:" + Versions.ktlint
+
+    /**
      * https://github.com/jgilfelt/chuck */
     const val chuck_no_op: String = "com.readystatesoftware.chuck:library-no-op:" +
             Versions.com_readystatesoftware_chuck
@@ -247,6 +252,22 @@ object Libs {
      * https://github.com/jgilfelt/chuck */
     const val chuck: String = "com.readystatesoftware.chuck:library:" +
             Versions.com_readystatesoftware_chuck
+
+    /**
+     * https://github.com/square/AssistedInject/ */
+    const val assisted_inject_annotations_dagger2: String =
+            "com.squareup.inject:assisted-inject-annotations-dagger2:" +
+            Versions.com_squareup_inject
+
+    /**
+     * https://github.com/square/AssistedInject/ */
+    const val assisted_inject_processor_dagger2: String =
+            "com.squareup.inject:assisted-inject-processor-dagger2:" + Versions.com_squareup_inject
+
+    /**
+     * http://github.com/square/leakcanary/ */
+    const val leakcanary_android: String = "com.squareup.leakcanary:leakcanary-android:" +
+            Versions.leakcanary_android
 
     /**
      * https://github.com/square/moshi */
@@ -289,6 +310,10 @@ object Libs {
 
     const val io_fabric_tools_gradle: String = "io.fabric.tools:gradle:" +
             Versions.io_fabric_tools_gradle
+
+    /**
+     * http://mockk.io */
+    const val mockk: String = "io.mockk:mockk:" + Versions.mockk
 
     /**
      * https://github.com/ReactiveX/RxAndroid */

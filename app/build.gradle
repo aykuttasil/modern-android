@@ -124,6 +124,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     dataBinding {
         enabled = true
     }
@@ -162,6 +166,7 @@ dependencies {
     testImplementation(Libs.espresso_contrib)
     testImplementation(Libs.mockito_inline)
     testImplementation(Libs.mockito_kotlin)
+    testImplementation Libs.mockk
 
     // Dependencies for Instrumentation tests
     androidTestImplementation(Libs.mockito_android)
@@ -176,10 +181,12 @@ dependencies {
     }
     androidTestImplementation(Libs.espresso_contrib)
 
+    // Debug
+    debugImplementation Libs.leakcanary_android
+    debugImplementation(Libs.stetho)
     releaseImplementation(Libs.sherlock_no_op)
     debugImplementation(Libs.sherlock)
 
-    debugImplementation(Libs.stetho)
 
     implementation(Libs.legacy_support_v4)
     implementation(Libs.appcompat)
@@ -198,9 +205,10 @@ dependencies {
     implementation(Libs.room_runtime)
     kapt(Libs.room_compiler)
     implementation(Libs.room_rxjava2)
-    implementation(Libs.navigation_fragment_ktx)
-    implementation(Libs.navigation_ui_ktx)
-    implementation(Libs.work_runtime_ktx)
+    implementation Libs.navigation_fragment_ktx
+    implementation Libs.navigation_ui_ktx
+    implementation Libs.work_runtime_ktx
+    implementation Libs.work_rxjava2
 
     implementation(Libs.rxjava)
     implementation(Libs.rxkotlin)
@@ -225,5 +233,9 @@ dependencies {
     implementation(Libs.dagger_android_support)
 
     implementation(Libs.firebase_database)
+
+    // Assisted Inject
+    compileOnly Libs.assisted_inject_annotations_dagger2
+    kapt Libs.assisted_inject_processor_dagger2
 }
 // apply(plugin = "com.google.gms.google-services")

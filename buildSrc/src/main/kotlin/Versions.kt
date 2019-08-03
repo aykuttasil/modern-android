@@ -7,9 +7,7 @@ import kotlin.String
  *
  * YOU are responsible for updating manually the dependency version. */
 object Versions {
-    const val android_arch_navigation: String = "1.0.0" 
-
-    const val work_runtime_ktx: String = "1.0.1" 
+    const val navigation_safe_args_gradle_plugin: String = "1.0.0" 
 
     const val annotation: String = "1.1.0" 
 
@@ -21,7 +19,7 @@ object Versions {
 
     const val core_ktx: String = "1.0.2" 
 
-    const val androidx_databinding: String = "3.4.2" 
+    const val androidx_databinding: String = "3.5.0-rc02" 
 
     const val fragment_ktx: String = "1.1.0-alpha09" 
 
@@ -32,6 +30,8 @@ object Versions {
     const val androidx_lifecycle: String = "2.2.0-alpha01" 
 
     const val multidex: String = "2.0.1" 
+
+    const val androidx_navigation: String = "2.1.0-beta02" 
 
     const val androidx_room: String = "2.1.0" 
 
@@ -45,29 +45,29 @@ object Versions {
 
     const val vectordrawable_animated: String = "1.0.0" 
 
-    const val aapt2: String = "3.4.2-5326820" 
+    const val androidx_work: String = "2.1.0" 
 
-    const val com_android_tools_build_gradle: String = "3.5.0-rc02"
+    const val aapt2: String = "3.5.0-rc02-5435860" 
 
-    const val lint_gradle: String = "26.4.2" 
+    const val com_android_tools_build_gradle: String = "3.5.0-rc02" 
+
+    const val lint_gradle: String = "26.5.0-rc02" 
 
     const val crashlytics: String = "2.10.1" 
 
-    const val spotless_plugin_gradle: String = "3.23.1" 
+    const val spotless_plugin_gradle: String = "3.24.0" 
 
     const val com_facebook_stetho: String = "1.5.1" 
 
     const val com_github_ajitsing: String = "1.0.4" 
 
-    const val ktlint: String = "0.31.0" // available: "0.34.2"
-
     const val material: String = "1.0.0" 
 
     const val gson: String = "2.8.5" 
 
-    const val com_google_dagger: String = "2.23.2" // available: "2.24"
+    const val com_google_dagger: String = "2.24" 
 
-    const val firebase_database: String = "18.0.0" // available: "18.0.1"
+    const val firebase_database: String = "18.0.1" 
 
     const val google_services: String = "4.3.0" 
 
@@ -79,25 +79,33 @@ object Versions {
 
     const val mockito_kotlin: String = "2.1.0" 
 
+    const val ktlint: String = "0.34.2" 
+
     const val com_readystatesoftware_chuck: String = "1.1.0" 
+
+    const val com_squareup_inject: String = "0.4.0" 
+
+    const val leakcanary_android: String = "2.0-alpha-2" 
 
     const val moshi_adapters: String = "1.8.0" 
 
     const val com_squareup_okhttp3: String = "3.12.1" // available: "4.0.1"
 
-    const val com_squareup_retrofit2: String = "2.6.0" 
+    const val com_squareup_retrofit2: String = "2.6.1" 
 
     const val rxpermissions: String = "0.9.4" 
 
     const val de_fayard_buildsrcversions_gradle_plugin: String = "0.3.2" 
 
-    const val io_fabric_tools_gradle: String = "1.30.0" // available: "1.31.0"
+    const val io_fabric_tools_gradle: String = "1.31.0" 
+
+    const val mockk: String = "1.9.3" 
 
     const val rxandroid: String = "2.1.1" 
 
     const val rxjava: String = "2.2.8" 
 
-    const val rxkotlin: String = "2.3.0" // available: "2.4.0"
+    const val rxkotlin: String = "2.4.0" 
 
     const val junit: String = "4.12" 
 
@@ -117,12 +125,12 @@ object Versions {
      *      ./gradle/wrapper/gradle-wrapper.properties
      */
     object Gradle {
-        const val runningVersion: String = "5.4.1"
+        const val runningVersion: String = "5.5.1"
 
         const val currentVersion: String = "5.5.1"
 
-        const val nightlyVersion: String = "5.7-20190727220037+0000"
+        const val nightlyVersion: String = "5.7-20190802220030+0000"
 
-        const val releaseCandidate: String = ""
+        const val releaseCandidate: String = "5.6-rc-1"
     }
 }
