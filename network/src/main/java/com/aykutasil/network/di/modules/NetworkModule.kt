@@ -20,17 +20,22 @@ import com.aykutasil.modernapp.di.ApplicationContext
 import com.aykutasil.modernapp.util.LogUtils
 import com.aykutasil.network.BuildConfig
 import com.aykutasil.network.LiveDataCallAdapterFactory
+import com.aykutasil.network.utils.InternetConnection.isConnectionOn
+import com.aykutasil.network.utils.InternetConnection.isInternetAvailable
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module
 import dagger.Provides
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -43,35 +48,38 @@ class NetworkModule {
   @Singleton
   internal fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
     return Retrofit.Builder()
-      .baseUrl(getBaseUrl())
-      .client(okHttpClient)
-      .addConverterFactory(GsonConverterFactory.create(gson))
-      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-      .addCallAdapterFactory(LiveDataCallAdapterFactory())
-      .build()
+        .baseUrl(getBaseUrl())
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+        .addCallAdapterFactory(LiveDataCallAdapterFactory())
+        .build()
   }
 
   @Provides
   @Singleton
   internal fun provideOkHttpClient(
-    httpLoggingInterceptor: HttpLoggingInterceptor,
-    chuckInterceptor: ChuckInterceptor,
-    stethoInterceptor: StethoInterceptor
+      @ApplicationContext context: Context,
+      httpLoggingInterceptor: HttpLoggingInterceptor,
+      chuckInterceptor: ChuckInterceptor,
+      stethoInterceptor: StethoInterceptor
   ): OkHttpClient {
     val httpClientBuilder = OkHttpClient.Builder()
-      .addInterceptor { chain ->
-        val original = chain.request()
+        .addInterceptor { chain ->
+          val original = chain.request()
 
-        val request = original.newBuilder()
-          .addHeader("Content-Type", "application/json")
-          .method(original.method(), original.body())
-          .build()
+          val request = original.newBuilder()
+              .addHeader("Content-Type", "application/json")
+              .method(original.method(), original.body())
+              .build()
 
-        return@addInterceptor chain.proceed(request)
-      }
-      .connectTimeout(60, TimeUnit.SECONDS)
-      .readTimeout(60, TimeUnit.SECONDS)
-      .writeTimeout(60, TimeUnit.SECONDS)
+          return@addInterceptor chain.proceed(request)
+        }
+        .connectTimeout(60, TimeUnit.SECONDS)
+        .readTimeout(60, TimeUnit.SECONDS)
+        .writeTimeout(60, TimeUnit.SECONDS)
+
+    httpClientBuilder.addInterceptor(NoConnectionInterceptor(context))
 
     if (BuildConfig.DEBUG) {
       httpClientBuilder.addInterceptor(httpLoggingInterceptor)
@@ -105,8 +113,34 @@ class NetworkModule {
   @Singleton
   internal fun provideGson(): Gson {
     return GsonBuilder()
-      .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-      .excludeFieldsWithoutExposeAnnotation()
-      .create()
+        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        .excludeFieldsWithoutExposeAnnotation()
+        .create()
+  }
+}
+
+
+class NoConnectivityException : IOException() {
+  override val message: String
+    get() =
+      "No network available, please check your WiFi or Data connection"
+}
+
+class NoInternetException() : IOException() {
+  override val message: String
+    get() =
+      "No internet available, please check your connected WIFi or Data"
+}
+
+
+class NoConnectionInterceptor(private val context: Context) : Interceptor {
+  override fun intercept(chain: Interceptor.Chain): Response {
+    return if (!isConnectionOn(context)) {
+      throw NoConnectivityException()
+    } else if (!isInternetAvailable()) {
+      throw NoInternetException()
+    } else {
+      chain.proceed(chain.request())
+    }
   }
 }
