@@ -22,8 +22,8 @@ open class App : DaggerApplication() {
 
   override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
     return DaggerAppComponent.builder()
-      .application(this)
-      .build()
+        .application(this)
+        .build()
   }
 
   override fun onCreate() {
@@ -45,12 +45,12 @@ open class App : DaggerApplication() {
 
   private fun initFabric() {
     val crashlyticsCore = CrashlyticsCore.Builder()
-      .disabled(BuildConfig.DEBUG)
-      .build()
+        .disabled(BuildConfig.DEBUG)
+        .build()
 
     val crashlytics = Crashlytics.Builder()
-      .core(crashlyticsCore)
-      .build()
+        .core(crashlyticsCore)
+        .build()
 
     Fabric.with(this, crashlytics)
   }
@@ -58,9 +58,9 @@ open class App : DaggerApplication() {
   private fun initNotificationChannel() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       val channel = NotificationChannel(
-        Const.NOTIF_CHANNEL_ID,
-        Const.NOTIF_CHANNEL_NAME,
-        NotificationManager.IMPORTANCE_DEFAULT
+          Const.NOTIF_CHANNEL_ID,
+          Const.NOTIF_CHANNEL_NAME,
+          NotificationManager.IMPORTANCE_DEFAULT
       )
       notificationManager.createNotificationChannel(channel)
     }
