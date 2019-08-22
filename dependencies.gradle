@@ -30,7 +30,7 @@ ext.versions = [
                 'test_ext_truth'   : '1.1.0',
                 'work'             : '1.0.0-alpha09',
         ],
-        'assistedinject'    : '0.3.2',
+        'assistedinject'    : '0.4.0',
         'butterknife'       : '10.0.0',
         'coroutines'        : '0.30.2-eap13',
         'coroutines_core'   : '1.0.0',

@@ -1,16 +1,11 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
+apply from: "$project.rootDir/common.gradle"
 apply plugin: 'io.fabric'
 apply plugin: "androidx.navigation.safeargs"
 
-apply from: "$project.rootDir/tools/spotless.gradle"
-apply from: "$project.rootDir/tools/ktlint.gradle"
+// apply from: "$project.rootDir/tools/ktlint.gradle"
 
 android {
-    compileSdkVersion(Config.compileSdk)
-
     def fabricPropertiesFile = rootProject.file("app/fabric.properties")
     def fabricProperties = new Properties()
     if (fabricPropertiesFile.exists()) {
@@ -19,11 +14,7 @@ android {
 
     defaultConfig {
         applicationId "aykuttasil.com.modernapp"
-        minSdkVersion(Config.minSdk)
-        targetSdkVersion(Config.targetSdk)
-        versionCode 1
-        versionName "1.0"
-        vectorDrawables.useSupportLibrary true
+
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -85,7 +76,9 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
         main.java.srcDirs += 'src/debug/kotlin'
+
         test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
 
         def commonTest = "src/commonTest/java"
         test.java.srcDirs += commonTest
@@ -238,4 +231,5 @@ dependencies {
     compileOnly Libs.assisted_inject_annotations_dagger2
     kapt Libs.assisted_inject_processor_dagger2
 }
+apply from: "$project.rootDir/spotless.gradle"
 // apply(plugin = "com.google.gms.google-services")

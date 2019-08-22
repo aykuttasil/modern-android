@@ -1,11 +1,7 @@
-apply from: "$rootDir/tools/common-android-library.gradle"
+apply from: "$rootDir/common-android-library.gradle"
 
 dependencies {
     implementation project(':core')
-
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.androidx_test_runner)
-    androidTestImplementation(Libs.espresso_core)
 
     api Libs.converter_gson
     api Libs.retrofit
@@ -18,13 +14,18 @@ dependencies {
     releaseApi Libs.chuck_no_op
     debugApi Libs.chuck
 
-    kapt Libs.dagger_compiler
     implementation Libs.dagger
+    kapt Libs.dagger_compiler
 
-    implementation(Libs.kotlin_stdlib_jdk8)
     implementation(Libs.appcompat)
     implementation(Libs.core_ktx)
 
     implementation(Libs.rxandroid)
+
+    implementation(Libs.kotlin_stdlib_jdk8)
+
+    testImplementation(Libs.junit)
+
+    androidTestImplementation(Libs.androidx_test_runner)
+    androidTestImplementation(Libs.espresso_core)
 }
-apply from: "$rootDir/tools/spotless.gradle"

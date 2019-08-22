@@ -1,4 +1,4 @@
-apply from: "$rootDir/tools/common-android-library.gradle"
+apply from: "$rootDir/common-android-library.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -27,4 +27,5 @@ dependencies {
     implementation(Libs.material)
     implementation(Libs.core_ktx)
 }
-apply from: "$rootDir/tools/spotless.gradle"
+
+apply from: "$rootDir/spotless.gradle"
