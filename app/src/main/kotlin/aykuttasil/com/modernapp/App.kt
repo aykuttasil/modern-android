@@ -7,8 +7,8 @@ import android.content.Context
 import android.os.Build
 import androidx.multidex.MultiDex
 import aykuttasil.com.modernapp.di.components.DaggerAppComponent
+import aykuttasil.com.modernapp.util.FabricTree
 import com.aykutasil.modernapp.util.Const
-import com.aykutasil.modernapp.util.extension.debug
 import com.crashlytics.android.Crashlytics
 import com.crashlytics.android.core.CrashlyticsCore
 import dagger.android.AndroidInjector
@@ -21,7 +21,8 @@ import timber.log.Timber
 open class App : DaggerApplication() {
 
   override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-    return DaggerAppComponent.builder()
+    return DaggerAppComponent
+        .builder()
         .application(this)
         .build()
   }
@@ -38,8 +39,10 @@ open class App : DaggerApplication() {
   }
 
   private fun initTimber() {
-    debug {
+    if (BuildConfig.DEBUG) {
       Timber.plant(Timber.DebugTree())
+    } else {
+      Timber.plant(FabricTree())
     }
   }
 
