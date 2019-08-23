@@ -34,7 +34,6 @@ object InternetConnection {
     return false
   }
 
-
   /**
    * TCP/HTTP/DNS (depending on the port, 53=DNS, 80=HTTP, etc.)
    * + very fast (either way), works on all devices, very reliable
@@ -54,9 +53,7 @@ object InternetConnection {
     } catch (e: IOException) {
       false
     }
-
   }
-
 }
 
 /**
@@ -80,16 +77,16 @@ class InternetCheck(private val mConsumer: Consumer) : AsyncTask<Void, Void, Boo
   override fun doInBackground(vararg params: Void?): Boolean {
     try {
       val sock = Socket()
-      sock.connect(InetSocketAddress("8.8.8.8", 53), 1500);
-      sock.close();
-      return true;
+      sock.connect(InetSocketAddress("8.8.8.8", 53), 1500)
+      sock.close()
+      return true
     } catch (e: IOException) {
       return false
     }
   }
 
   override fun onPostExecute(internet: Boolean?) {
-    mConsumer.accept(internet ?: false);
+    mConsumer.accept(internet ?: false)
   }
 }
 

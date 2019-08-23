@@ -38,5 +38,4 @@ class UserActivity : BaseActivity() {
     super.onCreate(savedInstanceState)
     logd { "onCreate" }
   }
-
 }
