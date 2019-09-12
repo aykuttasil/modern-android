@@ -11,17 +11,17 @@ object Versions {
 
     const val annotation: String = "1.1.0" 
 
-    const val appcompat: String = "1.0.2" 
+    const val appcompat: String = "1.1.0"
 
     const val cardview: String = "1.0.0" 
 
     const val constraintlayout: String = "2.0.0-alpha2" 
 
-    const val core_ktx: String = "1.0.2" 
+    const val core_ktx: String = "1.1.0"
 
-    const val androidx_databinding: String = "3.5.0-rc02" 
+    const val androidx_databinding: String = "3.5.0" 
 
-    const val fragment_ktx: String = "1.1.0-alpha09" 
+    const val fragment_ktx: String = "1.1.0"
 
     const val gridlayout: String = "1.0.0" 
 
@@ -31,7 +31,7 @@ object Versions {
 
     const val multidex: String = "2.0.1" 
 
-    const val androidx_navigation: String = "2.1.0-beta02" 
+    const val androidx_navigation: String = "2.1.0"
 
     const val androidx_room: String = "2.1.0" 
 
@@ -43,19 +43,19 @@ object Versions {
 
     const val androidx_test: String = "1.2.0" 
 
-    const val vectordrawable_animated: String = "1.0.0" 
+    const val vectordrawable_animated: String = "1.1.0"
 
-    const val androidx_work: String = "2.1.0" 
+    const val androidx_work: String = "2.2.0"
 
-    const val aapt2: String = "3.5.0-rc02-5435860" 
+    const val aapt2: String = "3.5.0-5435860" 
 
-    const val com_android_tools_build_gradle: String = "3.5.0"
+    const val com_android_tools_build_gradle: String = "3.5.0" 
 
-    const val lint_gradle: String = "26.5.0-rc02" 
+    const val lint_gradle: String = "26.5.0" 
 
     const val crashlytics: String = "2.10.1" 
 
-    const val spotless_plugin_gradle: String = "3.24.0" 
+    const val spotless_plugin_gradle: String = "3.24.2"
 
     const val com_facebook_stetho: String = "1.5.1" 
 
@@ -67,35 +67,33 @@ object Versions {
 
     const val com_google_dagger: String = "2.24" 
 
-    const val firebase_database: String = "18.0.1" 
+    const val firebase_database: String = "19.1.0"
 
-    const val google_services: String = "4.3.0" 
+    const val google_services: String = "4.3.2"
 
     const val com_google_truth_truth: String = "1.0" 
 
     const val timber: String = "4.7.1" 
 
-    const val com_jakewharton: String = "10.1.0" 
+    const val com_jakewharton: String = "10.2.0"
 
     const val mockito_kotlin: String = "2.1.0" 
 
-    const val ktlint: String = "0.34.2" 
-
     const val com_readystatesoftware_chuck: String = "1.1.0" 
 
-    const val com_squareup_inject: String = "0.4.0" 
+    const val com_squareup_inject: String = "0.5.0"
 
     const val leakcanary_android: String = "2.0-alpha-2" 
 
     const val moshi_adapters: String = "1.8.0" 
 
-    const val com_squareup_okhttp3: String = "3.12.1" // available: "4.0.1"
+    const val com_squareup_okhttp3: String = "3.12.1" // available: "4.2.0"
 
     const val com_squareup_retrofit2: String = "2.6.1" 
 
     const val rxpermissions: String = "0.9.4" 
 
-    const val de_fayard_buildsrcversions_gradle_plugin: String = "0.3.2" 
+    const val de_fayard_buildsrcversions_gradle_plugin: String = "0.5.0"
 
     const val io_fabric_tools_gradle: String = "1.31.0" 
 
@@ -113,9 +111,9 @@ object Versions {
 
     const val org_jetbrains_kotlin: String = "1.3.41" 
 
-    const val org_jetbrains_kotlinx: String = "1.2.2" // available: "1.3.0-RC-1.3.50-eap-5"
+    const val org_jetbrains_kotlinx: String = "1.3.1"
 
-    const val org_mockito: String = "2.28.2" // available: "3.0.4"
+    const val org_mockito: String = "2.28.2" // available: "3.0.7"
 
     const val robolectric: String = "4.3" 
 
@@ -125,12 +123,12 @@ object Versions {
      *      ./gradle/wrapper/gradle-wrapper.properties
      */
     object Gradle {
-        const val runningVersion: String = "5.5.1"
+        const val runningVersion: String = "5.6"
 
-        const val currentVersion: String = "5.5.1"
+        const val currentVersion: String = "5.6.2"
 
-        const val nightlyVersion: String = "5.7-20190802220030+0000"
+        const val nightlyVersion: String = "6.0-20190912073452+0000"
 
-        const val releaseCandidate: String = "5.6-rc-1"
+        const val releaseCandidate: String = ""
     }
 }

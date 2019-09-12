@@ -17,7 +17,7 @@ object Libs {
     const val annotation: String = "androidx.annotation:annotation:" + Versions.annotation
 
     /**
-     * http://developer.android.com/tools/extras/support-library.html */
+     * https://developer.android.com/jetpack/androidx */
     const val appcompat: String = "androidx.appcompat:appcompat:" + Versions.appcompat
 
     /**
@@ -50,7 +50,7 @@ object Libs {
             Versions.androidx_databinding
 
     /**
-     * http://developer.android.com/tools/extras/support-library.html */
+     * https://developer.android.com/jetpack/androidx */
     const val fragment_ktx: String = "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
 
     /**
@@ -133,7 +133,7 @@ object Libs {
     const val androidx_test_runner: String = "androidx.test:runner:" + Versions.androidx_test
 
     /**
-     * http://developer.android.com/tools/extras/support-library.html */
+     * https://developer.android.com/jetpack/androidx */
     const val vectordrawable_animated: String = "androidx.vectordrawable:vectordrawable-animated:" +
             Versions.vectordrawable_animated
 
@@ -238,10 +238,6 @@ object Libs {
      * https://github.com/nhaarman/mockito-kotlin */
     const val mockito_kotlin: String = "com.nhaarman.mockitokotlin2:mockito-kotlin:" +
             Versions.mockito_kotlin
-
-    /**
-     * https://github.com/pinterest/ktlint */
-    const val ktlint: String = "com.pinterest:ktlint:" + Versions.ktlint
 
     /**
      * https://github.com/jgilfelt/chuck */
