@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    
     <data>
-
-        <import type="com.aykutasil.modernapp.Resource" />
-
+        
+        <import type="aykuttasil.com.modernapp.util.AppUtils"/>
+        
         <import type="com.aykutasil.modernapp.Status" />
-
+        
         <variable
             name="resource"
-            type="Resource" />
-
+            type="com.aykutasil.modernapp.Resource" />
+        
         <variable
             name="callback"
             type="aykuttasil.com.modernapp.ui.common.RetryCallback" />
     </data>
-
+    
     <LinearLayout
+        android:id="@+id/loadingContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp"
-        app:visibleGone="@{resource.data == null}">
-
+        >
+    
+        <!--app:visibleGone="@{AppUtils.isNullCheck(resource.data)}"-->
+        
         <ProgressBar
             android:id="@+id/progress_bar"
             style="?android:attr/progressBarStyle"
@@ -32,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:visibleGone="@{resource.status == Status.LOADING}" />
-
+        
         <Button
             android:id="@+id/retry"
             android:layout_width="wrap_content"
@@ -40,7 +43,7 @@
             android:onClick="@{() -> callback.retry()}"
             android:text="@string/txt_repeat_again"
             app:visibleGone="@{resource.status == Status.ERROR}" />
-
+        
         <TextView
             android:id="@+id/error_msg"
             android:layout_width="wrap_content"

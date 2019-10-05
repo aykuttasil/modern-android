@@ -49,4 +49,9 @@ object AppUtils {
       )
     }
   }
+
+  @JvmStatic
+  fun <T> isNullCheck(x:T) : Boolean{
+    return x == null
+  }
 }
