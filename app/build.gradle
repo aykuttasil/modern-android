@@ -150,7 +150,7 @@ dependencies {
     testImplementation(Libs.androidx_test_core)
     testImplementation(Libs.androidx_test_runner)
     testImplementation(Libs.androidx_test_rules)
-    testImplementation(Libs.androidx_test_ext_junit_ktx)
+    testImplementation(Libs.junit_ktx)
     testImplementation(Libs.androidx_test_ext_truth)
     testImplementation(Libs.com_google_truth_truth)
     testImplementation(Libs.espresso_core) {
@@ -166,7 +166,7 @@ dependencies {
     androidTestImplementation(Libs.androidx_test_core)
     androidTestImplementation(Libs.androidx_test_runner)
     androidTestImplementation(Libs.androidx_test_rules)
-    androidTestImplementation(Libs.androidx_test_ext_junit_ktx)
+    androidTestImplementation(Libs.junit_ktx)
     androidTestImplementation(Libs.androidx_test_ext_truth)
     androidTestImplementation(Libs.com_google_truth_truth)
     androidTestImplementation(Libs.espresso_core) {
@@ -195,6 +195,7 @@ dependencies {
     implementation(Libs.lifecycle_extensions)
     implementation(Libs.lifecycle_viewmodel_ktx)
     implementation(Libs.lifecycle_reactivestreams_ktx)
+    implementation Libs.lifecycle_livedata_ktx
     implementation(Libs.room_runtime)
     kapt(Libs.room_compiler)
     implementation(Libs.room_rxjava2)

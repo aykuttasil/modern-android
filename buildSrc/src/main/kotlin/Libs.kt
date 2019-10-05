@@ -68,6 +68,11 @@ object Libs {
             Versions.androidx_lifecycle
 
     /**
+     * http://developer.android.com/tools/extras/support-library.html */
+    const val lifecycle_livedata_ktx: String = "androidx.lifecycle:lifecycle-livedata-ktx:" +
+            Versions.androidx_lifecycle
+
+    /**
      * https://developer.android.com/topic/libraries/architecture/index.html */
     const val lifecycle_reactivestreams_ktx: String =
             "androidx.lifecycle:lifecycle-reactivestreams-ktx:" + Versions.androidx_lifecycle
@@ -113,7 +118,7 @@ object Libs {
 
     /**
      * https://developer.android.com/testing */
-    const val androidx_test_ext_junit_ktx: String = "androidx.test.ext:junit-ktx:" + Versions.junit_ktx
+    const val junit_ktx: String = "androidx.test.ext:junit-ktx:" + Versions.junit_ktx
 
     /**
      * https://developer.android.com/testing */
