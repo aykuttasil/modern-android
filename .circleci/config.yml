@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: circleci/android:api-28-alpha
+      - image: circleci/android:api-29-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -29,9 +29,9 @@ jobs:
       #       echo "signingStoreFile=$KEYSTORE_STORE_FILE" >>  keystore.properties
       #       echo "signingStorePassword=$KEYSTORE_STORE_PASSWORD" >>  keystore.properties
       #       cat keystore.properties
-      - run:
-          name: KtLint
-          command: ./gradlew ktlint
+      # - run:
+      #    name: KtLint
+      #    command: ./gradlew ktlint
       - run:
           name: Lint
           command: ./gradlew lintProdRelease
