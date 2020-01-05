@@ -167,7 +167,7 @@ object Libs {
             Versions.crashlytics
 
     /**
-     * https://github.com/diffplug/plugin-gradle */
+     * https://github.com/diffplug/spotless */
     const val spotless_plugin_gradle: String = "com.diffplug.spotless:spotless-plugin-gradle:" +
             Versions.spotless_plugin_gradle
 
