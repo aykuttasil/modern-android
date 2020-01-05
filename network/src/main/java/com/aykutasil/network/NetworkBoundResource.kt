@@ -22,7 +22,9 @@ import androidx.lifecycle.MediatorLiveData
 import com.aykutasil.modernapp.Resource
 import com.aykutasil.modernapp.util.AppExecutors
 
-abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constructor(private val appExecutors: AppExecutors) {
+abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constructor(
+    private val appExecutors: AppExecutors
+) {
 
   private val result = MediatorLiveData<Resource<ResultType>>()
 
@@ -92,9 +94,9 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
     }
   }
 
-  protected open fun onFetchFailed() {}
-
   fun asLiveData() = result as LiveData<Resource<ResultType>>
+
+  protected open fun onFetchFailed() {}
 
   @WorkerThread
   protected open fun processResponse(response: ApiSuccessResponse<RequestType>) = response.body

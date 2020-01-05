@@ -20,7 +20,7 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.PackageManager
 import android.util.Base64
-import com.aykutasil.modernapp.util.LogUtils
+import timber.log.Timber
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
@@ -49,8 +49,8 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
         val packageName = packageName
         val packageManager = packageManager
         val signatures = packageManager.getPackageInfo(
-          packageName,
-          PackageManager.GET_SIGNATURES
+            packageName,
+            PackageManager.GET_SIGNATURES
         ).signatures
         for (signature in signatures) {
           val hash = hash(packageName, signature.toCharsString())
@@ -59,7 +59,7 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
           }
         }
       } catch (e: PackageManager.NameNotFoundException) {
-        LogUtils.e(e, "Unable to find package to obtain hash.")
+        Timber.e(e, "Unable to find package to obtain hash.")
       }
 
       return appCodes
@@ -85,10 +85,10 @@ class AppSignatureHelper(context: Context) : ContextWrapper(context) {
         var base64Hash = Base64.encodeToString(hashSignature, Base64.NO_PADDING or Base64.NO_WRAP)
         base64Hash = base64Hash.substring(0, NUM_BASE64_CHAR)
 
-        LogUtils.d(TAG, String.format("pkg: %s -- hash: %s", packageName, base64Hash))
+        Timber.d(String.format("pkg: %s -- hash: %s", packageName, base64Hash))
         return base64Hash
       } catch (e: NoSuchAlgorithmException) {
-        LogUtils.e(TAG, "hash:NoSuchAlgorithm", e)
+        Timber.e(e, "hash:NoSuchAlgorithm")
       }
 
       return null

@@ -12,18 +12,15 @@ import javax.inject.Inject
 class MainActivity : BaseActivity() {
 
   @Inject
-  lateinit var viewModelFactory: ViewModelFactory
-
-  @Inject
   lateinit var sharedPreference: SharedPreferences
 
+  @Inject
+  lateinit var viewModelFactory: ViewModelFactory
   private val viewModel by viewModels<MainViewModel> { viewModelFactory }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-
-    viewModel.forTest()
 
     sharedPreference.edit {
       it.putString("test", "test")

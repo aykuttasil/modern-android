@@ -16,27 +16,42 @@
 package aykuttasil.com.modernapp.ui.user
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.databinding.ActivityUserBinding
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
 import aykuttasil.com.modernapp.util.delegates.contentView
+import com.aykutasil.modernapp.Status
 import com.aykutasil.modernapp.util.logd
-import kotlinx.android.synthetic.main.activity_user.*
 import javax.inject.Inject
 
 class UserActivity : BaseActivity() {
 
   @Inject
   lateinit var viewModelFactory: ViewModelFactory
+  private val viewModel by viewModels<UserViewModel> { viewModelFactory }
 
   private val binding: ActivityUserBinding by contentView(R.layout.activity_user)
-
-  private val viewModel by viewModels<UserViewModel> { viewModelFactory }
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     logd { "onCreate" }
+
+    viewModel.getUser().observe(this, Observer {
+      when (it.status) {
+        Status.LOADING -> {
+          Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show()
+        }
+        Status.SUCCESS -> {
+          Toast.makeText(this, it.data?.userEmail, Toast.LENGTH_SHORT).show()
+        }
+        else -> {
+          Toast.makeText(this, "Else :/", Toast.LENGTH_SHORT).show()
+        }
+      }
+    })
   }
 }

@@ -15,19 +15,18 @@
  */
 package aykuttasil.com.modernapp.ui.user
 
-import androidx.lifecycle.MutableLiveData
 import aykuttasil.com.modernapp.App
+import aykuttasil.com.modernapp.data.repository.UserRepository
 import aykuttasil.com.modernapp.ui.common.BaseViewModel
 import javax.inject.Inject
 
-class UserViewModel @Inject constructor(val app: App) : BaseViewModel(app) {
+class UserViewModel @Inject constructor(
+    private val app: App,
+    private val userRepository: UserRepository
+) : BaseViewModel(app) {
 
-  fun x() {
-    val x = launchOnViewModelScope {
-      val liveData = MutableLiveData<Int>()
-      liveData
-    }
-
+  fun getUser() = launchOnViewModelScope {
+    userRepository.getUser("aykuttasil")
   }
 
 }

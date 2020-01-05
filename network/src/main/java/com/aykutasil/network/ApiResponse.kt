@@ -43,7 +43,7 @@ sealed class ApiResponse<T> {
         } else {
           msg
         }
-        ApiErrorResponse(errorMsg ?: "unknown error")
+        ApiErrorResponse(errorMsg)
       }
     }
   }

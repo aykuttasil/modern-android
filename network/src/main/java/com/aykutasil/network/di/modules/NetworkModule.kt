@@ -17,7 +17,6 @@ package com.aykutasil.network.di.modules
 
 import android.content.Context
 import com.aykutasil.modernapp.di.ApplicationContext
-import com.aykutasil.modernapp.util.LogUtils
 import com.aykutasil.network.BuildConfig
 import com.aykutasil.network.LiveDataCallAdapterFactory
 import com.aykutasil.network.utils.InternetConnection.isConnectionOn
@@ -92,9 +91,8 @@ class NetworkModule {
   @Provides
   @Singleton
   internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
-    return HttpLoggingInterceptor { message ->
-      LogUtils.d(message)
-    }.setLevel(HttpLoggingInterceptor.Level.BODY)
+    return HttpLoggingInterceptor()
+        .setLevel(HttpLoggingInterceptor.Level.BODY)
   }
 
   @Provides

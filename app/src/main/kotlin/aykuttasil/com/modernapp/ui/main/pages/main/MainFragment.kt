@@ -25,20 +25,20 @@ import aykuttasil.com.modernapp.databinding.FragmentMainBinding
 import aykuttasil.com.modernapp.ui.common.BaseFragment
 import aykuttasil.com.modernapp.ui.widget.bottomdialog.MyBottomDialog
 import aykuttasil.com.modernapp.util.delegates.Inflate
-import com.aykutasil.modernapp.util.LogUtils
 import com.aykutasil.modernapp.util.loadAsync
 import com.aykutasil.modernapp.util.then
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.delay
+import timber.log.Timber
 
 class MainFragment : BaseFragment() {
 
   private val binding: FragmentMainBinding by Inflate(R.layout.fragment_main)
 
   override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
   ): View? {
     return binding.root
   }
@@ -47,7 +47,7 @@ class MainFragment : BaseFragment() {
     super.onViewCreated(view, savedInstanceState)
 
     btnGoUserActivity.setOnClickListener {
-      findNavController().navigate(R.id.action_mainFragment_to_aboutFragment)
+      findNavController().navigate(R.id.action_global_userActivity)
     }
 
     btnOpenDialog.setOnClickListener {
@@ -56,20 +56,20 @@ class MainFragment : BaseFragment() {
     }
 
     loadAsync {
-      LogUtils.i("Thread Name load 1:" + Thread.currentThread().name)
+      Timber.i("Thread Name load 1:%s", Thread.currentThread().name)
       delay(10000)
-      LogUtils.i("Thread Name load 2:" + Thread.currentThread().name)
+      Timber.i("Thread Name load 2:%s", Thread.currentThread().name)
 
       val ad = "aykut"
       ad
     } then {
-      LogUtils.i("Thread Name then:" + Thread.currentThread().name)
-      LogUtils.i("Result: $it")
+      Timber.i("Thread Name then:%s", Thread.currentThread().name)
+      Timber.i("Result: $it")
     }
   }
 
   override fun onDestroy() {
     super.onDestroy()
-    LogUtils.i("MainFragment > onDestroy")
+    Timber.i("onDestroy")
   }
 }
