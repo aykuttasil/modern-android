@@ -15,6 +15,7 @@
  */
 package com.aykutasil.modernapp.util.livedata
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.Network
@@ -46,6 +47,7 @@ class ConnectivityLiveData constructor(context: Context) : LiveData<Network>() {
     // get connectivity system service
   }
 
+  @SuppressLint("MissingPermission")
   @RequiresApi(api = Build.VERSION_CODES.N)
   override fun onActive() {
     // onActive is called when there is an active observer to this LiveData

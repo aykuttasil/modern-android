@@ -1,4 +1,4 @@
-apply from: "$rootDir/common-android-library.gradle"
+apply from: "$rootDir/tools/common-android-library.gradle"
 
 dependencies {
     implementation project(':core')
@@ -17,15 +17,5 @@ dependencies {
     implementation Libs.dagger
     kapt Libs.dagger_compiler
 
-    implementation(Libs.appcompat)
     implementation(Libs.core_ktx)
-
-    implementation(Libs.rxandroid)
-
-    implementation(Libs.kotlin_stdlib_jdk8)
-
-    testImplementation(Libs.junit)
-
-    androidTestImplementation(Libs.androidx_test_runner)
-    androidTestImplementation(Libs.espresso_core)
 }

@@ -1,31 +1,25 @@
-apply from: "$rootDir/common-android-library.gradle"
+apply from: "$rootDir/tools/common-android-library.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testImplementation(Libs.junit)
-    androidTestImplementation(Libs.androidx_test_runner)
-    androidTestImplementation(Libs.espresso_core)
-
-    implementation(Libs.timber)
+    api(Libs.timber)
 
     kapt Libs.dagger_compiler
     implementation Libs.dagger
 
-    implementation(Libs.rxjava)
-    implementation(Libs.rxkotlin)
-    implementation(Libs.rxandroid)
+    api(Libs.rxjava)
+    api(Libs.rxkotlin)
+    api(Libs.rxandroid)
 
-    implementation(Libs.kotlin_stdlib_jdk8)
-    implementation(Libs.kotlin_reflect)
-    implementation(Libs.anko)
+    api(Libs.kotlin_stdlib_jdk8)
+    api(Libs.kotlin_reflect)
+    api(Libs.anko)
+    api(Libs.kotlinx_coroutines_core)
+    api(Libs.kotlinx_coroutines_android)
 
-    implementation(Libs.kotlinx_coroutines_core)
-    implementation(Libs.kotlinx_coroutines_android)
+    api(Libs.core_ktx)
 
     implementation(Libs.appcompat)
     implementation(Libs.material)
-    implementation(Libs.core_ktx)
 }
-
-apply from: "$rootDir/spotless.gradle"

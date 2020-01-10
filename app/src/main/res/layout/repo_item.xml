@@ -2,30 +2,34 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+    
     <data>
-
+        
+        <variable
+            name="viewData"
+            type="aykuttasil.com.modernapp.util.adapter.RepoViewData" />
     </data>
-
+    
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardUseCompatPadding="true">
-
+        
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+            
             <TextView
                 android:id="@+id/name"
                 android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="16dp"
+                android:text="@{viewData.repoName}"
                 app:layout_constraintStart_toEndOf="@+id/stars"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="repository name" />
-
+            
             <TextView
                 android:id="@+id/desc"
                 android:layout_width="0dp"
@@ -36,7 +40,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/name"
                 tools:layout_editor_absoluteX="@dimen/default_margin"
                 tools:text="this is some description more description more description" />
-
+            
             <TextView
                 android:id="@+id/stars"
                 android:layout_width="wrap_content"

@@ -59,17 +59,10 @@ class MainFragment : BaseFragment() {
       Timber.i("Thread Name load 1:%s", Thread.currentThread().name)
       delay(10000)
       Timber.i("Thread Name load 2:%s", Thread.currentThread().name)
-
-      val ad = "aykut"
-      ad
+      "Aykut"
     } then {
       Timber.i("Thread Name then:%s", Thread.currentThread().name)
       Timber.i("Result: $it")
     }
-  }
-
-  override fun onDestroy() {
-    super.onDestroy()
-    Timber.i("onDestroy")
   }
 }

@@ -29,9 +29,9 @@ class AboutFragment : BaseFragment() {
   private val binding: FragmentAboutBinding by Inflate(R.layout.fragment_about)
 
   override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
+      inflater: LayoutInflater,
+      container: ViewGroup?,
+      savedInstanceState: Bundle?
   ): View? {
     return binding.root
   }

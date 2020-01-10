@@ -15,48 +15,57 @@
  */
 package aykuttasil.com.modernapp.util.adapter
 
-/**
- * A RecyclerView adapter for [Repo] class.
- */
-/*
-class RepoListAdapter(
-  private val dataBindingComponent: DataBindingComponent,
-  appExecutors: AppExecutors,
-  private val showFullName: Boolean,
-  private val repoClickCallback: ((Repo) -> Unit)?
-) : DataBoundListAdapter<Repo, RepoItemBinding>(
-  appExecutors = appExecutors,
-  diffCallback = object : DiffUtil.ItemCallback<Repo>() {
-    override fun areItemsTheSame(oldItem: Repo, newItem: Repo): Boolean {
-      return oldItem.owner == newItem.owner &&
-          oldItem.name == newItem.name
-    }
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.databinding.DataBindingComponent
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import aykuttasil.com.modernapp.R
+import aykuttasil.com.modernapp.databinding.RepoItemBinding
+import aykuttasil.com.modernapp.ui.common.DataBoundListAdapter
+import com.aykutasil.modernapp.util.AppExecutors
 
-    override fun areContentsTheSame(oldItem: Repo, newItem: Repo): Boolean {
-      return oldItem.description == newItem.description
+
+data class RepoViewData(
+    var repoId: Int?,
+    var repoName: String?
+)
+
+class RepoListAdapter(
+    private val dataBindingComponent: DataBindingComponent,
+    appExecutors: AppExecutors,
+    private val repoClickCallback: ((RepoViewData) -> Unit)?
+) : DataBoundListAdapter<RepoViewData, RepoItemBinding>(
+    appExecutors = appExecutors,
+    diffCallback = object : DiffUtil.ItemCallback<RepoViewData>() {
+      override fun areItemsTheSame(oldItem: RepoViewData, newItem: RepoViewData): Boolean {
+        return oldItem.repoId == newItem.repoId
+      }
+
+      override fun areContentsTheSame(oldItem: RepoViewData, newItem: RepoViewData): Boolean {
+        return oldItem.repoName == newItem.repoName
+      }
     }
-  }
 ) {
 
   override fun createBinding(parent: ViewGroup): RepoItemBinding {
     val binding = DataBindingUtil.inflate<RepoItemBinding>(
-      LayoutInflater.from(parent.context),
-      R.layout.repo_item,
-      parent,
-      false,
-      dataBindingComponent
+        LayoutInflater.from(parent.context),
+        R.layout.repo_item,
+        parent,
+        false,
+        dataBindingComponent
     )
-    binding.showFullName = showFullName
     binding.root.setOnClickListener {
-      binding.repo?.let {
+      binding.viewData?.let {
         repoClickCallback?.invoke(it)
       }
     }
     return binding
   }
 
-  override fun bind(binding: RepoItemBinding, item: Repo) {
-    binding.repo = item
+  override fun bind(binding: RepoItemBinding, item: RepoViewData) {
+    binding.viewData = item
   }
 }
-*/
+

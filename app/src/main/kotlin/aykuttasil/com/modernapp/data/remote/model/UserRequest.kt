@@ -15,4 +15,6 @@
  */
 package aykuttasil.com.modernapp.data.remote.model
 
-data class UserRequest(var userId: String)
+data class UserRequest(
+    var userId: String
+)

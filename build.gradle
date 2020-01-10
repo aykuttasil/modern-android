@@ -16,7 +16,7 @@ buildscript {
 }
 
 plugins {
-    id("de.fayard.buildSrcVersions") version "0.3.2"
+    id "de.fayard.buildSrcVersions" version "0.7.0"
 }
 
 allprojects {
@@ -33,9 +33,6 @@ allprojects {
     }
 }
 
-/*
-task clean(type: Delete) {
-    delete rootProject.buildDir
+subprojects {
+    apply from: "$rootDir/tools/spotless.gradle"
 }
-
- */

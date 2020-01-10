@@ -50,7 +50,7 @@ infix fun <T> Deferred<T>.then(block: suspend (T) -> Unit): Job {
     } catch (e: Exception) {
       // Just log the exception to confirm when we get cancelled (Expect JobCancellationException)
       loge(e) { "Exception in then()!" }
-      throw e
+      // throw e
     }
   }
 }

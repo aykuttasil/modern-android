@@ -24,7 +24,7 @@ import aykuttasil.com.modernapp.databinding.ActivityUserBinding
 import aykuttasil.com.modernapp.di.ViewModelFactory
 import aykuttasil.com.modernapp.ui.common.BaseActivity
 import aykuttasil.com.modernapp.util.delegates.contentView
-import com.aykutasil.modernapp.Status
+import com.aykutasil.modernapp.Resource
 import com.aykutasil.modernapp.util.logd
 import javax.inject.Inject
 
@@ -41,15 +41,15 @@ class UserActivity : BaseActivity() {
     logd { "onCreate" }
 
     viewModel.getUser().observe(this, Observer {
-      when (it.status) {
-        Status.LOADING -> {
+      when (it) {
+        is Resource.Loading -> {
           Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show()
         }
-        Status.SUCCESS -> {
+        is Resource.Success -> {
           Toast.makeText(this, it.data?.userEmail, Toast.LENGTH_SHORT).show()
         }
-        else -> {
-          Toast.makeText(this, "Else :/", Toast.LENGTH_SHORT).show()
+        is Resource.Error -> {
+          Toast.makeText(this, it.throwable?.message, Toast.LENGTH_SHORT).show()
         }
       }
     })

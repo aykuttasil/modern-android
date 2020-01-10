@@ -11,6 +11,7 @@ import java.net.Socket
 
 object InternetConnection {
 
+
   private fun preAndroidMInternetCheck(
       connectivityManager: ConnectivityManager): Boolean {
     val activeNetwork = connectivityManager.activeNetworkInfo

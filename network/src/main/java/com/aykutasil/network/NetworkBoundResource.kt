@@ -29,7 +29,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
   private val result = MediatorLiveData<Resource<ResultType>>()
 
   init {
-    setValue(Resource.loading(null))
+    setValue(Resource.Loading())
     @Suppress("LeakingThis")
     val dbSource = loadFromDb()
     result.addSource(dbSource) { data ->
@@ -38,7 +38,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
         fetchFromNetwork(dbSource)
       } else {
         result.addSource(dbSource) { newData ->
-          setValue(Resource.success(newData))
+          setValue(Resource.Success(newData))
         }
       }
     }
@@ -55,9 +55,10 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
 
   private fun fetchFromNetwork(dbSource: LiveData<ResultType>) {
     val apiResponse = createCall()
+
     // we re-attach dbSource as a new source, it will dispatch its latest value quickly
     result.addSource(dbSource) { newData ->
-      setValue(Resource.loading(newData))
+      setValue(Resource.Loading())
     }
     result.addSource(apiResponse) { response ->
       result.removeSource(apiResponse)
@@ -71,7 +72,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
               // otherwise we will get immediately last cached value,
               // which may not be updated with latest results received from network.
               result.addSource(loadFromDb()) { newData ->
-                setValue(Resource.success(newData))
+                setValue(Resource.Success(newData))
               }
             }
           }
@@ -80,14 +81,14 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
           appExecutors.mainThread().execute {
             // reload from disk whatever we had
             result.addSource(loadFromDb()) { newData ->
-              setValue(Resource.success(newData))
+              setValue(Resource.Success(newData))
             }
           }
         }
         is ApiErrorResponse -> {
           onFetchFailed()
-          result.addSource(dbSource) { newData ->
-            setValue(Resource.error(response.errorMessage, newData))
+          result.addSource(dbSource) {
+            setValue(Resource.Error(Exception(response.errorMessage)))
           }
         }
       }

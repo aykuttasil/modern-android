@@ -16,6 +16,7 @@
 package com.aykutasil.network
 
 import android.content.Context
+import com.aykutasil.modernapp.Resource
 import com.aykutasil.modernapp.util.extension.isNetworkStatusAvailable
 import io.reactivex.Flowable
 import io.reactivex.Flowable.defer
@@ -29,64 +30,64 @@ import java.io.IOException
 
 abstract class NetworkBoundResourceRx<ResultType, RequestType>(context: Context) {
 
-  private val result: Flowable<ResourceSealed<ResultType>>
+  private val result: Flowable<Resource<ResultType>>
 
   init {
     // Lazy disk observable.
     val diskObservable = defer {
       loadFromDb()
-        // Read from disk on Computation Scheduler
-        .subscribeOn(Schedulers.computation())
+          // Read from disk on Computation Scheduler
+          .subscribeOn(Schedulers.computation())
     }
 
     // Lazy network observable.
     val networkObservable = defer {
       createCall()
-        // Request API on IO Scheduler
-        .subscribeOn(Schedulers.io())
-        // Read/Write to disk on Computation Scheduler
-        .observeOn(Schedulers.computation())
-        .doOnNext { request: Response<RequestType> ->
-          if (request.isSuccessful) {
-            saveCallResult(processResponse(request))
-          }
-        }
-        .onErrorReturn { throwable: Throwable ->
-          when (throwable) {
-            is HttpException -> {
-              //throw Exceptions.propagate(NetworkExceptions.getNoServerConnectivityError(context))
-              throw Exceptions.propagate(Exception(""))
-            }
-            is IOException -> {
-              //throw Exceptions.propagate(NetworkExceptions.getNoNetworkConnectivityError(context))
-              throw Exceptions.propagate(Exception(""))
-            }
-            else -> {
-              //throw Exceptions.propagate(NetworkExceptions.getUnexpectedError(context))
-              throw Exceptions.propagate(Exception(""))
+          // Request API on IO Scheduler
+          .subscribeOn(Schedulers.io())
+          // Read/Write to disk on Computation Scheduler
+          .observeOn(Schedulers.computation())
+          .doOnNext { request: Response<RequestType> ->
+            if (request.isSuccessful) {
+              saveCallResult(processResponse(request))
             }
           }
-        }
-        .flatMap { loadFromDb() }
+          .onErrorReturn { throwable: Throwable ->
+            when (throwable) {
+              is HttpException -> {
+                //throw Exceptions.propagate(NetworkExceptions.getNoServerConnectivityError(context))
+                throw Exceptions.propagate(Exception(""))
+              }
+              is IOException -> {
+                //throw Exceptions.propagate(NetworkExceptions.getNoNetworkConnectivityError(context))
+                throw Exceptions.propagate(Exception(""))
+              }
+              else -> {
+                //throw Exceptions.propagate(NetworkExceptions.getUnexpectedError(context))
+                throw Exceptions.propagate(Exception(""))
+              }
+            }
+          }
+          .flatMap { loadFromDb() }
     }
 
     result = when {
       context.isNetworkStatusAvailable() -> networkObservable
-        .map<ResourceSealed<ResultType>> { ResourceSealed.Success(it) }
-        .onErrorReturn { ResourceSealed.Failure(it) }
-        // Read results in Android Main Thread (UI)
-        .observeOn(AndroidSchedulers.mainThread())
-        .startWith(ResourceSealed.Loading())
+          .map<Resource<ResultType>> { Resource.Success(it) }
+          .onErrorReturn { Resource.Error(msg = it.message ?: "") }
+          // Read results in Android Main Thread (UI)
+          .observeOn(AndroidSchedulers.mainThread())
+          .startWith(Resource.Loading())
       else -> diskObservable
-        .map<ResourceSealed<ResultType>> { ResourceSealed.Success(it) }
-        .onErrorReturn { ResourceSealed.Failure(it) }
-        // Read results in Android Main Thread (UI)
-        .observeOn(AndroidSchedulers.mainThread())
-        .startWith(ResourceSealed.Loading())
+          .map<Resource<ResultType>> { Resource.Success(it) }
+          .onErrorReturn { Resource.Error(msg = it.message ?: "") }
+          // Read results in Android Main Thread (UI)
+          .observeOn(AndroidSchedulers.mainThread())
+          .startWith(Resource.Loading())
     }
   }
 
-  fun asFlowable(): Flowable<ResourceSealed<ResultType>> {
+  fun asFlowable(): Flowable<Resource<ResultType>> {
     return result
   }
 

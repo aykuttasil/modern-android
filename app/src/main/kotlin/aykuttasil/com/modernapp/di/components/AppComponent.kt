@@ -34,18 +34,18 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-  modules = [
-    (AndroidSupportInjectionModule::class),
-    (ActivityBuilder::class),
-    (ServiceBuilder::class),
-    (AppModule::class),
-    (NetworkModule::class),
-    (ApiModule::class),
-    (DatabaseModule::class),
-    (SharedPreferenceModule::class),
-    (WorkerAssistedInjectModule::class),
-    (WorkerBuilder::class)
-  ]
+    modules = [
+      (AndroidSupportInjectionModule::class),
+      (ActivityBuilder::class),
+      (ServiceBuilder::class),
+      (AppModule::class),
+      (NetworkModule::class),
+      (ApiModule::class),
+      (DatabaseModule::class),
+      (SharedPreferenceModule::class),
+      (WorkerAssistedInjectModule::class),
+      (WorkerBuilder::class)
+    ]
 )
 interface AppComponent : AndroidInjector<App> {
 

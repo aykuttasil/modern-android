@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-/*
-package aykuttasil.com.modernapp.util.adapter
 
+package aykuttasil.com.modernapp.util.adapter
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.aykutasil.modernapp.Resource
 
 
-class ListBindingAdapter {
-  @BindingAdapter(value = ["resource"])
-  fun <T> setResource(recyclerView: RecyclerView, resource: Resource<T>) {
-    val adapter: RecyclerView.Adapter<*>? = recyclerView.adapter ?: return
+interface LifecycleBoundAdapter<T> {
+  fun setData(list: List<T>)
+}
 
-    if (resource.data == null)
-      return
+@BindingAdapter(value = ["resource"])
+fun <T> setResource(recyclerView: RecyclerView, resource: List<T>) {
+  /*
+  val adapter: RecyclerView.Adapter<*>? = recyclerView.adapter ?: return
+  if (resource.data == null)
+    return
+  */
 
-    if (adapter is BaseAdapter) {
-      ((BaseAdapter) adapter).setData((List) resource . data);
-    }
+  (recyclerView.adapter as LifecycleBoundAdapter<T>).also {
+    it.setData(resource)
   }
 }
 
- */

@@ -16,9 +16,11 @@
 package aykuttasil.com.modernapp.ui.main
 
 import aykuttasil.com.modernapp.App
-import aykuttasil.com.modernapp.util.RxAwareViewModel
+import aykuttasil.com.modernapp.ui.common.BaseViewModel
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(val app: App) : RxAwareViewModel(app) {
+class MainViewModel @Inject constructor(
+    val app: App
+) : BaseViewModel(app) {
 
 }

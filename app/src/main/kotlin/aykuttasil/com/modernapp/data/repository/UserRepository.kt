@@ -49,11 +49,6 @@ class UserRepository @Inject constructor(
 
       override fun createCall(): LiveData<ApiResponse<User>> {
         return apiService.getUser(username)
-        /*
-        return liveData {
-          emit(apiService.getUser(username))
-        }
-        */
       }
     }.asLiveData()
   }

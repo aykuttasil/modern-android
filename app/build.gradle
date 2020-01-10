@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
-apply from: "$project.rootDir/common.gradle"
+apply from: "$rootDir/tools/common.gradle"
 apply plugin: 'io.fabric'
 apply plugin: "androidx.navigation.safeargs"
 
-// apply from: "$project.rootDir/tools/ktlint.gradle"
+// apply from: "$rootDir/tools/ktlint.gradle"
 
 android {
     def fabricPropertiesFile = rootProject.file("app/fabric.properties")
@@ -144,35 +144,9 @@ dependencies {
     implementation(project(":network"))
 
     // Dependencies for local unit tests
-    testImplementation(Libs.junit)
     testImplementation(Libs.robolectric)
     testImplementation(Libs.mockwebserver)
-    testImplementation(Libs.androidx_test_core)
-    testImplementation(Libs.androidx_test_runner)
-    testImplementation(Libs.androidx_test_rules)
-    testImplementation(Libs.junit_ktx)
-    testImplementation(Libs.androidx_test_ext_truth)
-    testImplementation(Libs.com_google_truth_truth)
-    testImplementation(Libs.espresso_core) {
-        exclude group: 'com.google.code.findbugs'
-    }
-    testImplementation(Libs.espresso_contrib)
-    testImplementation(Libs.mockito_inline)
-    testImplementation(Libs.mockito_kotlin)
-    testImplementation Libs.mockk
 
-    // Dependencies for Instrumentation tests
-    androidTestImplementation(Libs.mockito_android)
-    androidTestImplementation(Libs.androidx_test_core)
-    androidTestImplementation(Libs.androidx_test_runner)
-    androidTestImplementation(Libs.androidx_test_rules)
-    androidTestImplementation(Libs.junit_ktx)
-    androidTestImplementation(Libs.androidx_test_ext_truth)
-    androidTestImplementation(Libs.com_google_truth_truth)
-    androidTestImplementation(Libs.espresso_core) {
-        exclude group: 'com.google.code.findbugs'
-    }
-    androidTestImplementation(Libs.espresso_contrib)
 
     // Debug
     debugImplementation Libs.leakcanary_android
@@ -184,7 +158,6 @@ dependencies {
     implementation(Libs.legacy_support_v4)
     implementation(Libs.appcompat)
     implementation(Libs.material)
-    implementation(Libs.core_ktx)
     implementation(Libs.fragment_ktx)
     implementation(Libs.vectordrawable_animated)
     implementation(Libs.cardview)
@@ -204,22 +177,12 @@ dependencies {
     implementation Libs.work_runtime_ktx
     implementation Libs.work_rxjava2
 
-    implementation(Libs.rxjava)
-    implementation(Libs.rxkotlin)
-    implementation(Libs.rxandroid)
     implementation(Libs.rxpermissions)
-
-    implementation(Libs.kotlin_stdlib_jdk8)
-    implementation(Libs.kotlin_reflect)
-    implementation(Libs.anko)
-    implementation(Libs.kotlinx_coroutines_core)
-    implementation(Libs.kotlinx_coroutines_android)
 
     implementation(Libs.crashlytics)
     implementation(Libs.butterknife)
     kapt(Libs.butterknife_compiler)
     implementation(Libs.gson)
-    implementation(Libs.timber)
 
     kapt(Libs.dagger_compiler)
     implementation(Libs.dagger)
@@ -232,5 +195,4 @@ dependencies {
     compileOnly Libs.assisted_inject_annotations_dagger2
     kapt Libs.assisted_inject_processor_dagger2
 }
-apply from: "$project.rootDir/spotless.gradle"
 // apply(plugin = "com.google.gms.google-services")
