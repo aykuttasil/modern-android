@@ -26,7 +26,7 @@ class DebugApp : App() {
     initStetho()
   }
 
-  fun initStetho() {
+  private fun initStetho() {
     debug {
       Stetho.initializeWithDefaults(this)
       Timber.plant(Timber.DebugTree())

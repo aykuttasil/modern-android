@@ -19,6 +19,7 @@ dependencies {
     api(Libs.kotlinx_coroutines_android)
 
     api(Libs.core_ktx)
+    api(Libs.preference_ktx)
 
     implementation(Libs.appcompat)
     implementation(Libs.material)

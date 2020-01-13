@@ -50,9 +50,9 @@ object InternetConnection {
     return try {
       val timeoutMs = 1500
       val sock = Socket()
-      val sockaddr = InetSocketAddress("8.8.8.8", 53)
+      val sockAddress = InetSocketAddress("8.8.8.8", 53)
 
-      sock.connect(sockaddr, timeoutMs)
+      sock.connect(sockAddress, timeoutMs)
       sock.close()
 
       true

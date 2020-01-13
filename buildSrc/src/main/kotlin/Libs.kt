@@ -115,6 +115,12 @@ object Libs {
     /**
      * https://kotlinlang.org/
      */
+    const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
+            Versions.org_jetbrains_kotlin
+
+    /**
+     * https://kotlinlang.org/
+     */
     const val kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
             Versions.org_jetbrains_kotlin
 
@@ -122,12 +128,6 @@ object Libs {
      * https://kotlinlang.org/
      */
     const val kotlin_stdlib_jdk8: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" +
-            Versions.org_jetbrains_kotlin
-
-    /**
-     * https://kotlinlang.org/
-     */
-    const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
             Versions.org_jetbrains_kotlin
 
     /**
@@ -363,6 +363,12 @@ object Libs {
      */
     const val moshi_adapters: String = "com.squareup.moshi:moshi-adapters:" +
             Versions.moshi_adapters
+
+    /**
+     * https://developer.android.com/jetpack/androidx
+     */
+    const val preference_ktx: String = "androidx.preference:preference-ktx:" +
+            Versions.preference_ktx
 
     /**
      * https://github.com/tbruyelle/RxPermissions

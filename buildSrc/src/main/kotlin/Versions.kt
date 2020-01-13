@@ -78,6 +78,8 @@ object Versions {
 
     const val moshi_adapters: String = "1.9.2"
 
+    const val preference_ktx: String = "1.1.0"
+
     const val rxpermissions: String = "0.9.4"
 
     const val fragment_ktx: String = "1.1.0"
@@ -108,7 +110,7 @@ object Versions {
 
     const val rxkotlin: String = "2.4.0"
 
-    const val rxjava: String = "2.2.16"
+    const val rxjava: String = "2.2.16" // available: "2.2.17"
 
     const val timber: String = "4.7.1"
 
