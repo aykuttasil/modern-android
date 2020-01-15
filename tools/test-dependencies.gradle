@@ -1,6 +1,6 @@
 dependencies {
     // Dependencies for local unit tests
-    testImplementation(Libs.junit)
+    // testImplementation(Libs.junit)
     testImplementation(Libs.junit_ktx)
     testImplementation(Libs.androidx_test_core)
     testImplementation(Libs.androidx_test_runner)
@@ -9,13 +9,16 @@ dependencies {
     testImplementation(Libs.mockito_inline)
     testImplementation(Libs.mockito_kotlin)
     testImplementation Libs.mockk
-    testImplementation(Libs.com_google_truth_truth)
 
     testImplementation(Libs.espresso_core) {
         exclude group: 'com.google.code.findbugs'
     }
     testImplementation(Libs.espresso_contrib)
+    testImplementation(Libs.androidx_test_ext_truth)
+    testImplementation(Libs.com_google_truth_truth)
 
+    testImplementation(Libs.robolectric)
+    testImplementation(Libs.mockwebserver)
 
     // Dependencies for Instrumentation tests
     androidTestImplementation(Libs.junit_ktx)
@@ -23,11 +26,12 @@ dependencies {
     androidTestImplementation(Libs.androidx_test_core)
     androidTestImplementation(Libs.androidx_test_runner)
     androidTestImplementation(Libs.androidx_test_rules)
+
     androidTestImplementation(Libs.espresso_core) {
         exclude group: 'com.google.code.findbugs'
     }
     androidTestImplementation(Libs.espresso_contrib)
-
     androidTestImplementation(Libs.androidx_test_ext_truth)
     androidTestImplementation(Libs.com_google_truth_truth)
+    androidTestImplementation(Libs.mockwebserver)
 }

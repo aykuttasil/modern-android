@@ -16,6 +16,4 @@ dependencies {
 
     implementation Libs.dagger
     kapt Libs.dagger_compiler
-
-    implementation(Libs.core_ktx)
 }

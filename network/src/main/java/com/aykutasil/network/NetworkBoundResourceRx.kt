@@ -56,15 +56,15 @@ abstract class NetworkBoundResourceRx<ResultType, RequestType>(context: Context)
             when (throwable) {
               is HttpException -> {
                 //throw Exceptions.propagate(NetworkExceptions.getNoServerConnectivityError(context))
-                throw Exceptions.propagate(Exception(""))
+                throw Exceptions.propagate(throwable)
               }
               is IOException -> {
                 //throw Exceptions.propagate(NetworkExceptions.getNoNetworkConnectivityError(context))
-                throw Exceptions.propagate(Exception(""))
+                throw Exceptions.propagate(throwable)
               }
               else -> {
                 //throw Exceptions.propagate(NetworkExceptions.getUnexpectedError(context))
-                throw Exceptions.propagate(Exception(""))
+                throw Exceptions.propagate(throwable)
               }
             }
           }

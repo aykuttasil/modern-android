@@ -4,6 +4,7 @@ apply plugin: 'io.fabric'
 apply plugin: "androidx.navigation.safeargs"
 
 // apply from: "$rootDir/tools/ktlint.gradle"
+// apply from: "$rootDir/tools/test-dependencies.gradle"
 
 android {
     def fabricPropertiesFile = rootProject.file("app/fabric.properties")
@@ -142,11 +143,6 @@ dependencies {
 
     implementation(project(":core"))
     implementation(project(":network"))
-
-    // Dependencies for local unit tests
-    testImplementation(Libs.robolectric)
-    testImplementation(Libs.mockwebserver)
-
 
     // Debug
     debugImplementation Libs.leakcanary_android
