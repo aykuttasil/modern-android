@@ -110,7 +110,7 @@ object Versions {
 
     const val rxkotlin: String = "2.4.0"
 
-    const val rxjava: String = "2.2.16" // available: "2.2.17"
+    const val rxjava: String = "2.2.17"
 
     const val timber: String = "4.7.1"
 

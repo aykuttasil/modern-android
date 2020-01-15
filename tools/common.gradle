@@ -39,3 +39,4 @@ configurations.all {
 }
 
 apply from: "$rootDir/tools/test-dependencies.gradle"
+

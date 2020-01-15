@@ -24,11 +24,12 @@ import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
 
+
 /**
  * Overrides all Schedulers with a custom TestScheduler.
  */
 class RxTestSchedulerRule(private val testScheduler: TestScheduler = TestScheduler()) : Scheduler(),
-  TestRule {
+    TestRule {
   override fun apply(base: Statement, description: Description?): Statement {
     RxJavaPlugins.setIoSchedulerHandler { _ -> testScheduler }
     RxJavaPlugins.setComputationSchedulerHandler { testScheduler }
