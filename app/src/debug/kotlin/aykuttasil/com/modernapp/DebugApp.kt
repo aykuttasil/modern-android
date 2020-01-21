@@ -16,8 +16,6 @@
 package aykuttasil.com.modernapp
 
 import com.facebook.stetho.Stetho
-import timber.log.Timber
-import com.aykutasil.modernapp.util.extension.debug
 
 class DebugApp : App() {
 
@@ -27,9 +25,6 @@ class DebugApp : App() {
   }
 
   private fun initStetho() {
-    debug {
-      Stetho.initializeWithDefaults(this)
-      Timber.plant(Timber.DebugTree())
-    }
+    Stetho.initializeWithDefaults(this)
   }
 }

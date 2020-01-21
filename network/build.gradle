@@ -1,7 +1,7 @@
 apply from: "$rootDir/tools/common-android-library.gradle"
 
 dependencies {
-    implementation project(':core')
+    implementation project(':common')
 
     api Libs.converter_gson
     api Libs.retrofit
