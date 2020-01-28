@@ -184,7 +184,7 @@ object Libs {
             Versions.androidx_lifecycle
 
     /**
-     * http://developer.android.com/tools/extras/support-library.html
+     * https://developer.android.com/jetpack/androidx
      */
     const val lifecycle_livedata_ktx: String = "androidx.lifecycle:lifecycle-livedata-ktx:" +
             Versions.androidx_lifecycle
@@ -196,7 +196,7 @@ object Libs {
             "androidx.lifecycle:lifecycle-reactivestreams-ktx:" + Versions.androidx_lifecycle
 
     /**
-     * http://developer.android.com/tools/extras/support-library.html
+     * https://developer.android.com/jetpack/androidx
      */
     const val lifecycle_viewmodel_ktx: String = "androidx.lifecycle:lifecycle-viewmodel-ktx:" +
             Versions.androidx_lifecycle
@@ -455,11 +455,6 @@ object Libs {
      * https://developer.android.com/studio
      */
     const val aapt2: String = "com.android.tools.build:aapt2:" + Versions.aapt2
-
-    /**
-     * http://junit.org
-     */
-    const val junit: String = "junit:junit:" + Versions.junit
 
     /**
      * http://mockk.io

@@ -22,11 +22,11 @@ object Versions {
 
     const val androidx_databinding: String = "3.5.3"
 
-    const val com_squareup_okhttp3: String = "3.12.1" // available: "4.3.0"
+    const val com_squareup_okhttp3: String = "3.12.1" // available: "4.3.1"
 
     const val org_jetbrains_kotlin: String = "1.3.61"
 
-    const val androidx_navigation: String = "2.1.0"
+    const val androidx_navigation: String = "2.2.0"
 
     const val com_facebook_stetho: String = "1.5.1"
 
@@ -34,7 +34,7 @@ object Versions {
 
     const val com_squareup_inject: String = "0.5.2"
 
-    const val androidx_lifecycle: String = "2.2.0-alpha01"
+    const val androidx_lifecycle: String = "2.2.0"
 
     const val com_google_dagger: String = "2.25.4"
 
@@ -44,15 +44,15 @@ object Versions {
 
     const val androidx_test: String = "1.2.0"
 
-    const val androidx_work: String = "2.2.0"
+    const val androidx_work: String = "2.3.0"
 
-    const val org_mockito: String = "3.2.7"
+    const val org_mockito: String = "3.2.8"
 
     const val com_android_tools_build_gradle: String = "3.5.3"
 
     const val androidx_test_ext_truth: String = "1.2.0"
 
-    const val com_google_truth_truth: String = "1.0"
+    const val com_google_truth_truth: String = "1.0.1"
 
     const val io_fabric_tools_gradle: String = "1.31.2"
 
@@ -62,7 +62,7 @@ object Versions {
 
     const val vectordrawable_animated: String = "1.1.0"
 
-    const val spotless_plugin_gradle: String = "3.27.0"
+    const val spotless_plugin_gradle: String = "3.27.1"
 
     const val leakcanary_android: String = "2.1"
 
@@ -82,7 +82,7 @@ object Versions {
 
     const val rxpermissions: String = "0.9.4"
 
-    const val fragment_ktx: String = "1.1.0"
+    const val fragment_ktx: String = "1.2.0"
 
     const val crashlytics: String = "2.10.1"
 
@@ -116,8 +116,6 @@ object Versions {
 
     const val aapt2: String = "3.5.3-5435860"
 
-    const val junit: String = "4.13"
-
     const val mockk: String = "1.9.3"
 
     const val anko: String = "0.10.8"
@@ -129,7 +127,7 @@ object Versions {
      * See issue 19: How to update Gradle itself?
      * https://github.com/jmfayard/buildSrcVersions/issues/19
      */
-    const val gradleLatestVersion: String = "6.0.1"
+    const val gradleLatestVersion: String = "6.1.1"
 }
 
 /**
