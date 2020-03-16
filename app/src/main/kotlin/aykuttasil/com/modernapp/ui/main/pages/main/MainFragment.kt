@@ -70,5 +70,6 @@ class MainFragment : BaseFragment() {
       Timber.i("Thread Name then:%s", Thread.currentThread().name)
       Timber.i("Result: $it")
     }
+
   }
 }

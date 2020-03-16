@@ -81,13 +81,13 @@ object Libs {
             Versions.androidx_databinding
 
     /**
-     * https://github.com/square/okhttp
+     * https://square.github.io/okhttp/
      */
     const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:" +
             Versions.com_squareup_okhttp3
 
     /**
-     * https://github.com/square/okhttp
+     * https://square.github.io/okhttp/
      */
     const val mockwebserver: String = "com.squareup.okhttp3:mockwebserver:" +
             Versions.com_squareup_okhttp3
@@ -115,12 +115,6 @@ object Libs {
     /**
      * https://kotlinlang.org/
      */
-    const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
-            Versions.org_jetbrains_kotlin
-
-    /**
-     * https://kotlinlang.org/
-     */
     const val kotlin_reflect: String = "org.jetbrains.kotlin:kotlin-reflect:" +
             Versions.org_jetbrains_kotlin
 
@@ -128,6 +122,12 @@ object Libs {
      * https://kotlinlang.org/
      */
     const val kotlin_stdlib_jdk8: String = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:" +
+            Versions.org_jetbrains_kotlin
+
+    /**
+     * https://kotlinlang.org/
+     */
+    const val kotlin_gradle_plugin: String = "org.jetbrains.kotlin:kotlin-gradle-plugin:" +
             Versions.org_jetbrains_kotlin
 
     /**
@@ -425,7 +425,7 @@ object Libs {
     const val cardview: String = "androidx.cardview:cardview:" + Versions.cardview
 
     /**
-     * http://developer.android.com/tools/extras/support-library.html
+     * https://developer.android.com/jetpack/androidx
      */
     const val core_ktx: String = "androidx.core:core-ktx:" + Versions.core_ktx
 

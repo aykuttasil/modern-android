@@ -19,8 +19,8 @@ import retrofit2.Response
 
 /**
  * Common class used by API responses.
- * @param <T> the type of the response object
-</T> */
+ * @param <T> the type of the response object </T>
+ * */
 @Suppress("unused") // T is used in extending classes
 sealed class ApiResponse<T> {
   companion object {
