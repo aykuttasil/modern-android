@@ -19,22 +19,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
-import aykuttasil.com.modernapp.App
 import aykuttasil.com.modernapp.R
 import aykuttasil.com.modernapp.databinding.FragmentMainBinding
 import aykuttasil.com.modernapp.ui.common.BaseFragment
-import aykuttasil.com.modernapp.ui.main.MainViewModel
 import aykuttasil.com.modernapp.ui.widget.bottomdialog.MyBottomDialog
 import aykuttasil.com.modernapp.util.delegates.Inflate
-import com.aykutasil.modernapp.util.AutoClearedValue
-import com.aykutasil.modernapp.util.autoCleared
 import com.aykutasil.modernapp.util.loadAsync
 import com.aykutasil.modernapp.util.then
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.delay
-import okio.internal.commonAsUtf8ToByteArray
 import timber.log.Timber
 
 class MainFragment : BaseFragment() {
@@ -52,11 +45,11 @@ class MainFragment : BaseFragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    btnGoUserActivity.setOnClickListener {
+    binding.btnGoUserActivity.setOnClickListener {
       findNavController().navigate(R.id.action_global_userActivity)
     }
 
-    btnOpenDialog.setOnClickListener {
+    binding.btnOpenDialog.setOnClickListener {
       val dialog = MyBottomDialog()
       dialog.show(childFragmentManager, MyBottomDialog::class.java.simpleName)
     }
