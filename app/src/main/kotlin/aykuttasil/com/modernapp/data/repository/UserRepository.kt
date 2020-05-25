@@ -27,15 +27,20 @@ import com.aykutasil.network.NetworkBoundResource
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(
-    private val apiService: ApiService,
-    private val userDao: UserDao,
-    private val appExecutors: AppExecutors
+  private val apiService: ApiService,
+  private val userDao: UserDao,
+  private val appExecutors: AppExecutors
 ) {
 
   fun getUser(username: String): LiveData<Resource<UserEntity>> {
     return object : NetworkBoundResource<UserEntity, User>(appExecutors) {
       override fun saveCallResult(item: User) {
-        val userEntity = UserEntity(userId = item.id?.toLong(), userName = item.name, userEmail = item.login, userJob = "Developer")
+        val userEntity = UserEntity(
+          userId = item.id?.toLong(),
+          userName = item.name,
+          userEmail = item.login,
+          userJob = "Developer"
+        )
         userDao.insertItem(userEntity)
       }
 

@@ -23,7 +23,7 @@ import com.aykutasil.modernapp.Resource
 import com.aykutasil.modernapp.util.AppExecutors
 
 abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constructor(
-    private val appExecutors: AppExecutors
+  private val appExecutors: AppExecutors
 ) {
 
   private val result = MediatorLiveData<Resource<ResultType>>()
@@ -57,7 +57,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
     val apiResponse = createCall()
 
     // we re-attach dbSource as a new source, it will dispatch its latest value quickly
-    result.addSource(dbSource) { newData ->
+    result.addSource(dbSource) { _ ->
       setValue(Resource.Loading())
     }
     result.addSource(apiResponse) { response ->

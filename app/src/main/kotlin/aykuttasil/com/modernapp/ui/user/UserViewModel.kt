@@ -21,8 +21,8 @@ import aykuttasil.com.modernapp.ui.common.BaseViewModel
 import javax.inject.Inject
 
 class UserViewModel @Inject constructor(
-    private val app: App,
-    private val userRepository: UserRepository
+  private val app: App,
+  private val userRepository: UserRepository
 ) : BaseViewModel(app) {
 
   fun getUser() = launchOnViewModelScope {

@@ -144,7 +144,7 @@ dependencies {
     implementation(project(':common'))
     implementation(project(":network"))
 
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.0-M2"
+    testImplementation Libs.kotlinx_coroutines_test
 
     // Debug
     debugImplementation Libs.leakcanary_android
@@ -186,7 +186,7 @@ dependencies {
     kapt(Libs.dagger_android_processor)
     implementation(Libs.dagger_android_support)
 
-    implementation(Libs.firebase_database)
+    // implementation(Libs.firebase_database)
 
     // Assisted Inject
     compileOnly Libs.assisted_inject_annotations_dagger2

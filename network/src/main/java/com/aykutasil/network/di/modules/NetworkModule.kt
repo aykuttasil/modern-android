@@ -39,6 +39,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
+@Singleton
 class NetworkModule {
 
   private fun getBaseUrl() = "https://api.github.com"
