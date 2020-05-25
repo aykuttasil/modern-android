@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentManager
 class AutoClearedValue<T>(fragment: Fragment, private var value: T?) {
 
   init {
-    val fragmentManager = fragment.fragmentManager!!
+    val fragmentManager = fragment.parentFragmentManager
     fragmentManager.registerFragmentLifecycleCallbacks(
       object : FragmentManager.FragmentLifecycleCallbacks() {
         override fun onFragmentViewDestroyed(fm: FragmentManager, f: Fragment) {

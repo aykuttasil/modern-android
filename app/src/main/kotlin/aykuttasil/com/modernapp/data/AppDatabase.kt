@@ -23,11 +23,11 @@ import aykuttasil.com.modernapp.data.local.entity.UserEntity
 import aykuttasil.com.modernapp.util.converter.RoomTypeConverter
 
 @Database(
-    entities = [
-      (UserEntity::class)
-    ],
-    version = 1,
-    exportSchema = false
+  entities = [
+    (UserEntity::class)
+  ],
+  version = 1,
+  exportSchema = false
 )
 @TypeConverters(RoomTypeConverter::class)
 abstract class AppDatabase : RoomDatabase() {

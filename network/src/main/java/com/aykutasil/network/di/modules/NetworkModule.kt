@@ -39,7 +39,6 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-@Singleton
 class NetworkModule {
 
   private fun getBaseUrl() = "https://api.github.com"
@@ -48,36 +47,38 @@ class NetworkModule {
   @Singleton
   internal fun provideRetrofit(okHttpClient: OkHttpClient, gson: Gson): Retrofit {
     return Retrofit.Builder()
-        .baseUrl(getBaseUrl())
-        .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-        .addCallAdapterFactory(LiveDataCallAdapterFactory())
-        .build()
+      .baseUrl(getBaseUrl())
+      .client(okHttpClient)
+      .addConverterFactory(GsonConverterFactory.create(gson))
+      .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+      .addCallAdapterFactory(LiveDataCallAdapterFactory())
+      .build()
   }
 
   @Provides
   @Singleton
   internal fun provideOkHttpClient(
-      @ApplicationContext context: Context,
-      httpLoggingInterceptor: HttpLoggingInterceptor,
-      chuckInterceptor: ChuckInterceptor,
-      stethoInterceptor: StethoInterceptor
+    @ApplicationContext context: Context,
+    httpLoggingInterceptor: HttpLoggingInterceptor,
+    chuckInterceptor: ChuckInterceptor,
+    stethoInterceptor: StethoInterceptor
   ): OkHttpClient {
     val httpClientBuilder = OkHttpClient.Builder()
-        .addInterceptor { chain ->
-          val original = chain.request()
 
-          val request = original.newBuilder()
-              .addHeader("Content-Type", "application/json")
-              .method(original.method(), original.body())
-              .build()
+    httpClientBuilder.addInterceptor { chain ->
+      val original = chain.request()
 
-          return@addInterceptor chain.proceed(request)
-        }
-        .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(60, TimeUnit.SECONDS)
-        .writeTimeout(60, TimeUnit.SECONDS)
+      val request = original.newBuilder()
+        .addHeader("Content-Type", "application/json")
+        .method(original.method, original.body)
+        .build()
+
+      return@addInterceptor chain.proceed(request)
+    }
+
+    httpClientBuilder.connectTimeout(60, TimeUnit.SECONDS)
+      .readTimeout(60, TimeUnit.SECONDS)
+      .writeTimeout(60, TimeUnit.SECONDS)
 
     httpClientBuilder.addInterceptor(NoConnectionInterceptor(context))
 
@@ -93,7 +94,7 @@ class NetworkModule {
   @Singleton
   internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
     return HttpLoggingInterceptor()
-        .setLevel(HttpLoggingInterceptor.Level.BODY)
+      .setLevel(HttpLoggingInterceptor.Level.BODY)
   }
 
   @Provides
@@ -112,9 +113,9 @@ class NetworkModule {
   @Singleton
   internal fun provideGson(): Gson {
     return GsonBuilder()
-        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-        .excludeFieldsWithoutExposeAnnotation()
-        .create()
+      .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+      .excludeFieldsWithoutExposeAnnotation()
+      .create()
   }
 }
 
