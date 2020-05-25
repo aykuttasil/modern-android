@@ -10,7 +10,7 @@ bootstrapRefreshVersionsAndDependencies()
 */
 
 plugins {
-   id("com.gradle.enterprise").version("3.3.1")
+    id("com.gradle.enterprise").version("3.3.1")
 }
 
 gradleEnterprise {
@@ -22,4 +22,4 @@ gradleEnterprise {
     }
 }
 
-include(":app", ":network", ":common")
+include(":app", ":network", ":common", ":domain")
