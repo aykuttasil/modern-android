@@ -8,19 +8,6 @@ import kotlin.String
  */
 object Libs {
     /**
-     * https://github.com/Kotlin/kotlinx.coroutines
-     */
-    const val kotlinx_coroutines_android: String =
-            "org.jetbrains.kotlinx:kotlinx-coroutines-android:" +
-            Versions.org_jetbrains_kotlinx_kotlinx_coroutines
-
-    /**
-     * https://github.com/Kotlin/kotlinx.coroutines
-     */
-    const val kotlinx_coroutines_core: String = "org.jetbrains.kotlinx:kotlinx-coroutines-core:" +
-            Versions.org_jetbrains_kotlinx_kotlinx_coroutines
-
-    /**
      * https://github.com/jgilfelt/chuck
      */
     const val chuck: String = "com.readystatesoftware.chuck:library:" +
@@ -45,19 +32,19 @@ object Libs {
             Versions.androidx_test_espresso
 
     /**
-     * https://github.com/square/retrofit/
+     * https://github.com/square/retrofit
      */
     const val adapter_rxjava2: String = "com.squareup.retrofit2:adapter-rxjava2:" +
             Versions.com_squareup_retrofit2
 
     /**
-     * https://github.com/square/retrofit/
+     * https://github.com/square/retrofit
      */
     const val converter_gson: String = "com.squareup.retrofit2:converter-gson:" +
             Versions.com_squareup_retrofit2
 
     /**
-     * https://github.com/square/retrofit/
+     * https://github.com/square/retrofit
      */
     const val retrofit: String = "com.squareup.retrofit2:retrofit:" +
             Versions.com_squareup_retrofit2
@@ -318,13 +305,32 @@ object Libs {
             Versions.navigation_safe_args_gradle_plugin
 
     /**
+     * https://github.com/Kotlin/kotlinx.coroutines
+     */
+    const val kotlinx_coroutines_android: String =
+            "org.jetbrains.kotlinx:kotlinx-coroutines-android:" +
+            Versions.kotlinx_coroutines_android
+
+    /**
+     * https://github.com/Kotlin/kotlinx.coroutines
+     */
+    const val kotlinx_coroutines_core: String = "org.jetbrains.kotlinx:kotlinx-coroutines-core:" +
+            Versions.kotlinx_coroutines_core
+
+    /**
+     * https://github.com/Kotlin/kotlinx.coroutines
+     */
+    const val kotlinx_coroutines_test: String = "org.jetbrains.kotlinx:kotlinx-coroutines-test:" +
+            Versions.kotlinx_coroutines_test
+
+    /**
      * https://developer.android.com/jetpack/androidx
      */
     const val vectordrawable_animated: String = "androidx.vectordrawable:vectordrawable-animated:" +
             Versions.vectordrawable_animated
 
     /**
-     * https://github.com/diffplug/spotless
+     * https://github.com/diffplug/project
      */
     const val spotless_plugin_gradle: String = "com.diffplug.spotless:spotless-plugin-gradle:" +
             Versions.spotless_plugin_gradle

@@ -2,10 +2,9 @@ package aykuttasil.com.modernapp.clean
 
 import javax.inject.Inject
 
-
 class UserInteractions @Inject constructor(
-    var login: Login,
-    var getUser: GetUser
+  var login: Login,
+  var getUser: GetUser
 )
 
 class Login @Inject constructor(var userRepository: UserRepository) {

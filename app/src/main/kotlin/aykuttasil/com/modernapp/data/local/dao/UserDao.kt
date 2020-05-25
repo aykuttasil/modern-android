@@ -38,10 +38,10 @@ abstract class UserDao {
   abstract fun insertItem(item: UserEntity): Long
 
   @Update(onConflict = OnConflictStrategy.REPLACE)
-  abstract fun updatetItem(item: UserEntity)
+  abstract fun updateItem(item: UserEntity)
 
   @Delete
-  abstract fun deletetItem(item: UserEntity)
+  abstract fun deleteItem(item: UserEntity)
 
   @Query("SELECT count(*) FROM user")
   abstract fun getItemsCount(): Flowable<Int>

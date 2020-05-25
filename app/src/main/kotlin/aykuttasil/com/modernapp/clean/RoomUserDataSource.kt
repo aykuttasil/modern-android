@@ -9,7 +9,7 @@ class RoomUserDataSource @Inject constructor(var userDao: UserDao) : UserDataSou
   }
 
   override suspend fun deleteUser(user: User) {
-    userDao.deletetItem(user.toUserEntity())
+    userDao.deleteItem(user.toUserEntity())
   }
 
   override suspend fun getUserList(): List<User> {

@@ -16,7 +16,7 @@ class UserViewModel @Inject constructor(
 
   fun initUser() {
     viewModelScope.launch {
-      liveUser.postValue(userInteractions.getUser.invoke())
+      liveUser.postValue(userInteractions.getUser())
     }
   }
 

@@ -17,7 +17,7 @@ abstract class UserDao {
   abstract suspend fun updateItem(item: UserEntity)
 
   @Delete
-  abstract suspend fun deletetItem(item: UserEntity)
+  abstract suspend fun deleteItem(item: UserEntity)
 
   @Query("SELECT count(*) FROM user_entity")
   abstract suspend fun getItemsCount(): Int
