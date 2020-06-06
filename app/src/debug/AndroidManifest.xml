@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="aykuttasil.com.modernapp">
+    package="com.aykuttasil.modernapp">
 
     <application
         android:name=".DebugApp"

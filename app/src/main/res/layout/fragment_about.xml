@@ -7,7 +7,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="aykuttasil.com.modernapp.ui.main.MainActivity">
+        tools:context="com.aykuttasil.modernapp.ui.main.MainActivity">
 
         <TextView
             android:id="@+id/textView"

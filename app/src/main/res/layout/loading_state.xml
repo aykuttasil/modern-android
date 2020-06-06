@@ -4,17 +4,17 @@
     
     <data>
         
-        <import type="aykuttasil.com.modernapp.util.AppUtils"/>
+        <import type="com.aykuttasil.modernapp.util.AppUtils"/>
         
-        <import type="com.aykutasil.modernapp.Status" />
+        <import type="com.aykuttasil.modernapp.Status" />
         
         <variable
             name="resource"
-            type="com.aykutasil.modernapp.Resource" />
+            type="com.aykuttasil.modernapp.Resource" />
         
         <variable
             name="callback"
-            type="aykuttasil.com.modernapp.ui.common.RetryCallback" />
+            type="com.aykuttasil.modernapp.ui.common.RetryCallback" />
     </data>
     
     <LinearLayout

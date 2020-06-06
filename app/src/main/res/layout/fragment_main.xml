@@ -7,22 +7,22 @@
 
         <variable
                 name="user"
-                type="aykuttasil.com.modernapp.data.local.entity.UserEntity" />
+                type="com.aykuttasil.modernapp.data.local.entity.UserEntity" />
 
         <variable
                 name="resource"
-                type="com.aykutasil.modernapp.Resource" />
+                type="com.aykuttasil.modernapp.Resource" />
 
         <variable
                 name="callback"
-                type="aykuttasil.com.modernapp.ui.common.RetryCallback" />
+                type="com.aykuttasil.modernapp.ui.common.RetryCallback" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context="aykuttasil.com.modernapp.ui.main.MainActivity">
+            tools:context="com.aykuttasil.modernapp.ui.main.MainActivity">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/navigation"
