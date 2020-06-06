@@ -8,8 +8,8 @@ buildscript {
     dependencies {
         classpath(Libs.com_android_tools_build_gradle)
         classpath(Libs.kotlin_gradle_plugin)
-        classpath(Libs.io_fabric_tools_gradle)
         classpath(Libs.google_services)
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.1'
         classpath(Libs.navigation_safe_args_gradle_plugin)
         classpath(Libs.spotless_plugin_gradle)
     }

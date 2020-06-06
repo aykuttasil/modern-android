@@ -7,13 +7,9 @@ import android.content.Context
 import android.os.Build
 import androidx.multidex.MultiDex
 import aykuttasil.com.modernapp.di.components.DaggerAppComponent
-import aykuttasil.com.modernapp.util.FabricTree
 import com.aykutasil.modernapp.util.Const
-import com.crashlytics.android.Crashlytics
-import com.crashlytics.android.core.CrashlyticsCore
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
-import io.fabric.sdk.android.Fabric
 import org.jetbrains.anko.notificationManager
 import timber.log.Timber
 
@@ -22,9 +18,9 @@ open class App : DaggerApplication() {
 
   override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
     return DaggerAppComponent
-        .builder()
-        .application(this)
-        .build()
+      .builder()
+      .application(this)
+      .build()
   }
 
   override fun onCreate() {
@@ -34,7 +30,7 @@ open class App : DaggerApplication() {
 
   open fun initApp() {
     initTimber()
-    initFabric()
+    // initFabric()
     initNotificationChannel()
   }
 
@@ -42,10 +38,11 @@ open class App : DaggerApplication() {
     if (BuildConfig.DEBUG) {
       Timber.plant(Timber.DebugTree())
     } else {
-      Timber.plant(FabricTree())
+      // Timber.plant(FabricTree())
     }
   }
 
+  /*
   private fun initFabric() {
     val crashlyticsCore = CrashlyticsCore.Builder()
         .disabled(BuildConfig.DEBUG)
@@ -58,12 +55,14 @@ open class App : DaggerApplication() {
     Fabric.with(this, crashlytics)
   }
 
+   */
+
   private fun initNotificationChannel() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       val channel = NotificationChannel(
-          Const.NOTIF_CHANNEL_ID,
-          Const.NOTIF_CHANNEL_NAME,
-          NotificationManager.IMPORTANCE_DEFAULT
+        Const.NOTIF_CHANNEL_ID,
+        Const.NOTIF_CHANNEL_NAME,
+        NotificationManager.IMPORTANCE_DEFAULT
       )
       notificationManager.createNotificationChannel(channel)
     }

@@ -1,27 +1,15 @@
 apply plugin: 'com.android.application'
 apply from: "$rootDir/tools/common.gradle"
-apply plugin: 'io.fabric'
+apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: "androidx.navigation.safeargs"
 
-// apply from: "$rootDir/tools/ktlint.gradle"
-// apply from: "$rootDir/tools/test-dependencies.gradle"
-
 android {
-    def fabricPropertiesFile = rootProject.file("app/fabric.properties")
-    def fabricProperties = new Properties()
-    if (fabricPropertiesFile.exists()) {
-        fabricProperties.load(new FileInputStream(fabricPropertiesFile))
-    }
 
     defaultConfig {
         applicationId "aykuttasil.com.modernapp"
 
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        ext.betaDistributionEmails = "aykuttasil@gmail.com"
-        ext.betaDistributionNotifications = true
-        resValue "string", "io.fabric.ApiKey", fabricProperties['apiKey']
     }
 
     def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -144,9 +132,8 @@ dependencies {
     releaseImplementation(Libs.sherlock_no_op)
     debugImplementation(Libs.sherlock)
 
-    implementation(Libs.legacy_support_v4)
-    implementation(Libs.appcompat)
     implementation(Libs.material)
+    implementation(Libs.appcompat)
     implementation(Libs.fragment_ktx)
     implementation(Libs.vectordrawable_animated)
     implementation(Libs.cardview)
@@ -168,7 +155,6 @@ dependencies {
 
     implementation(Libs.rxpermissions)
 
-    implementation(Libs.crashlytics)
     implementation(Libs.butterknife)
     kapt(Libs.butterknife_compiler)
     implementation(Libs.gson)
@@ -179,6 +165,8 @@ dependencies {
     implementation(Libs.dagger_android_support)
 
     // implementation(Libs.firebase_database)
+    implementation 'com.google.firebase:firebase-analytics:17.4.3'
+    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
 
     // Assisted Inject
     compileOnly Libs.assisted_inject_annotations_dagger2

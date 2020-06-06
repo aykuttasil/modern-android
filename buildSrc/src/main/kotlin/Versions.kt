@@ -34,7 +34,7 @@ object Versions {
 
   const val androidx_lifecycle: String = "2.2.0"
 
-  const val com_google_dagger: String = "2.27"
+  const val com_google_dagger: String = "2.28"
 
   const val com_jakewharton: String = "10.2.1"
 

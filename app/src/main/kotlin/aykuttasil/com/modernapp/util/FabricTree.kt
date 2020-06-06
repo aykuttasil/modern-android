@@ -1,5 +1,6 @@
 package aykuttasil.com.modernapp.util
 
+/*
 import com.crashlytics.android.Crashlytics
 import timber.log.Timber
 
@@ -19,3 +20,5 @@ class FabricTree : Timber.Tree() {
     }
   }
 }
+
+ */
