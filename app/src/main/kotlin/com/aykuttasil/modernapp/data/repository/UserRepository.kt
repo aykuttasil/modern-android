@@ -20,10 +20,10 @@ import com.aykuttasil.modernapp.data.local.dao.UserDao
 import com.aykuttasil.modernapp.data.local.entity.UserEntity
 import com.aykuttasil.modernapp.data.remote.ApiService
 import com.aykuttasil.modernapp.data.remote.model.User
-import com.aykuttasil.modernapp.Resource
-import com.aykuttasil.modernapp.util.AppExecutors
-import com.aykuttasil.network.ApiResponse
-import com.aykuttasil.network.NetworkBoundResource
+import com.aykuttasil.modernapp.common.Resource
+import com.aykuttasil.modernapp.common.util.AppExecutors
+import com.aykuttasil.modernapp.network.ApiResponse
+import com.aykuttasil.modernapp.network.NetworkBoundResource
 import javax.inject.Inject
 import javax.inject.Singleton
 

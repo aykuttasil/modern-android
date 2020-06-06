@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.aykuttasil.modernapp.R
 import com.aykuttasil.modernapp.databinding.RepoItemBinding
 import com.aykuttasil.modernapp.ui.common.DataBoundListAdapter
-import com.aykuttasil.modernapp.util.AppExecutors
+import com.aykuttasil.modernapp.common.util.AppExecutors
 
 
 data class RepoViewData(
@@ -32,9 +32,9 @@ data class RepoViewData(
 )
 
 class RepoListAdapter(
-    private val dataBindingComponent: DataBindingComponent,
-    appExecutors: AppExecutors,
-    private val repoClickCallback: ((RepoViewData) -> Unit)?
+  private val dataBindingComponent: DataBindingComponent,
+  appExecutors: AppExecutors,
+  private val repoClickCallback: ((RepoViewData) -> Unit)?
 ) : DataBoundListAdapter<RepoViewData, RepoItemBinding>(
     appExecutors = appExecutors,
     diffCallback = object : DiffUtil.ItemCallback<RepoViewData>() {

@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.aykuttasil.modernapp.R
-import com.aykuttasil.modernapp.util.extension.gone
-import com.aykuttasil.modernapp.util.extension.visible
+import com.aykuttasil.modernapp.common.util.extension.gone
+import com.aykuttasil.modernapp.common.util.extension.visible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

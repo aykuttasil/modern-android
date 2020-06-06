@@ -19,7 +19,7 @@ import android.app.Application
 import android.content.Context
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.di.ViewModelBuilder
-import com.aykuttasil.modernapp.di.ApplicationContext
+import com.aykuttasil.modernapp.common.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

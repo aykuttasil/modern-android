@@ -6,11 +6,11 @@
         
         <import type="com.aykuttasil.modernapp.util.AppUtils"/>
         
-        <import type="com.aykuttasil.modernapp.Status" />
+        <import type="com.aykuttasil.modernapp.common.Status" />
         
         <variable
             name="resource"
-            type="com.aykuttasil.modernapp.Resource" />
+            type="com.aykuttasil.modernapp.common.Resource" />
         
         <variable
             name="callback"

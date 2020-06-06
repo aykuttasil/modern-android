@@ -18,7 +18,7 @@ package com.aykuttasil.modernapp.di.modules
 import android.content.Context
 import androidx.room.Room
 import com.aykuttasil.modernapp.data.AppDatabase
-import com.aykuttasil.modernapp.di.ApplicationContext
+import com.aykuttasil.modernapp.common.di.ApplicationContext
 
 class TestDatabaseModule : DatabaseModule() {
 

@@ -13,19 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.data.remote
+package com.aykuttasil.modernapp.common.util
 
-import androidx.lifecycle.LiveData
-import com.aykuttasil.modernapp.data.remote.model.User
-import com.aykuttasil.modernapp.network.ApiResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
-
-interface ApiService {
-
-  @GET("user")
-  fun getUser(): LiveData<ApiResponse<User>>
-
-  @GET("users/{login}")
-  fun getUser(@Path("login") login: String): LiveData<ApiResponse<User>>
+object Const {
+  @JvmStatic
+  val NOTIF_CHANNEL_ID = "AppChannelID"
+  @JvmStatic
+  val NOTIF_CHANNEL_NAME = "Genel"
 }

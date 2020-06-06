@@ -11,7 +11,7 @@
 
         <variable
                 name="resource"
-                type="com.aykuttasil.modernapp.Resource" />
+                type="com.aykuttasil.modernapp.common.Resource" />
 
         <variable
                 name="callback"

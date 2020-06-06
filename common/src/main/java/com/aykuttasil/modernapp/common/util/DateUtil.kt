@@ -13,19 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.data.remote
+package com.aykuttasil.modernapp.common.util
 
-import androidx.lifecycle.LiveData
-import com.aykuttasil.modernapp.data.remote.model.User
-import com.aykuttasil.modernapp.network.ApiResponse
-import retrofit2.http.GET
-import retrofit2.http.Path
+import android.text.format.DateUtils
 
-interface ApiService {
+object DateUtil {
 
-  @GET("user")
-  fun getUser(): LiveData<ApiResponse<User>>
-
-  @GET("users/{login}")
-  fun getUser(@Path("login") login: String): LiveData<ApiResponse<User>>
+  /**
+   * Converts epoch time to relative time span.
+   *
+   * @param time time epoch in seconds. i.e: 1496491779
+   * @return relative time span compared with current. i.e: 5 minutes ago
+   */
+  fun formatRelativeTime(time: Long): String {
+    return DateUtils.getRelativeTimeSpanString(
+      time * 1000, System.currentTimeMillis(),
+      DateUtils.MINUTE_IN_MILLIS
+    ).toString()
+  }
 }

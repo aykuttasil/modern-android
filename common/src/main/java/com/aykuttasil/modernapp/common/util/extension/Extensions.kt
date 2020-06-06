@@ -13,23 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.util.extension
+package com.aykuttasil.modernapp.common.util.extension
 
-import android.app.Activity
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.TextPaint
 import android.text.style.ClickableSpan
 import android.view.View
-import android.view.ViewGroup
 import android.view.ViewTreeObserver
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
-import com.aykuttasil.modernapp.common.util.extension.getLayoutInflater
-import com.aykuttasil.modernapp.common.util.extension.replaceAll
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -56,10 +48,7 @@ inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
 /**
  * Extension method to simplify the code needed to apply spans on a specific sub string.
  */
-inline fun SpannableStringBuilder.withSpan(
-    vararg spans: Any,
-    action: SpannableStringBuilder.() -> Unit
-):
+inline fun SpannableStringBuilder.withSpan(vararg spans: Any, action: SpannableStringBuilder.() -> Unit):
     SpannableStringBuilder {
   val from = length
   action()
@@ -69,6 +58,19 @@ inline fun SpannableStringBuilder.withSpan(
   }
 
   return this
+}
+
+
+/**
+ * Extension method to int time to 2 digit String
+ */
+fun Int.twoDigitTime() = if (this < 10) "0" + toString() else toString()
+
+/**
+ * Extension method to replace all text inside an [Editable] with the specified [newValue].
+ */
+fun Editable.replaceAll(newValue: String) {
+  replace(0, length, newValue)
 }
 
 /**
@@ -89,33 +91,6 @@ fun Char.decimalValue(): Int {
   if (!isDigit())
     throw IllegalArgumentException("Out of range")
   return this.toInt() - '0'.toInt()
-}
-
-/**
- * Extension method to simplify view binding.
- */
-fun <T : ViewDataBinding> View.bind() = DataBindingUtil.bind<T>(this) as T
-
-/**
- * Extension method to simplify view inflating and binding inside a [ViewGroup].
- *
- * e.g.
- * This:
- *<code>
- *     binding = bind(R.layout.widget_card)
- *</code>
- *
- * Will replace this:
- *<code>
- *     binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.widget_card, this, true)
- *</code>
- */
-fun <T : ViewDataBinding> ViewGroup.bind(layoutId: Int): T {
-  return DataBindingUtil.inflate(getLayoutInflater(), layoutId, this, true)
-}
-
-fun <T : ViewDataBinding> Activity.bind(layoutId: Int): T {
-  return DataBindingUtil.setContentView(this, layoutId)
 }
 
 fun String.dateInFormat(format: String): Date? {
@@ -143,6 +118,7 @@ fun getClickableSpan(color: Int, action: (view: View) -> Unit): ClickableSpan {
   }
 }
 
+
 /**
  * Extension method used to return the value of the specified float raised to the power
  * of the specified [exponent].
@@ -150,20 +126,12 @@ fun getClickableSpan(color: Int, action: (view: View) -> Unit): ClickableSpan {
 fun Float.pow(exponent: Float) = Math.pow(this.toDouble(), exponent.toDouble()).toFloat()
 
 /**
- * Provide the ability to snap to a specified [position] in the specified [recyclerView]
- * using [SnapHelper].
+ * Convert a [Boolean] value to a view visibility [Int].
  */
-fun SnapHelper.snapToPosition(recyclerView: RecyclerView, position: Int) {
-  recyclerView.apply {
-    val view = findViewHolderForAdapterPosition(position)?.itemView
-    val snapPositions = view?.let {
-      layoutManager?.let { it1 -> calculateDistanceToFinalSnap(it1, it) }
-    }
-
-    snapPositions?.let { smoothScrollBy(it[0], it[1]) }
+fun Boolean.toViewVisibility(valueForFalse: Int = View.GONE): Int {
+  return if (this) {
+    View.VISIBLE
+  } else {
+    valueForFalse
   }
-}
-
-fun <T> T.isNull(): Boolean {
-  return this == null
 }
