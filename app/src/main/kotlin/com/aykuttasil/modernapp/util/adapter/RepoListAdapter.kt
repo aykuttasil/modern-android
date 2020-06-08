@@ -23,7 +23,7 @@ import androidx.recyclerview.widget.DiffUtil
 import com.aykuttasil.modernapp.R
 import com.aykuttasil.modernapp.databinding.RepoItemBinding
 import com.aykuttasil.modernapp.ui.common.DataBoundListAdapter
-import com.aykuttasil.modernapp.common.util.AppExecutors
+import com.aykuttasil.common.util.AppExecutors
 
 
 data class RepoViewData(

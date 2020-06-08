@@ -25,7 +25,7 @@ import com.aykuttasil.modernapp.di.modules.AppModule
 import com.aykuttasil.modernapp.di.modules.DatabaseModule
 import com.aykuttasil.modernapp.di.modules.SharedPreferenceModule
 import com.aykuttasil.modernapp.di.modules.WorkerAssistedInjectModule
-import com.aykuttasil.modernapp.network.di.modules.NetworkModule
+import com.aykuttasil.network.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector

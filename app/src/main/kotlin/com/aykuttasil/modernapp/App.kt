@@ -7,7 +7,7 @@ import android.content.Context
 import android.os.Build
 import androidx.multidex.MultiDex
 import com.aykuttasil.modernapp.di.components.DaggerAppComponent
-import com.aykuttasil.modernapp.common.util.Const
+import com.aykuttasil.common.util.Const
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 import org.jetbrains.anko.notificationManager

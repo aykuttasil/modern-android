@@ -1,4 +1,7 @@
 buildscript {
+    ext {
+        kotlin_version = '1.3.72'
+    }
     repositories {
         google()
         jcenter()
@@ -12,6 +15,7 @@ buildscript {
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.1'
         classpath(Libs.navigation_safe_args_gradle_plugin)
         classpath(Libs.spotless_plugin_gradle)
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 

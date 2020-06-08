@@ -24,8 +24,8 @@ import com.aykuttasil.modernapp.databinding.ActivityUserBinding
 import com.aykuttasil.modernapp.di.ViewModelFactory
 import com.aykuttasil.modernapp.ui.common.BaseActivity
 import com.aykuttasil.modernapp.util.delegates.contentView
-import com.aykuttasil.modernapp.common.Resource
-import com.aykuttasil.modernapp.common.util.logd
+import com.aykuttasil.common.Resource
+import com.aykuttasil.common.util.logd
 import javax.inject.Inject
 
 class UserActivity : BaseActivity() {

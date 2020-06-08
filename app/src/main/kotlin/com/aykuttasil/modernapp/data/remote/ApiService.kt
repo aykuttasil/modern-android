@@ -17,7 +17,7 @@ package com.aykuttasil.modernapp.data.remote
 
 import androidx.lifecycle.LiveData
 import com.aykuttasil.modernapp.data.remote.model.User
-import com.aykuttasil.modernapp.network.ApiResponse
+import com.aykuttasil.network.ApiResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 

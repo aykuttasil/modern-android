@@ -28,8 +28,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
-import com.aykuttasil.modernapp.common.util.extension.getLayoutInflater
-import com.aykuttasil.modernapp.common.util.extension.replaceAll
+import com.aykuttasil.common.util.extension.getLayoutInflater
+import com.aykuttasil.common.util.extension.replaceAll
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
