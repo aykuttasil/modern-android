@@ -58,12 +58,16 @@ class UserActivity : BaseActivity() {
 
      */
 
-    viewModel.getUser().observe(this, Observer {
-      if (it.hasValue()) {
-        Toast.makeText(this, it.value?.userName, Toast.LENGTH_SHORT).show()
+    viewModel.viewState.observe(this, Observer {
+      if (it.isLoading) {
+        Toast.makeText(this, "Lütfen Bekleyiniz", Toast.LENGTH_SHORT).show()
       } else {
-        Toast.makeText(this, "No user data!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "İşlem Tamamlandı", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, it.userEntity?.userName, Toast.LENGTH_SHORT).show()
       }
     })
+
+    viewModel.getUser()
+
   }
 }
