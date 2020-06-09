@@ -92,7 +92,8 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     return ViewHolder.create(parent)
   }
 
-  class ViewHolder(private var binding: ItemUserLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+  class ViewHolder(private var binding: ItemUserLayoutBinding) :
+    RecyclerView.ViewHolder(binding.root) {
 
     fun bind(UserEntity: UserEntity) = with(binding) {
       user = UserEntity
@@ -101,7 +102,8 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     companion object {
       fun create(parent: ViewGroup?): ViewHolder {
-        val binding = ItemUserLayoutBinding.inflate(LayoutInflater.from(parent?.context), parent, false)
+        val binding =
+          ItemUserLayoutBinding.inflate(LayoutInflater.from(parent?.context), parent, false)
         return ViewHolder(binding)
       }
     }

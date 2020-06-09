@@ -126,7 +126,7 @@ class NoConnectivityException : IOException() {
       "No network available, please check your WiFi or Data connection"
 }
 
-class NoInternetException() : IOException() {
+class NoInternetException : IOException() {
   override val message: String
     get() =
       "No internet available, please check your connected WIFi or Data"

@@ -30,7 +30,6 @@ open class App : DaggerApplication() {
 
   open fun initApp() {
     initTimber()
-    // initFabric()
     initNotificationChannel()
   }
 

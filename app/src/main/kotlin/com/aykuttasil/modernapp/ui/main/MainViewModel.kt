@@ -21,6 +21,4 @@ import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
     val app: App
-) : BaseViewModel(app) {
-
-}
+) : BaseViewModel(app)
