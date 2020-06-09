@@ -13,18 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.di.modules
+package com.aykuttasil.modernapp.util
 
-import android.content.Context
-import androidx.room.Room
-import com.aykuttasil.modernapp.data.AppDatabase
-import com.aykuttasil.domain.di.ApplicationContext
+import android.text.format.DateUtils
 
-class TestDatabaseModule : DatabaseModule() {
+object DateUtil {
 
-  override
-  fun provideDatabase(@ApplicationContext context: Context) = Room.inMemoryDatabaseBuilder(
-    context,
-    AppDatabase::class.java
-  ).fallbackToDestructiveMigration().build()
+  /**
+   * Converts epoch time to relative time span.
+   *
+   * @param time time epoch in seconds. i.e: 1496491779
+   * @return relative time span compared with current. i.e: 5 minutes ago
+   */
+  fun formatRelativeTime(time: Long): String {
+    return DateUtils.getRelativeTimeSpanString(
+      time * 1000, System.currentTimeMillis(),
+      DateUtils.MINUTE_IN_MILLIS
+    ).toString()
+  }
 }

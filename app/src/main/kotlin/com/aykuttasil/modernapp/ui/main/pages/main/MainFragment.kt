@@ -25,8 +25,8 @@ import com.aykuttasil.modernapp.databinding.FragmentMainBinding
 import com.aykuttasil.modernapp.ui.common.BaseFragment
 import com.aykuttasil.modernapp.ui.widget.bottomdialog.MyBottomDialog
 import com.aykuttasil.modernapp.util.delegates.Inflate
-import com.aykuttasil.common.util.loadAsync
-import com.aykuttasil.common.util.then
+import com.aykuttasil.modernapp.util.loadAsync
+import com.aykuttasil.modernapp.util.then
 import kotlinx.coroutines.delay
 import timber.log.Timber
 

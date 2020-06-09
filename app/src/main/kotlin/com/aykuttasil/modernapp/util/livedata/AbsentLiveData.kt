@@ -13,18 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.di.modules
+package com.aykuttasil.modernapp.util.livedata
 
-import android.content.Context
-import androidx.room.Room
-import com.aykuttasil.modernapp.data.AppDatabase
-import com.aykuttasil.domain.di.ApplicationContext
+import androidx.lifecycle.LiveData
 
-class TestDatabaseModule : DatabaseModule() {
+/**
+ * Helper class for transmitting an empty LiveData - Pretty useful!
+ */
+class AbsentLiveData<T> private constructor() : LiveData<T>() {
+  init {
+    postValue(null)
+  }
 
-  override
-  fun provideDatabase(@ApplicationContext context: Context) = Room.inMemoryDatabaseBuilder(
-    context,
-    AppDatabase::class.java
-  ).fallbackToDestructiveMigration().build()
+  companion object {
+    fun <T> create(): LiveData<T> {
+
+      return AbsentLiveData()
+    }
+  }
 }

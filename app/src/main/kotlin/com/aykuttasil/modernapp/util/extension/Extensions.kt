@@ -28,8 +28,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
-import com.aykuttasil.common.util.extension.getLayoutInflater
-import com.aykuttasil.common.util.extension.replaceAll
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -57,8 +55,8 @@ inline fun <T : View> T.afterMeasured(crossinline f: T.() -> Unit) {
  * Extension method to simplify the code needed to apply spans on a specific sub string.
  */
 inline fun SpannableStringBuilder.withSpan(
-    vararg spans: Any,
-    action: SpannableStringBuilder.() -> Unit
+  vararg spans: Any,
+  action: SpannableStringBuilder.() -> Unit
 ):
     SpannableStringBuilder {
   val from = length
@@ -69,17 +67,6 @@ inline fun SpannableStringBuilder.withSpan(
   }
 
   return this
-}
-
-/**
- * Extension method to replace all text inside an [Editable] with the specified [newValue] while
- * ignoring any [android.text.InputFilter] set on the [Editable].
- */
-fun Editable.replaceAllIgnoreFilters(newValue: String) {
-  val currentFilters = filters
-  filters = emptyArray()
-  replaceAll(newValue)
-  filters = currentFilters
 }
 
 /**

@@ -26,7 +26,6 @@ import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import com.aykuttasil.modernapp.R
-import com.aykuttasil.common.util.Const
 
 /**
  * Helper class for showing and canceling new message

@@ -5,7 +5,6 @@ import com.aykuttasil.data.user.InMemoryUserDataStore
 import com.aykuttasil.data.user.RemoteUserDataStore
 import com.aykuttasil.data.user.RoomUserDataStore
 import com.aykuttasil.domain.repositories.UserRepository
-import com.aykuttasil.network.di.modules.NetworkModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

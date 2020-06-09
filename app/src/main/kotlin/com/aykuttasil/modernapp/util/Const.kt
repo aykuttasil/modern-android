@@ -13,18 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.di.modules
+package com.aykuttasil.modernapp.util
 
-import android.content.Context
-import androidx.room.Room
-import com.aykuttasil.modernapp.data.AppDatabase
-import com.aykuttasil.domain.di.ApplicationContext
-
-class TestDatabaseModule : DatabaseModule() {
-
-  override
-  fun provideDatabase(@ApplicationContext context: Context) = Room.inMemoryDatabaseBuilder(
-    context,
-    AppDatabase::class.java
-  ).fallbackToDestructiveMigration().build()
+object Const {
+  @JvmStatic
+  val NOTIF_CHANNEL_ID = "AppChannelID"
+  @JvmStatic
+  val NOTIF_CHANNEL_NAME = "Genel"
 }

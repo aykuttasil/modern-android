@@ -2,8 +2,8 @@ package com.aykuttasil.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.aykuttasil.common.di.ApplicationContext
 import com.aykuttasil.data.db.AppDatabase
+import com.aykuttasil.domain.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

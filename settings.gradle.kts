@@ -22,4 +22,4 @@ gradleEnterprise {
     }
 }
 
-include(":app", ":network", ":common", ":domain", ":data")
+include(":app", ":domain", ":data")

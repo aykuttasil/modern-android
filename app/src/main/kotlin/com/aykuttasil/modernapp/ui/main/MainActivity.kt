@@ -6,7 +6,7 @@ import androidx.activity.viewModels
 import com.aykuttasil.modernapp.R
 import com.aykuttasil.modernapp.di.ViewModelFactory
 import com.aykuttasil.modernapp.ui.common.BaseActivity
-import com.aykuttasil.common.util.edit
+import com.aykuttasil.modernapp.util.edit
 import javax.inject.Inject
 
 class MainActivity : BaseActivity() {

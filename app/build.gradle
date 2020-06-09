@@ -120,10 +120,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation(project(':common'))
     implementation(project(':domain'))
     implementation(project(':data'))
-    implementation(project(':network'))
 
     testImplementation Libs.kotlinx_coroutines_test
 
@@ -142,6 +140,7 @@ dependencies {
     implementation(Libs.annotation)
     implementation(Libs.gridlayout)
     implementation(Libs.multidex)
+    implementation(Libs.preference_ktx)
     
     implementation(Libs.lifecycle_extensions)
     implementation(Libs.lifecycle_viewmodel_ktx)
@@ -172,5 +171,9 @@ dependencies {
     // Assisted Inject
     compileOnly Libs.assisted_inject_annotations_dagger2
     kapt Libs.assisted_inject_processor_dagger2
+
+    api(Libs.anko)
+
+    api(Libs.rxandroid)
 }
 // apply(plugin = "com.google.gms.google-services")

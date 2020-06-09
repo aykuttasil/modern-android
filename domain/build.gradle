@@ -1,6 +1,17 @@
 apply from: "$rootDir/tools/common-android-library.gradle"
 
 dependencies {
+    api(Libs.kotlin_stdlib_jdk8)
+    api(Libs.kotlin_reflect)
+    api(Libs.kotlinx_coroutines_core)
+    api(Libs.kotlinx_coroutines_android)
+    api(Libs.core_ktx)
+
+    api(Libs.rxjava)
+    api(Libs.rxkotlin)
+
+    api(Libs.timber)
+
     implementation Libs.dagger
     kapt Libs.dagger_compiler
 }

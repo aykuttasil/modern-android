@@ -17,7 +17,7 @@ package com.aykuttasil.modernapp.ui.user
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.aykuttasil.common.util.SingleLiveEvent
+import com.aykuttasil.modernapp.util.SingleLiveEvent
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.usecases.user.GetUserUseCase
 import com.aykuttasil.modernapp.App
@@ -32,7 +32,8 @@ class UserViewModel @Inject constructor(
 ) : BaseViewModel(app) {
 
   val viewState = MutableLiveData<UserActivityViewState>()
-  var errorState: SingleLiveEvent<Throwable?> = SingleLiveEvent()
+  var errorState: SingleLiveEvent<Throwable?> =
+    SingleLiveEvent()
 
   init {
     val viewState = UserActivityViewState()

@@ -14,9 +14,16 @@ android {
 }
 
 dependencies {
-    implementation project(':common')
     implementation project(':domain')
-    implementation project(':network')
+
+    implementation Libs.lifecycle_livedata_ktx
+
+    api Libs.room_runtime
+    kapt Libs.room_compiler
+    implementation Libs.room_ktx
+
+    implementation Libs.dagger
+    kapt Libs.dagger_compiler
 
     api Libs.converter_gson
     api Libs.retrofit
@@ -28,11 +35,4 @@ dependencies {
 
     releaseApi Libs.chuck_no_op
     debugApi Libs.chuck
-
-    api Libs.room_runtime
-    kapt Libs.room_compiler
-    implementation Libs.room_ktx
-
-    implementation Libs.dagger
-    kapt Libs.dagger_compiler
 }
