@@ -6,6 +6,7 @@ import com.aykuttasil.data.user.RoomUserDataStore
 import com.aykuttasil.domain.caches.UserCache
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.repositories.UserRepository
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -16,7 +17,14 @@ class UserRepositoryImpl(
 ) : UserRepository {
 
   override suspend fun getUser(userName: String): UserEntity? {
-    return remoteUserDataStore.getUser(userName)
+    return if (inMemoryUserDataStore.getUser(userName) == null) {
+      val user = remoteUserDataStore.getUser(userName)
+      if (user != null) saveUser(user)
+      user
+    } else {
+      Timber.i(inMemoryUserDataStore.getUser(userName).toString())
+      UserEntity(userName = "This field is coming from inMemoryUserDataStore")
+    }
   }
 
   override suspend fun saveUser(user: UserEntity): Boolean {

@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 class GetUserUseCase @Inject constructor(private val userRepository: UserRepository) {
   suspend operator fun invoke(userName: String): Optional<UserEntity> {
-    return Optional.of(userRepository.getUser(userName))
+    val user = userRepository.getUser(userName)
+    return Optional.of(user)
   }
 }
