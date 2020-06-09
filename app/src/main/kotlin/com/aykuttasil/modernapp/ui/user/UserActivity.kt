@@ -67,6 +67,10 @@ class UserActivity : BaseActivity() {
       }
     })
 
+    viewModel.errorState.observe(this, Observer {
+      Toast.makeText(this, it?.message, Toast.LENGTH_SHORT).show()
+    })
+
     viewModel.getUser()
 
   }
