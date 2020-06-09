@@ -16,7 +16,6 @@
 package com.aykuttasil.modernapp.ui.user
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.aykuttasil.common.util.SingleLiveEvent
 import com.aykuttasil.domain.entities.UserEntity
@@ -24,7 +23,6 @@ import com.aykuttasil.domain.usecases.user.GetUserUseCase
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.ui.common.BaseViewModel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -47,9 +45,9 @@ class UserViewModel @Inject constructor(
         viewState.value = viewState.value?.copy(isLoading = true)
         delay(1000)
 
-        val user = getUserUseCase("aykuttasil")
-        if (user.hasValue()) {
-          viewState.value = viewState.value?.copy(isLoading = false, userEntity = user.value)
+        val user = getUserUseCase("aykuttasil123")
+        if (user != null) {
+          viewState.value = viewState.value?.copy(isLoading = false, userEntity = user)
         } else {
           viewState.value =
             viewState.value?.copy(isLoading = true, userEntity = UserEntity(userName = "HOHOHOHO"))

@@ -18,12 +18,20 @@ class UserRepositoryImpl(
 
   override suspend fun getUser(userName: String): UserEntity? {
     return if (inMemoryUserDataStore.getUser(userName) == null) {
-      val user = remoteUserDataStore.getUser(userName)
-      if (user != null) saveUser(user)
+
+      var user: UserEntity?
+      try {
+        user = remoteUserDataStore.getUser(userName)
+        if (user != null) saveUser(user)
+      } catch (ex: Exception) {
+        Timber.e(ex)
+        user = roomUserDataStore.getUser(userName)
+      }
       user
     } else {
-      Timber.i(inMemoryUserDataStore.getUser(userName).toString())
-      UserEntity(userName = "This field is coming from inMemoryUserDataStore")
+      val user = inMemoryUserDataStore.getUser(userName)
+      Timber.i(user.toString())
+      user
     }
   }
 

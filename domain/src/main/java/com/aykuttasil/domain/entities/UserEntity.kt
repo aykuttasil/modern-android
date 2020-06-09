@@ -1,7 +1,7 @@
 package com.aykuttasil.domain.entities
 
 data class UserEntity(
-  val userId: String? = null,
+  val userId: Int? = null,
   val userName: String? = null,
   val userEmail: String? = null,
   val userPass: String? = null,

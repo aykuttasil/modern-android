@@ -1,5 +1,6 @@
 package com.aykuttasil.data.user
 
+import com.aykuttasil.data.entities.toUserData
 import com.aykuttasil.data.entities.toUserEntity
 import com.aykuttasil.domain.datastores.UserDataStore
 import com.aykuttasil.domain.entities.UserEntity
@@ -11,8 +12,7 @@ class RoomUserDataStore @Inject constructor(private val userDao: UserDao) : User
   }
 
   override suspend fun saveUser(user: UserEntity): Boolean {
-    // return userDao.insertItem(UserData()) != -1L
-    return false
+    return userDao.insertItem(user.toUserData()) != -1L
   }
 
 }
