@@ -1,5 +1,6 @@
 package com.aykuttasil.modernapp.clean
 
+/*
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -15,3 +16,5 @@ data class UserEntity(
 fun UserEntity.toUser(): User {
   return User(this.userName, "password", this.userEmail)
 }
+
+ */

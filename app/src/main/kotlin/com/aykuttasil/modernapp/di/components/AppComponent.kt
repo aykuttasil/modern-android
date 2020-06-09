@@ -16,13 +16,13 @@
 package com.aykuttasil.modernapp.di.components
 
 import android.app.Application
+import com.aykuttasil.data.di.DatabaseModule
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.di.ActivityBuilder
 import com.aykuttasil.modernapp.di.ServiceBuilder
 import com.aykuttasil.modernapp.di.WorkerBuilder
 import com.aykuttasil.modernapp.di.modules.ApiModule
 import com.aykuttasil.modernapp.di.modules.AppModule
-import com.aykuttasil.modernapp.di.modules.DatabaseModule
 import com.aykuttasil.modernapp.di.modules.SharedPreferenceModule
 import com.aykuttasil.modernapp.di.modules.WorkerAssistedInjectModule
 import com.aykuttasil.network.di.modules.NetworkModule

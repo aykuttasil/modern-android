@@ -1,5 +1,6 @@
 apply from: "$rootDir/tools/common-android-library.gradle"
 
 dependencies {
-    implementation project(':common')
+    implementation Libs.dagger
+    kapt Libs.dagger_compiler
 }

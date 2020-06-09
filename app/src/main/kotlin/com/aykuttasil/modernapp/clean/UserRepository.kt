@@ -1,5 +1,7 @@
 package com.aykuttasil.modernapp.clean
 
+
+/*
 import javax.inject.Inject
 
 interface UserRepository {
@@ -33,3 +35,5 @@ class UserRepositoryImpl @Inject constructor(var userDataSource: UserDataSource)
   }
 
 }
+
+ */

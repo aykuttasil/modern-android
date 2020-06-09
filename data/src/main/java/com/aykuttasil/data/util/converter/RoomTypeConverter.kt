@@ -13,24 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.data
+package com.aykuttasil.data.util.converter
 
-import androidx.room.Database
-import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import com.aykuttasil.modernapp.data.local.dao.UserDao
-import com.aykuttasil.modernapp.data.local.entity.UserEntity
-import com.aykuttasil.modernapp.util.converter.RoomTypeConverter
+import androidx.room.TypeConverter
+import java.util.Date
 
-@Database(
-  entities = [
-    (UserEntity::class)
-  ],
-  version = 1,
-  exportSchema = false
-)
-@TypeConverters(RoomTypeConverter::class)
-abstract class AppDatabase : RoomDatabase() {
+class RoomTypeConverter {
 
-  abstract fun getUserDao(): UserDao
+  @TypeConverter
+  fun fromDateToLong(date: Date): Long {
+    return date.time
+  }
+
+  @TypeConverter
+  fun fromLongToDate(long: Long): Date {
+    return Date(long)
+  }
 }

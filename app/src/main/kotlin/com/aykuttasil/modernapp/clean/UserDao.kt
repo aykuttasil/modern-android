@@ -1,5 +1,6 @@
 package com.aykuttasil.modernapp.clean
 
+/*
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -26,3 +27,5 @@ abstract class UserDao {
   abstract suspend fun getItems(): List<UserEntity>
 
 }
+
+ */

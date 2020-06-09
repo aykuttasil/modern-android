@@ -13,20 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.util.converter
+package com.aykuttasil.data.remote
 
-import androidx.room.TypeConverter
-import java.util.Date
+import com.aykuttasil.data.entities.UserData
+import retrofit2.http.GET
+import retrofit2.http.Path
 
-class RoomTypeConverter {
+interface ApiService {
 
-  @TypeConverter
-  fun fromDateToLong(date: Date): Long {
-    return date.time
-  }
-
-  @TypeConverter
-  fun fromLongToDate(long: Long): Date {
-    return Date(long)
-  }
+  @GET("users/{login}")
+  suspend fun getUser(@Path("login") login: String): UserData
 }

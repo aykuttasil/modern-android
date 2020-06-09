@@ -7,7 +7,7 @@
 
         <variable
             name="user"
-            type="com.aykuttasil.modernapp.data.local.entity.UserEntity" />
+            type="com.aykuttasil.domain.entities.UserEntity" />
     </data>
 
     <androidx.cardview.widget.CardView

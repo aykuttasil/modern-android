@@ -1,5 +1,6 @@
 package com.aykuttasil.modernapp.clean
 
+/*
 import javax.inject.Inject
 
 class UserInteractions @Inject constructor(
@@ -19,3 +20,5 @@ class GetUser @Inject constructor(var userRepository: UserRepository) {
     return userRepository.getUser()
   }
 }
+
+ */

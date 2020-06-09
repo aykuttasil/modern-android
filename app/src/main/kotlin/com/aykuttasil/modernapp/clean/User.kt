@@ -1,5 +1,6 @@
 package com.aykuttasil.modernapp.clean
 
+/*
 data class User(
     var userName: String?,
     var pass: String?,
@@ -7,3 +8,5 @@ data class User(
 )
 
 fun User.toUserEntity() = UserEntity(1L, this.userName, this.email, "userJob")
+
+ */

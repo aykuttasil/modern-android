@@ -15,7 +15,7 @@
  */
 package com.aykuttasil.modernapp.di.modules
 
-import com.aykuttasil.modernapp.data.remote.ApiService
+import com.aykuttasil.data.remote.ApiService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

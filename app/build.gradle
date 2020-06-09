@@ -121,6 +121,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     implementation(project(':domain'))
+    implementation(project(':data'))
     implementation(project(':common'))
     implementation(project(":network"))
 
@@ -141,15 +142,15 @@ dependencies {
     implementation(Libs.annotation)
     implementation(Libs.gridlayout)
     implementation(Libs.multidex)
+    
     implementation(Libs.lifecycle_extensions)
     implementation(Libs.lifecycle_viewmodel_ktx)
     implementation(Libs.lifecycle_reactivestreams_ktx)
     implementation Libs.lifecycle_livedata_ktx
-    implementation(Libs.room_runtime)
-    kapt(Libs.room_compiler)
-    implementation(Libs.room_rxjava2)
+
     implementation Libs.navigation_fragment_ktx
     implementation Libs.navigation_ui_ktx
+
     implementation Libs.work_runtime_ktx
     implementation Libs.work_rxjava2
 

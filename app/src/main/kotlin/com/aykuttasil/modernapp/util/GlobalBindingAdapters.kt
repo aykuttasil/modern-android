@@ -24,7 +24,7 @@ class GlobalBindingAdapters {
 
     @JvmStatic
     @BindingAdapter("visibleGone")
-    fun visibleGone(view: View, show: Boolean) = if (show) {
+    fun bindingVisibleGone(view: View, show: Boolean) = if (show) {
       view.visibility = View.VISIBLE
     } else {
       view.visibility = View.GONE

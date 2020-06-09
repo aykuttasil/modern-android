@@ -19,7 +19,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.aykuttasil.modernapp.data.local.entity.UserEntity
+import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.modernapp.databinding.ItemUserLayoutBinding
 
 class UserAdapter : RecyclerView.Adapter<UserAdapter.ViewHolder>() {

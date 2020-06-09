@@ -1,5 +1,7 @@
 package com.aykuttasil.modernapp.clean
 
+
+/*
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
@@ -21,3 +23,5 @@ class UserViewModel @Inject constructor(
   }
 
 }
+
+ */

@@ -15,6 +15,7 @@
  */
 package com.aykuttasil.modernapp.data.remote.model
 
+/*
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -50,3 +51,5 @@ data class User(
     @Expose @SerializedName("created_at") val createdAt: String?,
     @Expose @SerializedName("updated_at") val updatedAt: String?
 )
+
+ */

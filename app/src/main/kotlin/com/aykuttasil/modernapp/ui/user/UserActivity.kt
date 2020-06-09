@@ -26,6 +26,7 @@ import com.aykuttasil.modernapp.ui.common.BaseActivity
 import com.aykuttasil.modernapp.util.delegates.contentView
 import com.aykuttasil.common.Resource
 import com.aykuttasil.common.util.logd
+import com.aykuttasil.domain.util.Optional
 import javax.inject.Inject
 
 class UserActivity : BaseActivity() {
@@ -40,6 +41,7 @@ class UserActivity : BaseActivity() {
     super.onCreate(savedInstanceState)
     logd { "onCreate" }
 
+    /*
     viewModel.getUser().observe(this, Observer {
       when (it) {
         is Resource.Loading -> {
@@ -51,6 +53,16 @@ class UserActivity : BaseActivity() {
         is Resource.Error -> {
           Toast.makeText(this, it.throwable?.message, Toast.LENGTH_SHORT).show()
         }
+      }
+    })
+
+     */
+
+    viewModel.getUser().observe(this, Observer {
+      if (it.hasValue()) {
+        Toast.makeText(this, it.value?.userName, Toast.LENGTH_SHORT).show()
+      } else {
+        Toast.makeText(this, "No user data!", Toast.LENGTH_SHORT).show()
       }
     })
   }
