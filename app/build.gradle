@@ -120,10 +120,10 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
+    implementation(project(':common'))
     implementation(project(':domain'))
     implementation(project(':data'))
-    implementation(project(':common'))
-    implementation(project(":network"))
+    implementation(project(':network'))
 
     testImplementation Libs.kotlinx_coroutines_test
 

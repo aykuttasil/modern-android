@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module(includes = [DataModule::class])
+@Module
 open class DatabaseModule {
 
   companion object {

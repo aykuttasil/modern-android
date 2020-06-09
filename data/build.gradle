@@ -16,6 +16,7 @@ android {
 dependencies {
     implementation project(':common')
     implementation project(':domain')
+    implementation project(':network')
 
     api Libs.converter_gson
     api Libs.retrofit

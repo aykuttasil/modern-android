@@ -19,7 +19,6 @@ import android.app.Application
 import com.aykuttasil.modernapp.TestApp
 import com.aykuttasil.modernapp.di.ActivityBuilder
 import com.aykuttasil.modernapp.di.ServiceBuilder
-import com.aykuttasil.modernapp.di.modules.ApiModule
 import com.aykuttasil.modernapp.di.modules.AppModule
 import com.aykuttasil.modernapp.di.modules.DatabaseModule
 import com.aykuttasil.network.di.modules.NetworkModule

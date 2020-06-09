@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.di.modules
+package com.aykuttasil.data.di
 
 import com.aykuttasil.data.remote.ApiService
 import dagger.Module

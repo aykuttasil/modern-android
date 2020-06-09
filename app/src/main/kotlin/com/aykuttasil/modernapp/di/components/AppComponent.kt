@@ -16,16 +16,15 @@
 package com.aykuttasil.modernapp.di.components
 
 import android.app.Application
+import com.aykuttasil.data.di.DataModule
 import com.aykuttasil.data.di.DatabaseModule
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.di.ActivityBuilder
 import com.aykuttasil.modernapp.di.ServiceBuilder
 import com.aykuttasil.modernapp.di.WorkerBuilder
-import com.aykuttasil.modernapp.di.modules.ApiModule
 import com.aykuttasil.modernapp.di.modules.AppModule
 import com.aykuttasil.modernapp.di.modules.SharedPreferenceModule
 import com.aykuttasil.modernapp.di.modules.WorkerAssistedInjectModule
-import com.aykuttasil.network.di.modules.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -34,18 +33,16 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [
-      (AndroidSupportInjectionModule::class),
-      (ActivityBuilder::class),
-      (ServiceBuilder::class),
-      (AppModule::class),
-      (NetworkModule::class),
-      (ApiModule::class),
-      (DatabaseModule::class),
-      (SharedPreferenceModule::class),
-      (WorkerAssistedInjectModule::class),
-      (WorkerBuilder::class)
-    ]
+  modules = [
+    (AndroidSupportInjectionModule::class),
+    (ActivityBuilder::class),
+    (ServiceBuilder::class),
+    (AppModule::class),
+    (DataModule::class),
+    (SharedPreferenceModule::class),
+    (WorkerAssistedInjectModule::class),
+    (WorkerBuilder::class)
+  ]
 )
 interface AppComponent : AndroidInjector<App> {
 
@@ -57,7 +54,7 @@ interface AppComponent : AndroidInjector<App> {
 
     fun databaseModule(databaseModule: DatabaseModule): Builder
 
-    fun networkModule(networkModule: NetworkModule): Builder
+    // fun networkModule(networkModule: NetworkModule): Builder
 
     fun sharedPreferenceModule(sharedPreferenceModule: SharedPreferenceModule): Builder
 
