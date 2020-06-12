@@ -72,6 +72,10 @@ object Versions {
 
   const val firebase_database: String = "19.3.0"
 
+  const val firebase_analytics: String = "17.4.3"
+
+  const val firebase_crashlytics: String = "17.0.1"
+
   const val legacy_support_v4: String = "1.0.0"
 
   const val constraintlayout: String = "2.0.0-alpha2"

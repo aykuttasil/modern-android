@@ -165,8 +165,8 @@ dependencies {
     implementation(Libs.dagger_android_support)
 
     // implementation(Libs.firebase_database)
-    implementation 'com.google.firebase:firebase-analytics:17.4.3'
-    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+    implementation Libs.firebase_analytics
+    implementation Libs.firebase_crashlytics
 
     // Assisted Inject
     compileOnly Libs.assisted_inject_annotations_dagger2

@@ -337,6 +337,10 @@ object Libs {
   const val firebase_database: String = "com.google.firebase:firebase-database:" +
       Versions.firebase_database
 
+  const val firebase_analytics: String = "com.google.firebase:firebase-analytics:" + Versions.firebase_analytics
+
+  const val firebase_crashlytics: String = "com.google.firebase:firebase-crashlytics:" + Versions.firebase_crashlytics
+
   /**
    * http://developer.android.com/tools/extras/support-library.html
    */
