@@ -1,27 +1,24 @@
 package com.aykuttasil.modernapp
 
-import android.annotation.SuppressLint
+import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import androidx.hilt.work.HiltWorkerFactory
 import androidx.multidex.MultiDex
-import com.aykuttasil.modernapp.di.components.DaggerAppComponent
+import androidx.work.Configuration
 import com.aykuttasil.modernapp.util.Const
-import dagger.android.AndroidInjector
-import dagger.android.support.DaggerApplication
+import dagger.hilt.android.HiltAndroidApp
 import org.jetbrains.anko.notificationManager
 import timber.log.Timber
+import javax.inject.Inject
 
-@SuppressLint("Registered")
-open class App : DaggerApplication() {
+@HiltAndroidApp
+open class App : Application(), Configuration.Provider {
 
-  override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-    return DaggerAppComponent
-      .builder()
-      .application(this)
-      .build()
-  }
+  @Inject
+  lateinit var workerFactory: HiltWorkerFactory
 
   override fun onCreate() {
     super.onCreate()
@@ -41,21 +38,6 @@ open class App : DaggerApplication() {
     }
   }
 
-  /*
-  private fun initFabric() {
-    val crashlyticsCore = CrashlyticsCore.Builder()
-        .disabled(BuildConfig.DEBUG)
-        .build()
-
-    val crashlytics = Crashlytics.Builder()
-        .core(crashlyticsCore)
-        .build()
-
-    Fabric.with(this, crashlytics)
-  }
-
-   */
-
   private fun initNotificationChannel() {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       val channel = NotificationChannel(
@@ -73,5 +55,11 @@ open class App : DaggerApplication() {
       MultiDex.install(this)
     } catch (ex: Exception) {
     }
+  }
+
+  override fun getWorkManagerConfiguration(): Configuration {
+    return Configuration.Builder()
+      .setWorkerFactory(workerFactory)
+      .build()
   }
 }

@@ -21,17 +21,15 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.aykuttasil.modernapp.R
 import com.aykuttasil.modernapp.databinding.ActivityUserBinding
-import com.aykuttasil.modernapp.di.ViewModelFactory
 import com.aykuttasil.modernapp.ui.common.BaseActivity
 import com.aykuttasil.modernapp.util.delegates.contentView
 import com.aykuttasil.domain.util.logd
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserActivity : BaseActivity() {
 
-  @Inject
-  lateinit var viewModelFactory: ViewModelFactory
-  private val viewModel by viewModels<UserViewModel> { viewModelFactory }
+  private val viewModel by viewModels<UserViewModel>()
 
   private val binding: ActivityUserBinding by contentView(R.layout.activity_user)
 

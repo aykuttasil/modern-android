@@ -15,7 +15,10 @@
  */
 package com.aykuttasil.modernapp.ui.user
 
+import androidx.hilt.Assisted
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.aykuttasil.modernapp.util.SingleLiveEvent
 import com.aykuttasil.domain.entities.UserEntity
@@ -24,9 +27,9 @@ import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.ui.common.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class UserViewModel @Inject constructor(
+class UserViewModel @ViewModelInject constructor(
+  @Assisted private val savedStateHandle: SavedStateHandle,
   private val app: App,
   private val getUserUseCase: GetUserUseCase
 ) : BaseViewModel(app) {

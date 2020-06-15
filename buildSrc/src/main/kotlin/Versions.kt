@@ -90,7 +90,7 @@ object Versions {
 
   const val rxpermissions: String = "0.9.4"
 
-  const val fragment_ktx: String = "1.2.4"
+  const val fragment_ktx: String = "1.2.5"
 
   const val crashlytics: String = "2.10.1"
 
@@ -110,7 +110,7 @@ object Versions {
 
   const val cardview: String = "1.0.0"
 
-  const val core_ktx: String = "1.2.0"
+  const val core_ktx: String = "1.3.0"
 
   const val material: String = "1.1.0"
 

@@ -5,8 +5,11 @@ import com.aykuttasil.data.user.InMemoryUserDataStore
 import com.aykuttasil.data.user.RemoteUserDataStore
 import com.aykuttasil.data.user.RoomUserDataStore
 import com.aykuttasil.domain.repositories.UserRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
 @Module(
@@ -16,15 +19,12 @@ import javax.inject.Singleton
     ApiModule::class
   ]
 )
-class DataModule {
+@InstallIn(ApplicationComponent::class)
+abstract class DataModule {
 
   @Singleton
-  @Provides
-  fun provideUserRepository(
-    roomUserDataStore: RoomUserDataStore,
-    inMemoryUserDataStore: InMemoryUserDataStore,
-    remoteUserDataStore: RemoteUserDataStore
-  ): UserRepository {
-    return UserRepositoryImpl(roomUserDataStore, inMemoryUserDataStore, remoteUserDataStore)
-  }
+  @Binds
+  abstract fun provideUserRepository(
+    userRepositoryImpl: UserRepositoryImpl
+  ): UserRepository
 }

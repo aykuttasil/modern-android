@@ -23,15 +23,17 @@ import com.aykuttasil.modernapp.R
 import com.aykuttasil.modernapp.databinding.FragmentAboutBinding
 import com.aykuttasil.modernapp.ui.common.BaseFragment
 import com.aykuttasil.modernapp.util.delegates.Inflate
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AboutFragment : BaseFragment() {
 
   private val binding: FragmentAboutBinding by Inflate(R.layout.fragment_about)
 
   override fun onCreateView(
-      inflater: LayoutInflater,
-      container: ViewGroup?,
-      savedInstanceState: Bundle?
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
   ): View? {
     return binding.root
   }

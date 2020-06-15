@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply from: "$rootDir/tools/common.gradle"
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
 
@@ -141,11 +142,12 @@ dependencies {
     implementation(Libs.gridlayout)
     implementation(Libs.multidex)
     implementation(Libs.preference_ktx)
-    
+
     implementation(Libs.lifecycle_extensions)
     implementation(Libs.lifecycle_viewmodel_ktx)
     implementation(Libs.lifecycle_reactivestreams_ktx)
     implementation Libs.lifecycle_livedata_ktx
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 
     implementation Libs.navigation_fragment_ktx
     implementation Libs.navigation_ui_ktx
@@ -159,18 +161,18 @@ dependencies {
     kapt(Libs.butterknife_compiler)
     implementation(Libs.gson)
 
-    kapt(Libs.dagger_compiler)
-    implementation(Libs.dagger)
-    kapt(Libs.dagger_android_processor)
-    implementation(Libs.dagger_android_support)
+    implementation "com.google.dagger:hilt-android:2.28-alpha"
+    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
+
+    implementation 'androidx.hilt:hilt-work:1.0.0-alpha01'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
 
     // implementation(Libs.firebase_database)
     implementation Libs.firebase_analytics
     implementation Libs.firebase_crashlytics
-
-    // Assisted Inject
-    compileOnly Libs.assisted_inject_annotations_dagger2
-    kapt Libs.assisted_inject_processor_dagger2
 
     api(Libs.anko)
 

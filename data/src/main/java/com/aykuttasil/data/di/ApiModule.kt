@@ -18,11 +18,14 @@ package com.aykuttasil.data.di
 import com.aykuttasil.data.remote.ApiService
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 import retrofit2.Retrofit
 
 @Module
-class ApiModule {
+@InstallIn(ApplicationComponent::class)
+object ApiModule {
 
   @Provides
   @Singleton

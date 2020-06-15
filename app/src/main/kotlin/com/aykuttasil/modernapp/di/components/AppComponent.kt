@@ -15,6 +15,7 @@
  */
 package com.aykuttasil.modernapp.di.components
 
+/*
 import android.app.Application
 import com.aykuttasil.data.di.DataModule
 import com.aykuttasil.data.di.DatabaseModule
@@ -31,17 +32,18 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
+
 @Singleton
 @Component(
   modules = [
-    (AndroidSupportInjectionModule::class),
-    (ActivityBuilder::class),
-    (ServiceBuilder::class),
-    (AppModule::class),
+    //(AndroidSupportInjectionModule::class),
+    //(ActivityBuilder::class),
+    // (ServiceBuilder::class),
+    // (AppModule::class),
     (DataModule::class),
-    (SharedPreferenceModule::class),
-    (WorkerAssistedInjectModule::class),
-    (WorkerBuilder::class)
+    // (SharedPreferenceModule::class),
+    //(WorkerAssistedInjectModule::class),
+    //(WorkerBuilder::class)
   ]
 )
 interface AppComponent : AndroidInjector<App> {
@@ -61,3 +63,5 @@ interface AppComponent : AndroidInjector<App> {
     fun build(): AppComponent
   }
 }
+
+ */

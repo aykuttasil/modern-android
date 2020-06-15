@@ -4,11 +4,14 @@ import android.app.Application
 import android.content.SharedPreferences
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import org.jetbrains.anko.defaultSharedPreferences
 import javax.inject.Singleton
 
 @Module
-class SharedPreferenceModule {
+@InstallIn(ApplicationComponent::class)
+object SharedPreferenceModule {
 
   @Singleton
   @Provides

@@ -27,9 +27,11 @@ import com.aykuttasil.modernapp.ui.widget.bottomdialog.MyBottomDialog
 import com.aykuttasil.modernapp.util.delegates.Inflate
 import com.aykuttasil.modernapp.util.loadAsync
 import com.aykuttasil.modernapp.util.then
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import timber.log.Timber
 
+@AndroidEntryPoint
 class MainFragment : BaseFragment() {
 
   private val binding: FragmentMainBinding by Inflate(R.layout.fragment_main)

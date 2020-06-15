@@ -15,10 +15,10 @@
  */
 package com.aykuttasil.modernapp.ui.main
 
+import androidx.hilt.lifecycle.ViewModelInject
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.ui.common.BaseViewModel
-import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
-    val app: App
+class MainViewModel @ViewModelInject constructor(
+  val app: App
 ) : BaseViewModel(app)

@@ -6,14 +6,15 @@ import com.aykuttasil.data.db.AppDatabase
 import com.aykuttasil.domain.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
 @Module
-open class DatabaseModule {
+@InstallIn(ApplicationComponent::class)
+object DatabaseModule {
 
-  companion object {
-    const val DB_NAME = "a2a_5.db"
-  }
+  const val DB_NAME = "a2a_5.db"
 
   @Provides
   @Singleton

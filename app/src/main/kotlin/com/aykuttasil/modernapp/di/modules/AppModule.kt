@@ -18,14 +18,16 @@ package com.aykuttasil.modernapp.di.modules
 import android.app.Application
 import android.content.Context
 import com.aykuttasil.modernapp.App
-import com.aykuttasil.modernapp.di.ViewModelBuilder
 import com.aykuttasil.domain.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
-@Module(includes = [(ViewModelBuilder::class)])
-class AppModule {
+@Module
+@InstallIn(ApplicationComponent::class)
+object AppModule {
 
   @Singleton
   @Provides

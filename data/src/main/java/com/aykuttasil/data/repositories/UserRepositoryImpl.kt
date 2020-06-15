@@ -10,7 +10,7 @@ import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Named
 
-class UserRepositoryImpl(
+class UserRepositoryImpl @Inject constructor(
   private val roomUserDataStore: RoomUserDataStore,
   private val inMemoryUserDataStore: InMemoryUserDataStore,
   private val remoteUserDataStore: RemoteUserDataStore
