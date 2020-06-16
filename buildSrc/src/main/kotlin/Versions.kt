@@ -46,7 +46,7 @@ object Versions {
 
   const val org_mockito: String = "3.3.12"
 
-  const val com_android_tools_build_gradle: String = "3.6.3"
+  const val com_android_tools_build_gradle: String = "4.0.0"
 
   const val androidx_test_ext_truth: String = "1.2.0"
 
