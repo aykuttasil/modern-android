@@ -191,25 +191,14 @@ object Libs {
   /**
    * https://github.com/google/dagger
    */
-  const val dagger: String = "com.google.dagger:dagger:" + Versions.com_google_dagger
-
-  /**
-   * https://github.com/google/dagger
-   */
-  const val dagger_android_processor: String = "com.google.dagger:dagger-android-processor:" +
-      Versions.com_google_dagger
-
-  /**
-   * https://github.com/google/dagger
-   */
-  const val dagger_android_support: String = "com.google.dagger:dagger-android-support:" +
-      Versions.com_google_dagger
-
-  /**
-   * https://github.com/google/dagger
-   */
-  const val dagger_compiler: String = "com.google.dagger:dagger-compiler:" +
-      Versions.com_google_dagger
+  const val dagger_hilt_gradle_plugin = "com.google.dagger:hilt-android-gradle-plugin:" + Versions.dagger_hilt
+  const val dagger_hilt_android: String = "com.google.dagger:hilt-android:" + Versions.dagger_hilt
+  const val dagger_hilt_android_compiler: String = "com.google.dagger:hilt-android-compiler:" + Versions.dagger_hilt
+  const val dagger_hilt_work: String = "androidx.hilt:hilt-work:" + Versions.dagger_hilt_work
+  const val dagger_hilt_viewmodel: String =
+    "androidx.hilt:hilt-lifecycle-viewmodel:" + Versions.dagger_hilt_viewmodel
+  const val dagger_hilt_compiler: String =
+    "androidx.hilt:hilt-compiler:" + Versions.dagger_hilt_compiler
 
   /**
    * https://github.com/JakeWharton/butterknife/
@@ -337,9 +326,13 @@ object Libs {
   const val firebase_database: String = "com.google.firebase:firebase-database:" +
       Versions.firebase_database
 
-  const val firebase_analytics: String = "com.google.firebase:firebase-analytics:" + Versions.firebase_analytics
+  const val firebase_analytics: String =
+    "com.google.firebase:firebase-analytics:" + Versions.firebase_analytics
 
-  const val firebase_crashlytics: String = "com.google.firebase:firebase-crashlytics:" + Versions.firebase_crashlytics
+  const val firebase_crashlytics: String =
+    "com.google.firebase:firebase-crashlytics:" + Versions.firebase_crashlytics
+
+  const val firebase_crashlytics_gradle_plugin: String = "com.google.firebase:firebase-crashlytics-gradle:2.1.1"
 
   /**
    * http://developer.android.com/tools/extras/support-library.html

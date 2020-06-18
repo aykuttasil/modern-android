@@ -156,26 +156,23 @@ dependencies {
     implementation Libs.work_rxjava2
 
     implementation(Libs.rxpermissions)
+    implementation(Libs.rxandroid)
 
     implementation(Libs.butterknife)
     kapt(Libs.butterknife_compiler)
     implementation(Libs.gson)
 
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
-
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
-
-    implementation 'androidx.hilt:hilt-work:1.0.0-alpha01'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
+    implementation Libs.dagger_hilt_android
+    kapt Libs.dagger_hilt_android_compiler
+    implementation Libs.dagger_hilt_viewmodel
+    implementation Libs.dagger_hilt_work
+    kapt Libs.dagger_hilt_compiler
 
     // implementation(Libs.firebase_database)
     implementation Libs.firebase_analytics
     implementation Libs.firebase_crashlytics
 
-    api(Libs.anko)
+    implementation(Libs.anko)
 
-    api(Libs.rxandroid)
 }
 // apply(plugin = "com.google.gms.google-services")

@@ -3,11 +3,11 @@ package com.aykuttasil.data.di
 import android.content.Context
 import androidx.room.Room
 import com.aykuttasil.data.db.AppDatabase
-import com.aykuttasil.domain.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Singleton
 
 @Module
@@ -18,7 +18,7 @@ object DatabaseModule {
 
   @Provides
   @Singleton
-  open fun provideDatabase(@ApplicationContext context: Context) =
+  fun provideDatabase(@ApplicationContext context: Context) =
     Room.databaseBuilder(
       context,
       AppDatabase::class.java,

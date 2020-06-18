@@ -20,7 +20,6 @@ import com.aykuttasil.data.BuildConfig
 import com.aykuttasil.data.util.InternetConnection.isConnectionOn
 import com.aykuttasil.data.util.InternetConnection.isInternetAvailable
 import com.aykuttasil.data.util.LiveDataCallAdapterFactory
-import com.aykuttasil.domain.di.ApplicationContext
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -29,6 +28,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response

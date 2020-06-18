@@ -5,13 +5,13 @@ buildscript {
     }
 
     dependencies {
-        classpath(Libs.com_android_tools_build_gradle)
-        classpath(Libs.kotlin_gradle_plugin)
-        classpath(Libs.google_services)
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.1'
-        classpath(Libs.navigation_safe_args_gradle_plugin)
-        classpath(Libs.spotless_plugin_gradle)
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+        classpath Libs.com_android_tools_build_gradle
+        classpath Libs.kotlin_gradle_plugin
+        classpath Libs.google_services
+        classpath Libs.firebase_crashlytics_gradle_plugin
+        classpath Libs.navigation_safe_args_gradle_plugin
+        classpath Libs.spotless_plugin_gradle
+        classpath Libs.dagger_hilt_gradle_plugin
     }
 }
 

@@ -22,8 +22,8 @@ dependencies {
     kapt Libs.room_compiler
     implementation Libs.room_ktx
 
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+    implementation Libs.dagger_hilt_android
+    kapt Libs.dagger_hilt_android_compiler
 
     api Libs.converter_gson
     api Libs.retrofit

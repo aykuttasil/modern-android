@@ -36,6 +36,14 @@ object Versions {
 
   const val com_google_dagger: String = "2.28"
 
+  const val dagger_hilt = "2.28-alpha"
+
+  const val dagger_hilt_work = "1.0.0-alpha01"
+
+  const val dagger_hilt_viewmodel = "1.0.0-alpha01"
+
+  const val dagger_hilt_compiler = "1.0.0-alpha01"
+
   const val com_jakewharton: String = "10.2.1"
 
   const val androidx_room: String = "2.2.5"
@@ -46,7 +54,7 @@ object Versions {
 
   const val org_mockito: String = "3.3.12"
 
-  const val com_android_tools_build_gradle: String = "4.0.0"
+  const val com_android_tools_build_gradle: String = "4.1.0-beta01"
 
   const val androidx_test_ext_truth: String = "1.2.0"
 

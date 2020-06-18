@@ -16,9 +16,7 @@
 package com.aykuttasil.modernapp.di.modules
 
 import android.app.Application
-import android.content.Context
 import com.aykuttasil.modernapp.App
-import com.aykuttasil.domain.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,14 +29,8 @@ object AppModule {
 
   @Singleton
   @Provides
-  @ApplicationContext
-  internal fun provideContext(application: Application): Context {
-    return application.applicationContext
-  }
-
-  @Singleton
-  @Provides
   internal fun provideApp(application: Application): App {
     return application.applicationContext as App
   }
+
 }
