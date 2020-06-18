@@ -14,7 +14,7 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 object DatabaseModule {
 
-  const val DB_NAME = "a2a_5.db"
+  private const val DB_NAME = "a2a_5.db"
 
   @Provides
   @Singleton
