@@ -1,5 +1,10 @@
 package com.aykuttasil.domain.usecases
 
+import com.aykuttasil.domain.repositories.UserRepository
+import com.aykuttasil.domain.util.Result
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
 /*
 import com.aykuttasil.domain.util.Either
 import com.aykuttasil.domain.util.Failure
@@ -44,6 +49,49 @@ abstract class UseCase<out Type, in Params> where Type : Any {
   }
 
   class None
+}
+
+ */
+
+
+abstract class UseCase<out Type, in Params> where Type : Any {
+
+  abstract suspend fun run(params: Params): Result<Type>
+
+  suspend operator fun invoke(params: Params, onResult: (Result<Type>) -> Unit = {}) {
+    withContext(Dispatchers.Main) {
+      onResult(
+        withContext(Dispatchers.IO) {
+          run(params)
+        }
+      )
+    }
+  }
+}
+
+
+/*
+class XUseCase() : UseCase<String, String>() {
+  override suspend fun run(params: String): Result<String> {
+    return Result.Error(Exception())
+  }
+}
+
+suspend fun callXUseCase() {
+  val useCaseX = XUseCase()
+  useCaseX("") {
+    when (it) {
+      is Result.Error -> {
+        it.error
+      }
+      is Result.Success -> {
+        it.data
+      }
+      Result.Loading -> {
+        it.toString()
+      }
+    }
+  }
 }
 
  */

@@ -1,9 +1,6 @@
 package com.aykuttasil.domain.caches
 
 import com.aykuttasil.domain.entities.UserEntity
-import com.aykuttasil.domain.util.Either
-import com.aykuttasil.domain.util.Failure
-import com.aykuttasil.domain.util.Optional
 
 interface UserCache {
   suspend fun clear()

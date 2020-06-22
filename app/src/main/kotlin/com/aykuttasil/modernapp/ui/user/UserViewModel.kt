@@ -19,14 +19,17 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.aykuttasil.modernapp.util.SingleLiveEvent
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.usecases.user.GetUserUseCase
+import com.aykuttasil.domain.util.Result
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.ui.common.BaseViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class UserViewModel @ViewModelInject constructor(
   @Assisted private val savedStateHandle: SavedStateHandle,
@@ -49,12 +52,23 @@ class UserViewModel @ViewModelInject constructor(
         viewState.value = viewState.value?.copy(isLoading = true)
         delay(1000)
 
-        val user = getUserUseCase("aykuttasil123")
-        if (user != null) {
-          viewState.value = viewState.value?.copy(isLoading = false, userEntity = user)
-        } else {
-          viewState.value =
-            viewState.value?.copy(isLoading = true, userEntity = UserEntity(userName = "HOHOHOHO"))
+        getUserUseCase("aykuttasil123") {
+          when (it) {
+            is Result.Success -> {
+              viewState.value = viewState.value?.copy(isLoading = false, userEntity = it.data)
+            }
+            is Result.Error -> {
+              Timber.e(it.msg)
+
+              viewState.value =
+                viewState.value?.copy(
+                  isLoading = true,
+                  userEntity = UserEntity(userName = "HOHOHOHO")
+                )
+            }
+            else -> {
+            }
+          }
         }
       } catch (ex: Exception) {
         errorState.value = ex
