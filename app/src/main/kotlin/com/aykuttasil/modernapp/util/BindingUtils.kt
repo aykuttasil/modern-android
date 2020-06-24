@@ -1,5 +1,4 @@
-package com.aykuttasil.modernapp.util;
-
+package com.aykuttasil.modernapp.util
 /*
 public final class BindingUtils {
 
