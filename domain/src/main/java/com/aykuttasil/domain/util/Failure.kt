@@ -1,5 +1,6 @@
 package com.aykuttasil.domain.util
 
+/*
 /**
  * Injectable class which returns information about the network connection state.
  */
@@ -17,9 +18,11 @@ class NetworkHandler
  * Every feature specific failure should extend [FeatureFailure] class.
  */
 sealed class Failure {
-  object NetworkConnection : Failure()
+  data class NetworkConnection(val errorMessage: String? = null) : Failure()
   object ServerError : Failure()
 
   /** * Extend this class for feature specific failures.*/
   abstract class FeatureFailure : Failure()
 }
+
+ */

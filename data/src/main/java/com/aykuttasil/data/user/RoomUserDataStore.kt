@@ -8,11 +8,18 @@ import javax.inject.Inject
 
 class RoomUserDataStore @Inject constructor(private val userDao: UserDao) : UserDataStore {
   override suspend fun getUser(userName: String): UserEntity? {
-    return userDao.getItem().toUserEntity()
+    return userDao.getItem()?.toUserEntity()
   }
 
   override suspend fun saveUser(user: UserEntity): Boolean {
     return userDao.insertItem(user.toUserData()) != -1L
+  }
+
+  override suspend fun deleteUser(): Boolean {
+    userDao.getItem()?.let {
+      userDao.deleteItem(it)
+    }
+    return true
   }
 
 }

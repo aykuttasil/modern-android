@@ -25,7 +25,9 @@ import com.aykuttasil.modernapp.ui.common.BaseActivity
 import com.aykuttasil.modernapp.util.delegates.contentView
 import com.aykuttasil.domain.util.logd
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class UserActivity : BaseActivity() {
 
@@ -37,27 +39,10 @@ class UserActivity : BaseActivity() {
     super.onCreate(savedInstanceState)
     logd { "onCreate" }
 
-    /*
-    viewModel.getUser().observe(this, Observer {
-      when (it) {
-        is Resource.Loading -> {
-          Toast.makeText(this, "Loading...", Toast.LENGTH_SHORT).show()
-        }
-        is Resource.Success -> {
-          Toast.makeText(this, it.data?.userEmail, Toast.LENGTH_SHORT).show()
-        }
-        is Resource.Error -> {
-          Toast.makeText(this, it.throwable?.message, Toast.LENGTH_SHORT).show()
-        }
-      }
-    })
-
-     */
-
     viewModel.viewState.observe(this, Observer {
       if (it.isLoading) {
         Toast.makeText(this, "Lütfen Bekleyiniz", Toast.LENGTH_SHORT).show()
-      } else {
+      } else if (it.userEntity != null) {
         Toast.makeText(this, "İşlem Tamamlandı", Toast.LENGTH_SHORT).show()
         Toast.makeText(this, it.userEntity?.userName, Toast.LENGTH_SHORT).show()
       }

@@ -1,6 +1,7 @@
 package com.aykuttasil.domain.util
 
 
+/*
 abstract class Mapper<in E, T> {
 
   abstract fun mapFrom(from: E): T
@@ -21,3 +22,5 @@ abstract class Mapper<in E, T> {
   }
    */
 }
+
+ */

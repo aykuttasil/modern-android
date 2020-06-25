@@ -16,6 +16,6 @@ abstract class UserDao {
   abstract suspend fun deleteItem(item: UserData)
 
   @Query("SELECT * FROM userdata")
-  abstract suspend fun getItem(): UserData
+  abstract suspend fun getItem(): UserData?
 
 }
