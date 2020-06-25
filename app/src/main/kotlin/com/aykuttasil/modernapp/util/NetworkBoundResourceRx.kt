@@ -36,54 +36,54 @@ abstract class NetworkBoundResourceRx<ResultType, RequestType>(context: Context)
     // Lazy disk observable.
     val diskObservable = defer {
       loadFromDb()
-          // Read from disk on Computation Scheduler
-          .subscribeOn(Schedulers.computation())
+        // Read from disk on Computation Scheduler
+        .subscribeOn(Schedulers.computation())
     }
 
     // Lazy network observable.
     val networkObservable = defer {
       createCall()
-          // Request API on IO Scheduler
-          .subscribeOn(Schedulers.io())
-          // Read/Write to disk on Computation Scheduler
-          .observeOn(Schedulers.computation())
-          .doOnNext { request: Response<RequestType> ->
-            if (request.isSuccessful) {
-              saveCallResult(processResponse(request))
+        // Request API on IO Scheduler
+        .subscribeOn(Schedulers.io())
+        // Read/Write to disk on Computation Scheduler
+        .observeOn(Schedulers.computation())
+        .doOnNext { request: Response<RequestType> ->
+          if (request.isSuccessful) {
+            saveCallResult(processResponse(request))
+          }
+        }
+        .onErrorReturn { throwable: Throwable ->
+          when (throwable) {
+            is HttpException -> {
+              //throw Exceptions.propagate(NetworkExceptions.getNoServerConnectivityError(context))
+              throw Exceptions.propagate(throwable)
+            }
+            is IOException -> {
+              //throw Exceptions.propagate(NetworkExceptions.getNoNetworkConnectivityError(context))
+              throw Exceptions.propagate(throwable)
+            }
+            else -> {
+              //throw Exceptions.propagate(NetworkExceptions.getUnexpectedError(context))
+              throw Exceptions.propagate(throwable)
             }
           }
-          .onErrorReturn { throwable: Throwable ->
-            when (throwable) {
-              is HttpException -> {
-                //throw Exceptions.propagate(NetworkExceptions.getNoServerConnectivityError(context))
-                throw Exceptions.propagate(throwable)
-              }
-              is IOException -> {
-                //throw Exceptions.propagate(NetworkExceptions.getNoNetworkConnectivityError(context))
-                throw Exceptions.propagate(throwable)
-              }
-              else -> {
-                //throw Exceptions.propagate(NetworkExceptions.getUnexpectedError(context))
-                throw Exceptions.propagate(throwable)
-              }
-            }
-          }
-          .flatMap { loadFromDb() }
+        }
+        .flatMap { loadFromDb() }
     }
 
     result = when {
       context.isNetworkStatusAvailable() -> networkObservable
-          .map<Resource<ResultType>> { Resource.Success(it) }
-          .onErrorReturn { Resource.Error(msg = it.message ?: "") }
-          // Read results in Android Main Thread (UI)
-          .observeOn(AndroidSchedulers.mainThread())
-          .startWith(Resource.Loading())
+        .map<Resource<ResultType>> { Resource.Success(it) }
+        .onErrorReturn { Resource.Error(Exception(it.message ?: "")) }
+        // Read results in Android Main Thread (UI)
+        .observeOn(AndroidSchedulers.mainThread())
+        .startWith(Resource.Loading())
       else -> diskObservable
-          .map<Resource<ResultType>> { Resource.Success(it) }
-          .onErrorReturn { Resource.Error(msg = it.message ?: "") }
-          // Read results in Android Main Thread (UI)
-          .observeOn(AndroidSchedulers.mainThread())
-          .startWith(Resource.Loading())
+        .map<Resource<ResultType>> { Resource.Success(it) }
+        .onErrorReturn { Resource.Error(Exception(it.message ?: "")) }
+        // Read results in Android Main Thread (UI)
+        .observeOn(AndroidSchedulers.mainThread())
+        .startWith(Resource.Loading())
     }
   }
 

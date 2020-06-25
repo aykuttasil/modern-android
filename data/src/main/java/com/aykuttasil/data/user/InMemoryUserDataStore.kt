@@ -16,4 +16,9 @@ class InMemoryUserDataStore @Inject constructor() : UserDataStore {
     this.userEntity = user
     return true
   }
+
+  override suspend fun deleteUser(): Boolean {
+    userEntity = null
+    return true
+  }
 }

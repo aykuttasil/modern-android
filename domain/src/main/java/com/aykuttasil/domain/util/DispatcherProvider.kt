@@ -13,24 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.aykuttasil.modernapp.ui.user
+package com.aykuttasil.domain.util
 
-import android.content.Context
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import dagger.hilt.android.qualifiers.ActivityContext
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
-@ExperimentalCoroutinesApi
-@Module
-@InstallIn(ActivityComponent::class)
-class UserActivityModule {
-
-  @ActivityContext
-  @Provides
-  fun providerContext(context: UserActivity): Context {
-    return context
-  }
+interface DispatcherProvider {
+  val main: CoroutineDispatcher
+  val background: CoroutineDispatcher
 }

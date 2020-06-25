@@ -1,31 +1,26 @@
 package com.aykuttasil.domain.usecases.user
 
-/*
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.repositories.UserRepository
 import com.aykuttasil.domain.usecases.UseCase
-import com.aykuttasil.domain.util.Either
-import com.aykuttasil.domain.util.Failure
+import com.aykuttasil.domain.util.DispatcherProvider
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import javax.inject.Inject
 
-class LoginUseCase(private val userRepository: UserRepository) :
-  UseCase<UserEntity, LoginUseCase.LoginParams>() {
+data class LoginParams(
+  var username: String,
+  var password: String
+)
 
-  data class LoginParams(
-    var email: String,
-    var pass: String
-  )
+@ExperimentalCoroutinesApi
+class LoginUseCase @Inject constructor(
+  private val userRepository: UserRepository,
+  private val dispatcherProvider: DispatcherProvider
+) : UseCase<UserEntity, LoginParams>(dispatcherProvider) {
 
-  override suspend fun run(params: LoginParams): Either<Failure, UserEntity> {
-    return try {
-      val userEntity = userRepository.login(params)
-      Either.Right(userEntity)
-    } catch (e: Exception) {
-      Either.Left(UserNotFoundFailure())
-    }
+  override suspend fun run(params: LoginParams): UserEntity? {
+    return userRepository.login(params)
   }
 
 }
 
-class UserNotFoundFailure : Failure.FeatureFailure()
-
- */

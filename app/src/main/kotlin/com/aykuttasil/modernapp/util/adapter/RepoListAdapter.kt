@@ -20,15 +20,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
+import com.aykuttasil.domain.util.AppExecutors
 import com.aykuttasil.modernapp.R
 import com.aykuttasil.modernapp.databinding.RepoItemBinding
 import com.aykuttasil.modernapp.ui.common.DataBoundListAdapter
-import com.aykuttasil.modernapp.util.AppExecutors
 
 
 data class RepoViewData(
-    var repoId: Int?,
-    var repoName: String?
+  var repoId: Int?,
+  var repoName: String?
 )
 
 class RepoListAdapter(
@@ -36,25 +36,25 @@ class RepoListAdapter(
   appExecutors: AppExecutors,
   private val repoClickCallback: ((RepoViewData) -> Unit)?
 ) : DataBoundListAdapter<RepoViewData, RepoItemBinding>(
-    appExecutors = appExecutors,
-    diffCallback = object : DiffUtil.ItemCallback<RepoViewData>() {
-      override fun areItemsTheSame(oldItem: RepoViewData, newItem: RepoViewData): Boolean {
-        return oldItem.repoId == newItem.repoId
-      }
-
-      override fun areContentsTheSame(oldItem: RepoViewData, newItem: RepoViewData): Boolean {
-        return oldItem.repoName == newItem.repoName
-      }
+  appExecutors = appExecutors,
+  diffCallback = object : DiffUtil.ItemCallback<RepoViewData>() {
+    override fun areItemsTheSame(oldItem: RepoViewData, newItem: RepoViewData): Boolean {
+      return oldItem.repoId == newItem.repoId
     }
+
+    override fun areContentsTheSame(oldItem: RepoViewData, newItem: RepoViewData): Boolean {
+      return oldItem.repoName == newItem.repoName
+    }
+  }
 ) {
 
   override fun createBinding(parent: ViewGroup): RepoItemBinding {
     val binding = DataBindingUtil.inflate<RepoItemBinding>(
-        LayoutInflater.from(parent.context),
-        R.layout.repo_item,
-        parent,
-        false,
-        dataBindingComponent
+      LayoutInflater.from(parent.context),
+      R.layout.repo_item,
+      parent,
+      false,
+      dataBindingComponent
     )
     binding.root.setOnClickListener {
       binding.viewData?.let {

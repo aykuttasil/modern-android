@@ -3,22 +3,18 @@ package com.aykuttasil.domain.usecases.user
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.repositories.UserRepository
 import com.aykuttasil.domain.usecases.UseCase
-import com.aykuttasil.domain.util.Result
+import com.aykuttasil.domain.util.DispatcherProvider
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
-class GetUserUseCase @Inject constructor(private val userRepository: UserRepository) :
-  UseCase<UserEntity, String>() {
+@ExperimentalCoroutinesApi
+class GetUserUseCase @Inject constructor(
+  private val userRepository: UserRepository,
+  private val dispatcherProvider: DispatcherProvider
+) : UseCase<UserEntity, String>(dispatcherProvider) {
 
-  /*
-  suspend operator fun invoke(userName: String): UserEntity? {
-    return userRepository.getUser(userName)
+  override suspend fun run(params: String): UserEntity? {
+    userRepository.deleteUser()
+    return userRepository.getUser(params)
   }
-
-   */
-
-  override suspend fun run(params: String): Result<UserEntity> {
-    val user = userRepository.getUser(params) ?: return Result.Error("User is null!")
-    return Result.Success(user)
-  }
-
 }

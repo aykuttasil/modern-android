@@ -14,4 +14,8 @@ class RemoteUserDataStore @Inject constructor(private val apiService: ApiService
   override suspend fun saveUser(user: UserEntity): Boolean {
     return false
   }
+
+  override suspend fun deleteUser(): Boolean {
+    return false
+  }
 }

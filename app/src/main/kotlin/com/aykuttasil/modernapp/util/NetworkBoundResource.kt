@@ -50,7 +50,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
 
   @MainThread
   private fun setValue(newValue: Resource<ResultType>) {
-    appExecutors.mainThread().execute {
+    appExecutors.mainThread.execute {
       if (result.value != newValue) {
         result.value = newValue
       }
@@ -69,9 +69,9 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
       result.removeSource(dbSource)
       when (response) {
         is ApiSuccessResponse -> {
-          appExecutors.diskIO().execute {
+          appExecutors.diskIO.execute {
             saveCallResult(processResponse(response))
-            appExecutors.mainThread().execute {
+            appExecutors.mainThread.execute {
               // we specially request a new live data,
               // otherwise we will get immediately last cached value,
               // which may not be updated with latest results received from network.
@@ -82,7 +82,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread constru
           }
         }
         is ApiEmptyResponse -> {
-          appExecutors.mainThread().execute {
+          appExecutors.mainThread.execute {
             // reload from disk whatever we had
             result.addSource(loadFromDb()) { newData ->
               setValue(Resource.Success(newData))

@@ -19,18 +19,25 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.aykuttasil.modernapp.util.SingleLiveEvent
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.usecases.user.GetUserUseCase
-import com.aykuttasil.domain.util.Result
+import com.aykuttasil.domain.util.Resource
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.ui.common.BaseViewModel
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
+data class UserActivityViewState(
+  var isLoading: Boolean = true,
+  var userEntity: UserEntity? = null,
+  var error: String? = null
+)
+
+@ExperimentalCoroutinesApi
 class UserViewModel @ViewModelInject constructor(
   @Assisted private val savedStateHandle: SavedStateHandle,
   private val app: App,
@@ -48,38 +55,23 @@ class UserViewModel @ViewModelInject constructor(
 
   fun getUser() {
     viewModelScope.launch {
-      try {
-        viewState.value = viewState.value?.copy(isLoading = true)
-        delay(1000)
-
-        getUserUseCase("aykuttasil123") {
+      getUserUseCase("aykuttasil") { state ->
+        state.onEach {
           when (it) {
-            is Result.Success -> {
+            is Resource.Loading -> {
+              viewState.value = viewState.value?.copy(isLoading = true)
+            }
+            is Resource.Success -> {
               viewState.value = viewState.value?.copy(isLoading = false, userEntity = it.data)
             }
-            is Result.Error -> {
-              Timber.e(it.msg)
-
-              viewState.value =
-                viewState.value?.copy(
-                  isLoading = true,
-                  userEntity = UserEntity(userName = "HOHOHOHO")
-                )
-            }
-            else -> {
+            is Resource.Error -> {
+              errorState.value = it.error
             }
           }
-        }
-      } catch (ex: Exception) {
-        errorState.value = ex
+        }.launchIn(viewModelScope)
+
       }
     }
   }
 
 }
-
-data class UserActivityViewState(
-  var isLoading: Boolean = true,
-  var userEntity: UserEntity? = null,
-  var error: String? = null
-)

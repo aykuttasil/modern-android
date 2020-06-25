@@ -1,5 +1,6 @@
 package com.aykuttasil.domain.util
 
+/*
 class Optional<out T>(val value: T? = null) {
   companion object {
 
@@ -17,3 +18,5 @@ class Optional<out T>(val value: T? = null) {
   }
 
 }
+
+ */
