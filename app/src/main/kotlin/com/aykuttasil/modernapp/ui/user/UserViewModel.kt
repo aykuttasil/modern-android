@@ -5,12 +5,12 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
-import com.aykuttasil.modernapp.util.SingleLiveEvent
 import com.aykuttasil.domain.entities.UserEntity
 import com.aykuttasil.domain.usecases.user.GetUserUseCase
 import com.aykuttasil.domain.util.Resource
 import com.aykuttasil.modernapp.App
 import com.aykuttasil.modernapp.ui.common.BaseViewModel
+import com.aykuttasil.modernapp.util.SingleLiveEvent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -30,12 +30,10 @@ class UserViewModel @ViewModelInject constructor(
 ) : BaseViewModel(app) {
 
   val viewState = MutableLiveData<UserActivityViewState>()
-  var errorState: SingleLiveEvent<Throwable?> =
-    SingleLiveEvent()
+  var errorState: SingleLiveEvent<Throwable?> = SingleLiveEvent()
 
   init {
-    val viewState = UserActivityViewState()
-    this.viewState.value = viewState
+    viewState.value = UserActivityViewState()
   }
 
   fun getUser() {
