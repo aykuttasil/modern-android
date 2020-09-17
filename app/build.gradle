@@ -155,7 +155,7 @@ dependencies {
     implementation Libs.work_runtime_ktx
     implementation Libs.work_rxjava2
 
-    implementation "androidx.startup:startup-runtime:1.0.0-alpha01"
+    implementation "androidx.startup:startup-runtime:1.0.0-beta01"
 
     implementation(Libs.rxpermissions)
     implementation(Libs.rxandroid)
