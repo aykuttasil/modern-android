@@ -30,7 +30,7 @@ inline fun <reified T> printEvent(tag: String, success: T?, error: Throwable?) =
       else -> -1 /* Cannot happen*/
     }
 
-inline fun printEvent(tag: String, error: Throwable?) =
+fun printEvent(tag: String, error: Throwable?) =
     when {
       error != null -> Timber.d("Error $error")
       else -> Timber.d("Complete")
@@ -43,7 +43,7 @@ Single.timer(1, TimeUnit.SECONDS)
 .subscribe({ }, { })
  */
 
-inline fun tag() = Thread.currentThread().stackTrace
+fun tag() = Thread.currentThread().stackTrace
     .first { it.fileName.endsWith(".kt") }
     .let { stack -> "${stack.fileName.removeSuffix(".kt")}::${stack.methodName}:${stack.lineNumber}" }
 
@@ -61,7 +61,7 @@ inline fun <reified T> Maybe<T>.log(): Maybe<T> {
       .doOnDispose { Timber.d("Dispose") }
 }
 
-inline fun Completable.log(): Completable {
+fun Completable.log(): Completable {
   val tag = tag()
   return doOnEvent { printEvent(tag, it) }
       .doOnSubscribe { Timber.d("Subscribe") }

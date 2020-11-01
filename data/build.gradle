@@ -16,23 +16,23 @@ android {
 dependencies {
     implementation project(':domain')
 
-    implementation Libs.lifecycle_livedata_ktx
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.androidx_lifecycle
 
-    api Libs.room_runtime
-    kapt Libs.room_compiler
-    implementation Libs.room_ktx
+    api "androidx.room:room-runtime:" + Versions.androidx_room
+    kapt "androidx.room:room-compiler:" + Versions.androidx_room
+    implementation "androidx.room:room-ktx:" + Versions.androidx_room
 
-    implementation Libs.dagger_hilt_android
-    kapt Libs.dagger_hilt_android_compiler
+    implementation "com.google.dagger:hilt-android:" + Versions.dagger_hilt
+    kapt "com.google.dagger:hilt-android-compiler:" + Versions.dagger_hilt
 
-    api Libs.converter_gson
-    api Libs.retrofit
-    api Libs.adapter_rxjava2
-    api Libs.logging_interceptor
-    api Libs.moshi_adapters
+    api "com.squareup.retrofit2:converter-gson:" + Versions.com_squareup_retrofit2
+    api "com.squareup.retrofit2:retrofit:" + Versions.com_squareup_retrofit2
+    api "com.squareup.retrofit2:adapter-rxjava2:" + Versions.com_squareup_retrofit2
+    api "com.squareup.okhttp3:logging-interceptor:" + Versions.com_squareup_okhttp3
+    api "com.squareup.moshi:moshi-adapters:" + Versions.moshi_adapters
 
-    api Libs.stetho_okhttp3
+    api "com.facebook.stetho:stetho-okhttp3:" + Versions.com_facebook_stetho
 
-    releaseApi Libs.chuck_no_op
-    debugApi Libs.chuck
+    releaseApi "com.readystatesoftware.chuck:library-no-op:" + Versions.com_readystatesoftware_chuck
+    debugApi "com.readystatesoftware.chuck:library:" + Versions.com_readystatesoftware_chuck
 }

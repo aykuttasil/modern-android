@@ -5,13 +5,13 @@ buildscript {
     }
 
     dependencies {
-        classpath Libs.com_android_tools_build_gradle
-        classpath Libs.kotlin_gradle_plugin
-        classpath Libs.google_services
-        classpath Libs.firebase_crashlytics_gradle_plugin
-        classpath Libs.navigation_safe_args_gradle_plugin
-        classpath Libs.spotless_plugin_gradle
-        classpath Libs.dagger_hilt_gradle_plugin
+        classpath "com.android.tools.build:gradle:" + Versions.com_android_tools_build_gradle
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:" + Versions.org_jetbrains_kotlin
+        classpath "com.google.gms:google-services:" + Versions.google_services
+        classpath "com.google.firebase:firebase-crashlytics-gradle:2.3.0"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:" + Versions.navigation_safe_args_gradle_plugin
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:" + Versions.spotless_plugin_gradle
+        classpath "com.google.dagger:hilt-android-gradle-plugin:" + Versions.dagger_hilt
     }
 }
 
