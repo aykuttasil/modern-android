@@ -33,8 +33,6 @@ open class App : Application(), Configuration.Provider {
   private fun initTimber() {
     if (BuildConfig.DEBUG) {
       Timber.plant(Timber.DebugTree())
-    } else {
-      // Timber.plant(FabricTree())
     }
   }
 

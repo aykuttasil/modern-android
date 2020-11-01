@@ -21,7 +21,7 @@ class UserRepositoryImpl @Inject constructor(
       user = roomUserDataStore.getUser(userName)
       if (user == null) {
         user = remoteUserDataStore.getUser(userName)
-        if (user == null) throw Exception("Remote user couldn't be fetching.")
+        if (user == null) throw Exception("Remote user couldn't be fetching!")
       }
     }
     saveUser(user)

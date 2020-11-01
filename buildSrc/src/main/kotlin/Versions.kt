@@ -22,7 +22,7 @@ object Versions {
 
   const val com_squareup_okhttp3: String = "4.7.2"
 
-  const val org_jetbrains_kotlin: String = "1.3.72"
+  const val org_jetbrains_kotlin: String = "1.4.10"
 
   const val androidx_navigation: String = "2.2.2"
 
@@ -36,7 +36,7 @@ object Versions {
 
   const val com_google_dagger: String = "2.28"
 
-  const val dagger_hilt = "2.28-alpha"
+  const val dagger_hilt = "2.29-alpha"
 
   const val dagger_hilt_work = "1.0.0-alpha01"
 
@@ -54,7 +54,7 @@ object Versions {
 
   const val org_mockito: String = "3.3.12"
 
-  const val com_android_tools_build_gradle: String = "4.1.0-beta01"
+  const val com_android_tools_build_gradle: String = "4.1.0"
 
   const val androidx_test_ext_truth: String = "1.2.0"
 

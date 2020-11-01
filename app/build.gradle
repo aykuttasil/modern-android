@@ -124,55 +124,56 @@ dependencies {
     implementation(project(':domain'))
     implementation(project(':data'))
 
-    testImplementation Libs.kotlinx_coroutines_test
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:" + Versions.kotlinx_coroutines_test
 
-    // Debug
-    debugImplementation Libs.leakcanary_android
-    debugImplementation(Libs.stetho)
-    releaseImplementation(Libs.sherlock_no_op)
-    debugImplementation(Libs.sherlock)
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:" + Versions.leakcanary_android
+    debugImplementation "com.facebook.stetho:stetho:" + Versions.com_facebook_stetho
+    releaseImplementation "com.github.ajitsing:sherlock-no-op:" + Versions.com_github_ajitsing
+    debugImplementation "com.github.ajitsing:sherlock:" + Versions.com_github_ajitsing
 
-    implementation(Libs.material)
-    implementation(Libs.appcompat)
-    implementation(Libs.fragment_ktx)
-    implementation(Libs.vectordrawable_animated)
-    implementation(Libs.cardview)
-    implementation(Libs.constraintlayout)
-    implementation(Libs.annotation)
-    implementation(Libs.gridlayout)
-    implementation(Libs.multidex)
-    implementation(Libs.preference_ktx)
+    implementation "com.google.android.material:material:" + Versions.material
+    implementation "androidx.appcompat:appcompat:" + Versions.appcompat
+    implementation "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
+    implementation "androidx.vectordrawable:vectordrawable-animated:" + Versions.vectordrawable_animated
+    implementation "androidx.cardview:cardview:" + Versions.cardview
+    implementation "androidx.constraintlayout:constraintlayout:" + Versions.constraintlayout
+    implementation "androidx.annotation:annotation:" + Versions.annotation
+    implementation "androidx.gridlayout:gridlayout:" + Versions.gridlayout
+    implementation "androidx.multidex:multidex:" + Versions.multidex
+    implementation "androidx.preference:preference-ktx:" + Versions.preference_ktx
 
-    implementation(Libs.lifecycle_extensions)
-    implementation(Libs.lifecycle_viewmodel_ktx)
-    implementation(Libs.lifecycle_reactivestreams_ktx)
-    implementation Libs.lifecycle_livedata_ktx
+    implementation "androidx.lifecycle:lifecycle-extensions:" + Versions.androidx_lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.androidx_lifecycle
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:" + Versions.androidx_lifecycle
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.androidx_lifecycle
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 
-    implementation Libs.navigation_fragment_ktx
-    implementation Libs.navigation_ui_ktx
+    implementation "androidx.navigation:navigation-fragment-ktx:" + Versions.androidx_navigation
+    implementation "androidx.navigation:navigation-ui-ktx:" + Versions.androidx_navigation
 
-    implementation Libs.work_runtime_ktx
-    implementation Libs.work_rxjava2
+    implementation "androidx.work:work-runtime-ktx:" + Versions.androidx_work
+    implementation "androidx.work:work-rxjava2:" + Versions.androidx_work
 
-    implementation(Libs.rxpermissions)
-    implementation(Libs.rxandroid)
+    implementation "androidx.startup:startup-runtime:1.0.0"
 
-    implementation(Libs.butterknife)
-    kapt(Libs.butterknife_compiler)
-    implementation(Libs.gson)
+    implementation "com.tbruyelle.rxpermissions:rxpermissions:" + Versions.rxpermissions
+    implementation "io.reactivex.rxjava2:rxandroid:" + Versions.rxandroid
 
-    implementation Libs.dagger_hilt_android
-    kapt Libs.dagger_hilt_android_compiler
-    implementation Libs.dagger_hilt_viewmodel
-    implementation Libs.dagger_hilt_work
-    kapt Libs.dagger_hilt_compiler
+    implementation "com.jakewharton:butterknife:" + Versions.com_jakewharton
+    kapt "com.jakewharton:butterknife-compiler:" + Versions.com_jakewharton
+    implementation "com.google.code.gson:gson:" + Versions.gson
+
+    implementation "com.google.dagger:hilt-android:" + Versions.dagger_hilt
+    kapt "com.google.dagger:hilt-android-compiler:" + Versions.dagger_hilt
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:" + Versions.dagger_hilt_viewmodel
+    implementation "androidx.hilt:hilt-work:" + Versions.dagger_hilt_work
+    kapt "androidx.hilt:hilt-compiler:" + Versions.dagger_hilt_compiler
 
     // implementation(Libs.firebase_database)
-    implementation Libs.firebase_analytics
-    implementation Libs.firebase_crashlytics
+    implementation "com.google.firebase:firebase-analytics:" + Versions.firebase_analytics
+    implementation "com.google.firebase:firebase-crashlytics:" + Versions.firebase_crashlytics
 
-    implementation(Libs.anko)
+    implementation "org.jetbrains.anko:anko:" + Versions.anko
 
 }
 // apply(plugin = "com.google.gms.google-services")
