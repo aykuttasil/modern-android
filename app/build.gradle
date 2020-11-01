@@ -141,6 +141,7 @@ dependencies {
     implementation "androidx.gridlayout:gridlayout:" + Versions.gridlayout
     implementation "androidx.multidex:multidex:" + Versions.multidex
     implementation "androidx.preference:preference-ktx:" + Versions.preference_ktx
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 
     implementation "androidx.lifecycle:lifecycle-extensions:" + Versions.androidx_lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.androidx_lifecycle
@@ -169,11 +170,11 @@ dependencies {
     implementation "androidx.hilt:hilt-work:" + Versions.dagger_hilt_work
     kapt "androidx.hilt:hilt-compiler:" + Versions.dagger_hilt_compiler
 
-    // implementation(Libs.firebase_database)
-    implementation "com.google.firebase:firebase-analytics:" + Versions.firebase_analytics
-    implementation "com.google.firebase:firebase-crashlytics:" + Versions.firebase_crashlytics
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     implementation "org.jetbrains.anko:anko:" + Versions.anko
-
 }
 // apply(plugin = "com.google.gms.google-services")

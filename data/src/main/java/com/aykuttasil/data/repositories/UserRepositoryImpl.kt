@@ -24,7 +24,6 @@ class UserRepositoryImpl @Inject constructor(
         if (user == null) throw Exception("Remote user couldn't be fetching!")
       }
     }
-    saveUser(user)
     return user
   }
 

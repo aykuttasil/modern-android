@@ -11,7 +11,7 @@ import javax.inject.Inject
 class GetUserUseCase @Inject constructor(
   private val userRepository: UserRepository,
   private val dispatcherProvider: DispatcherProvider
-) : UseCase<UserEntity, String>(dispatcherProvider) {
+) : UseCase<UserEntity?, String>(dispatcherProvider) {
 
   override suspend fun run(params: String): UserEntity? {
     userRepository.deleteUser()

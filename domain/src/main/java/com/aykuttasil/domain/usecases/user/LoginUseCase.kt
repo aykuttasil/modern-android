@@ -14,13 +14,12 @@ data class LoginParams(
 
 @ExperimentalCoroutinesApi
 class LoginUseCase @Inject constructor(
-  private val userRepository: UserRepository,
-  private val dispatcherProvider: DispatcherProvider
-) : UseCase<UserEntity, LoginParams>(dispatcherProvider) {
+  dispatcherProvider: DispatcherProvider,
+  private val userRepository: UserRepository
+) : UseCase<UserEntity?, LoginParams>(dispatcherProvider) {
 
   override suspend fun run(params: LoginParams): UserEntity? {
     return userRepository.login(params)
   }
 
 }
-
