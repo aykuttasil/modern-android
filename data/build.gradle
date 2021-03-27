@@ -1,7 +1,19 @@
-apply from: "$rootDir/tools/common-android-library.gradle"
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
 
 android {
+    compileSdkVersion 30
+
     defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [
@@ -11,28 +23,52 @@ android {
             }
         }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
 }
 
 dependencies {
     implementation project(':domain')
 
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.androidx_lifecycle
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
 
-    api "androidx.room:room-runtime:" + Versions.androidx_room
-    kapt "androidx.room:room-compiler:" + Versions.androidx_room
-    implementation "androidx.room:room-ktx:" + Versions.androidx_room
+    api "androidx.room:room-runtime:2.2.6"
+    kapt "androidx.room:room-compiler:2.2.6"
+    implementation "androidx.room:room-ktx:2.2.6"
 
-    implementation "com.google.dagger:hilt-android:" + Versions.dagger_hilt
-    kapt "com.google.dagger:hilt-android-compiler:" + Versions.dagger_hilt
+    implementation "com.google.dagger:hilt-android:2.33-beta"
+    kapt "com.google.dagger:hilt-android-compiler:2.33-beta"
 
-    api "com.squareup.retrofit2:converter-gson:" + Versions.com_squareup_retrofit2
-    api "com.squareup.retrofit2:retrofit:" + Versions.com_squareup_retrofit2
-    api "com.squareup.retrofit2:adapter-rxjava2:" + Versions.com_squareup_retrofit2
-    api "com.squareup.okhttp3:logging-interceptor:" + Versions.com_squareup_okhttp3
-    api "com.squareup.moshi:moshi-adapters:" + Versions.moshi_adapters
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.okhttp3:logging-interceptor:4.7.2"
+    api "com.squareup.moshi:moshi-adapters:1.11.0"
 
-    api "com.facebook.stetho:stetho-okhttp3:" + Versions.com_facebook_stetho
+    api "com.facebook.stetho:stetho-okhttp3:1.5.1"
 
-    releaseApi "com.readystatesoftware.chuck:library-no-op:" + Versions.com_readystatesoftware_chuck
-    debugApi "com.readystatesoftware.chuck:library:" + Versions.com_readystatesoftware_chuck
+    releaseApi "com.readystatesoftware.chuck:library-no-op:1.1.0"
+    debugApi "com.readystatesoftware.chuck:library:1.1.0"
 }

@@ -1,33 +1,22 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        compose_version = '1.0.0-beta03'
+    }
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
-
     dependencies {
-        classpath "com.android.tools.build:gradle:" + Versions.com_android_tools_build_gradle
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:" + Versions.org_jetbrains_kotlin
-        classpath "com.google.gms:google-services:" + Versions.google_services
-        classpath "com.google.firebase:firebase-crashlytics-gradle:2.3.0"
-        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:" + Versions.navigation_safe_args_gradle_plugin
-        classpath "com.diffplug.spotless:spotless-plugin-gradle:" + Versions.spotless_plugin_gradle
-        classpath "com.google.dagger:hilt-android-gradle-plugin:" + Versions.dagger_hilt
+        classpath "com.android.tools.build:gradle:7.0.0-alpha11"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:2.5.1"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:4.0.1"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:2.33-beta"
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        jcenter()
-        maven { url "https://jitpack.io" }
-        maven { url "https://dl.bintray.com/mockito/maven/" }
-    }
-
-    tasks.withType(Javadoc).all {
-        enabled = false
-    }
-}
-
-subprojects {
-    apply from: "$rootDir/tools/spotless.gradle"
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

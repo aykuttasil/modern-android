@@ -9,12 +9,12 @@ import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 class GetUserUseCase @Inject constructor(
-  private val userRepository: UserRepository,
-  private val dispatcherProvider: DispatcherProvider
+    private val userRepository: UserRepository,
+    private val dispatcherProvider: DispatcherProvider
 ) : UseCase<UserEntity?, String>(dispatcherProvider) {
 
-  override suspend fun run(params: String): UserEntity? {
-    userRepository.deleteUser()
-    return userRepository.getUser(params)
-  }
+    override suspend fun run(params: String): UserEntity? {
+        userRepository.deleteUser()
+        return userRepository.getUser(params)
+    }
 }

@@ -1,51 +1,30 @@
-apply plugin: 'com.android.application'
-apply from: "$rootDir/tools/common.gradle"
-apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: "androidx.navigation.safeargs"
-apply plugin: 'dagger.hilt.android.plugin'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.firebase.crashlytics'
+    id "androidx.navigation.safeargs"
+    id 'dagger.hilt.android.plugin'
+}
 
 android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "aykuttasil.com.modernapp"
+        applicationId "com.aykuttasil.androidcompose"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
 
-        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    def keystorePropertiesFile = rootProject.file("keystore.properties")
-    def keystoreProperties = new Properties()
-    if (keystorePropertiesFile.exists()) {
-        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-    }
-    signingConfigs {
-        debug {
-            keyAlias keystoreProperties['signingKeyAliasDebug']
-            keyPassword keystoreProperties['signingKeyAliasPasswordDebug']
-            storeFile file(keystoreProperties['signingStoreFileDebug'])
-            storePassword keystoreProperties['signingStorePasswordDebug']
-        }
-
-        release {
-            keyAlias keystoreProperties['signingKeyAlias']
-            keyPassword keystoreProperties['signingKeyAliasPassword']
-            storeFile file(keystoreProperties['signingStoreFile'])
-            storePassword keystoreProperties['signingStorePassword']
-        }
-    }
-
     buildTypes {
-        debug {
-            minifyEnabled false
-            signingConfig signingConfigs.debug
-            applicationIdSuffix ".debug"
-            versionNameSuffix '-DEBUG'
-        }
-
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -63,118 +42,51 @@ android {
         }
     }
 
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        main.java.srcDirs += 'src/debug/kotlin'
-
-        test.java.srcDirs += 'src/test/kotlin'
-        androidTest.java.srcDirs += 'src/androidTest/kotlin'
-
-        def commonTest = "src/commonTest/java"
-        test.java.srcDirs += commonTest
-        androidTest.java.srcDirs += commonTest
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-
-    // Always show the result of every unit test, even if it passes.
-    testOptions.unitTests {
-        includeAndroidResources = true
-        returnDefaultValues = true
-
-        all {
-            testLogging {
-                showExceptions = true
-                showStandardStreams = true
-                // exceptionFormat TestExceptionFormat.FULL
-                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-            }
-        }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
     }
-
-    packagingOptions {
-        exclude("META-INF/services/javax.annotation.processing.Processor")
-        exclude("LICENSE.txt")
-        exclude("META-INF/license/LICENSE.base64.txt")
-        exclude("META-INF/NOTICE.txt")
-        exclude("META-INF/LICENSE.txt")
-        exclude("META-INF/rxjava.properties")
-        exclude("META-INF/MANIFEST.MF")
-        exclude("META-INF/main.kotlin_module")
-        exclude("META-INF/atomicfu.kotlin_module")
-    }
-
     buildFeatures {
-        dataBinding = true
+        dataBinding true
+        compose true
     }
-
-    androidExtensions {
-        experimental = true
-    }
-
-    configurations.all {
-        resolutionStrategy {
-            force(Libs.rxjava)
-            force("com.google.code.findbugs:jsr305:3.0.2")
-        }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
     }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation(project(':domain'))
     implementation(project(':data'))
 
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:" + Versions.kotlinx_coroutines_test
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
 
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:" + Versions.leakcanary_android
-    debugImplementation "com.facebook.stetho:stetho:" + Versions.com_facebook_stetho
-    releaseImplementation "com.github.ajitsing:sherlock-no-op:" + Versions.com_github_ajitsing
-    debugImplementation "com.github.ajitsing:sherlock:" + Versions.com_github_ajitsing
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    implementation "androidx.preference:preference-ktx:1.1.1"
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
 
-    implementation "com.google.android.material:material:" + Versions.material
-    implementation "androidx.appcompat:appcompat:" + Versions.appcompat
-    implementation "androidx.fragment:fragment-ktx:" + Versions.fragment_ktx
-    implementation "androidx.vectordrawable:vectordrawable-animated:" + Versions.vectordrawable_animated
-    implementation "androidx.cardview:cardview:" + Versions.cardview
-    implementation "androidx.constraintlayout:constraintlayout:" + Versions.constraintlayout
-    implementation "androidx.annotation:annotation:" + Versions.annotation
-    implementation "androidx.gridlayout:gridlayout:" + Versions.gridlayout
-    implementation "androidx.multidex:multidex:" + Versions.multidex
-    implementation "androidx.preference:preference-ktx:" + Versions.preference_ktx
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.compose.ui:ui:1.0.0-beta03"
+    implementation "androidx.compose.material:material:1.0.0-beta03"
+    implementation "androidx.compose.ui:ui-tooling:1.0.0-beta03"
+    implementation 'androidx.activity:activity-compose:1.3.0-alpha04'
 
-    implementation "androidx.lifecycle:lifecycle-extensions:" + Versions.androidx_lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:" + Versions.androidx_lifecycle
-    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:" + Versions.androidx_lifecycle
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:" + Versions.androidx_lifecycle
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
+    implementation "androidx.hilt:hilt-common:1.0.0-beta01"
+    implementation "com.google.dagger:hilt-android:2.33-beta"
+    kapt "com.google.dagger:hilt-android-compiler:2.33-beta"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01"
+    implementation "androidx.hilt:hilt-work:1.0.0-alpha01"
+    kapt "androidx.hilt:hilt-compiler:1.0.0-alpha01"
 
-    implementation "androidx.navigation:navigation-fragment-ktx:" + Versions.androidx_navigation
-    implementation "androidx.navigation:navigation-ui-ktx:" + Versions.androidx_navigation
 
-    implementation "androidx.work:work-runtime-ktx:" + Versions.androidx_work
-    implementation "androidx.work:work-rxjava2:" + Versions.androidx_work
 
-    implementation "androidx.startup:startup-runtime:1.0.0"
-
-    implementation "com.tbruyelle.rxpermissions:rxpermissions:" + Versions.rxpermissions
-    implementation "io.reactivex.rxjava2:rxandroid:" + Versions.rxandroid
-
-    implementation "com.jakewharton:butterknife:" + Versions.com_jakewharton
-    kapt "com.jakewharton:butterknife-compiler:" + Versions.com_jakewharton
-    implementation "com.google.code.gson:gson:" + Versions.gson
-
-    implementation "com.google.dagger:hilt-android:" + Versions.dagger_hilt
-    kapt "com.google.dagger:hilt-android-compiler:" + Versions.dagger_hilt
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:" + Versions.dagger_hilt_viewmodel
-    implementation "androidx.hilt:hilt-work:" + Versions.dagger_hilt_work
-    kapt "androidx.hilt:hilt-compiler:" + Versions.dagger_hilt_compiler
-
-    implementation platform('com.google.firebase:firebase-bom:25.12.0')
-    implementation 'com.google.firebase:firebase-messaging-ktx'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx'
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-
-    implementation "org.jetbrains.anko:anko:" + Versions.anko
 }
-// apply(plugin = "com.google.gms.google-services")

@@ -8,18 +8,18 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
 data class LoginParams(
-  var username: String,
-  var password: String
+    var username: String,
+    var password: String
 )
 
 @ExperimentalCoroutinesApi
 class LoginUseCase @Inject constructor(
-  dispatcherProvider: DispatcherProvider,
-  private val userRepository: UserRepository
+    dispatcherProvider: DispatcherProvider,
+    private val userRepository: UserRepository
 ) : UseCase<UserEntity?, LoginParams>(dispatcherProvider) {
 
-  override suspend fun run(params: LoginParams): UserEntity? {
-    return userRepository.login(params)
-  }
+    override suspend fun run(params: LoginParams): UserEntity? {
+        return userRepository.login(params)
+    }
 
 }

@@ -6,10 +6,10 @@ import com.aykuttasil.data.entities.UserData
 import com.aykuttasil.data.user.UserDao
 
 @Database(
-  entities = [UserData::class],
-  version = 1,
-  exportSchema = false
+    entities = [UserData::class],
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-  abstract fun getUserDao(): UserDao
+    abstract fun getUserDao(): UserDao
 }

@@ -11,55 +11,55 @@ import java.net.Socket
 
 object InternetConnection {
 
-  private fun preAndroidMInternetCheck(
-    connectivityManager: ConnectivityManager
-  ): Boolean {
-    val activeNetwork = connectivityManager.activeNetworkInfo
-    if (activeNetwork != null) {
-      return (activeNetwork.type == ConnectivityManager.TYPE_WIFI ||
-          activeNetwork.type == ConnectivityManager.TYPE_MOBILE)
+    private fun preAndroidMInternetCheck(
+        connectivityManager: ConnectivityManager
+    ): Boolean {
+        val activeNetwork = connectivityManager.activeNetworkInfo
+        if (activeNetwork != null) {
+            return (activeNetwork.type == ConnectivityManager.TYPE_WIFI ||
+                activeNetwork.type == ConnectivityManager.TYPE_MOBILE)
+        }
+        return false
     }
-    return false
-  }
 
-  @RequiresApi(Build.VERSION_CODES.M)
-  private fun postAndroidMInternetCheck(
-    connectivityManager: ConnectivityManager
-  ): Boolean {
-    val network = connectivityManager.activeNetwork
-    val connection =
-      connectivityManager.getNetworkCapabilities(network)
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun postAndroidMInternetCheck(
+        connectivityManager: ConnectivityManager
+    ): Boolean {
+        val network = connectivityManager.activeNetwork
+        val connection =
+            connectivityManager.getNetworkCapabilities(network)
 
-    return connection != null && (
-        connection.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
-            connection.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
-  }
-
-  fun isConnectionOn(context: Context): Boolean {
-    val connectivityManager =
-      context.getSystemService(Context.CONNECTIVITY_SERVICE) as
-          ConnectivityManager
-
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-      postAndroidMInternetCheck(connectivityManager)
-    } else {
-      preAndroidMInternetCheck(connectivityManager)
+        return connection != null && (
+            connection.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ||
+                connection.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
     }
-  }
 
-  fun isInternetAvailable(): Boolean {
-    return try {
-      val timeoutMs = 1500
-      val sock = Socket()
-      val sockAddress = InetSocketAddress("8.8.8.8", 53)
+    fun isConnectionOn(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as
+                ConnectivityManager
 
-      sock.connect(sockAddress, timeoutMs)
-      sock.close()
-
-      true
-    } catch (e: IOException) {
-      false
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            postAndroidMInternetCheck(connectivityManager)
+        } else {
+            preAndroidMInternetCheck(connectivityManager)
+        }
     }
-  }
+
+    fun isInternetAvailable(): Boolean {
+        return try {
+            val timeoutMs = 1500
+            val sock = Socket()
+            val sockAddress = InetSocketAddress("8.8.8.8", 53)
+
+            sock.connect(sockAddress, timeoutMs)
+            sock.close()
+
+            true
+        } catch (e: IOException) {
+            false
+        }
+    }
 
 }

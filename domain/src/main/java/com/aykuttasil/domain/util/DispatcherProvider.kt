@@ -16,10 +16,8 @@
 package com.aykuttasil.domain.util
 
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import javax.inject.Inject
 
 interface DispatcherProvider {
-  val main: CoroutineDispatcher
-  val background: CoroutineDispatcher
+    val main: CoroutineDispatcher
+    val background: CoroutineDispatcher
 }
